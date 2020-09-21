@@ -16,6 +16,12 @@ namespace TourApp.Entity
         [Required]
         public String Ten { set; get; }
         public ICollection<CTTour> CTTours { set; get; }
+        public ICollection<Gia> Gias { set; get; }
+        public ICollection<DoanKhach> DoanKhachs { set; get; }
+        [Required]
+        public int LHDLId { set; get; }
+        public LoaiHinhDL LHDL { set; get; }
+
 
     }
 }

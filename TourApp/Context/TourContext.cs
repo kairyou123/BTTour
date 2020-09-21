@@ -26,6 +26,7 @@ namespace TourApp.Context
         public DbSet<CTDoan> CTDoans { set; get; }
         public DbSet<CTChitieu> CTChiTieus { set; get; }
         public DbSet<ChiTieu> ChiTieus { set; get; }
+        public DbSet<LoaiHinhDL> LoaiHinhDLs { set; get; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

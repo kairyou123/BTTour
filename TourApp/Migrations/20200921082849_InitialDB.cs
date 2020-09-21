@@ -26,7 +26,6 @@ namespace TourApp.Migrations
                 {
                     DDId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    MaDD = table.Column<string>(nullable: false),
                     TenDD = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -51,6 +50,20 @@ namespace TourApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "LoaiHinhDLs",
+                columns: table => new
+                {
+                    LHDLId = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Ten = table.Column<string>(nullable: false),
+                    moTa = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LoaiHinhDLs", x => x.LHDLId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "NhanViens",
                 columns: table => new
                 {
@@ -72,11 +85,18 @@ namespace TourApp.Migrations
                     TourId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     MaTour = table.Column<string>(nullable: false),
-                    Ten = table.Column<string>(nullable: false)
+                    Ten = table.Column<string>(nullable: false),
+                    LHDLId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tours", x => x.TourId);
+                    table.ForeignKey(
+                        name: "FK_Tours_LoaiHinhDLs_LHDLId",
+                        column: x => x.LHDLId,
+                        principalTable: "LoaiHinhDLs",
+                        principalColumn: "LHDLId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -133,7 +153,6 @@ namespace TourApp.Migrations
                 {
                     GiaId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    MaGia = table.Column<string>(nullable: false),
                     GiaTri = table.Column<int>(nullable: false),
                     TGBD = table.Column<DateTime>(nullable: false),
                     TGKT = table.Column<DateTime>(nullable: false),
@@ -253,6 +272,11 @@ namespace TourApp.Migrations
                 name: "IX_NV_VTs_NVId",
                 table: "NV_VTs",
                 column: "NVId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tours_LHDLId",
+                table: "Tours",
+                column: "LHDLId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -289,6 +313,9 @@ namespace TourApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tours");
+
+            migrationBuilder.DropTable(
+                name: "LoaiHinhDLs");
         }
     }
 }

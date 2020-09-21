@@ -6,13 +6,15 @@ using System.Text;
 
 namespace TourApp.Entity
 {
-    class DiaDiem
+    class LoaiHinhDL
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int DDId { set; get; }
+        public int LHDLId { set; get; }
         [Required]
-        public String TenDD { set; get; }
-        public ICollection<CTTour> CTTours { set; get; }
+        public String Ten { set; get; }
+        public String moTa { set; get; }
+        public ICollection<Tour> Tours { set; get; }
+
     }
 }

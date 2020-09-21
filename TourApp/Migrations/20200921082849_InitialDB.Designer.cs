@@ -9,7 +9,7 @@ using TourApp.Context;
 namespace TourApp.Migrations
 {
     [DbContext(typeof(TourContext))]
-    [Migration("20200921023557_InitialDB")]
+    [Migration("20200921082849_InitialDB")]
     partial class InitialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,10 +89,6 @@ namespace TourApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("MaDD")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("TenDD")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -139,10 +135,6 @@ namespace TourApp.Migrations
                     b.Property<int>("GiaTri")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("MaGia")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("TGBD")
                         .HasColumnType("TEXT");
 
@@ -180,6 +172,24 @@ namespace TourApp.Migrations
                     b.HasKey("KhachId");
 
                     b.ToTable("HanhKhachs");
+                });
+
+            modelBuilder.Entity("TourApp.Entity.LoaiHinhDL", b =>
+                {
+                    b.Property<int>("LHDLId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Ten")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("moTa")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("LHDLId");
+
+                    b.ToTable("LoaiHinhDLs");
                 });
 
             modelBuilder.Entity("TourApp.Entity.NV_VT", b =>
@@ -226,6 +236,9 @@ namespace TourApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("LHDLId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("MaTour")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -235,6 +248,8 @@ namespace TourApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("TourId");
+
+                    b.HasIndex("LHDLId");
 
                     b.ToTable("Tours");
                 });
@@ -287,7 +302,7 @@ namespace TourApp.Migrations
             modelBuilder.Entity("TourApp.Entity.DoanKhach", b =>
                 {
                     b.HasOne("TourApp.Entity.Tour", "Tour")
-                        .WithMany()
+                        .WithMany("DoanKhachs")
                         .HasForeignKey("TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -296,7 +311,7 @@ namespace TourApp.Migrations
             modelBuilder.Entity("TourApp.Entity.Gia", b =>
                 {
                     b.HasOne("TourApp.Entity.Tour", "Tour")
-                        .WithMany()
+                        .WithMany("Gias")
                         .HasForeignKey("TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -313,6 +328,15 @@ namespace TourApp.Migrations
                     b.HasOne("TourApp.Entity.NhanVien", "NhanVien")
                         .WithMany("NV_VTs")
                         .HasForeignKey("NVId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("TourApp.Entity.Tour", b =>
+                {
+                    b.HasOne("TourApp.Entity.LoaiHinhDL", "LHDL")
+                        .WithMany("Tours")
+                        .HasForeignKey("LHDLId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

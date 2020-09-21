@@ -34,12 +34,13 @@ namespace TourApp.Repository
 
         public async Task<IEnumerable<Tour>> getAll()
         {
-            return await _context.Tours.Include(t => t.CTTours).ThenInclude(dd => dd.DiaDiem).ToListAsync();
+            return await _context.Tours.Include(t => t.Gias).Include(t => t.CTTours).ThenInclude(dd => dd.DiaDiem).ToListAsync();
         }
 
         public async Task<Tour> getById(int TourId = 1, string MaTour = "abc")
         {
             return await _context.Tours.Where(t => t.TourId == TourId || t.MaTour == MaTour)
+                                       .Include(t => t.Gias)
                                        .Include(t => t.CTTours)
                                        .ThenInclude(dd => dd.DiaDiem)
                                        .FirstOrDefaultAsync();
@@ -48,6 +49,7 @@ namespace TourApp.Repository
         public async Task<IEnumerable<Tour>> getWhere(string Ten)
         {
             return await _context.Tours.Where(t => t.Ten.Contains(Ten))
+                                       .Include(t => t.Gias)
                                        .Include(t => t.CTTours)
                                        .ThenInclude(dd => dd.DiaDiem)
                                        .ToListAsync();
