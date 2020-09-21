@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TourApp.Context;
+using TourApp.Repository;
+using TourApp.Repository.IRepository;
 
 namespace TourApp
 {
@@ -35,6 +37,7 @@ namespace TourApp
         {
             services.AddDbContext<TourContext>();
             services.AddScoped<Form1>();
+            services.AddScoped<IChiTieuRepository, ChiTieuRepository>();
         }
     }
 }
