@@ -38,6 +38,10 @@ namespace TourApp
             services.AddDbContext<TourContext>();
             services.AddScoped<Form1>();
             services.AddScoped<IChiTieuRepository, ChiTieuRepository>();
+            services.AddScoped<ITourRepository, TourRepository>();
+            services.AddScoped<IDiaDiemRepository, DiaDiemRepository>();
+            services.AddScoped<IGiaRepository, GiaRepository>();
+            services.AddScoped<ICTTourRepository, CTTourRepository>();
         }
     }
 }
