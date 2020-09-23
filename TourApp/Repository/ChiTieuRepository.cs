@@ -10,7 +10,7 @@ using TourApp.Repository.IRepository;
 
 namespace TourApp.Repository
 {
-    class ChiTieuRepository : IChiTieuRepository
+    public class ChiTieuRepository : IChiTieuRepository
     {
         private TourContext _context;
 

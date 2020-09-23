@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TourApp.Entity
 {
-    class CTTour
+    public class CTTour
     {
         public int TourId { set; get; }
         public Tour Tour { set; get; }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TourApp.Entity
 {
-    class NV_VT
+    public class NV_VT
     {
         public int DoanId { set; get; }
         public DoanKhach DoanKhach { set; get; }

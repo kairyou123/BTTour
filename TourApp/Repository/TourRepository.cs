@@ -10,7 +10,7 @@ using TourApp.Repository.IRepository;
 
 namespace TourApp.Repository
 {
-    class TourRepository : ITourRepository
+    public class TourRepository : ITourRepository
     {
         private TourContext _context;
 
@@ -40,6 +40,7 @@ namespace TourApp.Repository
         public async Task<Tour> getById(int TourId = 1, string MaTour = "abc")
         {
             return await _context.Tours.Where(t => t.TourId == TourId || t.MaTour == MaTour)
+                                       .Include(t => t.LHDL)
                                        .Include(t => t.Gias)
                                        .Include(t => t.CTTours)
                                        .ThenInclude(dd => dd.DiaDiem)

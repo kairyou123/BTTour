@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TourApp.Context;
 
 namespace TourApp.Migrations
 {
     [DbContext(typeof(TourContext))]
-    partial class TourContextModelSnapshot : ModelSnapshot
+    [Migration("20200923041750_seeder")]
+    partial class seeder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,16 +173,6 @@ namespace TourApp.Migrations
                     b.HasIndex("TourId");
 
                     b.ToTable("Gias");
-
-                    b.HasData(
-                        new
-                        {
-                            GiaId = 1,
-                            GiaTri = 100000,
-                            TGBD = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TGKT = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TourId = 1
-                        });
                 });
 
             modelBuilder.Entity("TourApp.Entity.HanhKhach", b =>

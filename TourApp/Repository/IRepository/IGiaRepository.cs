@@ -6,7 +6,7 @@ using TourApp.Entity;
 
 namespace TourApp.Repository.IRepository
 {
-    interface IGiaRepository : ICommonRepository<Gia>
+    public interface IGiaRepository : ICommonRepository<Gia>
     {
         
     }

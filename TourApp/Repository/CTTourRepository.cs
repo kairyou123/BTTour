@@ -10,7 +10,7 @@ using TourApp.Repository.IRepository;
 
 namespace TourApp.Repository
 {
-    class CTTourRepository : ICTTourRepository
+    public class CTTourRepository : ICTTourRepository
     {
         private TourContext _context;
 

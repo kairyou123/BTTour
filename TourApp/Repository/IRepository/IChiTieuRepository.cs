@@ -6,7 +6,7 @@ using TourApp.Entity;
 
 namespace TourApp.Repository.IRepository
 {
-    interface IChiTieuRepository : ICommonRepository<ChiTieu>
+    public interface IChiTieuRepository : ICommonRepository<ChiTieu>
     {
         Task<IEnumerable<ChiTieu>> getWhere(String Ten);
         Task<ChiTieu> getById(int CTId);

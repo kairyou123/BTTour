@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace TourApp
             ConfigureServices(services);
             using(ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
-                var form1 = serviceProvider.GetRequiredService<Form1>();
+                var form1 = serviceProvider.GetRequiredService<FormTest>();
                 Application.Run(form1);
             }
             
@@ -36,7 +37,8 @@ namespace TourApp
         private static void ConfigureServices(ServiceCollection services)
         {
             services.AddDbContext<TourContext>();
-            services.AddScoped<Form1>();
+            services.AddScoped<FormTest>();
+            services.AddScoped<ThongTinTour>();
             services.AddScoped<IChiTieuRepository, ChiTieuRepository>();
             services.AddScoped<ITourRepository, TourRepository>();
             services.AddScoped<IDiaDiemRepository, DiaDiemRepository>();

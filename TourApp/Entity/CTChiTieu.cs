@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TourApp.Entity
 {
-    class CTChitieu
+    public class CTChitieu
     {
         public int CTId { set; get; }
         public virtual ChiTieu ChiTieu { set; get; }

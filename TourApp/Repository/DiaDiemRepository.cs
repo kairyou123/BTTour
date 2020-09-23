@@ -10,7 +10,7 @@ using TourApp.Repository.IRepository;
 
 namespace TourApp.Repository
 {
-    class DiaDiemRepository : IDiaDiemRepository
+    public class DiaDiemRepository : IDiaDiemRepository
     {
         private TourContext _context;
 
