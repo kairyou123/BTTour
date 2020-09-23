@@ -79,6 +79,21 @@ namespace TourApp.Migrations
                         {
                             TourId = 1,
                             DDId = 2
+                        },
+                        new
+                        {
+                            TourId = 2,
+                            DDId = 3
+                        },
+                        new
+                        {
+                            TourId = 2,
+                            DDId = 4
+                        },
+                        new
+                        {
+                            TourId = 2,
+                            DDId = 1
                         });
                 });
 
@@ -122,6 +137,16 @@ namespace TourApp.Migrations
                         {
                             DDId = 2,
                             TenDD = "TP. Hồ Chí Minh"
+                        },
+                        new
+                        {
+                            DDId = 3,
+                            TenDD = "Đà Lạt"
+                        },
+                        new
+                        {
+                            DDId = 4,
+                            TenDD = "Hà Nội"
                         });
                 });
 
@@ -187,6 +212,22 @@ namespace TourApp.Migrations
                             TGBD = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TGKT = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             TourId = 1
+                        },
+                        new
+                        {
+                            GiaId = 2,
+                            GiaTri = 5000000,
+                            TGBD = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TGKT = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TourId = 2
+                        },
+                        new
+                        {
+                            GiaId = 3,
+                            GiaTri = 600000,
+                            TGBD = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TGKT = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TourId = 2
                         });
                 });
 
@@ -236,6 +277,18 @@ namespace TourApp.Migrations
                         new
                         {
                             LHDLId = 1,
+                            Ten = "Loại Hình 1",
+                            moTa = "ABCXYZ"
+                        },
+                        new
+                        {
+                            LHDLId = 2,
+                            Ten = "Loại Hình 2",
+                            moTa = "ABCXYZ"
+                        },
+                        new
+                        {
+                            LHDLId = 3,
                             Ten = "Loại Hình 1",
                             moTa = "ABCXYZ"
                         });
@@ -311,6 +364,13 @@ namespace TourApp.Migrations
                             LHDLId = 1,
                             MaTour = "T100001",
                             Ten = "Tour1"
+                        },
+                        new
+                        {
+                            TourId = 2,
+                            LHDLId = 2,
+                            MaTour = "T100002",
+                            Ten = "Tour2"
                         });
                 });
 

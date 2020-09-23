@@ -34,7 +34,7 @@ namespace TourApp.Repository
 
         public async Task<IEnumerable<Tour>> getAll()
         {
-            return await _context.Tours.Include(t => t.Gias).Include(t => t.CTTours).ThenInclude(dd => dd.DiaDiem).ToListAsync();
+            return await _context.Tours.Include(t => t.Gias).Include(t => t.LHDL).Include(t => t.CTTours).ThenInclude(dd => dd.DiaDiem).ToListAsync();
         }
 
         public async Task<Tour> getById(int TourId = 1, string MaTour = "abc")
