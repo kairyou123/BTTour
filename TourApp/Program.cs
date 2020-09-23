@@ -36,6 +36,9 @@ namespace TourApp
         private static void ConfigureServices(ServiceCollection services)
         {
             services.AddDbContext<TourContext>();
+            services.AddScoped<FormTest>();
+            services.AddScoped<ThongTinTour>();
+            services.AddScoped<ThemTour>();
             services.AddScoped<List>();
             services.AddScoped<IChiTieuRepository, ChiTieuRepository>();
             services.AddScoped<ITourRepository, TourRepository>();

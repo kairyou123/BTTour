@@ -3,18 +3,21 @@ using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Text;
+using System.Windows.Forms;
 using TourApp.Entity;
 using TourApp.Seed;
 
 namespace TourApp.Context
 {
-    class TourContext : DbContext
+    public class TourContext : DbContext
     {
         public TourContext() : base()
         {
-            
+           
         }
+
         public DbSet<Tour> Tours { set; get; }
         public DbSet<NhanVien> NhanViens { set; get; }
         public DbSet<NV_VT> NV_VTs { set; get; }
@@ -83,6 +86,7 @@ namespace TourApp.Context
             .HasOne<NhanVien>(c => c.NhanVien)
             .WithMany(c => c.NV_VTs)
             .HasForeignKey(c => c.NVId);
+
             modelBuilder.Seed();
         }
     }
