@@ -6,7 +6,7 @@ using TourApp.Entity;
 
 namespace TourApp.Repository.IRepository
 {
-    interface IDiaDiemRepository : ICommonRepository<DiaDiem>
+    public interface IDiaDiemRepository : ICommonRepository<DiaDiem>
     {
         Task<IEnumerable<DiaDiem>> getWhere(String Ten);
         Task<DiaDiem> getById(int DDId);

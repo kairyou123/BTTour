@@ -10,7 +10,7 @@ using TourApp.Repository.IRepository;
 
 namespace TourApp.Repository
 {
-    class GiaRepository : IGiaRepository
+    public class GiaRepository : IGiaRepository
     {
         private TourContext _context;
 

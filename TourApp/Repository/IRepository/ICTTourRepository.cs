@@ -6,7 +6,7 @@ using TourApp.Entity;
 
 namespace TourApp.Repository.IRepository
 {
-    interface ICTTourRepository
+    public interface ICTTourRepository
     {
         Task Add(CTTour entity);
         Task Delete(CTTour entity);

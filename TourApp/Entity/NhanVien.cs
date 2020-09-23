@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TourApp.Entity
 {
-    class NhanVien
+    public class NhanVien
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]

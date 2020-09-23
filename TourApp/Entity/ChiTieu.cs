@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TourApp.Entity
 {
-    class ChiTieu
+    public class ChiTieu
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TourApp.Entity
 {
-    class LoaiHinhDL
+    public class LoaiHinhDL
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
