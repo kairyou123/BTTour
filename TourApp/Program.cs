@@ -39,6 +39,7 @@ namespace TourApp
             services.AddDbContext<TourContext>();
             services.AddScoped<FormTest>();
             services.AddScoped<ThongTinTour>();
+            services.AddScoped<ThemTour>();
             services.AddScoped<IChiTieuRepository, ChiTieuRepository>();
             services.AddScoped<ITourRepository, TourRepository>();
             services.AddScoped<IDiaDiemRepository, DiaDiemRepository>();
