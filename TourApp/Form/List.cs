@@ -91,7 +91,10 @@ namespace TourApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            ThemTour form = _serviceProvider.GetRequiredService<ThemTour>();
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
         }
 
         private void tourGridView_CellClick(object sender, DataGridViewCellEventArgs e)
