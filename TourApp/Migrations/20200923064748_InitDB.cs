@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TourApp.Migrations
 {
-    public partial class InitialDB : Migration
+    public partial class InitDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace TourApp.Migrations
                 columns: table => new
                 {
                     CTId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Ten = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -25,7 +25,7 @@ namespace TourApp.Migrations
                 columns: table => new
                 {
                     DDId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     TenDD = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -38,7 +38,7 @@ namespace TourApp.Migrations
                 columns: table => new
                 {
                     KhachId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MaKhach = table.Column<string>(nullable: true),
                     Ten = table.Column<string>(nullable: true),
                     SDT = table.Column<int>(nullable: false),
@@ -54,7 +54,7 @@ namespace TourApp.Migrations
                 columns: table => new
                 {
                     LHDLId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Ten = table.Column<string>(nullable: false),
                     moTa = table.Column<string>(nullable: true)
                 },
@@ -68,7 +68,7 @@ namespace TourApp.Migrations
                 columns: table => new
                 {
                     NVId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MaNV = table.Column<string>(nullable: true),
                     Ten = table.Column<string>(nullable: true),
                     SDT = table.Column<string>(nullable: true)
@@ -83,7 +83,7 @@ namespace TourApp.Migrations
                 columns: table => new
                 {
                     TourId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MaTour = table.Column<string>(nullable: false),
                     Ten = table.Column<string>(nullable: false),
                     LHDLId = table.Column<int>(nullable: false)
@@ -129,7 +129,7 @@ namespace TourApp.Migrations
                 columns: table => new
                 {
                     DoanId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MaDoan = table.Column<string>(nullable: true),
                     TenDoan = table.Column<string>(nullable: true),
                     Chitiet = table.Column<string>(nullable: true),
@@ -152,7 +152,7 @@ namespace TourApp.Migrations
                 columns: table => new
                 {
                     GiaId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     GiaTri = table.Column<int>(nullable: false),
                     TGBD = table.Column<DateTime>(nullable: false),
                     TGKT = table.Column<DateTime>(nullable: false),

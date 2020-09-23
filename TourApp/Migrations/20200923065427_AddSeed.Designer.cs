@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TourApp.Context;
@@ -9,25 +10,27 @@ using TourApp.Context;
 namespace TourApp.Migrations
 {
     [DbContext(typeof(TourContext))]
-    [Migration("20200921082849_InitialDB")]
-    partial class InitialDB
+    [Migration("20200923065427_AddSeed")]
+    partial class AddSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8");
+                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("TourApp.Entity.CTChitieu", b =>
                 {
                     b.Property<int>("CTId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("DoanId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("TienCT")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("CTId", "DoanId");
 
@@ -39,10 +42,10 @@ namespace TourApp.Migrations
             modelBuilder.Entity("TourApp.Entity.CTDoan", b =>
                 {
                     b.Property<int>("DoanId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("KhachId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("DoanId", "KhachId");
 
@@ -54,29 +57,42 @@ namespace TourApp.Migrations
             modelBuilder.Entity("TourApp.Entity.CTTour", b =>
                 {
                     b.Property<int>("TourId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("DDId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("ThongTin")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TourId", "DDId");
 
                     b.HasIndex("DDId");
 
                     b.ToTable("CTTours");
+
+                    b.HasData(
+                        new
+                        {
+                            TourId = 1,
+                            DDId = 1
+                        },
+                        new
+                        {
+                            TourId = 1,
+                            DDId = 2
+                        });
                 });
 
             modelBuilder.Entity("TourApp.Entity.ChiTieu", b =>
                 {
                     b.Property<int>("CTId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Ten")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CTId");
 
@@ -87,37 +103,51 @@ namespace TourApp.Migrations
                 {
                     b.Property<int>("DDId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("TenDD")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DDId");
 
                     b.ToTable("DiaDiems");
+
+                    b.HasData(
+                        new
+                        {
+                            DDId = 1,
+                            TenDD = "Đà Nẵng"
+                        },
+                        new
+                        {
+                            DDId = 2,
+                            TenDD = "TP. Hồ Chí Minh"
+                        });
                 });
 
             modelBuilder.Entity("TourApp.Entity.DoanKhach", b =>
                 {
                     b.Property<int>("DoanId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Chitiet")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MaDoan")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenDoan")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TourId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("DoanId");
 
@@ -130,44 +160,56 @@ namespace TourApp.Migrations
                 {
                     b.Property<int>("GiaId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("GiaTri")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("TGBD")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("TGKT")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("TourId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("GiaId");
 
                     b.HasIndex("TourId");
 
                     b.ToTable("Gias");
+
+                    b.HasData(
+                        new
+                        {
+                            GiaId = 1,
+                            GiaTri = 100000,
+                            TGBD = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TGKT = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TourId = 1
+                        });
                 });
 
             modelBuilder.Entity("TourApp.Entity.HanhKhach", b =>
                 {
                     b.Property<int>("KhachId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MaKhach")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SDT")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("Ten")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("KhachId");
 
@@ -178,30 +220,39 @@ namespace TourApp.Migrations
                 {
                     b.Property<int>("LHDLId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Ten")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("moTa")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LHDLId");
 
                     b.ToTable("LoaiHinhDLs");
+
+                    b.HasData(
+                        new
+                        {
+                            LHDLId = 1,
+                            Ten = "Loại Hình 1",
+                            moTa = "ABCXYZ"
+                        });
                 });
 
             modelBuilder.Entity("TourApp.Entity.NV_VT", b =>
                 {
                     b.Property<int>("DoanId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("NVId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("ViTri")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DoanId", "NVId");
 
@@ -214,16 +265,17 @@ namespace TourApp.Migrations
                 {
                     b.Property<int>("NVId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("MaNV")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SDT")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ten")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("NVId");
 
@@ -234,24 +286,34 @@ namespace TourApp.Migrations
                 {
                     b.Property<int>("TourId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("LHDLId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<string>("MaTour")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ten")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TourId");
 
                     b.HasIndex("LHDLId");
 
                     b.ToTable("Tours");
+
+                    b.HasData(
+                        new
+                        {
+                            TourId = 1,
+                            LHDLId = 1,
+                            MaTour = "T100001",
+                            Ten = "Tour1"
+                        });
                 });
 
             modelBuilder.Entity("TourApp.Entity.CTChitieu", b =>

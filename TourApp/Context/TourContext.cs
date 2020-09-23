@@ -30,7 +30,7 @@ namespace TourApp.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlite("Data Source=Tour.db");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-1I87EAD;Initial Catalog=CNPM;Integrated Security=True");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -83,7 +83,7 @@ namespace TourApp.Context
             .HasOne<NhanVien>(c => c.NhanVien)
             .WithMany(c => c.NV_VTs)
             .HasForeignKey(c => c.NVId);
-            //modelBuilder.Seed();
+            modelBuilder.Seed();
         }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TourApp.Context;
 
 namespace TourApp.Migrations
 {
     [DbContext(typeof(TourContext))]
-    partial class TourContextModelSnapshot : ModelSnapshot
+    [Migration("20200923064748_InitDB")]
+    partial class InitDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,18 +70,6 @@ namespace TourApp.Migrations
                     b.HasIndex("DDId");
 
                     b.ToTable("CTTours");
-
-                    b.HasData(
-                        new
-                        {
-                            TourId = 1,
-                            DDId = 1
-                        },
-                        new
-                        {
-                            TourId = 1,
-                            DDId = 2
-                        });
                 });
 
             modelBuilder.Entity("TourApp.Entity.ChiTieu", b =>
@@ -111,18 +101,6 @@ namespace TourApp.Migrations
                     b.HasKey("DDId");
 
                     b.ToTable("DiaDiems");
-
-                    b.HasData(
-                        new
-                        {
-                            DDId = 1,
-                            TenDD = "Đà Nẵng"
-                        },
-                        new
-                        {
-                            DDId = 2,
-                            TenDD = "TP. Hồ Chí Minh"
-                        });
                 });
 
             modelBuilder.Entity("TourApp.Entity.DoanKhach", b =>
@@ -178,16 +156,6 @@ namespace TourApp.Migrations
                     b.HasIndex("TourId");
 
                     b.ToTable("Gias");
-
-                    b.HasData(
-                        new
-                        {
-                            GiaId = 1,
-                            GiaTri = 100000,
-                            TGBD = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TGKT = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            TourId = 1
-                        });
                 });
 
             modelBuilder.Entity("TourApp.Entity.HanhKhach", b =>
@@ -231,14 +199,6 @@ namespace TourApp.Migrations
                     b.HasKey("LHDLId");
 
                     b.ToTable("LoaiHinhDLs");
-
-                    b.HasData(
-                        new
-                        {
-                            LHDLId = 1,
-                            Ten = "Loại Hình 1",
-                            moTa = "ABCXYZ"
-                        });
                 });
 
             modelBuilder.Entity("TourApp.Entity.NV_VT", b =>
@@ -303,15 +263,6 @@ namespace TourApp.Migrations
                     b.HasIndex("LHDLId");
 
                     b.ToTable("Tours");
-
-                    b.HasData(
-                        new
-                        {
-                            TourId = 1,
-                            LHDLId = 1,
-                            MaTour = "T100001",
-                            Ten = "Tour1"
-                        });
                 });
 
             modelBuilder.Entity("TourApp.Entity.CTChitieu", b =>
