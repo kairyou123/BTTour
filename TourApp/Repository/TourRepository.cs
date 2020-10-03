@@ -20,46 +20,46 @@ namespace TourApp.Repository
         }
 
 
-        public async Task Add(Tour entity)
+        public void Add(Tour entity)
         {
             _context.Tours.Add(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task Delete(Tour entity)
+        public void Delete(Tour entity)
         {
             _context.Tours.Remove(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Tour>> getAll()
+        public IEnumerable<Tour> getAll()
         {
-            return await _context.Tours.Include(t => t.Gias).Include(t => t.LHDL).Include(t => t.CTTours).ThenInclude(dd => dd.DiaDiem).ToListAsync();
+            return _context.Tours.Include(t => t.Gias).Include(t => t.LHDL).Include(t => t.CTTours).ThenInclude(dd => dd.DiaDiem).ToList();
         }
 
-        public async Task<Tour> getById(int TourId = 1, string MaTour = "abc")
+        public Tour getById(int TourId = 1, string MaTour = "abc")
         {
-            return await _context.Tours.Where(t => t.TourId == TourId || t.MaTour == MaTour)
+            return  _context.Tours.Where(t => t.TourId == TourId || t.MaTour == MaTour)
                                        .Include(t => t.LHDL)
                                        .Include(t => t.Gias)
                                        .Include(t => t.CTTours)
                                        .ThenInclude(dd => dd.DiaDiem)
-                                       .FirstOrDefaultAsync();
+                                       .FirstOrDefault();
         }
 
-        public async Task<IEnumerable<Tour>> getWhere(string Ten)
+        public IEnumerable<Tour> getWhere(string Ten)
         {
-            return await _context.Tours.Where(t => t.Ten.Contains(Ten))
+            return  _context.Tours.Where(t => t.Ten.Contains(Ten))
                                        .Include(t => t.Gias)
                                        .Include(t => t.CTTours)
                                        .ThenInclude(dd => dd.DiaDiem)
-                                       .ToListAsync();
+                                       .ToList();
         }
 
-        public async Task Update(Tour entity)
+        public void Update(Tour entity)
         {
             _context.Tours.Update(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
     }
 }

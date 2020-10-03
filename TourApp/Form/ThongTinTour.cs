@@ -30,9 +30,9 @@ namespace TourApp
         }
 
         /*Hiển thị thông tin khi vào form thông tin tour*/
-        private async Task showThongtin()
+        private void showThongtin()
         {
-            Tour = await _tourRepository.getById(_id, "");
+            Tour =  _tourRepository.getById(_id, "");
 
             /*Thong tin Tour*/
             mtour_txt.Text = Tour.MaTour;
@@ -61,9 +61,9 @@ namespace TourApp
 
         }
 
-        private async void ThongTinTour_Load(object sender, EventArgs e)
+        private void ThongTinTour_Load(object sender, EventArgs e)
         {
-            await showThongtin();
+             showThongtin();
         }
 
     }

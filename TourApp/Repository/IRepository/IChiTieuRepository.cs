@@ -8,8 +8,8 @@ namespace TourApp.Repository.IRepository
 {
     public interface IChiTieuRepository : ICommonRepository<ChiTieu>
     {
-        Task<IEnumerable<ChiTieu>> getWhere(String Ten);
-        Task<ChiTieu> getById(int CTId);
+        IEnumerable<ChiTieu> getWhere(String Ten);
+        ChiTieu getById(int CTId);
 
     }
 }

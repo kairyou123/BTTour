@@ -8,8 +8,8 @@ namespace TourApp.Repository.IRepository
 {
     public interface ICTTourRepository
     {
-        Task Add(CTTour entity);
-        Task Delete(CTTour entity);
+        void Add(CTTour entity);
+        void Delete(CTTour entity);
         
     }
 }

@@ -8,7 +8,7 @@ namespace TourApp.Repository.IRepository
 {
     public interface IDiaDiemRepository : ICommonRepository<DiaDiem>
     {
-        Task<IEnumerable<DiaDiem>> getWhere(String Ten);
-        Task<DiaDiem> getById(int DDId);
+        IEnumerable<DiaDiem> getWhere(String Ten);
+        DiaDiem getById(int DDId);
     }
 }

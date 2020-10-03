@@ -27,9 +27,9 @@ namespace TourApp
             InitializeComponent();
         }
 
-        private async Task showThongtin()
+        private void showThongtin()
         {
-            IEnumerable<DiaDiem> listdd = await _diadiemRepository.getAll();
+            IEnumerable<DiaDiem> listdd =  _diadiemRepository.getAll();
 
             /*Dia Diem Tour*/
             foreach (var DD in listdd)
@@ -48,9 +48,11 @@ namespace TourApp
             
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             Tour newtour = new Tour();
+            newtour.CTTours = new List<CTTour>();
+            newtour.Gias = new List<Gia>();
             Gia newgia = new Gia(); 
             newtour.MaTour = matourtb.Text;
             newtour.Ten = tentourtb.Text;
@@ -58,28 +60,29 @@ namespace TourApp
             LoaiHinhDL item = new LoaiHinhDL();
             item = (LoaiHinhDL)loaihinhcbb.SelectedItem;
             newtour.LHDLId = item.LHDLId;
-            await _tourRepository.Add(newtour);
+          
             foreach (ListViewItem dd in diadiem.CheckedItems)
             {
-                MessageBox.Show("hello");
                 CTTour newcttour = new CTTour();
                 newcttour.DDId = Convert.ToInt32(dd.SubItems[0].Text);
                 newcttour.TourId = newtour.TourId;
-                await _cTTourRepository.Add(newcttour);
+                //_cTTourRepository.Add(newcttour);
+                newtour.CTTours.Add(newcttour);
             }
             newgia.GiaTri = (int)mucgia.Value;
             newgia.TGBD = tungay.Value;
             newgia.TGKT = denngay.Value;
             newgia.TourId = newtour.TourId;
-           
-            await _giaRepository.Add(newgia);
-
-
+            newtour.Gias.Add(newgia);
+            _tourRepository.Add(newtour);
+            // _giaRepository.Add(newgia);
+            MessageBox.Show("Thêm thành công!");
+            Program.Form.FormRefresh();
         }
 
-        protected override async void OnLoad(EventArgs e)
+        protected override  void OnLoad(EventArgs e)
         {
-            await showThongtin();
+             showThongtin();
         }
 
     }

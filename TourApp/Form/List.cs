@@ -30,20 +30,26 @@ namespace TourApp
             tabControl1.SelectedIndex = 0;
         }
 
-        private async void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            var data = await _tourRepo.getAll();
-            foreach(Tour item in data)
+             FormRefresh();
+        }
+        public void FormRefresh()
+        {
+            searchBox.Text = "";
+            tourGridView.Rows.Clear();
+            var data =  _tourRepo.getAll();
+            //tourGridView.VirtualMode = true;
+            foreach (Tour item in data)
             {
-                
+
                 tourGridView.Rows.Add(item.TourId, item.MaTour, item.Ten, item.LHDL.Ten);
             }
             //tourGridView.Rows.Add();
         }
-        
-       
 
-        
+
+
 
         private void tourGridView_CellPainting_1(object sender, DataGridViewCellPaintingEventArgs e)
         {
@@ -135,16 +141,21 @@ namespace TourApp
             form.Show();
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private  void button1_Click(object sender, EventArgs e)
         {
             var searchStr = searchBox.Text;
             tourGridView.Rows.Clear();
             var src = tourGridView.DataSource;
-            var data = await _tourRepo.getWhere(searchStr);
+            var data = _tourRepo.getWhere(searchStr);
             foreach (Tour item in data)
             {
                 tourGridView.Rows.Add(item.TourId, item.MaTour, item.Ten, item.LHDL.Ten);
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+             FormRefresh();
         }
     }
 }

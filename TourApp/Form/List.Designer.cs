@@ -45,6 +45,7 @@
             this.Staff = new System.Windows.Forms.TabPage();
             this.Destination = new System.Windows.Forms.TabPage();
             this.Group = new System.Windows.Forms.TabPage();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Tour.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).BeginInit();
@@ -64,6 +65,7 @@
             // 
             // Tour
             // 
+            this.Tour.Controls.Add(this.btnRefresh);
             this.Tour.Controls.Add(this.button2);
             this.Tour.Controls.Add(this.tourGridView);
             this.Tour.Controls.Add(this.button1);
@@ -132,7 +134,7 @@
             this.MaTourCol.Name = "MaTourCol";
             this.MaTourCol.ReadOnly = true;
             this.MaTourCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.MaTourCol.Width = 90;
+            this.MaTourCol.Width = 83;
             // 
             // TenCol
             // 
@@ -231,6 +233,17 @@
             this.Group.TabIndex = 3;
             this.Group.Text = "Đoàn";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.BackgroundImage")));
+            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRefresh.Location = new System.Drawing.Point(668, 98);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(41, 36);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -267,6 +280,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn ViewCol;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteCol;
         private System.Windows.Forms.DataGridViewButtonColumn EditCol;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
 

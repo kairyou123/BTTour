@@ -16,6 +16,7 @@ namespace TourApp
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        public static List Form;
         [STAThread]
         static void Main()
         {
@@ -27,8 +28,8 @@ namespace TourApp
             ConfigureServices(services);
             using(ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
-                var form1 = serviceProvider.GetRequiredService<List>();
-                Application.Run(form1);
+                Form = serviceProvider.GetRequiredService<List>();
+                Application.Run(Form);
             }
             
         }

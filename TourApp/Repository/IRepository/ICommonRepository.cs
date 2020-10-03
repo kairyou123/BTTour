@@ -7,9 +7,9 @@ namespace TourApp.Repository.IRepository
 {
     public interface ICommonRepository<T> where T : new()
     {
-        Task<IEnumerable<T>> getAll();
-        Task Add(T entity);
-        Task Update(T entity);
-        Task Delete(T entity);
+        IEnumerable<T> getAll();
+        void Add(T entity);
+        void Update(T entity);
+        void Delete(T entity);
     }
 }

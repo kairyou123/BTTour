@@ -19,17 +19,17 @@ namespace TourApp.Repository
             _context = context;
         }
 
-        public async Task Add(CTTour entity)
+        public void Add(CTTour entity)
         {
             _context.CTTours.Add(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
 
-        public async Task Delete(CTTour entity)
+        public void Delete(CTTour entity)
         {
             _context.CTTours.Remove(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
     }

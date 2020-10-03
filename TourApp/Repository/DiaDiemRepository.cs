@@ -20,43 +20,43 @@ namespace TourApp.Repository
         }
 
 
-        public async Task Add(DiaDiem entity)
+        public void Add(DiaDiem entity)
         {
             _context.DiaDiems.Add(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task Delete(DiaDiem entity)
+        public void Delete(DiaDiem entity)
         {
             _context.DiaDiems.Remove(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task<IEnumerable<DiaDiem>> getAll()
+        public IEnumerable<DiaDiem> getAll()
         {
-            return await _context.DiaDiems.Include(t => t.CTTours).ThenInclude(t => t.Tour).ToListAsync();
+            return _context.DiaDiems.Include(t => t.CTTours).ThenInclude(t => t.Tour).ToList();
         }
 
-        public async Task<DiaDiem> getById(int DDId)
+        public DiaDiem getById(int DDId)
         {
-            return await _context.DiaDiems.Where(dd => dd.DDId == DDId)
+            return _context.DiaDiems.Where(dd => dd.DDId == DDId)
                                           .Include(t => t.CTTours)
                                           .ThenInclude(t => t.Tour)
-                                          .FirstOrDefaultAsync();
+                                          .FirstOrDefault();
         }
 
-        public async Task<IEnumerable<DiaDiem>> getWhere(string Ten)
+        public IEnumerable<DiaDiem> getWhere(string Ten)
         {
-            return await _context.DiaDiems.Where(dd => dd.TenDD.Contains(Ten))
+            return _context.DiaDiems.Where(dd => dd.TenDD.Contains(Ten))
                                           .Include(t => t.CTTours)
                                           .ThenInclude(t => t.Tour)
-                                          .ToListAsync();
+                                          .ToList();
         }
 
-        public async Task Update(DiaDiem entity)
+        public void Update(DiaDiem entity)
         {
             _context.DiaDiems.Update(entity);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
     }
 }

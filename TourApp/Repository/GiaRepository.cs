@@ -19,33 +19,33 @@ namespace TourApp.Repository
             _context = context;
         }
 
-        public async Task Add(Gia gia)
+        public void Add(Gia gia)
         {
             _context.Gias.Add(gia);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task Delete(Gia gia)
+        public void Delete(Gia gia)
         {
             _context.Gias.Remove(gia);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task<IEnumerable<Gia>> getAll()
+        public IEnumerable<Gia> getAll()
         {
-            return await _context.Gias.ToListAsync();
+            return  _context.Gias.ToList();
         }
 
-        public async Task<Gia> getById(int GiaId)
+        public Gia getById(int GiaId)
         {
-            return await _context.Gias.FindAsync(GiaId);
+            return  _context.Gias.Find(GiaId);
         }
 
 
-        public async Task Update(Gia gia)
+        public void Update(Gia gia)
         {
             _context.Gias.Update(gia);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
     }
 }

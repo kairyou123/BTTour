@@ -19,38 +19,38 @@ namespace TourApp.Repository
             _context = context;
         }
 
-        public async Task Add(ChiTieu chiTieu)
+        public void Add(ChiTieu chiTieu)
         {
             _context.ChiTieus.Add(chiTieu);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task Delete(ChiTieu chiTieu)
+        public void Delete(ChiTieu chiTieu)
         {
             _context.ChiTieus.Remove(chiTieu);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
 
-        public async Task<IEnumerable<ChiTieu>> getAll()
+        public IEnumerable<ChiTieu> getAll()
         {
-            return await _context.ChiTieus.ToListAsync();
+            return  _context.ChiTieus.ToList();
         }
 
-        public async Task<ChiTieu> getById(int CTId)
+        public ChiTieu getById(int CTId)
         {
-            return await _context.ChiTieus.FindAsync(CTId);
+            return _context.ChiTieus.Find(CTId);
         }
 
-        public async Task<IEnumerable<ChiTieu>> getWhere(string Ten = "")
+        public IEnumerable<ChiTieu> getWhere(string Ten = "")
         {
-            return await _context.ChiTieus.Where(c => c.Ten.Contains(Ten)).ToListAsync();
+            return _context.ChiTieus.Where(c => c.Ten.Contains(Ten)).ToList();
                                            
         }
 
-        public async Task Update(ChiTieu chiTieu)
+        public void Update(ChiTieu chiTieu)
         {
             _context.ChiTieus.Update(chiTieu);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
         }
     }
 }
