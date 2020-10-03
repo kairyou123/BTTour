@@ -143,19 +143,26 @@ namespace TourApp
 
         private  void button1_Click(object sender, EventArgs e)
         {
+            Search();
+        }
+        private void Search()
+        {
             var searchStr = searchBox.Text;
             tourGridView.Rows.Clear();
-            var src = tourGridView.DataSource;
             var data = _tourRepo.getWhere(searchStr);
             foreach (Tour item in data)
             {
                 tourGridView.Rows.Add(item.TourId, item.MaTour, item.Ten, item.LHDL.Ten);
             }
         }
-
         private void btnRefresh_Click(object sender, EventArgs e)
         {
              FormRefresh();
+        }
+
+        private void searchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) Search();
         }
     }
 }

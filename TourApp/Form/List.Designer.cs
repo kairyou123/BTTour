@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(List));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Tour = new System.Windows.Forms.TabPage();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tourGridView = new System.Windows.Forms.DataGridView();
             this.TourIdCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +46,6 @@
             this.Staff = new System.Windows.Forms.TabPage();
             this.Destination = new System.Windows.Forms.TabPage();
             this.Group = new System.Windows.Forms.TabPage();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Tour.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).BeginInit();
@@ -77,6 +77,17 @@
             this.Tour.TabIndex = 0;
             this.Tour.Text = "Tour";
             this.Tour.UseVisualStyleBackColor = true;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.BackgroundImage")));
+            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRefresh.Location = new System.Drawing.Point(668, 98);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(41, 36);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // button2
             // 
@@ -204,6 +215,7 @@
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(215, 38);
             this.searchBox.TabIndex = 0;
+            this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchBox_KeyPress);
             // 
             // Staff
             // 
@@ -232,17 +244,6 @@
             this.Group.Size = new System.Drawing.Size(774, 522);
             this.Group.TabIndex = 3;
             this.Group.Text = "Đoàn";
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.BackgroundImage")));
-            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRefresh.Location = new System.Drawing.Point(668, 98);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(41, 36);
-            this.btnRefresh.TabIndex = 3;
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // List
             // 
