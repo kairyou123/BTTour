@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TourApp.Const;
 using TourApp.Context;
 using TourApp.Entity;
 using TourApp.Repository.IRepository;
@@ -28,15 +29,19 @@ namespace TourApp.Repository
 
         public void Delete(Tour entity)
         {
-            _context.Tours.Remove(entity);
-            _context.SaveChangesAsync();
+            entity.isDeleted = Status.Deleted;
+            _context.Tours.Update(entity);
+            _context.SaveChanges();
         }
 
         public IEnumerable<Tour> getAll()
         {
+            return _context.Tours.Where(t => t.isDeleted == Status.NotDeleted).Include(t => t.Gias).Include(t => t.LHDL).Include(t => t.CTTours).ThenInclude(dd => dd.DiaDiem).ToList();
+        }
+        public IEnumerable<Tour> getAllDelete()
+        {
             return _context.Tours.Include(t => t.Gias).Include(t => t.LHDL).Include(t => t.CTTours).ThenInclude(dd => dd.DiaDiem).ToList();
         }
-
         public Tour getById(int TourId = 1, string MaTour = "abc")
         {
             return  _context.Tours.Where(t => t.TourId == TourId || t.MaTour == MaTour)
@@ -47,9 +52,10 @@ namespace TourApp.Repository
                                        .FirstOrDefault();
         }
 
-        public IEnumerable<Tour> getWhere(string Ten)
+        public IEnumerable<Tour> getWhere(string Ten, int isDeleted)
         {
-            return  _context.Tours.Where(t => t.Ten.Contains(Ten))
+            return _context.Tours.Where(t => t.Ten.Contains(Ten))
+                                 .Where(t => t.isDeleted == isDeleted)
                                        .Include(t => t.Gias)
                                        .Include(t => t.CTTours)
                                        .ThenInclude(dd => dd.DiaDiem)

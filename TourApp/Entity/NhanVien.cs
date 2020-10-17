@@ -14,6 +14,7 @@ namespace TourApp.Entity
         public String MaNV { set; get; }
         public String Ten { set; get; }
         public String SDT { set; get; }
+        public int isDeleted { set; get; }
         public ICollection<NV_VT> NV_VTs { set; get; }
     }
 }

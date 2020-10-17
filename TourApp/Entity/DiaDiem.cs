@@ -13,6 +13,7 @@ namespace TourApp.Entity
         public int DDId { set; get; }
         [Required]
         public String TenDD { set; get; }
+        public int isDeleted { set; get; }
         public ICollection<CTTour> CTTours { set; get; }
     }
 }

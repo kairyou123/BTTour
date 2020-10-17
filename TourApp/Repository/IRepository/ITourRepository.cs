@@ -8,8 +8,9 @@ namespace TourApp.Repository.IRepository
 {
     public interface ITourRepository : ICommonRepository<Tour>
     {
-        IEnumerable<Tour> getWhere(String Ten);
-        Tour getById(int TourId, String MaTour);
+        IEnumerable<Tour> getWhere(String Ten, int isDeleted);
+        IEnumerable<Tour> getAllDelete();
+        Tour getById(int TourId, String MaTour = "");
 
     }
 }

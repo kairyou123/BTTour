@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(List));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Tour = new System.Windows.Forms.TabPage();
+            this.isDeleted_ChB = new System.Windows.Forms.CheckBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tourGridView = new System.Windows.Forms.DataGridView();
@@ -39,8 +40,8 @@
             this.TenCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LHDLCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewCol = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.DeleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.EditCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DeleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.Staff = new System.Windows.Forms.TabPage();
@@ -65,6 +66,7 @@
             // 
             // Tour
             // 
+            this.Tour.Controls.Add(this.isDeleted_ChB);
             this.Tour.Controls.Add(this.btnRefresh);
             this.Tour.Controls.Add(this.button2);
             this.Tour.Controls.Add(this.tourGridView);
@@ -77,6 +79,17 @@
             this.Tour.TabIndex = 0;
             this.Tour.Text = "Tour";
             this.Tour.UseVisualStyleBackColor = true;
+            // 
+            // isDeleted_ChB
+            // 
+            this.isDeleted_ChB.AutoSize = true;
+            this.isDeleted_ChB.Location = new System.Drawing.Point(4, 98);
+            this.isDeleted_ChB.Name = "isDeleted_ChB";
+            this.isDeleted_ChB.Size = new System.Drawing.Size(78, 24);
+            this.isDeleted_ChB.TabIndex = 4;
+            this.isDeleted_ChB.Text = "Đã xóa";
+            this.isDeleted_ChB.UseVisualStyleBackColor = true;
+            this.isDeleted_ChB.CheckedChanged += new System.EventHandler(this.isDeleted_CheckedChanged);
             // 
             // btnRefresh
             // 
@@ -112,8 +125,8 @@
             this.TenCol,
             this.LHDLCol,
             this.ViewCol,
-            this.DeleteCol,
-            this.EditCol});
+            this.EditCol,
+            this.DeleteCol});
             this.tourGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.tourGridView.Location = new System.Drawing.Point(3, 140);
             this.tourGridView.Name = "tourGridView";
@@ -176,16 +189,6 @@
             this.ViewCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ViewCol.Width = 45;
             // 
-            // DeleteCol
-            // 
-            this.DeleteCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DeleteCol.HeaderText = "Xóa";
-            this.DeleteCol.MinimumWidth = 6;
-            this.DeleteCol.Name = "DeleteCol";
-            this.DeleteCol.ReadOnly = true;
-            this.DeleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DeleteCol.Width = 41;
-            // 
             // EditCol
             // 
             this.EditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -195,6 +198,16 @@
             this.EditCol.ReadOnly = true;
             this.EditCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.EditCol.Width = 40;
+            // 
+            // DeleteCol
+            // 
+            this.DeleteCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DeleteCol.HeaderText = "Xóa";
+            this.DeleteCol.MinimumWidth = 6;
+            this.DeleteCol.Name = "DeleteCol";
+            this.DeleteCol.ReadOnly = true;
+            this.DeleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DeleteCol.Width = 41;
             // 
             // button1
             // 
@@ -274,14 +287,15 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView tourGridView;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn TourIdCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaTourCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn LHDLCol;
         private System.Windows.Forms.DataGridViewButtonColumn ViewCol;
-        private System.Windows.Forms.DataGridViewButtonColumn DeleteCol;
         private System.Windows.Forms.DataGridViewButtonColumn EditCol;
-        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteCol;
+        private System.Windows.Forms.CheckBox isDeleted_ChB;
     }
 }
 

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TourApp.Entity;
+using TourApp.Repository;
 using TourApp.Repository.IRepository;
 
 namespace TourApp
@@ -37,6 +38,7 @@ namespace TourApp
         public void FormRefresh()
         {
             searchBox.Text = "";
+            isDeleted_ChB.Checked = false;
             tourGridView.Rows.Clear();
             var data =  _tourRepo.getAll();
             //tourGridView.VirtualMode = true;
@@ -121,6 +123,11 @@ namespace TourApp
                 case "EditCol":
                     break;
                 case "DeleteCol":
+                    var tour = _tourRepo.getById(int.Parse(value));
+                    var messageResult = MessageBox.Show("Bạn có chắc muốn xóa "+ tour.Ten, "Warning", MessageBoxButtons.YesNo);
+                    if (messageResult != DialogResult.Yes) return;
+                    _tourRepo.Delete(tour);
+                    Search();
                     break;
             }
             
@@ -149,7 +156,7 @@ namespace TourApp
         {
             var searchStr = searchBox.Text;
             tourGridView.Rows.Clear();
-            var data = _tourRepo.getWhere(searchStr);
+            var data = _tourRepo.getWhere(searchStr, isDeleted_ChB.Checked ? 1 : 0);
             foreach (Tour item in data)
             {
                 tourGridView.Rows.Add(item.TourId, item.MaTour, item.Ten, item.LHDL.Ten);
@@ -164,5 +171,22 @@ namespace TourApp
         {
             if (e.KeyChar == (char)Keys.Enter) Search();
         }
+
+        private void isDeleted_CheckedChanged(object sender, EventArgs e)
+        {
+            Search();
+            if (isDeleted_ChB.Checked)
+            {
+                tourGridView.Columns["EditCol"].Visible = false;
+                tourGridView.Columns["DeleteCol"].Visible = false;
+            }
+            else
+            {
+                tourGridView.Columns["EditCol"].Visible = true;
+                tourGridView.Columns["DeleteCol"].Visible = true;
+            }
+        }
+
+        
     }
 }

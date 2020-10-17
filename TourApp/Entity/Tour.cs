@@ -21,7 +21,7 @@ namespace TourApp.Entity
         [Required]
         public int LHDLId { set; get; }
         public LoaiHinhDL LHDL { set; get; }
-
-
+ 
+        public int isDeleted { set; get; } 
     }
 }
