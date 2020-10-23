@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using TourApp.Entity;
 using TourApp.Repository;
 using TourApp.Repository.IRepository;
+using TourApp.UI;
 
 namespace TourApp
 {
@@ -33,7 +34,8 @@ namespace TourApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-             FormRefresh();
+            FormRefresh();
+            ChangeTheme(new DefaultTheme(), this.Controls);
         }
         public void FormRefresh()
         {
@@ -187,6 +189,73 @@ namespace TourApp
             }
         }
 
-        
+        private void toolStripMenuItem2_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            //get the parent item
+            ToolStripMenuItem ownerItem = e.ClickedItem.OwnerItem as ToolStripMenuItem;
+            if (ownerItem != null)
+            {
+                //uncheck all item
+                foreach (ToolStripMenuItem item in ownerItem.DropDownItems)
+                {
+                    item.Checked = false;
+                }
+            }
+            //it will check the clicked item automatically
+
+            //change theme
+            if (e.ClickedItem == DarkStripMenuItem) ChangeTheme(new DarkTheme(),this.Controls);
+            else if (e.ClickedItem == LightStripMenuItem) ChangeTheme(new LightTheme(), this.Controls);
+            else  ChangeTheme(new DefaultTheme(), this.Controls);
+        }
+        private void ChangeTheme(Theme theme,Control.ControlCollection container)
+        {
+            foreach (Control component in container)
+            {
+                if(component is MenuStrip)
+                {
+                    (component as MenuStrip).BackColor = theme.MenuStripBG;
+                    (component as MenuStrip).ForeColor = theme.MenuStripFG;
+                    ChangeTheme(theme, component.Controls);
+                }
+                else if (component is TabControl)
+                {
+                    (component as TabControl).BackColor = theme.TabControlBG;
+                    (component as TabControl).ForeColor = theme.TabControlFG;
+                    ChangeTheme(theme, component.Controls);
+                }
+                else if(component is TabPage)
+                {
+                    (component as TabPage).BackColor = theme.TabPageBG;
+                    (component as TabPage).ForeColor = theme.TabPageFG;
+                    ChangeTheme(theme, component.Controls);
+                }
+                else if(component is DataGridView)
+                {
+                    (component as DataGridView).BackgroundColor = theme.DataGridviewBG;
+                    (component as DataGridView).ForeColor = theme.DataGridviewFG;
+                    (component as DataGridView).GridColor = theme.DataGridviewGridColor;
+                    ChangeTheme(theme, component.Controls);
+                }
+                else if(component is TextBox)
+                {
+                    (component as TextBox).BackColor = theme.TextBoxBG;
+                    (component as TextBox).ForeColor = theme.TextBoxFG;
+                    ChangeTheme(theme, component.Controls);
+                }
+                else if (component is Button)
+                {
+                    (component as Button).BackColor = theme.ButtonBG;
+                    (component as Button).ForeColor = theme.ButtonFG;
+                    ChangeTheme(theme, component.Controls);
+                }
+
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

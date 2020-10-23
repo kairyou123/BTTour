@@ -1,4 +1,6 @@
-﻿namespace TourApp
+﻿using System.Windows.Forms;
+
+namespace TourApp
 {
     partial class List
     {
@@ -47,9 +49,17 @@
             this.Staff = new System.Windows.Forms.TabPage();
             this.Destination = new System.Windows.Forms.TabPage();
             this.Group = new System.Windows.Forms.TabPage();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DarkStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LightStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DefaultStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.tabControl1.SuspendLayout();
             this.Tour.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).BeginInit();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -58,11 +68,12 @@
             this.tabControl1.Controls.Add(this.Staff);
             this.tabControl1.Controls.Add(this.Destination);
             this.tabControl1.Controls.Add(this.Group);
-            this.tabControl1.Location = new System.Drawing.Point(0, -2);
+            this.tabControl1.Location = new System.Drawing.Point(0, 34);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 2;
-            this.tabControl1.Size = new System.Drawing.Size(782, 555);
+            this.tabControl1.Size = new System.Drawing.Size(782, 515);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // Tour
             // 
@@ -75,7 +86,7 @@
             this.Tour.Location = new System.Drawing.Point(4, 29);
             this.Tour.Name = "Tour";
             this.Tour.Padding = new System.Windows.Forms.Padding(3);
-            this.Tour.Size = new System.Drawing.Size(774, 522);
+            this.Tour.Size = new System.Drawing.Size(774, 482);
             this.Tour.TabIndex = 0;
             this.Tour.Text = "Tour";
             this.Tour.UseVisualStyleBackColor = true;
@@ -211,14 +222,16 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Location = new System.Drawing.Point(497, 12);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.button1.Size = new System.Drawing.Size(42, 44);
             this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // searchBox
@@ -235,7 +248,7 @@
             this.Staff.Location = new System.Drawing.Point(4, 29);
             this.Staff.Name = "Staff";
             this.Staff.Padding = new System.Windows.Forms.Padding(3);
-            this.Staff.Size = new System.Drawing.Size(774, 522);
+            this.Staff.Size = new System.Drawing.Size(774, 482);
             this.Staff.TabIndex = 1;
             this.Staff.Text = "Nhân viên";
             this.Staff.UseVisualStyleBackColor = true;
@@ -245,7 +258,7 @@
             this.Destination.Location = new System.Drawing.Point(4, 29);
             this.Destination.Name = "Destination";
             this.Destination.Padding = new System.Windows.Forms.Padding(3);
-            this.Destination.Size = new System.Drawing.Size(774, 522);
+            this.Destination.Size = new System.Drawing.Size(774, 482);
             this.Destination.TabIndex = 2;
             this.Destination.Text = "Địa điểm";
             this.Destination.UseVisualStyleBackColor = true;
@@ -254,16 +267,81 @@
             // 
             this.Group.Location = new System.Drawing.Point(4, 29);
             this.Group.Name = "Group";
-            this.Group.Size = new System.Drawing.Size(774, 522);
+            this.Group.Size = new System.Drawing.Size(774, 482);
             this.Group.TabIndex = 3;
             this.Group.Text = "Đoàn";
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(782, 28);
+            this.menuStrip.TabIndex = 2;
+            this.menuStrip.Text = "menu";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(76, 24);
+            this.toolStripMenuItem1.Text = "Settings";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DarkStripMenuItem,
+            this.LightStripMenuItem,
+            this.DefaultStripMenuItem});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(188, 26);
+            this.toolStripMenuItem2.Text = "Change theme";
+            this.toolStripMenuItem2.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem2_DropDownItemClicked);
+            // 
+            // DarkStripMenuItem
+            // 
+            this.DarkStripMenuItem.CheckOnClick = true;
+            this.DarkStripMenuItem.Name = "DarkStripMenuItem";
+            this.DarkStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.DarkStripMenuItem.Text = "Dark ";
+            // 
+            // LightStripMenuItem
+            // 
+            this.LightStripMenuItem.CheckOnClick = true;
+            this.LightStripMenuItem.Name = "LightStripMenuItem";
+            this.LightStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.LightStripMenuItem.Text = "Light";
+            // 
+            // DefaultStripMenuItem
+            // 
+            this.DefaultStripMenuItem.Checked = true;
+            this.DefaultStripMenuItem.CheckOnClick = true;
+            this.DefaultStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DefaultStripMenuItem.Name = "DefaultStripMenuItem";
+            this.DefaultStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.DefaultStripMenuItem.Text = "Default";
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "Dark",
+            "Light"});
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 28);
             // 
             // List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(782, 553);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "List";
             this.Text = "Danh sách";
@@ -272,7 +350,10 @@
             this.Tour.ResumeLayout(false);
             this.Tour.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).EndInit();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -296,6 +377,13 @@
         private System.Windows.Forms.DataGridViewButtonColumn EditCol;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteCol;
         private System.Windows.Forms.CheckBox isDeleted_ChB;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem DarkStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LightStripMenuItem;
+        private ToolStripComboBox toolStripComboBox1;
+        private ToolStripMenuItem DefaultStripMenuItem;
     }
 }
 

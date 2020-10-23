@@ -61,7 +61,7 @@
   <data name="btnRefresh.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADupSURBVHhe7d0J
+        DAAACwwBP0AiyAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADupSURBVHhe7d0J
         vCRVef7xHmYTBhhAHUCBERFlE4ZFFoUg+NcEAQU0ioAYo4CCiiIoIIIRhARBI5IoIARFkMUgYdEEN8QI
         UVlUNgVEUBTUyL7IZv7PO9Rlzq37zMy9t7uqq+r8ns/nmzDvjDNd51Sf07e66pze//3f/wFoOGWqzJG1
         ZSvZWfaSQ+Q4OV2+KhfKf8llcqVcLdfLLXKH3C33ysPyZOGRovZ7+Y3cKjfKtfJDuVy+JV+Xf5cvyLFy
@@ -842,4 +842,7 @@
         vzM3/zf6/zHz1DfwvjrVAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+    <value>93</value>
+  </metadata>
 </root>
