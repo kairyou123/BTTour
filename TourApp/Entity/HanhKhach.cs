@@ -13,7 +13,7 @@ namespace TourApp.Entity
         public int KhachId { set; get; }
         public String MaKhach { set; get; }
         public String Ten { set; get; }
-        public int SDT { set; get; }
+        public String SDT { set; get; }
         public String Email { set; get; }
         public int isDeleted { set; get; }
         public ICollection<CTDoan> CTDoans { set; get; }
