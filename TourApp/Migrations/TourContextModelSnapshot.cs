@@ -203,8 +203,8 @@ namespace TourApp.Migrations
                     b.Property<string>("MaKhach")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("SDT")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("SDT")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Ten")
                         .HasColumnType("TEXT");

@@ -7,17 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200921023557_InitialDB.cs" />
-    <Compile Remove="Migrations\20200921023557_InitialDB.Designer.cs" />
-    <Compile Remove="Migrations\20200921082454_InitialDB.cs" />
-    <Compile Remove="Migrations\20200921082454_InitialDB.Designer.cs" />
-    <Compile Remove="Migrations\20200921082644_InitialDB.cs" />
-    <Compile Remove="Migrations\20200921082644_InitialDB.Designer.cs" />
-    <Compile Remove="Migrations\20200923051733_seeder.cs" />
-    <Compile Remove="Migrations\20200923051733_seeder.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.8" />

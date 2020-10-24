@@ -154,8 +154,8 @@
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(226, 23);
             this.txt_phone.TabIndex = 3;
-            this.txt_phone.Leave += new System.EventHandler(this.Lost_Focus);
             this.txt_phone.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Control_KeyUp);
+            this.txt_phone.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Validating);
             // 
             // txt_email
             // 
@@ -163,8 +163,8 @@
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(424, 23);
             this.txt_email.TabIndex = 2;
-            this.txt_email.Leave += new System.EventHandler(this.Lost_Focus);
             this.txt_email.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Control_KeyUp);
+            this.txt_email.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Validating);
             // 
             // txt_name
             // 
@@ -172,8 +172,8 @@
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(424, 23);
             this.txt_name.TabIndex = 1;
-            this.txt_name.Leave += new System.EventHandler(this.Lost_Focus);
             this.txt_name.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Control_KeyUp);
+            this.txt_name.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Validating);
             // 
             // txt_id
             // 
@@ -181,8 +181,8 @@
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(424, 23);
             this.txt_id.TabIndex = 0;
-            this.txt_id.Leave += new System.EventHandler(this.Lost_Focus);
             this.txt_id.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Control_KeyUp);
+            this.txt_id.Validating += new System.ComponentModel.CancelEventHandler(this.txt_Validating);
             // 
             // label2
             // 
