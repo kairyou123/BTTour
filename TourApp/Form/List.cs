@@ -54,7 +54,7 @@ namespace TourApp
 
 
 
-
+        #region Tour
         private void tourGridView_CellPainting_1(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -257,5 +257,9 @@ namespace TourApp
         {
 
         }
+        #endregion
+        #region Nhan vien
+        
+        #endregion
     }
 }
