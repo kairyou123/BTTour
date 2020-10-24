@@ -74,10 +74,11 @@ namespace TourApp
             this.tabControl1.Controls.Add(this.Staff);
             this.tabControl1.Controls.Add(this.Destination);
             this.tabControl1.Controls.Add(this.Group);
-            this.tabControl1.Location = new System.Drawing.Point(0, 34);
+            this.tabControl1.Location = new System.Drawing.Point(0, 26);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 2;
-            this.tabControl1.Size = new System.Drawing.Size(782, 515);
+            this.tabControl1.Size = new System.Drawing.Size(684, 386);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -89,10 +90,11 @@ namespace TourApp
             this.Tour.Controls.Add(this.tourGridView);
             this.Tour.Controls.Add(this.button1);
             this.Tour.Controls.Add(this.searchBox);
-            this.Tour.Location = new System.Drawing.Point(4, 29);
+            this.Tour.Location = new System.Drawing.Point(4, 24);
+            this.Tour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Tour.Name = "Tour";
-            this.Tour.Padding = new System.Windows.Forms.Padding(3);
-            this.Tour.Size = new System.Drawing.Size(774, 482);
+            this.Tour.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Tour.Size = new System.Drawing.Size(676, 358);
             this.Tour.TabIndex = 0;
             this.Tour.Text = "Tour";
             this.Tour.UseVisualStyleBackColor = true;
@@ -100,9 +102,10 @@ namespace TourApp
             // isDeleted_ChB
             // 
             this.isDeleted_ChB.AutoSize = true;
-            this.isDeleted_ChB.Location = new System.Drawing.Point(4, 98);
+            this.isDeleted_ChB.Location = new System.Drawing.Point(4, 74);
+            this.isDeleted_ChB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.isDeleted_ChB.Name = "isDeleted_ChB";
-            this.isDeleted_ChB.Size = new System.Drawing.Size(78, 24);
+            this.isDeleted_ChB.Size = new System.Drawing.Size(62, 19);
             this.isDeleted_ChB.TabIndex = 4;
             this.isDeleted_ChB.Text = "Đã xóa";
             this.isDeleted_ChB.UseVisualStyleBackColor = true;
@@ -112,9 +115,10 @@ namespace TourApp
             // 
             this.btnRefresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.BackgroundImage")));
             this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRefresh.Location = new System.Drawing.Point(668, 98);
+            this.btnRefresh.Location = new System.Drawing.Point(584, 74);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(41, 36);
+            this.btnRefresh.Size = new System.Drawing.Size(36, 27);
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -123,9 +127,10 @@ namespace TourApp
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(718, 98);
+            this.button2.Location = new System.Drawing.Point(628, 74);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 36);
+            this.button2.Size = new System.Drawing.Size(42, 27);
             this.button2.TabIndex = 2;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -145,12 +150,13 @@ namespace TourApp
             this.EditCol,
             this.DeleteCol});
             this.tourGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.tourGridView.Location = new System.Drawing.Point(3, 140);
+            this.tourGridView.Location = new System.Drawing.Point(3, 105);
+            this.tourGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tourGridView.Name = "tourGridView";
             this.tourGridView.ReadOnly = true;
             this.tourGridView.RowHeadersVisible = false;
             this.tourGridView.RowHeadersWidth = 51;
-            this.tourGridView.Size = new System.Drawing.Size(763, 374);
+            this.tourGridView.Size = new System.Drawing.Size(668, 280);
             this.tourGridView.TabIndex = 0;
             this.tourGridView.Text = "dataGridView1";
             this.tourGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tourGridView_CellClick);
@@ -165,7 +171,7 @@ namespace TourApp
             this.TourIdCol.Name = "TourIdCol";
             this.TourIdCol.ReadOnly = true;
             this.TourIdCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TourIdCol.Width = 82;
+            this.TourIdCol.Width = 66;
             // 
             // MaTourCol
             // 
@@ -175,7 +181,7 @@ namespace TourApp
             this.MaTourCol.Name = "MaTourCol";
             this.MaTourCol.ReadOnly = true;
             this.MaTourCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.MaTourCol.Width = 83;
+            this.MaTourCol.Width = 69;
             // 
             // TenCol
             // 
@@ -185,7 +191,7 @@ namespace TourApp
             this.TenCol.Name = "TenCol";
             this.TenCol.ReadOnly = true;
             this.TenCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TenCol.Width = 61;
+            this.TenCol.Width = 50;
             // 
             // LHDLCol
             // 
@@ -204,7 +210,7 @@ namespace TourApp
             this.ViewCol.Name = "ViewCol";
             this.ViewCol.ReadOnly = true;
             this.ViewCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ViewCol.Width = 45;
+            this.ViewCol.Width = 37;
             // 
             // EditCol
             // 
@@ -214,7 +220,7 @@ namespace TourApp
             this.EditCol.Name = "EditCol";
             this.EditCol.ReadOnly = true;
             this.EditCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.EditCol.Width = 40;
+            this.EditCol.Width = 32;
             // 
             // DeleteCol
             // 
@@ -224,7 +230,7 @@ namespace TourApp
             this.DeleteCol.Name = "DeleteCol";
             this.DeleteCol.ReadOnly = true;
             this.DeleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DeleteCol.Width = 41;
+            this.DeleteCol.Width = 33;
             // 
             // button1
             // 
@@ -232,10 +238,11 @@ namespace TourApp
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(497, 12);
+            this.button1.Location = new System.Drawing.Point(435, 9);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.button1.Size = new System.Drawing.Size(42, 44);
+            this.button1.Size = new System.Drawing.Size(37, 33);
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -243,9 +250,10 @@ namespace TourApp
             // searchBox
             // 
             this.searchBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.searchBox.Location = new System.Drawing.Point(551, 15);
+            this.searchBox.Location = new System.Drawing.Point(482, 11);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(215, 38);
+            this.searchBox.Size = new System.Drawing.Size(189, 32);
             this.searchBox.TabIndex = 0;
             this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchBox_KeyPress);
             // 
@@ -256,45 +264,50 @@ namespace TourApp
             this.Staff.Controls.Add(this.button5);
             this.Staff.Controls.Add(this.button4);
             this.Staff.Controls.Add(this.button3);
-            this.Staff.Location = new System.Drawing.Point(4, 29);
+            this.Staff.Location = new System.Drawing.Point(4, 24);
+            this.Staff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Staff.Name = "Staff";
-            this.Staff.Padding = new System.Windows.Forms.Padding(3);
-            this.Staff.Size = new System.Drawing.Size(774, 482);
+            this.Staff.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Staff.Size = new System.Drawing.Size(676, 358);
             this.Staff.TabIndex = 1;
             this.Staff.Text = "Nhân viên";
             this.Staff.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(608, 45);
+            this.textBox1.Location = new System.Drawing.Point(532, 34);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
+            this.textBox1.Size = new System.Drawing.Size(110, 23);
             this.textBox1.TabIndex = 4;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(236, 137);
+            this.checkBox1.Location = new System.Drawing.Point(206, 103);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(101, 24);
+            this.checkBox1.Size = new System.Drawing.Size(83, 19);
             this.checkBox1.TabIndex = 3;
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(453, 183);
+            this.button5.Location = new System.Drawing.Point(396, 137);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 29);
+            this.button5.Size = new System.Drawing.Size(82, 22);
             this.button5.TabIndex = 2;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(577, 137);
+            this.button4.Location = new System.Drawing.Point(505, 103);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 29);
+            this.button4.Size = new System.Drawing.Size(82, 22);
             this.button4.TabIndex = 1;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
@@ -303,27 +316,30 @@ namespace TourApp
             // 
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(497, 12);
+            this.button3.Location = new System.Drawing.Point(435, 9);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(42, 44);
+            this.button3.Size = new System.Drawing.Size(37, 33);
             this.button3.TabIndex = 0;
             this.button3.UseVisualStyleBackColor = true;
             // 
             // Destination
             // 
-            this.Destination.Location = new System.Drawing.Point(4, 29);
+            this.Destination.Location = new System.Drawing.Point(4, 24);
+            this.Destination.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Destination.Name = "Destination";
-            this.Destination.Padding = new System.Windows.Forms.Padding(3);
-            this.Destination.Size = new System.Drawing.Size(774, 482);
+            this.Destination.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Destination.Size = new System.Drawing.Size(676, 358);
             this.Destination.TabIndex = 2;
             this.Destination.Text = "Địa điểm";
             this.Destination.UseVisualStyleBackColor = true;
             // 
             // Group
             // 
-            this.Group.Location = new System.Drawing.Point(4, 29);
+            this.Group.Location = new System.Drawing.Point(4, 24);
+            this.Group.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Group.Name = "Group";
-            this.Group.Size = new System.Drawing.Size(774, 482);
+            this.Group.Size = new System.Drawing.Size(676, 358);
             this.Group.TabIndex = 3;
             this.Group.Text = "Đoàn";
             // 
@@ -334,7 +350,8 @@ namespace TourApp
             this.toolStripMenuItem1});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(782, 28);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(684, 24);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.Text = "menu";
             // 
@@ -343,7 +360,7 @@ namespace TourApp
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(76, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(61, 20);
             this.toolStripMenuItem1.Text = "Settings";
             // 
             // toolStripMenuItem2
@@ -353,7 +370,7 @@ namespace TourApp
             this.LightStripMenuItem,
             this.DefaultStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(188, 26);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem2.Text = "Change theme";
             this.toolStripMenuItem2.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem2_DropDownItemClicked);
             // 
@@ -361,14 +378,14 @@ namespace TourApp
             // 
             this.DarkStripMenuItem.CheckOnClick = true;
             this.DarkStripMenuItem.Name = "DarkStripMenuItem";
-            this.DarkStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.DarkStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.DarkStripMenuItem.Text = "Dark ";
             // 
             // LightStripMenuItem
             // 
             this.LightStripMenuItem.CheckOnClick = true;
             this.LightStripMenuItem.Name = "LightStripMenuItem";
-            this.LightStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.LightStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.LightStripMenuItem.Text = "Light";
             // 
             // DefaultStripMenuItem
@@ -377,7 +394,7 @@ namespace TourApp
             this.DefaultStripMenuItem.CheckOnClick = true;
             this.DefaultStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.DefaultStripMenuItem.Name = "DefaultStripMenuItem";
-            this.DefaultStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.DefaultStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.DefaultStripMenuItem.Text = "Default";
             // 
             // toolStripComboBox1
@@ -390,15 +407,14 @@ namespace TourApp
             // 
             // List
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(782, 553);
+            this.ClientSize = new System.Drawing.Size(684, 415);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "List";
             this.Text = "Danh sách";
             this.Load += new System.EventHandler(this.Form1_Load);

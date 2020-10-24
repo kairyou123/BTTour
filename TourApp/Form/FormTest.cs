@@ -11,19 +11,18 @@ namespace TourApp
 {
     public partial class FormTest : Form
     {
-        private readonly ThongTinTour _thongTinTour;
-        private readonly ThemTour _themTour;
-        public FormTest(ThongTinTour thongTinTour,ThemTour themTour)
+        private IServiceProvider _service;
+        public FormTest(IServiceProvider services)
         {
-            _thongTinTour = thongTinTour;
-            _themTour = themTour;
+            _service = services;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _themTour.Show();
-            this.Hide();
+            HanhKhach_Form HK = _service.GetRequiredService<HanhKhach_Form>();
+            HK.Show();
+
         }
     }
 }

@@ -17,6 +17,7 @@ namespace TourApp
         ///  The main entry point for the application.
         /// </summary>
         public static List Form;
+        public static FormTest Form1;
         [STAThread]
         static void Main()
         {
@@ -29,6 +30,7 @@ namespace TourApp
             using(ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
                 Form = serviceProvider.GetRequiredService<List>();
+                Form1 = serviceProvider.GetRequiredService<FormTest>();
                 Application.Run(Form);
             }
             
@@ -41,11 +43,13 @@ namespace TourApp
             services.AddTransient<ThongTinTour>();
             services.AddTransient<ThemTour>();
             services.AddTransient<List>();
+            services.AddTransient<HanhKhach_Form>();
             services.AddScoped<IChiTieuRepository, ChiTieuRepository>();
             services.AddScoped<ITourRepository, TourRepository>();
             services.AddScoped<IDiaDiemRepository, DiaDiemRepository>();
             services.AddScoped<IGiaRepository, GiaRepository>();
             services.AddScoped<ICTTourRepository, CTTourRepository>();
+            services.AddScoped<IHanhKhachRepository, HanhKhachRepository>();
         }
     }
 }
