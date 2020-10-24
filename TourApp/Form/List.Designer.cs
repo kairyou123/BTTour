@@ -47,6 +47,11 @@ namespace TourApp
             this.button1 = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.Staff = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.Destination = new System.Windows.Forms.TabPage();
             this.Group = new System.Windows.Forms.TabPage();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -59,6 +64,7 @@ namespace TourApp
             this.tabControl1.SuspendLayout();
             this.Tour.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).BeginInit();
+            this.Staff.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -245,6 +251,11 @@ namespace TourApp
             // 
             // Staff
             // 
+            this.Staff.Controls.Add(this.textBox1);
+            this.Staff.Controls.Add(this.checkBox1);
+            this.Staff.Controls.Add(this.button5);
+            this.Staff.Controls.Add(this.button4);
+            this.Staff.Controls.Add(this.button3);
             this.Staff.Location = new System.Drawing.Point(4, 29);
             this.Staff.Name = "Staff";
             this.Staff.Padding = new System.Windows.Forms.Padding(3);
@@ -252,6 +263,51 @@ namespace TourApp
             this.Staff.TabIndex = 1;
             this.Staff.Text = "Nhân viên";
             this.Staff.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(608, 45);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(125, 27);
+            this.textBox1.TabIndex = 4;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(236, 137);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(101, 24);
+            this.checkBox1.TabIndex = 3;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(453, 183);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(94, 29);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(577, 137);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(94, 29);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.Location = new System.Drawing.Point(497, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(42, 44);
+            this.button3.TabIndex = 0;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // Destination
             // 
@@ -350,6 +406,8 @@ namespace TourApp
             this.Tour.ResumeLayout(false);
             this.Tour.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).EndInit();
+            this.Staff.ResumeLayout(false);
+            this.Staff.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -384,6 +442,11 @@ namespace TourApp
         private System.Windows.Forms.ToolStripMenuItem LightStripMenuItem;
         private ToolStripComboBox toolStripComboBox1;
         private ToolStripMenuItem DefaultStripMenuItem;
+        private TextBox textBox1;
+        private CheckBox checkBox1;
+        private Button button5;
+        private Button button4;
+        private Button button3;
     }
 }
 
