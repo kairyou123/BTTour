@@ -184,6 +184,9 @@ namespace TourApp
 
         private void txt_Validating(object sender, CancelEventArgs e)
         {
+            if (this.ActiveControl.Equals(sender))
+                return;
+
             string name = ((TextBox)sender).Name;
             switch (name)
             {
@@ -267,5 +270,6 @@ namespace TourApp
 
                     
         }
+
     }
 }

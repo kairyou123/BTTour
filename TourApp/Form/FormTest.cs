@@ -20,8 +20,11 @@ namespace TourApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            HanhKhach_Form HK = _service.GetRequiredService<HanhKhach_Form>();
-            HK.Show();
+             HanhKhach_Form HK = _service.GetRequiredService<HanhKhach_Form>();
+             HK.Show();
+            DoanKhach_Form DK = _service.GetRequiredService<DoanKhach_Form>();
+            DK.Show();
+
 
         }
     }

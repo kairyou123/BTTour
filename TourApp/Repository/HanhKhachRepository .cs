@@ -40,7 +40,7 @@ namespace TourApp.Repository
 
         public IEnumerable<HanhKhach> getAllDelete()
         {
-            return _context.HanhKhachs.Where(hk => hk.isDeleted == Status.NotDeleted).ToList();
+            return _context.HanhKhachs.Where(hk => hk.isDeleted == Status.Deleted).ToList();
         }
 
         public IEnumerable<HanhKhach> getWhere(string name, int isDeleted)
