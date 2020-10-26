@@ -61,6 +61,18 @@ namespace TourApp
             this.tabNV_AddBtn = new System.Windows.Forms.Button();
             this.tabNV_RefreshBtn = new System.Windows.Forms.Button();
             this.tabNV_SearchBtn = new System.Windows.Forms.Button();
+            this.tabCT = new System.Windows.Forms.TabPage();
+            this.ChiTieuGridView = new System.Windows.Forms.DataGridView();
+            this.tabCT_IDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabCT_TenCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabCT_ViewCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabCT_EditCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabCT_DeleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabCT_BlankCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabCT_SearchBox = new System.Windows.Forms.TextBox();
+            this.tabCT_RefreshBtn = new System.Windows.Forms.Button();
+            this.tabCT_AddBtn = new System.Windows.Forms.Button();
+            this.tabCT_SearchBtn = new System.Windows.Forms.Button();
             this.tabDestination = new System.Windows.Forms.TabPage();
             this.tabGroup = new System.Windows.Forms.TabPage();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -75,6 +87,8 @@ namespace TourApp
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).BeginInit();
             this.tabStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).BeginInit();
+            this.tabCT.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChiTieuGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +96,7 @@ namespace TourApp
             // 
             this.tabControl.Controls.Add(this.tabTour);
             this.tabControl.Controls.Add(this.tabStaff);
+            this.tabControl.Controls.Add(this.tabCT);
             this.tabControl.Controls.Add(this.tabDestination);
             this.tabControl.Controls.Add(this.tabGroup);
             this.tabControl.Location = new System.Drawing.Point(0, 34);
@@ -424,6 +439,138 @@ namespace TourApp
             this.tabNV_SearchBtn.UseVisualStyleBackColor = true;
             this.tabNV_SearchBtn.Click += new System.EventHandler(this.tabNV_SearchBtn_Click);
             // 
+            // tabCT
+            // 
+            this.tabCT.Controls.Add(this.ChiTieuGridView);
+            this.tabCT.Controls.Add(this.tabCT_SearchBox);
+            this.tabCT.Controls.Add(this.tabCT_RefreshBtn);
+            this.tabCT.Controls.Add(this.tabCT_AddBtn);
+            this.tabCT.Controls.Add(this.tabCT_SearchBtn);
+            this.tabCT.Location = new System.Drawing.Point(4, 29);
+            this.tabCT.Name = "tabCT";
+            this.tabCT.Size = new System.Drawing.Size(774, 482);
+            this.tabCT.TabIndex = 4;
+            this.tabCT.Text = "Chỉ tiêu";
+            // 
+            // ChiTieuGridView
+            // 
+            this.ChiTieuGridView.AllowUserToAddRows = false;
+            this.ChiTieuGridView.AllowUserToDeleteRows = false;
+            this.ChiTieuGridView.AllowUserToOrderColumns = true;
+            this.ChiTieuGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ChiTieuGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tabCT_IDCol,
+            this.tabCT_TenCol,
+            this.tabCT_ViewCol,
+            this.tabCT_EditCol,
+            this.tabCT_DeleteCol,
+            this.tabCT_BlankCol});
+            this.ChiTieuGridView.Location = new System.Drawing.Point(3, 140);
+            this.ChiTieuGridView.Name = "ChiTieuGridView";
+            this.ChiTieuGridView.RowHeadersVisible = false;
+            this.ChiTieuGridView.RowHeadersWidth = 51;
+            this.ChiTieuGridView.Size = new System.Drawing.Size(763, 374);
+            this.ChiTieuGridView.TabIndex = 5;
+            this.ChiTieuGridView.Text = "dataGridView1";
+            this.ChiTieuGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChiTieuGridView_CellClick);
+            this.ChiTieuGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChiTieuGridView_CellDoubleClick);
+            this.ChiTieuGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.ChiTieuGridView_CellPainting);
+            // 
+            // tabCT_IDCol
+            // 
+            this.tabCT_IDCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabCT_IDCol.HeaderText = "ID";
+            this.tabCT_IDCol.MinimumWidth = 6;
+            this.tabCT_IDCol.Name = "tabCT_IDCol";
+            this.tabCT_IDCol.ReadOnly = true;
+            this.tabCT_IDCol.Width = 53;
+            // 
+            // tabCT_TenCol
+            // 
+            this.tabCT_TenCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabCT_TenCol.HeaderText = "Tên chỉ tiêu";
+            this.tabCT_TenCol.MinimumWidth = 6;
+            this.tabCT_TenCol.Name = "tabCT_TenCol";
+            this.tabCT_TenCol.ReadOnly = true;
+            this.tabCT_TenCol.Width = 113;
+            // 
+            // tabCT_ViewCol
+            // 
+            this.tabCT_ViewCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabCT_ViewCol.HeaderText = "Xem";
+            this.tabCT_ViewCol.MinimumWidth = 6;
+            this.tabCT_ViewCol.Name = "tabCT_ViewCol";
+            this.tabCT_ViewCol.ReadOnly = true;
+            this.tabCT_ViewCol.Width = 45;
+            // 
+            // tabCT_EditCol
+            // 
+            this.tabCT_EditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabCT_EditCol.HeaderText = "Sửa";
+            this.tabCT_EditCol.MinimumWidth = 6;
+            this.tabCT_EditCol.Name = "tabCT_EditCol";
+            this.tabCT_EditCol.ReadOnly = true;
+            this.tabCT_EditCol.Width = 40;
+            // 
+            // tabCT_DeleteCol
+            // 
+            this.tabCT_DeleteCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabCT_DeleteCol.HeaderText = "Xóa";
+            this.tabCT_DeleteCol.MinimumWidth = 6;
+            this.tabCT_DeleteCol.Name = "tabCT_DeleteCol";
+            this.tabCT_DeleteCol.ReadOnly = true;
+            this.tabCT_DeleteCol.Width = 41;
+            // 
+            // tabCT_BlankCol
+            // 
+            this.tabCT_BlankCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tabCT_BlankCol.HeaderText = "";
+            this.tabCT_BlankCol.MinimumWidth = 6;
+            this.tabCT_BlankCol.Name = "tabCT_BlankCol";
+            this.tabCT_BlankCol.ReadOnly = true;
+            // 
+            // tabCT_SearchBox
+            // 
+            this.tabCT_SearchBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabCT_SearchBox.Location = new System.Drawing.Point(551, 15);
+            this.tabCT_SearchBox.Name = "tabCT_SearchBox";
+            this.tabCT_SearchBox.Size = new System.Drawing.Size(215, 38);
+            this.tabCT_SearchBox.TabIndex = 3;
+            this.tabCT_SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabCT_SearchBox_KeyPress);
+            // 
+            // tabCT_RefreshBtn
+            // 
+            this.tabCT_RefreshBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabCT_RefreshBtn.BackgroundImage")));
+            this.tabCT_RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabCT_RefreshBtn.Location = new System.Drawing.Point(668, 98);
+            this.tabCT_RefreshBtn.Name = "tabCT_RefreshBtn";
+            this.tabCT_RefreshBtn.Size = new System.Drawing.Size(41, 36);
+            this.tabCT_RefreshBtn.TabIndex = 2;
+            this.tabCT_RefreshBtn.UseVisualStyleBackColor = true;
+            this.tabCT_RefreshBtn.Click += new System.EventHandler(this.tabCT_RefreshBtn_Click);
+            // 
+            // tabCT_AddBtn
+            // 
+            this.tabCT_AddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabCT_AddBtn.BackgroundImage")));
+            this.tabCT_AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabCT_AddBtn.Location = new System.Drawing.Point(718, 98);
+            this.tabCT_AddBtn.Name = "tabCT_AddBtn";
+            this.tabCT_AddBtn.Size = new System.Drawing.Size(48, 36);
+            this.tabCT_AddBtn.TabIndex = 1;
+            this.tabCT_AddBtn.UseVisualStyleBackColor = true;
+            this.tabCT_AddBtn.Click += new System.EventHandler(this.tabCT_AddBtn_Click);
+            // 
+            // tabCT_SearchBtn
+            // 
+            this.tabCT_SearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabCT_SearchBtn.BackgroundImage")));
+            this.tabCT_SearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabCT_SearchBtn.Location = new System.Drawing.Point(497, 12);
+            this.tabCT_SearchBtn.Name = "tabCT_SearchBtn";
+            this.tabCT_SearchBtn.Size = new System.Drawing.Size(42, 44);
+            this.tabCT_SearchBtn.TabIndex = 0;
+            this.tabCT_SearchBtn.UseVisualStyleBackColor = true;
+            this.tabCT_SearchBtn.Click += new System.EventHandler(this.tabCT_SearchBtn_Click);
+            // 
             // tabDestination
             // 
             this.tabDestination.Location = new System.Drawing.Point(4, 29);
@@ -524,6 +671,9 @@ namespace TourApp
             this.tabStaff.ResumeLayout(false);
             this.tabStaff.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).EndInit();
+            this.tabCT.ResumeLayout(false);
+            this.tabCT.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChiTieuGridView)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -572,6 +722,18 @@ namespace TourApp
         private DataGridViewButtonColumn tabNV_EditCol;
         private DataGridViewButtonColumn tabNV_DeleteCol;
         private DataGridViewTextBoxColumn tabNV_BlankCol;
+        private TabPage tabCT;
+        private DataGridView ChiTieuGridView;
+        private TextBox tabCT_SearchBox;
+        private Button tabCT_RefreshBtn;
+        private Button tabCT_AddBtn;
+        private Button tabCT_SearchBtn;
+        private DataGridViewTextBoxColumn tabCT_IDCol;
+        private DataGridViewTextBoxColumn tabCT_TenCol;
+        private DataGridViewButtonColumn tabCT_ViewCol;
+        private DataGridViewButtonColumn tabCT_EditCol;
+        private DataGridViewButtonColumn tabCT_DeleteCol;
+        private DataGridViewTextBoxColumn tabCT_BlankCol;
     }
 }
 

@@ -22,16 +22,20 @@ namespace TourApp
     {
         private readonly ITourRepository _tourRepo;
         private readonly INhanVienRepository _nhanvienRepo;
+        private readonly IChiTieuRepository _chitieuRepo;
         private readonly IServiceProvider _serviceProvider;
         public List(
                         ITourRepository tourRepo,
                         INhanVienRepository nhanvienRepo,
+                        IChiTieuRepository chitieuRepo,
                         IServiceProvider serviceProvider
                     )
         {
             InitializeComponent();
             _tourRepo = tourRepo;
             _nhanvienRepo = nhanvienRepo;
+            _chitieuRepo = chitieuRepo;
+
             _serviceProvider = serviceProvider;
             tabControl.SelectedTab = tabTour;
         }
@@ -40,6 +44,7 @@ namespace TourApp
         {
             TabRefresh(ListTab.Tour);
             TabRefresh(ListTab.Nhanvien);
+            TabRefresh(ListTab.Chitieu);
             ChangeTheme(new DefaultTheme(), this.Controls);
         }
         public void TabRefresh(ListTab tab)
@@ -71,6 +76,17 @@ namespace TourApp
                         {
 
                             NVGridView.Rows.Add(item.NVId,item.MaNV, item.Ten, item.SDT);
+                        }
+                        break;
+                    }
+                case ListTab.Chitieu:
+                    {
+                        tabCT_SearchBox.Text = "";
+                        ChiTieuGridView.Rows.Clear();
+                        var data = _chitieuRepo.getAll();
+                        foreach (ChiTieu item in data)
+                        {
+                            ChiTieuGridView.Rows.Add(item.CTId, item.Ten);
                         }
                         break;
                     }
@@ -354,7 +370,7 @@ namespace TourApp
                     var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + nhanvien.Ten, "Warning", MessageBoxButtons.YesNo);
                     if (messageResult != DialogResult.Yes) return;
                     _nhanvienRepo.Delete(nhanvien);
-                    Search();
+                    tabNV_Search();
                     break;
             }
 
@@ -425,5 +441,128 @@ namespace TourApp
             }
         }
         #endregion
+
+        #region Chỉ tiêu
+        private void ChiTieuGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            //I supposed your button column is at index 0
+            if (e.ColumnIndex == 2)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.view;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 3)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.edit;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 4)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.delete;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+        private void tabCT_Search()
+        {
+            var searchStr = tabCT_SearchBox.Text;
+            ChiTieuGridView.Rows.Clear();
+            var data = _chitieuRepo.getWhere(searchStr);
+            foreach (ChiTieu item in data)
+            {
+                ChiTieuGridView.Rows.Add(item.CTId, item.Ten);
+            }
+        }
+
+        private void tabCT_SearchBtn_Click(object sender, EventArgs e)
+        {
+            tabCT_Search();
+        }
+        private void tabCT_SearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) tabCT_Search();
+        }
+        private void tabCT_RefreshBtn_Click(object sender, EventArgs e)
+        {
+            TabRefresh(ListTab.Chitieu);
+        }
+
+        private void tabCT_AddBtn_Click(object sender, EventArgs e)
+        {
+            //ThemTour form = _serviceProvider.GetRequiredService<ThemTour>();
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+
+
+        private void ChiTieuGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            var value = grid.Rows[e.RowIndex].Cells["tabCT_IDCol"].Value.ToString();
+            switch (name)
+            {
+                case "tabCT_ViewCol":
+                //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
+                //form.getId(int.Parse(value));
+                //var main = this.Location;
+                //form.Location = new Point((main.X + 10), (main.Y + 10));
+                //form.Show();
+                //break;
+                case "tabCT_EditCol":
+                    break;
+                case "tabCT_DeleteCol":
+                    var chitieu = _chitieuRepo.getById(int.Parse(value));
+                    var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + chitieu.Ten, "Warning", MessageBoxButtons.YesNo);
+                    if (messageResult != DialogResult.Yes) return;
+                    _chitieuRepo.Delete(chitieu);
+                    tabCT_Search();
+                    break;
+            }
+        }
+
+        private void ChiTieuGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            if (name == "tabCT_EditCol" || name == "tabCT_ViewCol" || name == "tabCT_DeleteCol") return;
+            var value = grid.Rows[e.RowIndex].Cells["tabCT_IDCol"].Value.ToString();
+
+            //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
+            //form.getId(int.Parse(value));
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+
+        #endregion
+
+
     }
 }

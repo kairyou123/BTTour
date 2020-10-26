@@ -41,7 +41,7 @@ namespace TourApp.Repository
             return _context.ChiTieus.Find(CTId);
         }
 
-        public IEnumerable<ChiTieu> getWhere(string Ten = "")
+        public IEnumerable<ChiTieu> getWhere(string Ten)
         {
             return _context.ChiTieus.Where(c => c.Ten.Contains(Ten)).ToList();
                                            
