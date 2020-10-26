@@ -1,20 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿
 
-using System.Data;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TourApp.Const;
 using TourApp.Entity;
-using TourApp.Repository;
 using TourApp.Repository.IRepository;
 using TourApp.UI;
+
 
 namespace TourApp
 {
@@ -98,7 +93,8 @@ namespace TourApp
         }
 
         #region Setting menu
-        private void toolStripMenuItem2_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        //change theme
+        private void ChangeThemeMenu_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             //get the parent item
             ToolStripMenuItem ownerItem = e.ClickedItem.OwnerItem as ToolStripMenuItem;
@@ -160,6 +156,61 @@ namespace TourApp
                 }
 
             }
+        }
+        //export button pressed
+        private void FileMenu_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            DataGridView data =  tabControl.SelectedTab.Controls.OfType<DataGridView>().First();
+            exportExcel(data, "D:\\mytest.xlsx");
+        }
+        //export excel
+        private void exportExcel(DataGridView grid, string filepath)
+        {
+            // Create a spreadsheet document by supplying the filepath.
+            // By default, AutoSave = true, Editable = true, and Type = xlsx.
+            var spreadsheetDocument = DocumentFormat.OpenXml.Packaging.SpreadsheetDocument.
+                Create(filepath, DocumentFormat.OpenXml.SpreadsheetDocumentType.Workbook);
+
+            // Add a WorkbookPart to the document.
+            var workbookpart = spreadsheetDocument.AddWorkbookPart();
+            workbookpart.Workbook = new DocumentFormat.OpenXml.Spreadsheet.Workbook();
+
+            // Add a WorksheetPart to the WorkbookPart.
+            var worksheetPart = workbookpart.AddNewPart<DocumentFormat.OpenXml.Packaging.WorksheetPart>();
+            var sheetData = new DocumentFormat.OpenXml.Spreadsheet.SheetData();
+            worksheetPart.Worksheet = new DocumentFormat.OpenXml.Spreadsheet.Worksheet(sheetData);
+
+            // Add Sheets to the Workbook.
+            var sheets = spreadsheetDocument.WorkbookPart.Workbook.
+                AppendChild(new DocumentFormat.OpenXml.Spreadsheet.Sheets());
+
+            // Append a new worksheet and associate it with the workbook.
+            var sheet = new DocumentFormat.OpenXml.Spreadsheet.Sheet()
+            {
+                Id = spreadsheetDocument.WorkbookPart.
+                GetIdOfPart(worksheetPart),
+                SheetId = 1,
+                Name = "mySheet"
+            };
+            sheets.Append(sheet);
+            var row = new DocumentFormat.OpenXml.Spreadsheet.Row() { RowIndex = 1 };
+            var header1 = new DocumentFormat.OpenXml.Spreadsheet.Cell() {  CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue("Interval Period Timestamp"), DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String };
+            row.Append(header1);
+            var header2 = new DocumentFormat.OpenXml.Spreadsheet.Cell() {  CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue("Settlement Interval"), DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String };
+            row.Append(header2);
+            var header3 = new DocumentFormat.OpenXml.Spreadsheet.Cell() {  CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue("Aggregated Consumption Factor"), DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String };
+            row.Append(header3);
+            var header4 = new DocumentFormat.OpenXml.Spreadsheet.Cell() {  CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue("Loss Adjusted Aggregated Consumption"), DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String };
+            row.Append(header4);
+
+            sheetData.Append(row);
+            
+
+            workbookpart.Workbook.Save();
+
+            // Close the document.
+            spreadsheetDocument.Close();
+
         }
         #endregion
 
@@ -561,8 +612,9 @@ namespace TourApp
             //form.Show();
         }
 
+
         #endregion
 
-
+        
     }
 }

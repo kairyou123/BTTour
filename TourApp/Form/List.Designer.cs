@@ -76,8 +76,10 @@ namespace TourApp
             this.tabDestination = new System.Windows.Forms.TabPage();
             this.tabGroup = new System.Windows.Forms.TabPage();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExportMenuBtn = new System.Windows.Forms.ToolStripMenuItem();
+            this.SettingMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChangeThemeMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.DarkStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LightStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefaultStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,8 +87,8 @@ namespace TourApp
             this.tabControl.SuspendLayout();
             this.tabTour.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).BeginInit();
-            this.tabStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).BeginInit();
+            this.tabStaff.SuspendLayout();
             this.tabCT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChiTieuGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
@@ -275,19 +277,6 @@ namespace TourApp
             // 
             // tabStaff
             // 
-            this.tabStaff.Controls.Add(this.NVGridView);
-            this.tabStaff.Controls.Add(this.tabNV_SearchBox);
-            this.tabStaff.Controls.Add(this.tabNV_CB);
-            this.tabStaff.Controls.Add(this.tabNV_AddBtn);
-            this.tabStaff.Controls.Add(this.tabNV_RefreshBtn);
-            this.tabStaff.Controls.Add(this.tabNV_SearchBtn);
-            this.tabStaff.Location = new System.Drawing.Point(4, 29);
-            this.tabStaff.Name = "tabStaff";
-            this.tabStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStaff.Size = new System.Drawing.Size(774, 482);
-            this.tabStaff.TabIndex = 1;
-            this.tabStaff.Text = "Nhân viên";
-            this.tabStaff.UseVisualStyleBackColor = true;
             // 
             // NVGridView
             // 
@@ -314,6 +303,19 @@ namespace TourApp
             this.NVGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NVGridView_CellClick);
             this.NVGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NVGridView_CellDoubleClick);
             this.NVGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.NVGridView_CellPainting);
+            this.tabStaff.Controls.Add(this.NVGridView);
+            this.tabStaff.Controls.Add(this.tabNV_SearchBox);
+            this.tabStaff.Controls.Add(this.tabNV_CB);
+            this.tabStaff.Controls.Add(this.tabNV_AddBtn);
+            this.tabStaff.Controls.Add(this.tabNV_RefreshBtn);
+            this.tabStaff.Controls.Add(this.tabNV_SearchBtn);
+            this.tabStaff.Location = new System.Drawing.Point(4, 29);
+            this.tabStaff.Name = "tabStaff";
+            this.tabStaff.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStaff.Size = new System.Drawing.Size(774, 482);
+            this.tabStaff.TabIndex = 1;
+            this.tabStaff.Text = "Nhân viên";
+            this.tabStaff.UseVisualStyleBackColor = true;
             // 
             // tabNV_IDCol
             // 
@@ -593,31 +595,47 @@ namespace TourApp
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.FileMenu,
+            this.SettingMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(782, 28);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.Text = "menu";
             // 
-            // toolStripMenuItem1
+            // FileMenu
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(76, 24);
-            this.toolStripMenuItem1.Text = "Settings";
+            this.FileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ExportMenuBtn});
+            this.FileMenu.Name = "FileMenu";
+            this.FileMenu.Size = new System.Drawing.Size(46, 24);
+            this.FileMenu.Text = "File";
+            this.FileMenu.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.FileMenu_DropDownItemClicked);
             // 
-            // toolStripMenuItem2
+            // ExportMenuBtn
             // 
-            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ExportMenuBtn.Name = "ExportMenuBtn";
+            this.ExportMenuBtn.Size = new System.Drawing.Size(191, 26);
+            this.ExportMenuBtn.Text = "Export to excel";
+            // 
+            // SettingMenu
+            // 
+            this.SettingMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ChangeThemeMenu});
+            this.SettingMenu.Name = "SettingMenu";
+            this.SettingMenu.Size = new System.Drawing.Size(70, 24);
+            this.SettingMenu.Text = "Setting";
+            // 
+            // ChangeThemeMenu
+            // 
+            this.ChangeThemeMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DarkStripMenuItem,
             this.LightStripMenuItem,
             this.DefaultStripMenuItem});
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(188, 26);
-            this.toolStripMenuItem2.Text = "Change theme";
-            this.toolStripMenuItem2.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenuItem2_DropDownItemClicked);
+            this.ChangeThemeMenu.Name = "ChangeThemeMenu";
+            this.ChangeThemeMenu.Size = new System.Drawing.Size(188, 26);
+            this.ChangeThemeMenu.Text = "Change theme";
+            this.ChangeThemeMenu.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ChangeThemeMenu_DropDownItemClicked);
             // 
             // DarkStripMenuItem
             // 
@@ -668,9 +686,9 @@ namespace TourApp
             this.tabTour.ResumeLayout(false);
             this.tabTour.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).EndInit();
             this.tabStaff.ResumeLayout(false);
             this.tabStaff.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).EndInit();
             this.tabCT.ResumeLayout(false);
             this.tabCT.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChiTieuGridView)).EndInit();
@@ -702,8 +720,8 @@ namespace TourApp
         private System.Windows.Forms.DataGridViewButtonColumn DeleteCol;
         private System.Windows.Forms.CheckBox isDeleted_ChB;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem SettingMenu;
+        private System.Windows.Forms.ToolStripMenuItem ChangeThemeMenu;
         private System.Windows.Forms.ToolStripMenuItem DarkStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem LightStripMenuItem;
         private ToolStripComboBox toolStripComboBox1;
@@ -734,6 +752,8 @@ namespace TourApp
         private DataGridViewButtonColumn tabCT_EditCol;
         private DataGridViewButtonColumn tabCT_DeleteCol;
         private DataGridViewTextBoxColumn tabCT_BlankCol;
+        private ToolStripMenuItem FileMenu;
+        private ToolStripMenuItem ExportMenuBtn;
     }
 }
 
