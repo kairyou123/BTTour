@@ -31,8 +31,8 @@ namespace TourApp
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(List));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Tour = new System.Windows.Forms.TabPage();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabTour = new System.Windows.Forms.TabPage();
             this.isDeleted_ChB = new System.Windows.Forms.CheckBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -46,14 +46,23 @@ namespace TourApp
             this.DeleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
-            this.Staff = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.Destination = new System.Windows.Forms.TabPage();
-            this.Group = new System.Windows.Forms.TabPage();
+            this.tabStaff = new System.Windows.Forms.TabPage();
+            this.NVGridView = new System.Windows.Forms.DataGridView();
+            this.tabNV_IDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabNV_MaNVCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabNV_TenCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabNV_SDTCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabNV_ViewCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabNV_EditCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabNV_DeleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabNV_BlankCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabNV_SearchBox = new System.Windows.Forms.TextBox();
+            this.tabNV_CB = new System.Windows.Forms.CheckBox();
+            this.tabNV_AddBtn = new System.Windows.Forms.Button();
+            this.tabNV_RefreshBtn = new System.Windows.Forms.Button();
+            this.tabNV_SearchBtn = new System.Windows.Forms.Button();
+            this.tabDestination = new System.Windows.Forms.TabPage();
+            this.tabGroup = new System.Windows.Forms.TabPage();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,43 +70,41 @@ namespace TourApp
             this.LightStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefaultStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabControl1.SuspendLayout();
-            this.Tour.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabTour.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).BeginInit();
-            this.Staff.SuspendLayout();
+            this.tabStaff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Controls.Add(this.Tour);
-            this.tabControl1.Controls.Add(this.Staff);
-            this.tabControl1.Controls.Add(this.Destination);
-            this.tabControl1.Controls.Add(this.Group);
-            this.tabControl1.Location = new System.Drawing.Point(0, 34);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 2;
-            this.tabControl1.Size = new System.Drawing.Size(782, 515);
-            this.tabControl1.TabIndex = 1;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl.Controls.Add(this.tabTour);
+            this.tabControl.Controls.Add(this.tabStaff);
+            this.tabControl.Controls.Add(this.tabDestination);
+            this.tabControl.Controls.Add(this.tabGroup);
+            this.tabControl.Location = new System.Drawing.Point(0, 34);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 2;
+            this.tabControl.Size = new System.Drawing.Size(782, 515);
+            this.tabControl.TabIndex = 1;
             // 
-            // Tour
+            // tabTour
             // 
-            this.Tour.Controls.Add(this.isDeleted_ChB);
-            this.Tour.Controls.Add(this.btnRefresh);
-            this.Tour.Controls.Add(this.button2);
-            this.Tour.Controls.Add(this.tourGridView);
-            this.Tour.Controls.Add(this.button1);
-            this.Tour.Controls.Add(this.searchBox);
-            this.Tour.Location = new System.Drawing.Point(4, 29);
-            this.Tour.Name = "Tour";
-            this.Tour.Padding = new System.Windows.Forms.Padding(3);
-            this.Tour.Size = new System.Drawing.Size(774, 482);
-            this.Tour.TabIndex = 0;
-            this.Tour.Text = "Tour";
-            this.Tour.UseVisualStyleBackColor = true;
+            this.tabTour.Controls.Add(this.isDeleted_ChB);
+            this.tabTour.Controls.Add(this.btnRefresh);
+            this.tabTour.Controls.Add(this.button2);
+            this.tabTour.Controls.Add(this.tourGridView);
+            this.tabTour.Controls.Add(this.button1);
+            this.tabTour.Controls.Add(this.searchBox);
+            this.tabTour.Location = new System.Drawing.Point(4, 29);
+            this.tabTour.Name = "tabTour";
+            this.tabTour.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTour.Size = new System.Drawing.Size(774, 482);
+            this.tabTour.TabIndex = 0;
+            this.tabTour.Text = "Tour";
+            this.tabTour.UseVisualStyleBackColor = true;
             // 
             // isDeleted_ChB
             // 
@@ -251,87 +258,189 @@ namespace TourApp
             this.searchBox.TabIndex = 0;
             this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchBox_KeyPress);
             // 
-            // Staff
+            // tabStaff
             // 
-            this.Staff.Controls.Add(this.dataGridView1);
-            this.Staff.Controls.Add(this.textBox1);
-            this.Staff.Controls.Add(this.checkBox1);
-            this.Staff.Controls.Add(this.button5);
-            this.Staff.Controls.Add(this.button4);
-            this.Staff.Controls.Add(this.button3);
-            this.Staff.Location = new System.Drawing.Point(4, 29);
-            this.Staff.Name = "Staff";
-            this.Staff.Padding = new System.Windows.Forms.Padding(3);
-            this.Staff.Size = new System.Drawing.Size(774, 482);
-            this.Staff.TabIndex = 1;
-            this.Staff.Text = "Nhân viên";
-            this.Staff.UseVisualStyleBackColor = true;
+            this.tabStaff.Controls.Add(this.NVGridView);
+            this.tabStaff.Controls.Add(this.tabNV_SearchBox);
+            this.tabStaff.Controls.Add(this.tabNV_CB);
+            this.tabStaff.Controls.Add(this.tabNV_AddBtn);
+            this.tabStaff.Controls.Add(this.tabNV_RefreshBtn);
+            this.tabStaff.Controls.Add(this.tabNV_SearchBtn);
+            this.tabStaff.Location = new System.Drawing.Point(4, 29);
+            this.tabStaff.Name = "tabStaff";
+            this.tabStaff.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStaff.Size = new System.Drawing.Size(774, 482);
+            this.tabStaff.TabIndex = 1;
+            this.tabStaff.Text = "Nhân viên";
+            this.tabStaff.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // NVGridView
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(551, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 38);
-            this.textBox1.TabIndex = 4;
+            this.NVGridView.AllowUserToAddRows = false;
+            this.NVGridView.AllowUserToDeleteRows = false;
+            this.NVGridView.AllowUserToOrderColumns = true;
+            this.NVGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NVGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tabNV_IDCol,
+            this.tabNV_MaNVCol,
+            this.tabNV_TenCol,
+            this.tabNV_SDTCol,
+            this.tabNV_ViewCol,
+            this.tabNV_EditCol,
+            this.tabNV_DeleteCol,
+            this.tabNV_BlankCol});
+            this.NVGridView.Location = new System.Drawing.Point(3, 140);
+            this.NVGridView.Name = "NVGridView";
+            this.NVGridView.RowHeadersVisible = false;
+            this.NVGridView.RowHeadersWidth = 51;
+            this.NVGridView.Size = new System.Drawing.Size(763, 734);
+            this.NVGridView.TabIndex = 5;
+            this.NVGridView.Text = "dataGridView1";
+            this.NVGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NVGridView_CellClick);
+            this.NVGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NVGridView_CellDoubleClick);
+            this.NVGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.NVGridView_CellPainting);
             // 
-            // checkBox1
+            // tabNV_IDCol
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(4, 98);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(78, 24);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Đã xóa";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.tabNV_IDCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabNV_IDCol.HeaderText = "ID";
+            this.tabNV_IDCol.MinimumWidth = 6;
+            this.tabNV_IDCol.Name = "tabNV_IDCol";
+            this.tabNV_IDCol.ReadOnly = true;
+            this.tabNV_IDCol.Width = 53;
             // 
-            // button5
+            // tabNV_MaNVCol
             // 
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Location = new System.Drawing.Point(718, 98);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(48, 36);
-            this.button5.TabIndex = 2;
-            this.button5.UseVisualStyleBackColor = true;
+            this.tabNV_MaNVCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabNV_MaNVCol.HeaderText = "Mã NV";
+            this.tabNV_MaNVCol.MinimumWidth = 6;
+            this.tabNV_MaNVCol.Name = "tabNV_MaNVCol";
+            this.tabNV_MaNVCol.ReadOnly = true;
+            this.tabNV_MaNVCol.Width = 83;
             // 
-            // button4
+            // tabNV_TenCol
             // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Location = new System.Drawing.Point(668, 98);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(41, 36);
-            this.button4.TabIndex = 1;
-            this.button4.UseVisualStyleBackColor = true;
+            this.tabNV_TenCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabNV_TenCol.HeaderText = "Tên";
+            this.tabNV_TenCol.MinimumWidth = 6;
+            this.tabNV_TenCol.Name = "tabNV_TenCol";
+            this.tabNV_TenCol.ReadOnly = true;
+            this.tabNV_TenCol.Width = 61;
             // 
-            // button3
+            // tabNV_SDTCol
             // 
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(497, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(42, 44);
-            this.button3.TabIndex = 0;
-            this.button3.UseVisualStyleBackColor = true;
+            this.tabNV_SDTCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabNV_SDTCol.HeaderText = "SĐT";
+            this.tabNV_SDTCol.MinimumWidth = 6;
+            this.tabNV_SDTCol.Name = "tabNV_SDTCol";
+            this.tabNV_SDTCol.ReadOnly = true;
+            this.tabNV_SDTCol.Width = 65;
             // 
-            // Destination
+            // tabNV_ViewCol
             // 
-            this.Destination.Location = new System.Drawing.Point(4, 29);
-            this.Destination.Name = "Destination";
-            this.Destination.Padding = new System.Windows.Forms.Padding(3);
-            this.Destination.Size = new System.Drawing.Size(774, 482);
-            this.Destination.TabIndex = 2;
-            this.Destination.Text = "Địa điểm";
-            this.Destination.UseVisualStyleBackColor = true;
+            this.tabNV_ViewCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabNV_ViewCol.HeaderText = "Xem";
+            this.tabNV_ViewCol.MinimumWidth = 6;
+            this.tabNV_ViewCol.Name = "tabNV_ViewCol";
+            this.tabNV_ViewCol.ReadOnly = true;
+            this.tabNV_ViewCol.Width = 45;
             // 
-            // Group
+            // tabNV_EditCol
             // 
-            this.Group.Location = new System.Drawing.Point(4, 29);
-            this.Group.Name = "Group";
-            this.Group.Size = new System.Drawing.Size(774, 482);
-            this.Group.TabIndex = 3;
-            this.Group.Text = "Đoàn";
+            this.tabNV_EditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabNV_EditCol.HeaderText = "Sửa";
+            this.tabNV_EditCol.MinimumWidth = 6;
+            this.tabNV_EditCol.Name = "tabNV_EditCol";
+            this.tabNV_EditCol.ReadOnly = true;
+            this.tabNV_EditCol.Width = 40;
+            // 
+            // tabNV_DeleteCol
+            // 
+            this.tabNV_DeleteCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabNV_DeleteCol.HeaderText = "Xóa";
+            this.tabNV_DeleteCol.MinimumWidth = 6;
+            this.tabNV_DeleteCol.Name = "tabNV_DeleteCol";
+            this.tabNV_DeleteCol.ReadOnly = true;
+            this.tabNV_DeleteCol.Width = 41;
+            // 
+            // tabNV_BlankCol
+            // 
+            this.tabNV_BlankCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tabNV_BlankCol.HeaderText = "";
+            this.tabNV_BlankCol.MinimumWidth = 6;
+            this.tabNV_BlankCol.Name = "tabNV_BlankCol";
+            this.tabNV_BlankCol.ReadOnly = true;
+            // 
+            // tabNV_SearchBox
+            // 
+            this.tabNV_SearchBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabNV_SearchBox.Location = new System.Drawing.Point(551, 15);
+            this.tabNV_SearchBox.Name = "tabNV_SearchBox";
+            this.tabNV_SearchBox.Size = new System.Drawing.Size(215, 38);
+            this.tabNV_SearchBox.TabIndex = 4;
+            this.tabNV_SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabNV_SearchBox_KeyPress);
+            // 
+            // tabNV_CB
+            // 
+            this.tabNV_CB.AutoSize = true;
+            this.tabNV_CB.Location = new System.Drawing.Point(4, 98);
+            this.tabNV_CB.Name = "tabNV_CB";
+            this.tabNV_CB.Size = new System.Drawing.Size(78, 24);
+            this.tabNV_CB.TabIndex = 3;
+            this.tabNV_CB.Text = "Đã xóa";
+            this.tabNV_CB.UseVisualStyleBackColor = true;
+            this.tabNV_CB.CheckedChanged += new System.EventHandler(this.tabNV_CB_CheckedChanged);
+            // 
+            // tabNV_AddBtn
+            // 
+            this.tabNV_AddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabNV_AddBtn.BackgroundImage")));
+            this.tabNV_AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabNV_AddBtn.Location = new System.Drawing.Point(718, 98);
+            this.tabNV_AddBtn.Name = "tabNV_AddBtn";
+            this.tabNV_AddBtn.Size = new System.Drawing.Size(48, 36);
+            this.tabNV_AddBtn.TabIndex = 2;
+            this.tabNV_AddBtn.UseVisualStyleBackColor = true;
+            this.tabNV_AddBtn.Click += new System.EventHandler(this.tabNV_AddBtn_Click);
+            // 
+            // tabNV_RefreshBtn
+            // 
+            this.tabNV_RefreshBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabNV_RefreshBtn.BackgroundImage")));
+            this.tabNV_RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabNV_RefreshBtn.Location = new System.Drawing.Point(668, 98);
+            this.tabNV_RefreshBtn.Name = "tabNV_RefreshBtn";
+            this.tabNV_RefreshBtn.Size = new System.Drawing.Size(41, 36);
+            this.tabNV_RefreshBtn.TabIndex = 1;
+            this.tabNV_RefreshBtn.UseVisualStyleBackColor = true;
+            this.tabNV_RefreshBtn.Click += new System.EventHandler(this.tabNV_RefreshBtn_Click);
+            // 
+            // tabNV_SearchBtn
+            // 
+            this.tabNV_SearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabNV_SearchBtn.BackgroundImage")));
+            this.tabNV_SearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabNV_SearchBtn.Location = new System.Drawing.Point(497, 12);
+            this.tabNV_SearchBtn.Name = "tabNV_SearchBtn";
+            this.tabNV_SearchBtn.Size = new System.Drawing.Size(42, 44);
+            this.tabNV_SearchBtn.TabIndex = 0;
+            this.tabNV_SearchBtn.UseVisualStyleBackColor = true;
+            this.tabNV_SearchBtn.Click += new System.EventHandler(this.tabNV_SearchBtn_Click);
+            // 
+            // tabDestination
+            // 
+            this.tabDestination.Location = new System.Drawing.Point(4, 29);
+            this.tabDestination.Name = "tabDestination";
+            this.tabDestination.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDestination.Size = new System.Drawing.Size(774, 482);
+            this.tabDestination.TabIndex = 2;
+            this.tabDestination.Text = "Địa điểm";
+            this.tabDestination.UseVisualStyleBackColor = true;
+            // 
+            // tabGroup
+            // 
+            this.tabGroup.Location = new System.Drawing.Point(4, 29);
+            this.tabGroup.Name = "tabGroup";
+            this.tabGroup.Size = new System.Drawing.Size(774, 482);
+            this.tabGroup.TabIndex = 3;
+            this.tabGroup.Text = "Đoàn";
             // 
             // menuStrip
             // 
@@ -394,23 +503,13 @@ namespace TourApp
             this.toolStripComboBox1.Name = "toolStripComboBox1";
             this.toolStripComboBox1.Size = new System.Drawing.Size(121, 28);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(193, 198);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 188);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.Text = "dataGridView1";
-            // 
             // List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(782, 553);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MainMenuStrip = this.menuStrip;
@@ -418,15 +517,15 @@ namespace TourApp
             this.Name = "List";
             this.Text = "Danh sách";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.Tour.ResumeLayout(false);
-            this.Tour.PerformLayout();
+            this.tabControl.ResumeLayout(false);
+            this.tabTour.ResumeLayout(false);
+            this.tabTour.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).EndInit();
-            this.Staff.ResumeLayout(false);
-            this.Staff.PerformLayout();
+            this.tabStaff.ResumeLayout(false);
+            this.tabStaff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,12 +533,12 @@ namespace TourApp
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage Tour;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabTour;
         private System.Windows.Forms.TextBox searchBox;
-        private System.Windows.Forms.TabPage Staff;
-        private System.Windows.Forms.TabPage Destination;
-        private System.Windows.Forms.TabPage Group;
+        private System.Windows.Forms.TabPage tabStaff;
+        private System.Windows.Forms.TabPage tabDestination;
+        private System.Windows.Forms.TabPage tabGroup;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView tourGridView;
         private System.Windows.Forms.Button button2;
@@ -459,12 +558,20 @@ namespace TourApp
         private System.Windows.Forms.ToolStripMenuItem LightStripMenuItem;
         private ToolStripComboBox toolStripComboBox1;
         private ToolStripMenuItem DefaultStripMenuItem;
-        private TextBox textBox1;
-        private CheckBox checkBox1;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private DataGridView dataGridView1;
+        private TextBox tabNV_SearchBox;
+        private CheckBox tabNV_CB;
+        private Button tabNV_AddBtn;
+        private Button tabNV_RefreshBtn;
+        private Button tabNV_SearchBtn;
+        private DataGridView NVGridView;
+        private DataGridViewTextBoxColumn tabNV_IDCol;
+        private DataGridViewTextBoxColumn tabNV_MaNVCol;
+        private DataGridViewTextBoxColumn tabNV_TenCol;
+        private DataGridViewTextBoxColumn tabNV_SDTCol;
+        private DataGridViewButtonColumn tabNV_ViewCol;
+        private DataGridViewButtonColumn tabNV_EditCol;
+        private DataGridViewButtonColumn tabNV_DeleteCol;
+        private DataGridViewTextBoxColumn tabNV_BlankCol;
     }
 }
 

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TourApp.Const;
 using TourApp.Entity;
 using TourApp.Repository.IRepository;
 
@@ -77,7 +78,7 @@ namespace TourApp
             _tourRepository.Add(newtour);
             // _giaRepository.Add(newgia);
             MessageBox.Show("Thêm thành công!");
-            Program.Form.FormRefresh();
+            Program.Form.TabRefresh(ListTab.Tour);
         }
 
         protected override  void OnLoad(EventArgs e)
