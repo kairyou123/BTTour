@@ -87,8 +87,8 @@ namespace TourApp
             this.tabControl.SuspendLayout();
             this.tabTour.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).BeginInit();
             this.tabStaff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).BeginInit();
             this.tabCT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChiTieuGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
@@ -277,6 +277,19 @@ namespace TourApp
             // 
             // tabStaff
             // 
+            this.tabStaff.Controls.Add(this.NVGridView);
+            this.tabStaff.Controls.Add(this.tabNV_SearchBox);
+            this.tabStaff.Controls.Add(this.tabNV_CB);
+            this.tabStaff.Controls.Add(this.tabNV_AddBtn);
+            this.tabStaff.Controls.Add(this.tabNV_RefreshBtn);
+            this.tabStaff.Controls.Add(this.tabNV_SearchBtn);
+            this.tabStaff.Location = new System.Drawing.Point(4, 29);
+            this.tabStaff.Name = "tabStaff";
+            this.tabStaff.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStaff.Size = new System.Drawing.Size(774, 482);
+            this.tabStaff.TabIndex = 1;
+            this.tabStaff.Text = "Nhân viên";
+            this.tabStaff.UseVisualStyleBackColor = true;
             // 
             // NVGridView
             // 
@@ -303,19 +316,6 @@ namespace TourApp
             this.NVGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NVGridView_CellClick);
             this.NVGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NVGridView_CellDoubleClick);
             this.NVGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.NVGridView_CellPainting);
-            this.tabStaff.Controls.Add(this.NVGridView);
-            this.tabStaff.Controls.Add(this.tabNV_SearchBox);
-            this.tabStaff.Controls.Add(this.tabNV_CB);
-            this.tabStaff.Controls.Add(this.tabNV_AddBtn);
-            this.tabStaff.Controls.Add(this.tabNV_RefreshBtn);
-            this.tabStaff.Controls.Add(this.tabNV_SearchBtn);
-            this.tabStaff.Location = new System.Drawing.Point(4, 29);
-            this.tabStaff.Name = "tabStaff";
-            this.tabStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStaff.Size = new System.Drawing.Size(774, 482);
-            this.tabStaff.TabIndex = 1;
-            this.tabStaff.Text = "Nhân viên";
-            this.tabStaff.UseVisualStyleBackColor = true;
             // 
             // tabNV_IDCol
             // 
@@ -686,9 +686,9 @@ namespace TourApp
             this.tabTour.ResumeLayout(false);
             this.tabTour.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).EndInit();
             this.tabStaff.ResumeLayout(false);
             this.tabStaff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).EndInit();
             this.tabCT.ResumeLayout(false);
             this.tabCT.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChiTieuGridView)).EndInit();

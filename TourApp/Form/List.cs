@@ -193,19 +193,38 @@ namespace TourApp
                 Name = "mySheet"
             };
             sheets.Append(sheet);
-            var row = new DocumentFormat.OpenXml.Spreadsheet.Row() { RowIndex = 1 };
-            var header1 = new DocumentFormat.OpenXml.Spreadsheet.Cell() {  CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue("Interval Period Timestamp"), DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String };
-            row.Append(header1);
-            var header2 = new DocumentFormat.OpenXml.Spreadsheet.Cell() {  CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue("Settlement Interval"), DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String };
-            row.Append(header2);
-            var header3 = new DocumentFormat.OpenXml.Spreadsheet.Cell() {  CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue("Aggregated Consumption Factor"), DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String };
-            row.Append(header3);
-            var header4 = new DocumentFormat.OpenXml.Spreadsheet.Cell() {  CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue("Loss Adjusted Aggregated Consumption"), DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String };
-            row.Append(header4);
 
-            sheetData.Append(row);
+            var row_header = new DocumentFormat.OpenXml.Spreadsheet.Row() { RowIndex = 1 };
+            for(var j=0;j<grid.ColumnCount;j++)
+                {
+                if (!(grid.Columns[j] is DataGridViewTextBoxColumn)) continue;
+                    var cell = new DocumentFormat.OpenXml.Spreadsheet.Cell() 
+                    { 
+                        CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue(grid.Columns[j].HeaderText), 
+                        DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String 
+                    };
+                    row_header.Append(cell);
+                }
+            sheetData.Append(row_header);
+            for (var i = 0; i < grid.RowCount; i++)
+            {
+                var row = new DocumentFormat.OpenXml.Spreadsheet.Row();
+                for (var j = 0; j < grid.ColumnCount; j++)
+                {
+                    var grid_cell = grid.Rows[i].Cells[j];
+                    if (grid_cell.Value == null) continue;
+                    var cell = new DocumentFormat.OpenXml.Spreadsheet.Cell()
+                    {
+                        CellValue = new DocumentFormat.OpenXml.Spreadsheet.CellValue(grid_cell.Value.ToString()),
+                        DataType = DocumentFormat.OpenXml.Spreadsheet.CellValues.String
+                    };
+
+                    row.Append(cell);
+                }
+                sheetData.Append(row);
+            }
+             
             
-
             workbookpart.Workbook.Save();
 
             // Close the document.
@@ -613,8 +632,9 @@ namespace TourApp
         }
 
 
+
         #endregion
 
-        
+       
     }
 }
