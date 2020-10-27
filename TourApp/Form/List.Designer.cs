@@ -52,16 +52,22 @@ namespace TourApp
             this.tabNV_MaNVCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabNV_TenCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabNV_SDTCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabNV_BlankCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabNV_ViewCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabNV_EditCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabNV_DeleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tabNV_BlankCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabNV_SearchBox = new System.Windows.Forms.TextBox();
             this.tabNV_CB = new System.Windows.Forms.CheckBox();
             this.tabNV_AddBtn = new System.Windows.Forms.Button();
             this.tabNV_RefreshBtn = new System.Windows.Forms.Button();
             this.tabNV_SearchBtn = new System.Windows.Forms.Button();
             this.tabPassenger = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabGroup = new System.Windows.Forms.TabPage();
             this.DoanGridView = new System.Windows.Forms.DataGridView();
             this.tabDoan_IDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,10 +89,10 @@ namespace TourApp
             this.ChiTieuGridView = new System.Windows.Forms.DataGridView();
             this.tabCT_IDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCT_TenCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabCT_BlankCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCT_ViewCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabCT_EditCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabCT_DeleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tabCT_BlankCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCT_SearchBox = new System.Windows.Forms.TextBox();
             this.tabCT_RefreshBtn = new System.Windows.Forms.Button();
             this.tabCT_AddBtn = new System.Windows.Forms.Button();
@@ -107,6 +113,8 @@ namespace TourApp
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).BeginInit();
             this.tabStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).BeginInit();
+            this.tabPassenger.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DoanGridView)).BeginInit();
             this.tabCT.SuspendLayout();
@@ -324,10 +332,10 @@ namespace TourApp
             this.tabNV_MaNVCol,
             this.tabNV_TenCol,
             this.tabNV_SDTCol,
+            this.tabNV_BlankCol,
             this.tabNV_ViewCol,
             this.tabNV_EditCol,
-            this.tabNV_DeleteCol,
-            this.tabNV_BlankCol});
+            this.tabNV_DeleteCol});
             this.NVGridView.Location = new System.Drawing.Point(3, 140);
             this.NVGridView.Name = "NVGridView";
             this.NVGridView.RowHeadersVisible = false;
@@ -346,6 +354,7 @@ namespace TourApp
             this.tabNV_IDCol.MinimumWidth = 6;
             this.tabNV_IDCol.Name = "tabNV_IDCol";
             this.tabNV_IDCol.ReadOnly = true;
+            this.tabNV_IDCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabNV_IDCol.Width = 53;
             // 
             // tabNV_MaNVCol
@@ -355,6 +364,7 @@ namespace TourApp
             this.tabNV_MaNVCol.MinimumWidth = 6;
             this.tabNV_MaNVCol.Name = "tabNV_MaNVCol";
             this.tabNV_MaNVCol.ReadOnly = true;
+            this.tabNV_MaNVCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabNV_MaNVCol.Width = 83;
             // 
             // tabNV_TenCol
@@ -364,6 +374,7 @@ namespace TourApp
             this.tabNV_TenCol.MinimumWidth = 6;
             this.tabNV_TenCol.Name = "tabNV_TenCol";
             this.tabNV_TenCol.ReadOnly = true;
+            this.tabNV_TenCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabNV_TenCol.Width = 61;
             // 
             // tabNV_SDTCol
@@ -373,7 +384,17 @@ namespace TourApp
             this.tabNV_SDTCol.MinimumWidth = 6;
             this.tabNV_SDTCol.Name = "tabNV_SDTCol";
             this.tabNV_SDTCol.ReadOnly = true;
+            this.tabNV_SDTCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabNV_SDTCol.Width = 65;
+            // 
+            // tabNV_BlankCol
+            // 
+            this.tabNV_BlankCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tabNV_BlankCol.HeaderText = "";
+            this.tabNV_BlankCol.MinimumWidth = 6;
+            this.tabNV_BlankCol.Name = "tabNV_BlankCol";
+            this.tabNV_BlankCol.ReadOnly = true;
+            this.tabNV_BlankCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // tabNV_ViewCol
             // 
@@ -382,6 +403,7 @@ namespace TourApp
             this.tabNV_ViewCol.MinimumWidth = 6;
             this.tabNV_ViewCol.Name = "tabNV_ViewCol";
             this.tabNV_ViewCol.ReadOnly = true;
+            this.tabNV_ViewCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabNV_ViewCol.Width = 45;
             // 
             // tabNV_EditCol
@@ -391,6 +413,7 @@ namespace TourApp
             this.tabNV_EditCol.MinimumWidth = 6;
             this.tabNV_EditCol.Name = "tabNV_EditCol";
             this.tabNV_EditCol.ReadOnly = true;
+            this.tabNV_EditCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabNV_EditCol.Width = 40;
             // 
             // tabNV_DeleteCol
@@ -400,15 +423,8 @@ namespace TourApp
             this.tabNV_DeleteCol.MinimumWidth = 6;
             this.tabNV_DeleteCol.Name = "tabNV_DeleteCol";
             this.tabNV_DeleteCol.ReadOnly = true;
+            this.tabNV_DeleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabNV_DeleteCol.Width = 41;
-            // 
-            // tabNV_BlankCol
-            // 
-            this.tabNV_BlankCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tabNV_BlankCol.HeaderText = "";
-            this.tabNV_BlankCol.MinimumWidth = 6;
-            this.tabNV_BlankCol.Name = "tabNV_BlankCol";
-            this.tabNV_BlankCol.ReadOnly = true;
             // 
             // tabNV_SearchBox
             // 
@@ -465,11 +481,71 @@ namespace TourApp
             // 
             // tabPassenger
             // 
+            this.tabPassenger.Controls.Add(this.dataGridView1);
+            this.tabPassenger.Controls.Add(this.checkBox1);
+            this.tabPassenger.Controls.Add(this.textBox1);
+            this.tabPassenger.Controls.Add(this.button5);
+            this.tabPassenger.Controls.Add(this.button4);
+            this.tabPassenger.Controls.Add(this.button3);
             this.tabPassenger.Location = new System.Drawing.Point(4, 29);
             this.tabPassenger.Name = "tabPassenger";
             this.tabPassenger.Size = new System.Drawing.Size(774, 482);
             this.tabPassenger.TabIndex = 6;
             this.tabPassenger.Text = "Hành khách";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(363, 206);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(300, 188);
+            this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.Text = "dataGridView1";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(380, 30);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(101, 24);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(401, 158);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(125, 27);
+            this.textBox1.TabIndex = 3;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(401, 67);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(94, 29);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(481, 117);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(94, 29);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(482, 47);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 29);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // tabGroup
             // 
@@ -678,10 +754,10 @@ namespace TourApp
             this.ChiTieuGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tabCT_IDCol,
             this.tabCT_TenCol,
+            this.tabCT_BlankCol,
             this.tabCT_ViewCol,
             this.tabCT_EditCol,
-            this.tabCT_DeleteCol,
-            this.tabCT_BlankCol});
+            this.tabCT_DeleteCol});
             this.ChiTieuGridView.Location = new System.Drawing.Point(3, 140);
             this.ChiTieuGridView.Name = "ChiTieuGridView";
             this.ChiTieuGridView.RowHeadersVisible = false;
@@ -700,6 +776,7 @@ namespace TourApp
             this.tabCT_IDCol.MinimumWidth = 6;
             this.tabCT_IDCol.Name = "tabCT_IDCol";
             this.tabCT_IDCol.ReadOnly = true;
+            this.tabCT_IDCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabCT_IDCol.Width = 53;
             // 
             // tabCT_TenCol
@@ -709,7 +786,17 @@ namespace TourApp
             this.tabCT_TenCol.MinimumWidth = 6;
             this.tabCT_TenCol.Name = "tabCT_TenCol";
             this.tabCT_TenCol.ReadOnly = true;
+            this.tabCT_TenCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabCT_TenCol.Width = 113;
+            // 
+            // tabCT_BlankCol
+            // 
+            this.tabCT_BlankCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tabCT_BlankCol.HeaderText = "";
+            this.tabCT_BlankCol.MinimumWidth = 6;
+            this.tabCT_BlankCol.Name = "tabCT_BlankCol";
+            this.tabCT_BlankCol.ReadOnly = true;
+            this.tabCT_BlankCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // tabCT_ViewCol
             // 
@@ -718,6 +805,7 @@ namespace TourApp
             this.tabCT_ViewCol.MinimumWidth = 6;
             this.tabCT_ViewCol.Name = "tabCT_ViewCol";
             this.tabCT_ViewCol.ReadOnly = true;
+            this.tabCT_ViewCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabCT_ViewCol.Width = 45;
             // 
             // tabCT_EditCol
@@ -727,6 +815,7 @@ namespace TourApp
             this.tabCT_EditCol.MinimumWidth = 6;
             this.tabCT_EditCol.Name = "tabCT_EditCol";
             this.tabCT_EditCol.ReadOnly = true;
+            this.tabCT_EditCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabCT_EditCol.Width = 40;
             // 
             // tabCT_DeleteCol
@@ -736,15 +825,8 @@ namespace TourApp
             this.tabCT_DeleteCol.MinimumWidth = 6;
             this.tabCT_DeleteCol.Name = "tabCT_DeleteCol";
             this.tabCT_DeleteCol.ReadOnly = true;
+            this.tabCT_DeleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tabCT_DeleteCol.Width = 41;
-            // 
-            // tabCT_BlankCol
-            // 
-            this.tabCT_BlankCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tabCT_BlankCol.HeaderText = "";
-            this.tabCT_BlankCol.MinimumWidth = 6;
-            this.tabCT_BlankCol.Name = "tabCT_BlankCol";
-            this.tabCT_BlankCol.ReadOnly = true;
             // 
             // tabCT_SearchBox
             // 
@@ -904,6 +986,9 @@ namespace TourApp
             this.tabStaff.ResumeLayout(false);
             this.tabStaff.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).EndInit();
+            this.tabPassenger.ResumeLayout(false);
+            this.tabPassenger.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabGroup.ResumeLayout(false);
             this.tabGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DoanGridView)).EndInit();
@@ -950,26 +1035,12 @@ namespace TourApp
         private Button tabNV_RefreshBtn;
         private Button tabNV_SearchBtn;
         private DataGridView NVGridView;
-        private DataGridViewTextBoxColumn tabNV_IDCol;
-        private DataGridViewTextBoxColumn tabNV_MaNVCol;
-        private DataGridViewTextBoxColumn tabNV_TenCol;
-        private DataGridViewTextBoxColumn tabNV_SDTCol;
-        private DataGridViewButtonColumn tabNV_ViewCol;
-        private DataGridViewButtonColumn tabNV_EditCol;
-        private DataGridViewButtonColumn tabNV_DeleteCol;
-        private DataGridViewTextBoxColumn tabNV_BlankCol;
         private TabPage tabCT;
         private DataGridView ChiTieuGridView;
         private TextBox tabCT_SearchBox;
         private Button tabCT_RefreshBtn;
         private Button tabCT_AddBtn;
         private Button tabCT_SearchBtn;
-        private DataGridViewTextBoxColumn tabCT_IDCol;
-        private DataGridViewTextBoxColumn tabCT_TenCol;
-        private DataGridViewButtonColumn tabCT_ViewCol;
-        private DataGridViewButtonColumn tabCT_EditCol;
-        private DataGridViewButtonColumn tabCT_DeleteCol;
-        private DataGridViewTextBoxColumn tabCT_BlankCol;
         private ToolStripMenuItem FileMenu;
         private ToolStripMenuItem ExportMenuBtn;
         private TabPage tabLHDL;
@@ -990,6 +1061,26 @@ namespace TourApp
         private DataGridViewButtonColumn tabDoan_ViewCol;
         private DataGridViewButtonColumn tabDoan_EditCol;
         private DataGridViewButtonColumn tabDoan_DeleteCol;
+        private DataGridViewTextBoxColumn tabNV_IDCol;
+        private DataGridViewTextBoxColumn tabNV_MaNVCol;
+        private DataGridViewTextBoxColumn tabNV_TenCol;
+        private DataGridViewTextBoxColumn tabNV_SDTCol;
+        private DataGridViewTextBoxColumn tabNV_BlankCol;
+        private DataGridViewButtonColumn tabNV_ViewCol;
+        private DataGridViewButtonColumn tabNV_EditCol;
+        private DataGridViewButtonColumn tabNV_DeleteCol;
+        private DataGridViewTextBoxColumn tabCT_IDCol;
+        private DataGridViewTextBoxColumn tabCT_TenCol;
+        private DataGridViewTextBoxColumn tabCT_BlankCol;
+        private DataGridViewButtonColumn tabCT_ViewCol;
+        private DataGridViewButtonColumn tabCT_EditCol;
+        private DataGridViewButtonColumn tabCT_DeleteCol;
+        private Button button3;
+        private DataGridView dataGridView1;
+        private CheckBox checkBox1;
+        private TextBox textBox1;
+        private Button button5;
+        private Button button4;
     }
 }
 

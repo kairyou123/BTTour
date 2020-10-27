@@ -396,7 +396,7 @@ namespace TourApp
                     return;
 
                 //I supposed your button column is at index 0
-                if (e.ColumnIndex == 4)
+                if (e.ColumnIndex == 5)
                 {
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                     var img = Properties.Resources.view;
@@ -408,7 +408,7 @@ namespace TourApp
                     e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
                     e.Handled = true;
                 }
-                if (e.ColumnIndex == 5)
+                if (e.ColumnIndex == 6)
                 {
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                     var img = Properties.Resources.edit;
@@ -420,7 +420,7 @@ namespace TourApp
                     e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
                     e.Handled = true;
                 }
-                if (e.ColumnIndex == 6)
+                if (e.ColumnIndex == 7)
                 {
                     e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                     var img = Properties.Resources.delete;
@@ -535,7 +535,7 @@ namespace TourApp
                 return;
 
             //I supposed your button column is at index 0
-            if (e.ColumnIndex == 2)
+            if (e.ColumnIndex == 3)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.view;
@@ -547,7 +547,7 @@ namespace TourApp
                 e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 4)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.edit;
@@ -559,7 +559,7 @@ namespace TourApp
                 e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 5)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.delete;
@@ -654,7 +654,6 @@ namespace TourApp
 
         #region Đoàn
 
-        #endregion
         private void tabDoan_Search()
         {
             var searchStr = tabDoan_SearchBox.Text;
@@ -788,5 +787,8 @@ namespace TourApp
             //form.Location = new Point((main.X + 10), (main.Y + 10));
             //form.Show();
         }
+        #endregion
+
+        
     }
 }
