@@ -62,12 +62,12 @@ namespace TourApp
             this.tabNV_RefreshBtn = new System.Windows.Forms.Button();
             this.tabNV_SearchBtn = new System.Windows.Forms.Button();
             this.tabPassenger = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.HanhKhachGridView = new System.Windows.Forms.DataGridView();
+            this.tabHanhKhach_CB = new System.Windows.Forms.CheckBox();
+            this.tabHanhKhach_SearchBox = new System.Windows.Forms.TextBox();
+            this.tabHanhKhach_RefreshBtn = new System.Windows.Forms.Button();
+            this.tabHanhKhach_AddBtn = new System.Windows.Forms.Button();
+            this.tabHanhKhach_SearchBtn = new System.Windows.Forms.Button();
             this.tabGroup = new System.Windows.Forms.TabPage();
             this.DoanGridView = new System.Windows.Forms.DataGridView();
             this.tabDoan_IDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,7 +114,7 @@ namespace TourApp
             this.tabStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).BeginInit();
             this.tabPassenger.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HanhKhachGridView)).BeginInit();
             this.tabGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DoanGridView)).BeginInit();
             this.tabCT.SuspendLayout();
@@ -481,71 +481,79 @@ namespace TourApp
             // 
             // tabPassenger
             // 
-            this.tabPassenger.Controls.Add(this.dataGridView1);
-            this.tabPassenger.Controls.Add(this.checkBox1);
-            this.tabPassenger.Controls.Add(this.textBox1);
-            this.tabPassenger.Controls.Add(this.button5);
-            this.tabPassenger.Controls.Add(this.button4);
-            this.tabPassenger.Controls.Add(this.button3);
+            this.tabPassenger.Controls.Add(this.HanhKhachGridView);
+            this.tabPassenger.Controls.Add(this.tabHanhKhach_CB);
+            this.tabPassenger.Controls.Add(this.tabHanhKhach_SearchBox);
+            this.tabPassenger.Controls.Add(this.tabHanhKhach_RefreshBtn);
+            this.tabPassenger.Controls.Add(this.tabHanhKhach_AddBtn);
+            this.tabPassenger.Controls.Add(this.tabHanhKhach_SearchBtn);
             this.tabPassenger.Location = new System.Drawing.Point(4, 29);
             this.tabPassenger.Name = "tabPassenger";
             this.tabPassenger.Size = new System.Drawing.Size(774, 482);
             this.tabPassenger.TabIndex = 6;
             this.tabPassenger.Text = "Hành khách";
             // 
-            // dataGridView1
+            // HanhKhachGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(363, 206);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(300, 188);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.Text = "dataGridView1";
+            this.HanhKhachGridView.AllowUserToAddRows = false;
+            this.HanhKhachGridView.AllowUserToDeleteRows = false;
+            this.HanhKhachGridView.AllowUserToOrderColumns = true;
+            this.HanhKhachGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HanhKhachGridView.Location = new System.Drawing.Point(3, 140);
+            this.HanhKhachGridView.Name = "HanhKhachGridView";
+            this.HanhKhachGridView.RowHeadersVisible = false;
+            this.HanhKhachGridView.RowHeadersWidth = 51;
+            this.HanhKhachGridView.Size = new System.Drawing.Size(763, 374);
+            this.HanhKhachGridView.TabIndex = 5;
+            this.HanhKhachGridView.Text = "dataGridView1";
             // 
-            // checkBox1
+            // tabHanhKhach_CB
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(380, 30);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(101, 24);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.tabHanhKhach_CB.AutoSize = true;
+            this.tabHanhKhach_CB.Location = new System.Drawing.Point(4, 98);
+            this.tabHanhKhach_CB.Name = "tabHanhKhach_CB";
+            this.tabHanhKhach_CB.Size = new System.Drawing.Size(78, 24);
+            this.tabHanhKhach_CB.TabIndex = 4;
+            this.tabHanhKhach_CB.Text = "Đã xóa";
+            this.tabHanhKhach_CB.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tabHanhKhach_SearchBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(401, 158);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 3;
+            this.tabHanhKhach_SearchBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabHanhKhach_SearchBox.Location = new System.Drawing.Point(551, 15);
+            this.tabHanhKhach_SearchBox.Name = "tabHanhKhach_SearchBox";
+            this.tabHanhKhach_SearchBox.Size = new System.Drawing.Size(215, 38);
+            this.tabHanhKhach_SearchBox.TabIndex = 3;
             // 
-            // button5
+            // tabHanhKhach_RefreshBtn
             // 
-            this.button5.Location = new System.Drawing.Point(401, 67);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 29);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.tabHanhKhach_RefreshBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabHanhKhach_RefreshBtn.BackgroundImage")));
+            this.tabHanhKhach_RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabHanhKhach_RefreshBtn.Location = new System.Drawing.Point(668, 98);
+            this.tabHanhKhach_RefreshBtn.Name = "tabHanhKhach_RefreshBtn";
+            this.tabHanhKhach_RefreshBtn.Size = new System.Drawing.Size(41, 36);
+            this.tabHanhKhach_RefreshBtn.TabIndex = 2;
+            this.tabHanhKhach_RefreshBtn.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // tabHanhKhach_AddBtn
             // 
-            this.button4.Location = new System.Drawing.Point(481, 117);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 29);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.tabHanhKhach_AddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabHanhKhach_AddBtn.BackgroundImage")));
+            this.tabHanhKhach_AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabHanhKhach_AddBtn.Location = new System.Drawing.Point(718, 98);
+            this.tabHanhKhach_AddBtn.Name = "tabHanhKhach_AddBtn";
+            this.tabHanhKhach_AddBtn.Size = new System.Drawing.Size(48, 36);
+            this.tabHanhKhach_AddBtn.TabIndex = 1;
+            this.tabHanhKhach_AddBtn.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // tabHanhKhach_SearchBtn
             // 
-            this.button3.Location = new System.Drawing.Point(482, 47);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 29);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.tabHanhKhach_SearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabHanhKhach_SearchBtn.BackgroundImage")));
+            this.tabHanhKhach_SearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabHanhKhach_SearchBtn.Location = new System.Drawing.Point(497, 12);
+            this.tabHanhKhach_SearchBtn.Name = "tabHanhKhach_SearchBtn";
+            this.tabHanhKhach_SearchBtn.Size = new System.Drawing.Size(42, 44);
+            this.tabHanhKhach_SearchBtn.TabIndex = 0;
+            this.tabHanhKhach_SearchBtn.UseVisualStyleBackColor = true;
             // 
             // tabGroup
             // 
@@ -988,7 +996,7 @@ namespace TourApp
             ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).EndInit();
             this.tabPassenger.ResumeLayout(false);
             this.tabPassenger.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HanhKhachGridView)).EndInit();
             this.tabGroup.ResumeLayout(false);
             this.tabGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DoanGridView)).EndInit();
@@ -1075,12 +1083,12 @@ namespace TourApp
         private DataGridViewButtonColumn tabCT_ViewCol;
         private DataGridViewButtonColumn tabCT_EditCol;
         private DataGridViewButtonColumn tabCT_DeleteCol;
-        private Button button3;
-        private DataGridView dataGridView1;
-        private CheckBox checkBox1;
-        private TextBox textBox1;
-        private Button button5;
-        private Button button4;
+        private Button tabHanhKhach_SearchBtn;
+        private DataGridView HanhKhachGridView;
+        private CheckBox tabHanhKhach_CB;
+        private TextBox tabHanhKhach_SearchBox;
+        private Button tabHanhKhach_RefreshBtn;
+        private Button tabHanhKhach_AddBtn;
     }
 }
 

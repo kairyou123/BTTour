@@ -696,10 +696,10 @@ namespace TourApp
 
         private void tabDoan_AddBtn_Click(object sender, EventArgs e)
         {
-            //ThemTour form = _serviceProvider.GetRequiredService<ThemTour>();
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            DoanKhach_Form form = _serviceProvider.GetRequiredService<DoanKhach_Form>();
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
         }
 
         private void doanGridview_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -755,12 +755,12 @@ namespace TourApp
             switch (name)
             {
                 case "tabDoan_ViewCol":
-                //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
-                //form.getId(int.Parse(value));
-                //var main = this.Location;
-                //form.Location = new Point((main.X + 10), (main.Y + 10));
-                //form.Show();
-                //break;
+                    //DoanKhach_Form form = _serviceProvider.GetRequiredService<DoanKhach_Form>();
+                    //form.getId(int.Parse(value));
+                    //var main = this.Location;
+                    //form.Location = new Point((main.X + 10), (main.Y + 10));
+                    //form.Show();
+                    break;
                 case "tabDoan_EditCol":
                     break;
                 case "tabDoan_DeleteCol":
@@ -787,6 +787,7 @@ namespace TourApp
             //form.Location = new Point((main.X + 10), (main.Y + 10));
             //form.Show();
         }
+
         #endregion
 
         
