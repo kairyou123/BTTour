@@ -63,6 +63,14 @@ namespace TourApp
             this.tabNV_SearchBtn = new System.Windows.Forms.Button();
             this.tabPassenger = new System.Windows.Forms.TabPage();
             this.HanhKhachGridView = new System.Windows.Forms.DataGridView();
+            this.tabHanhKhach_IDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabHanhKhach_MaKhachCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabHanhKhach_TenCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabHanhKhach_SDTCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabHanhKhach_EmailCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabHanhKhach_ViewCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabHanhKhach_EditCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabHanhKhach_DeleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabHanhKhach_CB = new System.Windows.Forms.CheckBox();
             this.tabHanhKhach_SearchBox = new System.Windows.Forms.TextBox();
             this.tabHanhKhach_RefreshBtn = new System.Windows.Forms.Button();
@@ -499,6 +507,15 @@ namespace TourApp
             this.HanhKhachGridView.AllowUserToDeleteRows = false;
             this.HanhKhachGridView.AllowUserToOrderColumns = true;
             this.HanhKhachGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.HanhKhachGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tabHanhKhach_IDCol,
+            this.tabHanhKhach_MaKhachCol,
+            this.tabHanhKhach_TenCol,
+            this.tabHanhKhach_SDTCol,
+            this.tabHanhKhach_EmailCol,
+            this.tabHanhKhach_ViewCol,
+            this.tabHanhKhach_EditCol,
+            this.tabHanhKhach_DeleteCol});
             this.HanhKhachGridView.Location = new System.Drawing.Point(3, 140);
             this.HanhKhachGridView.Name = "HanhKhachGridView";
             this.HanhKhachGridView.RowHeadersVisible = false;
@@ -506,6 +523,80 @@ namespace TourApp
             this.HanhKhachGridView.Size = new System.Drawing.Size(763, 374);
             this.HanhKhachGridView.TabIndex = 5;
             this.HanhKhachGridView.Text = "dataGridView1";
+            this.HanhKhachGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.HanhKhachGridView_CellClick);
+            this.HanhKhachGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.HanhKhachGridView_CellDoubleClick);
+            this.HanhKhachGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.HanhKhachGridView_CellPainting);
+            // 
+            // tabHanhKhach_IDCol
+            // 
+            this.tabHanhKhach_IDCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabHanhKhach_IDCol.HeaderText = "ID";
+            this.tabHanhKhach_IDCol.MinimumWidth = 6;
+            this.tabHanhKhach_IDCol.Name = "tabHanhKhach_IDCol";
+            this.tabHanhKhach_IDCol.ReadOnly = true;
+            this.tabHanhKhach_IDCol.Width = 53;
+            // 
+            // tabHanhKhach_MaKhachCol
+            // 
+            this.tabHanhKhach_MaKhachCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabHanhKhach_MaKhachCol.HeaderText = "Mã khách";
+            this.tabHanhKhach_MaKhachCol.MinimumWidth = 6;
+            this.tabHanhKhach_MaKhachCol.Name = "tabHanhKhach_MaKhachCol";
+            this.tabHanhKhach_MaKhachCol.ReadOnly = true;
+            this.tabHanhKhach_MaKhachCol.Width = 101;
+            // 
+            // tabHanhKhach_TenCol
+            // 
+            this.tabHanhKhach_TenCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tabHanhKhach_TenCol.HeaderText = "Tên";
+            this.tabHanhKhach_TenCol.MinimumWidth = 6;
+            this.tabHanhKhach_TenCol.Name = "tabHanhKhach_TenCol";
+            this.tabHanhKhach_TenCol.ReadOnly = true;
+            // 
+            // tabHanhKhach_SDTCol
+            // 
+            this.tabHanhKhach_SDTCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabHanhKhach_SDTCol.HeaderText = "SĐT";
+            this.tabHanhKhach_SDTCol.MinimumWidth = 6;
+            this.tabHanhKhach_SDTCol.Name = "tabHanhKhach_SDTCol";
+            this.tabHanhKhach_SDTCol.ReadOnly = true;
+            this.tabHanhKhach_SDTCol.Width = 65;
+            // 
+            // tabHanhKhach_EmailCol
+            // 
+            this.tabHanhKhach_EmailCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabHanhKhach_EmailCol.HeaderText = "Email";
+            this.tabHanhKhach_EmailCol.MinimumWidth = 6;
+            this.tabHanhKhach_EmailCol.Name = "tabHanhKhach_EmailCol";
+            this.tabHanhKhach_EmailCol.ReadOnly = true;
+            this.tabHanhKhach_EmailCol.Width = 75;
+            // 
+            // tabHanhKhach_ViewCol
+            // 
+            this.tabHanhKhach_ViewCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabHanhKhach_ViewCol.HeaderText = "Xem";
+            this.tabHanhKhach_ViewCol.MinimumWidth = 6;
+            this.tabHanhKhach_ViewCol.Name = "tabHanhKhach_ViewCol";
+            this.tabHanhKhach_ViewCol.ReadOnly = true;
+            this.tabHanhKhach_ViewCol.Width = 45;
+            // 
+            // tabHanhKhach_EditCol
+            // 
+            this.tabHanhKhach_EditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabHanhKhach_EditCol.HeaderText = "Sửa";
+            this.tabHanhKhach_EditCol.MinimumWidth = 6;
+            this.tabHanhKhach_EditCol.Name = "tabHanhKhach_EditCol";
+            this.tabHanhKhach_EditCol.ReadOnly = true;
+            this.tabHanhKhach_EditCol.Width = 40;
+            // 
+            // tabHanhKhach_DeleteCol
+            // 
+            this.tabHanhKhach_DeleteCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabHanhKhach_DeleteCol.HeaderText = "Xóa";
+            this.tabHanhKhach_DeleteCol.MinimumWidth = 6;
+            this.tabHanhKhach_DeleteCol.Name = "tabHanhKhach_DeleteCol";
+            this.tabHanhKhach_DeleteCol.ReadOnly = true;
+            this.tabHanhKhach_DeleteCol.Width = 41;
             // 
             // tabHanhKhach_CB
             // 
@@ -516,6 +607,7 @@ namespace TourApp
             this.tabHanhKhach_CB.TabIndex = 4;
             this.tabHanhKhach_CB.Text = "Đã xóa";
             this.tabHanhKhach_CB.UseVisualStyleBackColor = true;
+            this.tabHanhKhach_CB.CheckedChanged += new System.EventHandler(this.tabHanhKhach_CB_CheckedChanged);
             // 
             // tabHanhKhach_SearchBox
             // 
@@ -524,6 +616,7 @@ namespace TourApp
             this.tabHanhKhach_SearchBox.Name = "tabHanhKhach_SearchBox";
             this.tabHanhKhach_SearchBox.Size = new System.Drawing.Size(215, 38);
             this.tabHanhKhach_SearchBox.TabIndex = 3;
+            this.tabHanhKhach_SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabHanhKhach_SearchBox_KeyPress);
             // 
             // tabHanhKhach_RefreshBtn
             // 
@@ -534,6 +627,7 @@ namespace TourApp
             this.tabHanhKhach_RefreshBtn.Size = new System.Drawing.Size(41, 36);
             this.tabHanhKhach_RefreshBtn.TabIndex = 2;
             this.tabHanhKhach_RefreshBtn.UseVisualStyleBackColor = true;
+            this.tabHanhKhach_RefreshBtn.Click += new System.EventHandler(this.tabHanhKhach_RefreshBtn_Click);
             // 
             // tabHanhKhach_AddBtn
             // 
@@ -544,6 +638,7 @@ namespace TourApp
             this.tabHanhKhach_AddBtn.Size = new System.Drawing.Size(48, 36);
             this.tabHanhKhach_AddBtn.TabIndex = 1;
             this.tabHanhKhach_AddBtn.UseVisualStyleBackColor = true;
+            this.tabHanhKhach_AddBtn.Click += new System.EventHandler(this.tabHanhKhach_AddBtn_Click);
             // 
             // tabHanhKhach_SearchBtn
             // 
@@ -554,6 +649,7 @@ namespace TourApp
             this.tabHanhKhach_SearchBtn.Size = new System.Drawing.Size(42, 44);
             this.tabHanhKhach_SearchBtn.TabIndex = 0;
             this.tabHanhKhach_SearchBtn.UseVisualStyleBackColor = true;
+            this.tabHanhKhach_SearchBtn.Click += new System.EventHandler(this.tabHanhKhach_SearchBtn_Click);
             // 
             // tabGroup
             // 
@@ -1089,6 +1185,14 @@ namespace TourApp
         private TextBox tabHanhKhach_SearchBox;
         private Button tabHanhKhach_RefreshBtn;
         private Button tabHanhKhach_AddBtn;
+        private DataGridViewTextBoxColumn tabHanhKhach_IDCol;
+        private DataGridViewTextBoxColumn tabHanhKhach_MaKhachCol;
+        private DataGridViewTextBoxColumn tabHanhKhach_TenCol;
+        private DataGridViewTextBoxColumn tabHanhKhach_SDTCol;
+        private DataGridViewTextBoxColumn tabHanhKhach_EmailCol;
+        private DataGridViewButtonColumn tabHanhKhach_ViewCol;
+        private DataGridViewButtonColumn tabHanhKhach_EditCol;
+        private DataGridViewButtonColumn tabHanhKhach_DeleteCol;
     }
 }
 

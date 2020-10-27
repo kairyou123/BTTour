@@ -19,6 +19,7 @@ namespace TourApp
         private readonly INhanVienRepository _nhanvienRepo;
         private readonly IChiTieuRepository _chitieuRepo;
         private readonly IDoanKhachRepository _doankhachRepo;
+        private readonly IHanhKhachRepository _hanhkhachRepo;
 
         private readonly IServiceProvider _serviceProvider;
         public List(
@@ -26,6 +27,7 @@ namespace TourApp
                         INhanVienRepository nhanvienRepo,
                         IChiTieuRepository chitieuRepo,
                         IDoanKhachRepository doankhachRepo,
+                        IHanhKhachRepository hanhkhachRepo,
                         IServiceProvider serviceProvider
                     )
         {
@@ -34,6 +36,7 @@ namespace TourApp
             _nhanvienRepo = nhanvienRepo;
             _chitieuRepo = chitieuRepo;
             _doankhachRepo = doankhachRepo;
+            _hanhkhachRepo = hanhkhachRepo;
 
             _serviceProvider = serviceProvider;
             tabControl.SelectedTab = tabTour;
@@ -45,6 +48,7 @@ namespace TourApp
             TabRefresh(ListTab.Nhanvien);
             TabRefresh(ListTab.Chitieu);
             TabRefresh(ListTab.Doan);
+            TabRefresh(ListTab.HanhKhach);
             ChangeTheme(new DefaultTheme(), this.Controls);
         }
         public void TabRefresh(ListTab tab)
@@ -101,6 +105,17 @@ namespace TourApp
                         }
                         break;
                     }
+                case ListTab.HanhKhach:
+                    {
+                        tabHanhKhach_SearchBox.Text = "";
+                        HanhKhachGridView.Rows.Clear();
+                        var data = _hanhkhachRepo.getAll();
+                        foreach (HanhKhach item in data)
+                        {
+                            HanhKhachGridView.Rows.Add(item.KhachId, item.MaKhach, item.Ten, item.SDT, item.Email);
+                        }
+                        break;
+                    }
 
             }
 
@@ -133,42 +148,39 @@ namespace TourApp
         {
             foreach (Control component in container)
             {
-                if (component is MenuStrip)
+                switch (component)
                 {
-                    (component as MenuStrip).BackColor = theme.MenuStripBG;
-                    (component as MenuStrip).ForeColor = theme.MenuStripFG;
-                    ChangeTheme(theme, component.Controls);
-                }
-                else if (component is TabControl)
-                {
-                    (component as TabControl).BackColor = theme.TabControlBG;
-                    (component as TabControl).ForeColor = theme.TabControlFG;
-                    ChangeTheme(theme, component.Controls);
-                }
-                else if (component is TabPage)
-                {
-                    (component as TabPage).BackColor = theme.TabPageBG;
-                    (component as TabPage).ForeColor = theme.TabPageFG;
-                    ChangeTheme(theme, component.Controls);
-                }
-                else if (component is DataGridView)
-                {
-                    (component as DataGridView).BackgroundColor = theme.DataGridviewBG;
-                    (component as DataGridView).ForeColor = theme.DataGridviewFG;
-                    (component as DataGridView).GridColor = theme.DataGridviewGridColor;
-                    ChangeTheme(theme, component.Controls);
-                }
-                else if (component is TextBox)
-                {
-                    (component as TextBox).BackColor = theme.TextBoxBG;
-                    (component as TextBox).ForeColor = theme.TextBoxFG;
-                    ChangeTheme(theme, component.Controls);
-                }
-                else if (component is Button)
-                {
-                    (component as Button).BackColor = theme.ButtonBG;
-                    (component as Button).ForeColor = theme.ButtonFG;
-                    ChangeTheme(theme, component.Controls);
+                    case MenuStrip _:
+                        (component as MenuStrip).BackColor = theme.MenuStripBG;
+                        (component as MenuStrip).ForeColor = theme.MenuStripFG;
+                        ChangeTheme(theme, component.Controls);
+                        break;
+                    case TabControl _:
+                        (component as TabControl).BackColor = theme.TabControlBG;
+                        (component as TabControl).ForeColor = theme.TabControlFG;
+                        ChangeTheme(theme, component.Controls);
+                        break;
+                    case TabPage _:
+                        (component as TabPage).BackColor = theme.TabPageBG;
+                        (component as TabPage).ForeColor = theme.TabPageFG;
+                        ChangeTheme(theme, component.Controls);
+                        break;
+                    case DataGridView _:
+                        (component as DataGridView).BackgroundColor = theme.DataGridviewBG;
+                        (component as DataGridView).ForeColor = theme.DataGridviewFG;
+                        (component as DataGridView).GridColor = theme.DataGridviewGridColor;
+                        ChangeTheme(theme, component.Controls);
+                        break;
+                    case TextBox _:
+                        (component as TextBox).BackColor = theme.TextBoxBG;
+                        (component as TextBox).ForeColor = theme.TextBoxFG;
+                        ChangeTheme(theme, component.Controls);
+                        break;
+                    case Button _:
+                        (component as Button).BackColor = theme.ButtonBG;
+                        (component as Button).ForeColor = theme.ButtonFG;
+                        ChangeTheme(theme, component.Controls);
+                        break;
                 }
 
             }
@@ -788,8 +800,144 @@ namespace TourApp
             //form.Show();
         }
 
+
         #endregion
 
-        
+        #region Hành khách
+       
+        private void tabHanhKhach_Search()
+        {
+            var searchStr = tabHanhKhach_SearchBox.Text;
+            HanhKhachGridView.Rows.Clear();
+            var data = _hanhkhachRepo.getWhere(searchStr, tabHanhKhach_CB.Checked ? 1 : 0);
+            foreach (HanhKhach item in data)
+            {
+                HanhKhachGridView.Rows.Add(item.KhachId, item.MaKhach, item.Ten, item.SDT, item.Email);
+            }
+        }
+        private void tabHanhKhach_SearchBtn_Click(object sender, EventArgs e)
+        {
+            tabHanhKhach_Search();
+        }
+
+        private void tabHanhKhach_SearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) tabHanhKhach_Search();
+        }
+
+        private void tabHanhKhach_RefreshBtn_Click(object sender, EventArgs e)
+        {
+            TabRefresh(ListTab.HanhKhach);
+        }
+
+        private void tabHanhKhach_AddBtn_Click(object sender, EventArgs e)
+        {
+            //DoanKhach_Form form = _serviceProvider.GetRequiredService<DoanKhach_Form>();
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+
+        private void tabHanhKhach_CB_CheckedChanged(object sender, EventArgs e)
+        {
+            tabHanhKhach_Search();
+            if (tabHanhKhach_CB.Checked)
+            {
+                HanhKhachGridView.Columns["tabHanhKhach_EditCol"].Visible = false;
+                HanhKhachGridView.Columns["tabHanhKhach_DeleteCol"].Visible = false;
+            }
+            else
+            {
+                HanhKhachGridView.Columns["tabHanhKhach_EditCol"].Visible = true;
+                HanhKhachGridView.Columns["tabHanhKhach_DeleteCol"].Visible = true;
+            }
+        }
+
+        private void HanhKhachGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            //I supposed your button column is at index 0
+            if (e.ColumnIndex == 5)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.view;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 6)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.edit;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 7)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.delete;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void HanhKhachGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            var value = grid.Rows[e.RowIndex].Cells["tabHanhKhach_IDCol"].Value.ToString();
+            switch (name)
+            {
+                case "tabHanhKhach_ViewCol":
+                    //DoanKhach_Form form = _serviceProvider.GetRequiredService<DoanKhach_Form>();
+                    //form.getId(int.Parse(value));
+                    //var main = this.Location;
+                    //form.Location = new Point((main.X + 10), (main.Y + 10));
+                    //form.Show();
+                    break;
+                case "tabHanhKhach_EditCol":
+                    break;
+                case "tabHanhKhach_DeleteCol":
+                    var khach = _hanhkhachRepo.getById(int.Parse(value));
+                    var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + khach.Ten, "Warning", MessageBoxButtons.YesNo);
+                    if (messageResult != DialogResult.Yes) return;
+                    _hanhkhachRepo.Delete(khach);
+                    tabHanhKhach_Search();
+                    break;
+            }
+        }
+
+        private void HanhKhachGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            if (name == "tabHanhKhach_EditCol" || name == "tabHanhKhach_ViewCol" || name == "tabHanhKhach_DeleteCol") return;
+            var value = grid.Rows[e.RowIndex].Cells["tabHanhKhach_IDCol"].Value.ToString();
+
+            //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
+            //form.getId(int.Parse(value));
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+        #endregion
     }
 }

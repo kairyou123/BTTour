@@ -45,7 +45,7 @@ namespace TourApp.Repository
 
         public IEnumerable<HanhKhach> getWhere(string name, int isDeleted)
         {
-            return _context.HanhKhachs.Where(hk => hk.isDeleted == Status.NotDeleted && hk.Ten == name).ToList();
+            return _context.HanhKhachs.Where(hk => hk.isDeleted == isDeleted && hk.Ten.Contains(name)).ToList();
         }
 
         public HanhKhach getById(int id, string maHK = "")
