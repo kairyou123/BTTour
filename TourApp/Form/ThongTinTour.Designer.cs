@@ -100,9 +100,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(23, 24);
+            this.groupBox1.Location = new System.Drawing.Point(26, 32);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(749, 187);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(856, 249);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN TOUR";
@@ -111,9 +113,10 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Location = new System.Drawing.Point(33, 23);
+            this.panel1.Location = new System.Drawing.Point(38, 31);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(680, 147);
+            this.panel1.Size = new System.Drawing.Size(777, 196);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -130,13 +133,14 @@
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.mtour_txt, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(100, 21);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(114, 28);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(483, 100);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(552, 133);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // loaihinhtour_txt
@@ -145,9 +149,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.loaihinhtour_txt.AutoSize = true;
-            this.loaihinhtour_txt.Location = new System.Drawing.Point(244, 66);
+            this.loaihinhtour_txt.Location = new System.Drawing.Point(279, 88);
             this.loaihinhtour_txt.Name = "loaihinhtour_txt";
-            this.loaihinhtour_txt.Size = new System.Drawing.Size(236, 34);
+            this.loaihinhtour_txt.Size = new System.Drawing.Size(270, 45);
             this.loaihinhtour_txt.TabIndex = 0;
             this.loaihinhtour_txt.Text = "label6";
             this.loaihinhtour_txt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,9 +162,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 66);
+            this.label5.Location = new System.Drawing.Point(3, 88);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(235, 34);
+            this.label5.Size = new System.Drawing.Size(270, 45);
             this.label5.TabIndex = 0;
             this.label5.Text = "Loại Hình";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -171,9 +175,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tentour_txt.AutoSize = true;
-            this.tentour_txt.Location = new System.Drawing.Point(244, 33);
+            this.tentour_txt.Location = new System.Drawing.Point(279, 44);
             this.tentour_txt.Name = "tentour_txt";
-            this.tentour_txt.Size = new System.Drawing.Size(236, 33);
+            this.tentour_txt.Size = new System.Drawing.Size(270, 44);
             this.tentour_txt.TabIndex = 0;
             this.tentour_txt.Text = "label4";
             this.tentour_txt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -184,9 +188,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 33);
+            this.label3.Location = new System.Drawing.Point(3, 44);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(235, 33);
+            this.label3.Size = new System.Drawing.Size(270, 44);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên Tour";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -197,9 +201,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mtour_txt.AutoSize = true;
-            this.mtour_txt.Location = new System.Drawing.Point(244, 0);
+            this.mtour_txt.Location = new System.Drawing.Point(279, 0);
             this.mtour_txt.Name = "mtour_txt";
-            this.mtour_txt.Size = new System.Drawing.Size(236, 33);
+            this.mtour_txt.Size = new System.Drawing.Size(270, 44);
             this.mtour_txt.TabIndex = 0;
             this.mtour_txt.Text = "label2";
             this.mtour_txt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -212,7 +216,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 33);
+            this.label1.Size = new System.Drawing.Size(270, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã Tour";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -220,9 +224,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.listDD);
-            this.groupBox2.Location = new System.Drawing.Point(23, 233);
+            this.groupBox2.Location = new System.Drawing.Point(26, 311);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(337, 282);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(385, 376);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ĐỊA ĐIỂM TOUR";
@@ -233,9 +239,10 @@
             this.MãDD,
             this.TenDD});
             this.listDD.HideSelection = false;
-            this.listDD.Location = new System.Drawing.Point(7, 23);
+            this.listDD.Location = new System.Drawing.Point(8, 31);
+            this.listDD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listDD.Name = "listDD";
-            this.listDD.Size = new System.Drawing.Size(324, 253);
+            this.listDD.Size = new System.Drawing.Size(370, 336);
             this.listDD.TabIndex = 0;
             this.listDD.UseCompatibleStateImageBehavior = false;
             this.listDD.View = System.Windows.Forms.View.Details;
@@ -254,9 +261,11 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.listGia);
-            this.groupBox3.Location = new System.Drawing.Point(407, 233);
+            this.groupBox3.Location = new System.Drawing.Point(465, 311);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(365, 282);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(417, 376);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "CÁC GIÁ CỦA TOUR";
@@ -268,9 +277,10 @@
             this.datestart,
             this.dateend});
             this.listGia.HideSelection = false;
-            this.listGia.Location = new System.Drawing.Point(7, 23);
+            this.listGia.Location = new System.Drawing.Point(8, 31);
+            this.listGia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listGia.Name = "listGia";
-            this.listGia.Size = new System.Drawing.Size(352, 253);
+            this.listGia.Size = new System.Drawing.Size(402, 336);
             this.listGia.TabIndex = 0;
             this.listGia.UseCompatibleStateImageBehavior = false;
             this.listGia.View = System.Windows.Forms.View.Details;
@@ -294,12 +304,13 @@
             // 
             // ThongTinTour
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 561);
+            this.ClientSize = new System.Drawing.Size(903, 748);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ThongTinTour";
             this.Text = "ThongTinTour";
             this.Load += new System.EventHandler(this.ThongTinTour_Load);

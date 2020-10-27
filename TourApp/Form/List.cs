@@ -188,8 +188,18 @@ namespace TourApp
         //export button pressed
         private void FileMenu_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            var saveDialog = new SaveFileDialog
+            {
+                Filter = "Excel file (*.xlsx)|*.xlsx",
+                FileName = "export.xlsx",
+                Title = "Export data to excel",
+                CheckFileExists = false
+            };
+            if (saveDialog.ShowDialog() != DialogResult.OK) return;
+            
             DataGridView data =  tabControl.SelectedTab.Controls.OfType<DataGridView>().First();
-            exportExcel(data, "D:\\mytest.xlsx");
+            exportExcel(data, saveDialog.FileName);
+            saveDialog.Dispose();
         }
         //export excel
         private void exportExcel(DataGridView grid, string filepath)
@@ -257,7 +267,7 @@ namespace TourApp
 
             // Close the document.
             spreadsheetDocument.Close();
-
+            spreadsheetDocument.Dispose();
         }
         #endregion
 
@@ -832,10 +842,10 @@ namespace TourApp
 
         private void tabHanhKhach_AddBtn_Click(object sender, EventArgs e)
         {
-            //DoanKhach_Form form = _serviceProvider.GetRequiredService<DoanKhach_Form>();
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
         }
 
         private void tabHanhKhach_CB_CheckedChanged(object sender, EventArgs e)
@@ -913,6 +923,11 @@ namespace TourApp
                     //form.Show();
                     break;
                 case "tabHanhKhach_EditCol":
+                    HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+                    form.setId(int.Parse(value));
+                    var main = this.Location;
+                    form.Location = new Point((main.X + 10), (main.Y + 10));
+                    form.Show();
                     break;
                 case "tabHanhKhach_DeleteCol":
                     var khach = _hanhkhachRepo.getById(int.Parse(value));
