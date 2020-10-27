@@ -34,9 +34,9 @@ namespace TourApp.UI
         public override Color DataGridviewBG { get { return Color.FromArgb(255, 30, 30, 30); } }
         public override Color DataGridviewFG { get { return Color.DarkGreen; } }
         public override Color DataGridviewGridColor { get { return Color.Red; } }
-        public override Color ButtonBG { get { return Color.DarkGray; } }
+        public override Color ButtonBG { get { return Color.White; } }
         public override Color ButtonFG { get { return Color.White; } }
-        public override Color TextBoxBG { get { return Color.DarkGray; } }
+        public override Color TextBoxBG { get { return Color.FromArgb(255, 30, 30, 30); } }
         public override Color TextBoxFG { get { return Color.White; } }
         public override Color MenuStripBG { get { return Color.DarkGray; } }
         public override Color MenuStripFG { get { return Color.White; } }

@@ -35,22 +35,22 @@ namespace TourApp.Repository
 
         public IEnumerable<DoanKhach> getAll()
         {
-            return _context.DoanKhachs.Where(dk => dk.isDeleted == Status.NotDeleted).ToList();
+            return _context.DoanKhachs.Where(dk => dk.isDeleted == Status.NotDeleted).Include(i => i.Tour).ToList();
         }
 
         public IEnumerable<DoanKhach> getAllDelete()
         {
-            return _context.DoanKhachs.Where(dk => dk.isDeleted == Status.Deleted).ToList();
+            return _context.DoanKhachs.Where(dk => dk.isDeleted == Status.Deleted).Include(i => i.Tour).ToList();
         }
 
         public IEnumerable<DoanKhach> getWhere(string name, int isDeleted, string nameTour)
         {
-            return _context.DoanKhachs.Where(dk => dk.isDeleted == Status.NotDeleted && dk.TenDoan == name && dk.Tour.Ten == nameTour).ToList();
+            return _context.DoanKhachs.Where(dk => dk.isDeleted == isDeleted && dk.TenDoan.Contains(name) && dk.Tour.Ten.Contains(nameTour)).Include(i => i.Tour).ToList();
         }
 
         public DoanKhach getById(int id, string maDK = "")
         {
-            return _context.DoanKhachs.Where(dk => dk.DoanId == id || dk.MaDoan == maDK).FirstOrDefault();
+            return _context.DoanKhachs.Where(dk => dk.DoanId == id || dk.MaDoan == maDK).Include(i => i.Tour).FirstOrDefault();
         }
 
 

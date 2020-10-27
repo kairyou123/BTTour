@@ -61,6 +61,24 @@ namespace TourApp
             this.tabNV_AddBtn = new System.Windows.Forms.Button();
             this.tabNV_RefreshBtn = new System.Windows.Forms.Button();
             this.tabNV_SearchBtn = new System.Windows.Forms.Button();
+            this.tabPassenger = new System.Windows.Forms.TabPage();
+            this.tabGroup = new System.Windows.Forms.TabPage();
+            this.DoanGridView = new System.Windows.Forms.DataGridView();
+            this.tabDoan_IDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDoan_MaDoanCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDoan_TenCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDoan_ChitietCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDoan_StatusCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDoan_TourIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDoan_MaTourCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDoan_ViewCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabDoan_EditCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabDoan_DeleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabDoan_SearchBox = new System.Windows.Forms.TextBox();
+            this.tabDoan_CB = new System.Windows.Forms.CheckBox();
+            this.tabDoan_AddBtn = new System.Windows.Forms.Button();
+            this.tabDoan_RefreshBtn = new System.Windows.Forms.Button();
+            this.tabDoan_SearchBtn = new System.Windows.Forms.Button();
             this.tabCT = new System.Windows.Forms.TabPage();
             this.ChiTieuGridView = new System.Windows.Forms.DataGridView();
             this.tabCT_IDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +92,7 @@ namespace TourApp
             this.tabCT_AddBtn = new System.Windows.Forms.Button();
             this.tabCT_SearchBtn = new System.Windows.Forms.Button();
             this.tabDestination = new System.Windows.Forms.TabPage();
-            this.tabGroup = new System.Windows.Forms.TabPage();
+            this.tabLHDL = new System.Windows.Forms.TabPage();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.FileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ExportMenuBtn = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,6 +107,8 @@ namespace TourApp
             ((System.ComponentModel.ISupportInitialize)(this.tourGridView)).BeginInit();
             this.tabStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).BeginInit();
+            this.tabGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DoanGridView)).BeginInit();
             this.tabCT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChiTieuGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
@@ -98,9 +118,11 @@ namespace TourApp
             // 
             this.tabControl.Controls.Add(this.tabTour);
             this.tabControl.Controls.Add(this.tabStaff);
+            this.tabControl.Controls.Add(this.tabPassenger);
+            this.tabControl.Controls.Add(this.tabGroup);
             this.tabControl.Controls.Add(this.tabCT);
             this.tabControl.Controls.Add(this.tabDestination);
-            this.tabControl.Controls.Add(this.tabGroup);
+            this.tabControl.Controls.Add(this.tabLHDL);
             this.tabControl.Location = new System.Drawing.Point(0, 34);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 2;
@@ -441,6 +463,199 @@ namespace TourApp
             this.tabNV_SearchBtn.UseVisualStyleBackColor = true;
             this.tabNV_SearchBtn.Click += new System.EventHandler(this.tabNV_SearchBtn_Click);
             // 
+            // tabPassenger
+            // 
+            this.tabPassenger.Location = new System.Drawing.Point(4, 29);
+            this.tabPassenger.Name = "tabPassenger";
+            this.tabPassenger.Size = new System.Drawing.Size(774, 482);
+            this.tabPassenger.TabIndex = 6;
+            this.tabPassenger.Text = "Hành khách";
+            // 
+            // tabGroup
+            // 
+            this.tabGroup.Controls.Add(this.DoanGridView);
+            this.tabGroup.Controls.Add(this.tabDoan_SearchBox);
+            this.tabGroup.Controls.Add(this.tabDoan_CB);
+            this.tabGroup.Controls.Add(this.tabDoan_AddBtn);
+            this.tabGroup.Controls.Add(this.tabDoan_RefreshBtn);
+            this.tabGroup.Controls.Add(this.tabDoan_SearchBtn);
+            this.tabGroup.Location = new System.Drawing.Point(4, 29);
+            this.tabGroup.Name = "tabGroup";
+            this.tabGroup.Size = new System.Drawing.Size(774, 482);
+            this.tabGroup.TabIndex = 3;
+            this.tabGroup.Text = "Đoàn";
+            // 
+            // DoanGridView
+            // 
+            this.DoanGridView.AllowUserToAddRows = false;
+            this.DoanGridView.AllowUserToDeleteRows = false;
+            this.DoanGridView.AllowUserToOrderColumns = true;
+            this.DoanGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DoanGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tabDoan_IDCol,
+            this.tabDoan_MaDoanCol,
+            this.tabDoan_TenCol,
+            this.tabDoan_ChitietCol,
+            this.tabDoan_StatusCol,
+            this.tabDoan_TourIDCol,
+            this.tabDoan_MaTourCol,
+            this.tabDoan_ViewCol,
+            this.tabDoan_EditCol,
+            this.tabDoan_DeleteCol});
+            this.DoanGridView.Location = new System.Drawing.Point(3, 140);
+            this.DoanGridView.Name = "DoanGridView";
+            this.DoanGridView.RowHeadersVisible = false;
+            this.DoanGridView.RowHeadersWidth = 51;
+            this.DoanGridView.Size = new System.Drawing.Size(763, 374);
+            this.DoanGridView.TabIndex = 5;
+            this.DoanGridView.Text = "dataGridView1";
+            this.DoanGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.doanGridview_CellClick);
+            this.DoanGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.doanGridview_CellDoubleClick);
+            this.DoanGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.doanGridview_CellPainting);
+            // 
+            // tabDoan_IDCol
+            // 
+            this.tabDoan_IDCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDoan_IDCol.HeaderText = "ID";
+            this.tabDoan_IDCol.MinimumWidth = 6;
+            this.tabDoan_IDCol.Name = "tabDoan_IDCol";
+            this.tabDoan_IDCol.ReadOnly = true;
+            this.tabDoan_IDCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabDoan_IDCol.Width = 53;
+            // 
+            // tabDoan_MaDoanCol
+            // 
+            this.tabDoan_MaDoanCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDoan_MaDoanCol.HeaderText = "Mã Đoàn";
+            this.tabDoan_MaDoanCol.MinimumWidth = 6;
+            this.tabDoan_MaDoanCol.Name = "tabDoan_MaDoanCol";
+            this.tabDoan_MaDoanCol.ReadOnly = true;
+            this.tabDoan_MaDoanCol.Width = 99;
+            // 
+            // tabDoan_TenCol
+            // 
+            this.tabDoan_TenCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDoan_TenCol.HeaderText = "Tên Đoàn";
+            this.tabDoan_TenCol.MinimumWidth = 6;
+            this.tabDoan_TenCol.Name = "tabDoan_TenCol";
+            this.tabDoan_TenCol.ReadOnly = true;
+            this.tabDoan_TenCol.Width = 101;
+            // 
+            // tabDoan_ChitietCol
+            // 
+            this.tabDoan_ChitietCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tabDoan_ChitietCol.HeaderText = "Chi tiết";
+            this.tabDoan_ChitietCol.MinimumWidth = 6;
+            this.tabDoan_ChitietCol.Name = "tabDoan_ChitietCol";
+            this.tabDoan_ChitietCol.ReadOnly = true;
+            // 
+            // tabDoan_StatusCol
+            // 
+            this.tabDoan_StatusCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDoan_StatusCol.HeaderText = "Tình trạng";
+            this.tabDoan_StatusCol.MinimumWidth = 6;
+            this.tabDoan_StatusCol.Name = "tabDoan_StatusCol";
+            this.tabDoan_StatusCol.ReadOnly = true;
+            this.tabDoan_StatusCol.Width = 105;
+            // 
+            // tabDoan_TourIDCol
+            // 
+            this.tabDoan_TourIDCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDoan_TourIDCol.HeaderText = "Tour ID";
+            this.tabDoan_TourIDCol.MinimumWidth = 6;
+            this.tabDoan_TourIDCol.Name = "tabDoan_TourIDCol";
+            this.tabDoan_TourIDCol.ReadOnly = true;
+            this.tabDoan_TourIDCol.Width = 86;
+            // 
+            // tabDoan_MaTourCol
+            // 
+            this.tabDoan_MaTourCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDoan_MaTourCol.HeaderText = "Mã Tour";
+            this.tabDoan_MaTourCol.MinimumWidth = 6;
+            this.tabDoan_MaTourCol.Name = "tabDoan_MaTourCol";
+            this.tabDoan_MaTourCol.ReadOnly = true;
+            this.tabDoan_MaTourCol.Width = 92;
+            // 
+            // tabDoan_ViewCol
+            // 
+            this.tabDoan_ViewCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDoan_ViewCol.HeaderText = "Xem";
+            this.tabDoan_ViewCol.MinimumWidth = 6;
+            this.tabDoan_ViewCol.Name = "tabDoan_ViewCol";
+            this.tabDoan_ViewCol.ReadOnly = true;
+            this.tabDoan_ViewCol.Width = 45;
+            // 
+            // tabDoan_EditCol
+            // 
+            this.tabDoan_EditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDoan_EditCol.HeaderText = "Sửa";
+            this.tabDoan_EditCol.MinimumWidth = 6;
+            this.tabDoan_EditCol.Name = "tabDoan_EditCol";
+            this.tabDoan_EditCol.ReadOnly = true;
+            this.tabDoan_EditCol.Width = 40;
+            // 
+            // tabDoan_DeleteCol
+            // 
+            this.tabDoan_DeleteCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDoan_DeleteCol.HeaderText = "Xóa";
+            this.tabDoan_DeleteCol.MinimumWidth = 6;
+            this.tabDoan_DeleteCol.Name = "tabDoan_DeleteCol";
+            this.tabDoan_DeleteCol.ReadOnly = true;
+            this.tabDoan_DeleteCol.Width = 41;
+            // 
+            // tabDoan_SearchBox
+            // 
+            this.tabDoan_SearchBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabDoan_SearchBox.Location = new System.Drawing.Point(551, 15);
+            this.tabDoan_SearchBox.Name = "tabDoan_SearchBox";
+            this.tabDoan_SearchBox.Size = new System.Drawing.Size(215, 38);
+            this.tabDoan_SearchBox.TabIndex = 4;
+            this.tabDoan_SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabDoan_SearchBox_KeyPress);
+            // 
+            // tabDoan_CB
+            // 
+            this.tabDoan_CB.AutoSize = true;
+            this.tabDoan_CB.Location = new System.Drawing.Point(4, 98);
+            this.tabDoan_CB.Name = "tabDoan_CB";
+            this.tabDoan_CB.Size = new System.Drawing.Size(78, 24);
+            this.tabDoan_CB.TabIndex = 3;
+            this.tabDoan_CB.Text = "Đã xóa";
+            this.tabDoan_CB.UseVisualStyleBackColor = true;
+            this.tabDoan_CB.CheckedChanged += new System.EventHandler(this.tabDoan_CB_CheckedChanged);
+            // 
+            // tabDoan_AddBtn
+            // 
+            this.tabDoan_AddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDoan_AddBtn.BackgroundImage")));
+            this.tabDoan_AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabDoan_AddBtn.Location = new System.Drawing.Point(718, 98);
+            this.tabDoan_AddBtn.Name = "tabDoan_AddBtn";
+            this.tabDoan_AddBtn.Size = new System.Drawing.Size(48, 36);
+            this.tabDoan_AddBtn.TabIndex = 2;
+            this.tabDoan_AddBtn.UseVisualStyleBackColor = true;
+            this.tabDoan_AddBtn.Click += new System.EventHandler(this.tabDoan_AddBtn_Click);
+            // 
+            // tabDoan_RefreshBtn
+            // 
+            this.tabDoan_RefreshBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDoan_RefreshBtn.BackgroundImage")));
+            this.tabDoan_RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabDoan_RefreshBtn.Location = new System.Drawing.Point(668, 98);
+            this.tabDoan_RefreshBtn.Name = "tabDoan_RefreshBtn";
+            this.tabDoan_RefreshBtn.Size = new System.Drawing.Size(41, 36);
+            this.tabDoan_RefreshBtn.TabIndex = 1;
+            this.tabDoan_RefreshBtn.UseVisualStyleBackColor = true;
+            this.tabDoan_RefreshBtn.Click += new System.EventHandler(this.tabDoan_RefreshBtn_Click);
+            // 
+            // tabDoan_SearchBtn
+            // 
+            this.tabDoan_SearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDoan_SearchBtn.BackgroundImage")));
+            this.tabDoan_SearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabDoan_SearchBtn.Location = new System.Drawing.Point(497, 12);
+            this.tabDoan_SearchBtn.Name = "tabDoan_SearchBtn";
+            this.tabDoan_SearchBtn.Size = new System.Drawing.Size(42, 44);
+            this.tabDoan_SearchBtn.TabIndex = 0;
+            this.tabDoan_SearchBtn.UseVisualStyleBackColor = true;
+            this.tabDoan_SearchBtn.Click += new System.EventHandler(this.tabDoan_SearchBtn_Click);
+            // 
             // tabCT
             // 
             this.tabCT.Controls.Add(this.ChiTieuGridView);
@@ -452,7 +667,7 @@ namespace TourApp
             this.tabCT.Name = "tabCT";
             this.tabCT.Size = new System.Drawing.Size(774, 482);
             this.tabCT.TabIndex = 4;
-            this.tabCT.Text = "Chỉ tiêu";
+            this.tabCT.Text = "Chi tiêu";
             // 
             // ChiTieuGridView
             // 
@@ -583,13 +798,13 @@ namespace TourApp
             this.tabDestination.Text = "Địa điểm";
             this.tabDestination.UseVisualStyleBackColor = true;
             // 
-            // tabGroup
+            // tabLHDL
             // 
-            this.tabGroup.Location = new System.Drawing.Point(4, 29);
-            this.tabGroup.Name = "tabGroup";
-            this.tabGroup.Size = new System.Drawing.Size(774, 482);
-            this.tabGroup.TabIndex = 3;
-            this.tabGroup.Text = "Đoàn";
+            this.tabLHDL.Location = new System.Drawing.Point(4, 29);
+            this.tabLHDL.Name = "tabLHDL";
+            this.tabLHDL.Size = new System.Drawing.Size(774, 482);
+            this.tabLHDL.TabIndex = 5;
+            this.tabLHDL.Text = "Loại hình du lịch";
             // 
             // menuStrip
             // 
@@ -689,6 +904,9 @@ namespace TourApp
             this.tabStaff.ResumeLayout(false);
             this.tabStaff.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NVGridView)).EndInit();
+            this.tabGroup.ResumeLayout(false);
+            this.tabGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DoanGridView)).EndInit();
             this.tabCT.ResumeLayout(false);
             this.tabCT.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChiTieuGridView)).EndInit();
@@ -754,6 +972,24 @@ namespace TourApp
         private DataGridViewTextBoxColumn tabCT_BlankCol;
         private ToolStripMenuItem FileMenu;
         private ToolStripMenuItem ExportMenuBtn;
+        private TabPage tabLHDL;
+        private TextBox tabDoan_SearchBox;
+        private CheckBox tabDoan_CB;
+        private Button tabDoan_AddBtn;
+        private Button tabDoan_RefreshBtn;
+        private Button tabDoan_SearchBtn;
+        private TabPage tabPassenger;
+        private DataGridView DoanGridView;
+        private DataGridViewTextBoxColumn tabDoan_IDCol;
+        private DataGridViewTextBoxColumn tabDoan_MaDoanCol;
+        private DataGridViewTextBoxColumn tabDoan_TenCol;
+        private DataGridViewTextBoxColumn tabDoan_ChitietCol;
+        private DataGridViewTextBoxColumn tabDoan_StatusCol;
+        private DataGridViewTextBoxColumn tabDoan_TourIDCol;
+        private DataGridViewTextBoxColumn tabDoan_MaTourCol;
+        private DataGridViewButtonColumn tabDoan_ViewCol;
+        private DataGridViewButtonColumn tabDoan_EditCol;
+        private DataGridViewButtonColumn tabDoan_DeleteCol;
     }
 }
 

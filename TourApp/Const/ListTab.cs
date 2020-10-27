@@ -10,6 +10,8 @@ namespace TourApp.Const
         Nhanvien,
         Diadiem,
         Doan,
-        Chitieu
+        Chitieu,
+        HanhKhach,
+        LoaiHinhDuLich
     }
 }

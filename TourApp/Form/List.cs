@@ -18,11 +18,14 @@ namespace TourApp
         private readonly ITourRepository _tourRepo;
         private readonly INhanVienRepository _nhanvienRepo;
         private readonly IChiTieuRepository _chitieuRepo;
+        private readonly IDoanKhachRepository _doankhachRepo;
+
         private readonly IServiceProvider _serviceProvider;
         public List(
                         ITourRepository tourRepo,
                         INhanVienRepository nhanvienRepo,
                         IChiTieuRepository chitieuRepo,
+                        IDoanKhachRepository doankhachRepo,
                         IServiceProvider serviceProvider
                     )
         {
@@ -30,6 +33,7 @@ namespace TourApp
             _tourRepo = tourRepo;
             _nhanvienRepo = nhanvienRepo;
             _chitieuRepo = chitieuRepo;
+            _doankhachRepo = doankhachRepo;
 
             _serviceProvider = serviceProvider;
             tabControl.SelectedTab = tabTour;
@@ -40,6 +44,7 @@ namespace TourApp
             TabRefresh(ListTab.Tour);
             TabRefresh(ListTab.Nhanvien);
             TabRefresh(ListTab.Chitieu);
+            TabRefresh(ListTab.Doan);
             ChangeTheme(new DefaultTheme(), this.Controls);
         }
         public void TabRefresh(ListTab tab)
@@ -82,6 +87,17 @@ namespace TourApp
                         foreach (ChiTieu item in data)
                         {
                             ChiTieuGridView.Rows.Add(item.CTId, item.Ten);
+                        }
+                        break;
+                    }
+                case ListTab.Doan:
+                    {
+                        tabDoan_SearchBox.Text = "";
+                        DoanGridView.Rows.Clear();
+                        var data = _doankhachRepo.getAll();
+                        foreach (DoanKhach item in data)
+                        {
+                            DoanGridView.Rows.Add(item.DoanId, item.MaDoan,item.TenDoan,item.Chitiet,item.Status,item.TourId,item.Tour.MaTour);
                         }
                         break;
                     }
@@ -633,8 +649,144 @@ namespace TourApp
 
 
 
+
         #endregion
 
-       
+        #region Đoàn
+
+        #endregion
+        private void tabDoan_Search()
+        {
+            var searchStr = tabDoan_SearchBox.Text;
+            DoanGridView.Rows.Clear();
+            var data = _doankhachRepo.getWhere(searchStr, tabDoan_CB.Checked ? 1 : 0);
+            foreach (DoanKhach item in data)
+            {
+                DoanGridView.Rows.Add(item.DoanId, item.MaDoan, item.TenDoan, item.Chitiet, item.Status, item.TourId, item.Tour.MaTour);
+            }
+        }
+        private void tabDoan_SearchBtn_Click(object sender, EventArgs e)
+        {
+            tabDoan_Search();
+        }
+
+        private void tabDoan_SearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) tabDoan_Search();
+        }
+
+        private void tabDoan_CB_CheckedChanged(object sender, EventArgs e)
+        {
+            tabDoan_Search();
+            if (tabDoan_CB.Checked)
+            {
+                DoanGridView.Columns["tabDoan_EditCol"].Visible = false;
+                DoanGridView.Columns["tabDoan_DeleteCol"].Visible = false;
+            }
+            else
+            {
+                DoanGridView.Columns["tabDoan_EditCol"].Visible = true;
+                DoanGridView.Columns["tabDoan_DeleteCol"].Visible = true;
+            }
+        }
+
+        private void tabDoan_RefreshBtn_Click(object sender, EventArgs e)
+        {
+            TabRefresh(ListTab.Doan);
+        }
+
+        private void tabDoan_AddBtn_Click(object sender, EventArgs e)
+        {
+            //ThemTour form = _serviceProvider.GetRequiredService<ThemTour>();
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+
+        private void doanGridview_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            //I supposed your button column is at index 0
+            if (e.ColumnIndex == 7)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.view;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 8)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.edit;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 9)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.delete;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void doanGridview_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            var value = grid.Rows[e.RowIndex].Cells["tabDoan_IDCol"].Value.ToString();
+            switch (name)
+            {
+                case "tabDoan_ViewCol":
+                //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
+                //form.getId(int.Parse(value));
+                //var main = this.Location;
+                //form.Location = new Point((main.X + 10), (main.Y + 10));
+                //form.Show();
+                //break;
+                case "tabDoan_EditCol":
+                    break;
+                case "tabDoan_DeleteCol":
+                    var doan = _doankhachRepo.getById(int.Parse(value));
+                    var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + doan.TenDoan, "Warning", MessageBoxButtons.YesNo);
+                    if (messageResult != DialogResult.Yes) return;
+                    _doankhachRepo.Delete(doan);
+                    tabDoan_Search();
+                    break;
+            }
+        }
+
+        private void doanGridview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            if (name == "tabDoan_EditCol" || name == "tabDoan_ViewCol" || name == "tabDoan_DeleteCol") return;
+            var value = grid.Rows[e.RowIndex].Cells["tabDoan_IDCol"].Value.ToString();
+
+            //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
+            //form.getId(int.Parse(value));
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
     }
 }
