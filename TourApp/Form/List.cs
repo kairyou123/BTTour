@@ -843,6 +843,7 @@ namespace TourApp
         private void tabHanhKhach_AddBtn_Click(object sender, EventArgs e)
         {
             HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+            form.editState = EditState.Create;
             var main = this.Location;
             form.Location = new Point((main.X + 10), (main.Y + 10));
             form.Show();
@@ -916,26 +917,34 @@ namespace TourApp
             switch (name)
             {
                 case "tabHanhKhach_ViewCol":
-                    //DoanKhach_Form form = _serviceProvider.GetRequiredService<DoanKhach_Form>();
-                    //form.getId(int.Parse(value));
-                    //var main = this.Location;
-                    //form.Location = new Point((main.X + 10), (main.Y + 10));
-                    //form.Show();
-                    break;
+                    {
+                        HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+                        form.editState = EditState.View;
+                        form.setId(int.Parse(value));
+                        var main = this.Location;
+                        form.Location = new Point((main.X + 10), (main.Y + 10));
+                        form.Show();
+                        break;
+                    }
                 case "tabHanhKhach_EditCol":
-                    HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
-                    form.setId(int.Parse(value));
-                    var main = this.Location;
-                    form.Location = new Point((main.X + 10), (main.Y + 10));
-                    form.Show();
-                    break;
+                    {
+                        HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+                        form.editState = EditState.Edit;
+                        form.setId(int.Parse(value));
+                        var main = this.Location;
+                        form.Location = new Point((main.X + 10), (main.Y + 10));
+                        form.Show();
+                        break;
+                    }
                 case "tabHanhKhach_DeleteCol":
-                    var khach = _hanhkhachRepo.getById(int.Parse(value));
-                    var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + khach.Ten, "Warning", MessageBoxButtons.YesNo);
-                    if (messageResult != DialogResult.Yes) return;
-                    _hanhkhachRepo.Delete(khach);
-                    tabHanhKhach_Search();
-                    break;
+                    {
+                        var khach = _hanhkhachRepo.getById(int.Parse(value));
+                        var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + khach.Ten, "Warning", MessageBoxButtons.YesNo);
+                        if (messageResult != DialogResult.Yes) return;
+                        _hanhkhachRepo.Delete(khach);
+                        tabHanhKhach_Search();
+                        break;
+                    }
             }
         }
 
@@ -947,11 +956,13 @@ namespace TourApp
             if (name == "tabHanhKhach_EditCol" || name == "tabHanhKhach_ViewCol" || name == "tabHanhKhach_DeleteCol") return;
             var value = grid.Rows[e.RowIndex].Cells["tabHanhKhach_IDCol"].Value.ToString();
 
-            //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
-            //form.getId(int.Parse(value));
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+            form.editState = EditState.View;
+            form.setId(int.Parse(value));
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
+            
         }
         #endregion
     }
