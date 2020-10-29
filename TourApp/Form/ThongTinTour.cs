@@ -66,5 +66,9 @@ namespace TourApp
              showThongtin();
         }
 
+        private void listGia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
