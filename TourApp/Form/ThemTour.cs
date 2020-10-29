@@ -18,13 +18,15 @@ namespace TourApp
         private readonly IDiaDiemRepository _diadiemRepository;
         private readonly ICTTourRepository _cTTourRepository;
         private readonly IGiaRepository _giaRepository;
+        private readonly ILoaiHinhDuLieuRepository _lhdlRepo;
 
-        public ThemTour(ITourRepository tourRepository,IDiaDiemRepository diaDiemRepository,ICTTourRepository cTTourRepository,IGiaRepository giaRepository)
+        public ThemTour(ITourRepository tourRepository,IDiaDiemRepository diaDiemRepository,ICTTourRepository cTTourRepository,IGiaRepository giaRepository, ILoaiHinhDuLieuRepository lhdlRepo)
         {
             _tourRepository = tourRepository;
             _diadiemRepository = diaDiemRepository;
             _cTTourRepository = cTTourRepository;
             _giaRepository = giaRepository;
+            _lhdlRepo = lhdlRepo;
             InitializeComponent();
         }
 
@@ -39,14 +41,14 @@ namespace TourApp
                 diadiem.Items.Add(diaDiem);
             }
             /* Loại hình */
-            LoaiHinhDL item1 = new LoaiHinhDL();
-            item1.LHDLId = 1;
-            item1.Ten = "Loại 1";
-            loaihinhcbb.Items.Add(item1);
+            
+
+            var lhdl_list = _lhdlRepo.getAll();
+            loaihinhcbb.DataSource = lhdl_list;
             loaihinhcbb.DisplayMember = "Ten";
             loaihinhcbb.ValueMember = "LHDLId";
-            loaihinhcbb.SelectedItem = item1;
-            
+
+
         }
 
         private bool check()

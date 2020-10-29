@@ -52,14 +52,28 @@ namespace TourApp.Repository
                                        .FirstOrDefault();
         }
 
-        public IEnumerable<Tour> getWhere(string Ten, int isDeleted)
+        public IEnumerable<Tour> getWhere(string Ten,string LHDL, string ID, string MaTour,DateTime fromDate, DateTime toDate , int fromPrice, int toPrice, int isDeleted)
         {
-            return _context.Tours.Where(t => t.Ten.Contains(Ten))
+            
+            var result = _context.Tours.Include(t => t.Gias)
+                                 .Include(t => t.LHDL)
+                                 .Include(t => t.CTTours)
+                                 .ThenInclude(dd => dd.DiaDiem)
+                                 .Where(t => t.Ten.Contains(Ten))
+                                 .Where(t => t.LHDL.Ten.Contains(LHDL))
+                                 .Where(t => t.MaTour.Contains(MaTour))
+                                 .Where(t => t.TourId.ToString().Contains(ID))
+                                 .Where(t => t.Gias.Where(i => (
+                                                                DateTime.Compare(i.TGBD, fromDate) >= 0
+                                                             && DateTime.Compare(i.TGKT, toDate) <= 0
+                                                             && i.GiaTri >= fromPrice
+                                                             && i.GiaTri <= toPrice
+                                                           ))
+                                                    .Count() > 0)
                                  .Where(t => t.isDeleted == isDeleted)
-                                       .Include(t => t.Gias)
-                                       .Include(t => t.CTTours)
-                                       .ThenInclude(dd => dd.DiaDiem)
-                                       .ToList();
+                                 .ToList();
+
+            return result;
         }
 
         public void Update(Tour entity)

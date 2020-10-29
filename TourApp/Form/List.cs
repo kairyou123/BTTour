@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Windows.Forms;
 using TourApp.Const;
 using TourApp.Entity;
@@ -58,6 +59,10 @@ namespace TourApp
             {
                 case ListTab.Tour:
                     {
+                        tabTour_FromDate.Value = tabTour_FromDate.MinDate;
+                        tabTour_ToDate.Value = tabTour_ToDate.MaxDate;
+                        tabTour_ToPrice.Value = tabTour_ToPrice.Maximum;
+                        tabTour_SearchOption.SelectedIndex = 0;
                         searchBox.Text = "";
                         isDeleted_ChB.Checked = false;
                         tourGridView.Rows.Clear();
@@ -377,9 +382,30 @@ namespace TourApp
         }
         private void Search()
         {
-            var searchStr = searchBox.Text;
+            string searchTen, searchLHDL, searchID, searchMaTour;
+             searchTen = searchLHDL = searchID = searchMaTour = "";
+
+            switch (tabTour_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    searchTen = searchBox.Text;
+                    break;
+                case 1:
+                    searchMaTour = searchBox.Text;
+                    break;
+                case 2:
+                    searchID = searchBox.Text; 
+                    break;
+                case 3:
+                    searchLHDL = searchBox.Text;
+                    break;
+
+            }
             tourGridView.Rows.Clear();
-            var data = _tourRepo.getWhere(searchStr, isDeleted_ChB.Checked ? 1 : 0);
+            var data = _tourRepo.getWhere(searchTen,searchLHDL,searchID,searchMaTour,
+                                          tabTour_FromDate.Value,tabTour_ToDate.Value,
+                                          (int)tabTour_FromPrice.Value,(int) tabTour_ToPrice.Value, 
+                                          isDeleted_ChB.Checked ? 1 : 0);
             foreach (Tour item in data)
             {
                 tourGridView.Rows.Add(item.TourId, item.MaTour, item.Ten, item.LHDL.Ten);
