@@ -64,7 +64,6 @@ namespace TourApp
                         var data = _tourRepo.getAll();
                         foreach (Tour item in data)
                         {
-
                             tourGridView.Rows.Add(item.TourId, item.MaTour, item.Ten, item.LHDL.Ten);
                         }
                         break;
@@ -340,6 +339,11 @@ namespace TourApp
                     form.Show();
                     break;
                 case "EditCol":
+                    SuaTour form2 = _serviceProvider.GetRequiredService<SuaTour>();
+                    form2.getId(int.Parse(value));
+                    var main2 = this.Location;
+                    form2.Location = new Point((main2.X + 10), (main2.Y + 10));
+                    form2.Show();
                     break;
                 case "DeleteCol":
                     var tour = _tourRepo.getById(int.Parse(value));
