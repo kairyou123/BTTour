@@ -33,8 +33,7 @@ namespace TourApp.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-
-            optionsBuilder.UseSqlite("Data Source=I:\\Tour.db");
+            optionsBuilder.UseSqlite("Data Source=E:\\Tour.db");
 
         }
 
