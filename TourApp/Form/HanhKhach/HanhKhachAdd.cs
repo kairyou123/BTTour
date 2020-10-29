@@ -30,6 +30,8 @@ namespace TourApp
             this.id = id;
         }
 
+        public EditState editState { get; set; }
+
        private Boolean validate()
         {
             if(txt_id.Text == "")
@@ -117,17 +119,42 @@ namespace TourApp
         private void init()
         {
 
-            if(this.id == 0)
+            switch (editState)
             {
-                return;
+                case EditState.View:
+                    {
+                        HanhKhach hk = _hanhKhach.getById(id);
+                        txt_id.Text = hk.MaKhach;
+                        txt_email.Text = hk.Email;
+                        txt_phone.Text = hk.SDT.ToString();
+                        txt_name.Text = hk.Ten;
+                        title.Text = "CHI TIẾT HÀNH KHÁCH";
+
+                        txt_name.ReadOnly = true;
+                        txt_email.ReadOnly = true;
+                        txt_id.ReadOnly = true;
+                        txt_phone.ReadOnly = true;
+                        btn.Enabled = false;
+                        break;
+                    }
+                case EditState.Create:
+                    {
+                        break;
+                    }
+                
+                case EditState.Edit:
+                    {
+                        HanhKhach hk = _hanhKhach.getById(id);
+                        txt_id.Text = hk.MaKhach;
+                        txt_email.Text = hk.Email;
+                        txt_phone.Text = hk.SDT.ToString();
+                        txt_name.Text = hk.Ten;
+                        title.Text = "SỬA HÀNH KHÁCH";
+                        break;
+                    }
             }
 
-            HanhKhach hk = _hanhKhach.getById(id);
-            txt_id.Text = hk.MaKhach;
-            txt_email.Text = hk.Email;
-            txt_phone.Text = hk.SDT.ToString();
-            txt_name.Text = hk.Ten;
-            title.Text = "SỬA HÀNH KHÁCH";
+            
         }
 
         private void btn_Click(object sender, EventArgs e)
