@@ -18,6 +18,7 @@ namespace TourApp
         /// </summary>
         public static List Form;
         public static FormTest Form1;
+
         [STAThread]
         static void Main()
         {
@@ -42,9 +43,12 @@ namespace TourApp
             services.AddTransient<FormTest>();
             services.AddTransient<ThongTinTour>();
             services.AddTransient<ThemTour>();
+            services.AddTransient<SuaTour>();
             services.AddTransient<List>();
+            services.AddTransient<ThemGia>();
             services.AddTransient<HanhKhach_Form>();
             services.AddTransient<DoanKhach_Form>();
+            services.AddTransient<SearchForm>();
             services.AddScoped<IChiTieuRepository, ChiTieuRepository>();
             services.AddScoped<ITourRepository, TourRepository>();
             services.AddScoped<IDiaDiemRepository, DiaDiemRepository>();

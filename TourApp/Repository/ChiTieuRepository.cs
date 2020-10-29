@@ -38,12 +38,12 @@ namespace TourApp.Repository
 
         public ChiTieu getById(int CTId)
         {
-            return _context.ChiTieus.Find(CTId);
+            return _context.ChiTieus.Where(ct => ct.CTId == CTId).Include(ct => ct.CTChitieus).FirstOrDefault();
         }
 
         public IEnumerable<ChiTieu> getWhere(string Ten)
         {
-            return _context.ChiTieus.Where(c => c.Ten.Contains(Ten)).ToList();
+            return _context.ChiTieus.Where(c => c.Ten.Contains(Ten)).Include(ct => ct.CTChitieus).ToList();
                                            
         }
 

@@ -13,10 +13,25 @@
     <Compile Update="Form\List.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form\SuaTour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Update="Form\ThemGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+
     <Compile Update="Form\ThemTour.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\ThongTinTour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+
+    <Compile Update="Form\SearchForm.cs">
+	<SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\ThemGia.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

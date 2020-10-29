@@ -49,36 +49,58 @@ namespace TourApp
             
         }
 
+        private bool check()
+        {
+            if (matourtb.Text == null)
+                return false;
+            if (tentourtb.Text == null)
+                return false;
+            if (diadiem.CheckedItems == null)
+                return false;
+            if (mucgia.Value <= 0)
+                return false;
+            if (tungay.Value > denngay.Value)
+                return false;
+            return true;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Tour newtour = new Tour();
-            newtour.CTTours = new List<CTTour>();
-            newtour.Gias = new List<Gia>();
-            Gia newgia = new Gia(); 
-            newtour.MaTour = matourtb.Text;
-            newtour.Ten = tentourtb.Text;
-
-            LoaiHinhDL item = new LoaiHinhDL();
-            item = (LoaiHinhDL)loaihinhcbb.SelectedItem;
-            newtour.LHDLId = item.LHDLId;
-          
-            foreach (ListViewItem dd in diadiem.CheckedItems)
+            if (!check())
             {
-                CTTour newcttour = new CTTour();
-                newcttour.DDId = Convert.ToInt32(dd.SubItems[0].Text);
-                newcttour.TourId = newtour.TourId;
-                //_cTTourRepository.Add(newcttour);
-                newtour.CTTours.Add(newcttour);
+                MessageBox.Show("Thông tin thiếu hoặc không hợp lệ !");
             }
-            newgia.GiaTri = (int)mucgia.Value;
-            newgia.TGBD = tungay.Value;
-            newgia.TGKT = denngay.Value;
-            newgia.TourId = newtour.TourId;
-            newtour.Gias.Add(newgia);
-            _tourRepository.Add(newtour);
-            // _giaRepository.Add(newgia);
-            MessageBox.Show("Thêm thành công!");
-            Program.Form.TabRefresh(ListTab.Tour);
+            else
+            {
+                Tour newtour = new Tour();
+                newtour.CTTours = new List<CTTour>();
+                newtour.Gias = new List<Gia>();
+                Gia newgia = new Gia();
+                newtour.MaTour = matourtb.Text;
+                newtour.Ten = tentourtb.Text;
+
+                LoaiHinhDL item = new LoaiHinhDL();
+                item = (LoaiHinhDL)loaihinhcbb.SelectedItem;
+                newtour.LHDL = item;
+
+                foreach (ListViewItem dd in diadiem.CheckedItems)
+                {
+                    CTTour newcttour = new CTTour();
+                    newcttour.DDId = Convert.ToInt32(dd.SubItems[0].Text);
+                    newcttour.TourId = newtour.TourId;
+                    //_cTTourRepository.Add(newcttour);
+                    newtour.CTTours.Add(newcttour);
+                }
+                newgia.GiaTri = (int)mucgia.Value;
+                newgia.TGBD = tungay.Value;
+                newgia.TGKT = denngay.Value;
+                newgia.TourId = newtour.TourId;
+                newtour.Gias.Add(newgia);
+                _tourRepository.Add(newtour);
+                // _giaRepository.Add(newgia);
+                MessageBox.Show("Thêm thành công!");
+                Program.Form.TabRefresh(ListTab.Tour);
+            }
         }
 
         protected override  void OnLoad(EventArgs e)

@@ -32,9 +32,13 @@
             this.errormsg0 = new System.Windows.Forms.Label();
             this.tourd = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.data_hk = new System.Windows.Forms.DataGridView();
             this.errormsg1 = new System.Windows.Forms.Label();
             this.hk_btn = new System.Windows.Forms.Button();
+            this.data_hk = new System.Windows.Forms.DataGridView();
+            this.Ma_HK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ten_HK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDTHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteHK = new System.Windows.Forms.DataGridViewButtonColumn();
             this.statusd = new System.Windows.Forms.RichTextBox();
             this.tend = new System.Windows.Forms.TextBox();
             this.mad = new System.Windows.Forms.TextBox();
@@ -52,25 +56,21 @@
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.nv_btn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.data_cp = new System.Windows.Forms.DataGridView();
             this.errormsg3 = new System.Windows.Forms.Label();
+            this.data_cp = new System.Windows.Forms.DataGridView();
             this.LoaiCP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DeleteCP = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cp_btn = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
-            this.Ma_HK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ten_HK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDTHK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeleteHK = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.data_hk)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.data_hk)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_nv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.data_cp)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.data_cp)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -115,24 +115,6 @@
             // 
             // groupBox4
             // 
-            // 
-            // data_hk
-            // 
-            this.data_hk.AllowUserToAddRows = false;
-            this.data_hk.AllowUserToDeleteRows = false;
-            this.data_hk.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.data_hk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.data_hk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Ma_HK,
-            this.Ten_HK,
-            this.SDTHK,
-            this.DeleteHK});
-            this.data_hk.Location = new System.Drawing.Point(6, 56);
-            this.data_hk.Name = "data_hk";
-            this.data_hk.ReadOnly = true;
-            this.data_hk.Size = new System.Drawing.Size(363, 185);
-            this.data_hk.TabIndex = 0;
-            this.data_hk.Text = "dataGridView3";
             this.groupBox4.Controls.Add(this.errormsg1);
             this.groupBox4.Controls.Add(this.hk_btn);
             this.groupBox4.Controls.Add(this.data_hk);
@@ -166,6 +148,60 @@
             this.hk_btn.TabIndex = 1;
             this.hk_btn.Text = "Chọn";
             this.hk_btn.UseVisualStyleBackColor = true;
+            this.hk_btn.Click += new System.EventHandler(this.hk_btn_Click);
+            // 
+            // data_hk
+            // 
+            this.data_hk.AllowUserToAddRows = false;
+            this.data_hk.AllowUserToDeleteRows = false;
+            this.data_hk.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.data_hk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data_hk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Ma_HK,
+            this.Ten_HK,
+            this.SDTHK,
+            this.DeleteHK});
+            this.data_hk.Location = new System.Drawing.Point(6, 56);
+            this.data_hk.Name = "data_hk";
+            this.data_hk.ReadOnly = true;
+            this.data_hk.Size = new System.Drawing.Size(363, 185);
+            this.data_hk.TabIndex = 0;
+            this.data_hk.Text = "dataGridView3";
+            this.data_hk.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_hk_CellContentClick);
+            // 
+            // Ma_HK
+            // 
+            this.Ma_HK.FillWeight = 70F;
+            this.Ma_HK.HeaderText = "Mã HK";
+            this.Ma_HK.Name = "Ma_HK";
+            this.Ma_HK.ReadOnly = true;
+            this.Ma_HK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ma_HK.Width = 70;
+            // 
+            // Ten_HK
+            // 
+            this.Ten_HK.HeaderText = "Tên HK";
+            this.Ten_HK.Name = "Ten_HK";
+            this.Ten_HK.ReadOnly = true;
+            this.Ten_HK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // SDTHK
+            // 
+            this.SDTHK.HeaderText = "SDT";
+            this.SDTHK.Name = "SDTHK";
+            this.SDTHK.ReadOnly = true;
+            this.SDTHK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // DeleteHK
+            // 
+            this.DeleteHK.FillWeight = 50F;
+            this.DeleteHK.HeaderText = "Xóa";
+            this.DeleteHK.Name = "DeleteHK";
+            this.DeleteHK.ReadOnly = true;
+            this.DeleteHK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DeleteHK.Text = "Xóa";
+            this.DeleteHK.ToolTipText = "Xóa";
+            this.DeleteHK.Width = 50;
             // 
             // statusd
             // 
@@ -332,24 +368,6 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            // 
-            // data_cp
-            // 
-            this.data_cp.AllowUserToAddRows = false;
-            this.data_cp.AllowUserToDeleteRows = false;
-            this.data_cp.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.data_cp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.data_cp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.LoaiCP,
-            this.Tien,
-            this.Delete1});
-            this.data_cp.GridColor = System.Drawing.SystemColors.ButtonShadow;
-            this.data_cp.Location = new System.Drawing.Point(7, 68);
-            this.data_cp.Name = "data_cp";
-            this.data_cp.ReadOnly = true;
-            this.data_cp.Size = new System.Drawing.Size(349, 164);
-            this.data_cp.TabIndex = 2;
-            this.data_cp.Text = "dataGridView2";
             this.groupBox3.Controls.Add(this.errormsg3);
             this.groupBox3.Controls.Add(this.data_cp);
             this.groupBox3.Controls.Add(this.cp_btn);
@@ -375,6 +393,25 @@
             this.errormsg3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.errormsg3.Visible = false;
             // 
+            // data_cp
+            // 
+            this.data_cp.AllowUserToAddRows = false;
+            this.data_cp.AllowUserToDeleteRows = false;
+            this.data_cp.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.data_cp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.data_cp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LoaiCP,
+            this.Tien,
+            this.DeleteCP});
+            this.data_cp.GridColor = System.Drawing.SystemColors.ButtonShadow;
+            this.data_cp.Location = new System.Drawing.Point(7, 68);
+            this.data_cp.Name = "data_cp";
+            this.data_cp.ReadOnly = true;
+            this.data_cp.Size = new System.Drawing.Size(349, 164);
+            this.data_cp.TabIndex = 2;
+            this.data_cp.Text = "dataGridView2";
+            this.data_cp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_cp_CellContentClick);
+            // 
             // LoaiCP
             // 
             this.LoaiCP.FillWeight = 150F;
@@ -391,15 +428,15 @@
             this.Tien.ReadOnly = true;
             this.Tien.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // Delete1
+            // DeleteCP
             // 
-            this.Delete1.FillWeight = 50F;
-            this.Delete1.HeaderText = "Xóa";
-            this.Delete1.Name = "Delete1";
-            this.Delete1.ReadOnly = true;
-            this.Delete1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Delete1.Text = "Xóa";
-            this.Delete1.Width = 50;
+            this.DeleteCP.FillWeight = 50F;
+            this.DeleteCP.HeaderText = "Xóa";
+            this.DeleteCP.Name = "DeleteCP";
+            this.DeleteCP.ReadOnly = true;
+            this.DeleteCP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DeleteCP.Text = "Xóa";
+            this.DeleteCP.Width = 50;
             // 
             // cp_btn
             // 
@@ -409,6 +446,7 @@
             this.cp_btn.TabIndex = 1;
             this.cp_btn.Text = "Chọn";
             this.cp_btn.UseVisualStyleBackColor = true;
+            this.cp_btn.Click += new System.EventHandler(this.cp_btn_Click);
             // 
             // Save
             // 
@@ -419,40 +457,6 @@
             this.Save.Text = "Lưu";
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // Ma_HK
-            // 
-            this.Ma_HK.FillWeight = 70F;
-            this.Ma_HK.HeaderText = "Mã HK";
-            this.Ma_HK.Name = "Ma_HK";
-            this.Ma_HK.ReadOnly = true;
-            this.Ma_HK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Ma_HK.Width = 70;
-            // 
-            // Ten_HK
-            // 
-            this.Ten_HK.HeaderText = "Tên HK";
-            this.Ten_HK.Name = "Ten_HK";
-            this.Ten_HK.ReadOnly = true;
-            this.Ten_HK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // SDTHK
-            // 
-            this.SDTHK.HeaderText = "SDT";
-            this.SDTHK.Name = "SDTHK";
-            this.SDTHK.ReadOnly = true;
-            this.SDTHK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // DeleteHK
-            // 
-            this.DeleteHK.FillWeight = 50F;
-            this.DeleteHK.HeaderText = "Xóa";
-            this.DeleteHK.Name = "DeleteHK";
-            this.DeleteHK.ReadOnly = true;
-            this.DeleteHK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DeleteHK.Text = "Xóa";
-            this.DeleteHK.ToolTipText = "Xóa";
-            this.DeleteHK.Width = 50;
             // 
             // DoanKhach_Form
             // 
@@ -468,16 +472,16 @@
             this.Load += new System.EventHandler(this.DoanKhach_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.data_hk)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.data_hk)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_nv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.data_cp)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.data_cp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -508,9 +512,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn VT;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiCP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tien;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete1;
         private System.Windows.Forms.Label errormsg1;
         private System.Windows.Forms.Label errormsg2;
         private System.Windows.Forms.Label errormsg3;
@@ -519,5 +520,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten_HK;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDTHK;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteHK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiCP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tien;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteCP;
     }
 }
