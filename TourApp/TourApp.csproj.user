@@ -19,5 +19,8 @@
     <Compile Update="Form\ThongTinTour.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form\SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

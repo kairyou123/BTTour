@@ -45,6 +45,7 @@ namespace TourApp
             services.AddTransient<List>();
             services.AddTransient<HanhKhach_Form>();
             services.AddTransient<DoanKhach_Form>();
+            services.AddTransient<SearchForm>();
             services.AddScoped<IChiTieuRepository, ChiTieuRepository>();
             services.AddScoped<ITourRepository, TourRepository>();
             services.AddScoped<IDiaDiemRepository, DiaDiemRepository>();
