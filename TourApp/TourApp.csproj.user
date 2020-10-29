@@ -16,23 +16,22 @@
     <Compile Update="Form\SuaTour.cs">
       <SubType>Form</SubType>
     </Compile>
-<<<<<<< HEAD
+
     <Compile Update="Form\ThemGia.cs">
       <SubType>Form</SubType>
     </Compile>
-=======
->>>>>>> 72bc4a3709a534c67549fce8cab9c46213b02055
+
     <Compile Update="Form\ThemTour.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\ThongTinTour.cs">
       <SubType>Form</SubType>
     </Compile>
-<<<<<<< HEAD
+
     <Compile Update="Form\SearchForm.cs">
-=======
+	<SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form\ThemGia.cs">
->>>>>>> 72bc4a3709a534c67549fce8cab9c46213b02055
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -15,8 +15,8 @@ namespace TourApp
     public partial class DoanKhach_Form : Form
     {
         public int id = 0;
-        private ITourRepository _tourRepository;
-        private IServiceProvider _service;
+        private readonly ITourRepository _tourRepository;
+        private readonly IServiceProvider _service;
 
         public DoanKhach_Form(ITourRepository tourRepository, IServiceProvider service)
         {

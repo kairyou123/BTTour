@@ -18,11 +18,7 @@ namespace TourApp
         /// </summary>
         public static List Form;
         public static FormTest Form1;
-<<<<<<< HEAD
- 
-=======
-        public static SuaTour SuaTour;
->>>>>>> 72bc4a3709a534c67549fce8cab9c46213b02055
+
         [STAThread]
         static void Main()
         {
