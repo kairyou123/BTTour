@@ -14,7 +14,13 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using System.Text.RegularExpressions;
 
 namespace TourApp
-{
+{ 
+    // Trong Form này có 2 cái listview để hiển thị ( dùng cái nào thì ẩn cái còn lại )
+    // lv_search là listview với checkbox là chọn được nhiều cái
+    // lv_radio là listview với checkbox mỗi lần chỉ chọn 1 cái
+
+    //lbl là lbl của txt_option
+    //txt_option là các value cần thêm nếu có không thì mặc định là visible = false
     public partial class SearchForm : Form
     {
         private string txt_search;
