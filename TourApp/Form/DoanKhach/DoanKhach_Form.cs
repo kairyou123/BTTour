@@ -9,6 +9,7 @@ using TourApp.Entity;
 using TourApp.Repository.IRepository;
 using TourApp.Const;
 using Microsoft.Extensions.DependencyInjection;
+using System.Runtime.Serialization.Formatters;
 
 namespace TourApp
 {
@@ -16,13 +17,23 @@ namespace TourApp
     {
         public int id = 0;
         private readonly ITourRepository _tourRepository;
+        private readonly IDoanKhachRepository _doanRepo;
         private readonly IServiceProvider _service;
+        private readonly INhanVienRepository _nvRepo;
+        private readonly IHanhKhachRepository _hkRepo;
+        private readonly IChiTieuRepository _ctRepo;
+        public EditState formType;
 
-        public DoanKhach_Form(ITourRepository tourRepository, IServiceProvider service)
+        public DoanKhach_Form(ITourRepository tourRepository, IServiceProvider service, IDoanKhachRepository doanRepo,
+                                                     INhanVienRepository nvRepo, IHanhKhachRepository hkRepo, IChiTieuRepository ctRepo)
         {
             InitializeComponent();
             _tourRepository = tourRepository;
             _service = service;
+            _doanRepo = doanRepo;
+            _nvRepo = nvRepo;
+            _hkRepo = hkRepo;
+            _ctRepo = ctRepo;
         }
 
         public Boolean validate()
@@ -55,7 +66,18 @@ namespace TourApp
                 tend.ForeColor = Color.Black;
             }
 
-            if (data_hk.Rows.Count <= 1)
+            if (DateTime.Compare(datestart.Value, dateend.Value) > 0)
+            {
+                errormsg0.Text = ErrorMsg.err_minMaxDate;
+                errormsg0.Visible = true;
+                return false;
+            }
+            else
+            {
+                errormsg0.Visible = false;
+            }
+
+            if (data_hk.Rows.Count <1)
             {
                 errormsg1.Visible = true;
                 return false;
@@ -65,7 +87,7 @@ namespace TourApp
                 errormsg1.Visible = false;
             }
 
-            if (data_nv.Rows.Count <= 1)
+            if (data_nv.Rows.Count < 1)
             {
                 errormsg2.Visible = true;
                 return false;
@@ -75,7 +97,7 @@ namespace TourApp
                 errormsg2.Visible = false;
             }
 
-            if (data_cp.Rows.Count <= 1)
+            if (data_cp.Rows.Count < 1)
             {
                 errormsg3.Visible = true;
                 return false;
@@ -85,24 +107,89 @@ namespace TourApp
                 errormsg3.Visible = false;
             }
 
+            
+
             return true;
         }
 
         private void init()
         {
-            IEnumerable<Tour> Tours = _tourRepository.getAll();
-
-            foreach(Tour tourm in Tours )
+            if (formType != EditState.View)
             {
-                tourd.Items.Add(tourm.Ten);
+                IEnumerable<Tour> Tours = _tourRepository.getAll();
+                foreach (Tour tourm in Tours)
+                {
+                    tourd.Items.Add(tourm.Ten);
+                }
+            }
+            datestart.Value = DateTime.Now.Date;
+            dateend.Value = DateTime.Now.Date;
+
+            switch (formType)
+           {
+                case EditState.Create:
+                    tourd.SelectedIndex = 0;
+                    break;
+                case EditState.Edit:
+                    //Init Data to DoanForm
+                    DoanKhach dk_init = _doanRepo.getById(id);
+                    mad.Text = dk_init.MaDoan;
+                    tend.Text = dk_init.TenDoan;
+                    tourd.SelectedItem = dk_init.Tour.Ten;
+                    statusd.Text = dk_init.Chitiet;
+                    datestart.Value =  dk_init.DateStart;
+                    dateend.Value = dk_init.DateEnd;
+                    //HanhKhach
+                    foreach (var hk in dk_init.CTDoans)
+                    {
+                        data_hk.Rows.Add(hk.HanhKhach.MaKhach, hk.HanhKhach.Ten, hk.HanhKhach.SDT);
+                    }
+                    //NhanVien
+                    foreach (var nv in dk_init.NV_VTs)
+                    {
+                        data_nv.Rows.Add(nv.NhanVien.MaNV, nv.NhanVien.Ten,nv.ViTri);
+                    }
+                    //ChiTieu
+                    foreach (var ct in dk_init.CTChitieus)
+                    {
+                        data_cp.Rows.Add(ct.ChiTieu.Ten, ct.TienCT);
+                    }
+                    break;
+                case EditState.View:
+                    DoanKhach dk_init1 = _doanRepo.getById(id);
+                    mad.Text = dk_init1.MaDoan;
+                    tend.Text = dk_init1.TenDoan;
+                    tourd.Items.Add(dk_init1.Tour.Ten);
+                    tourd.SelectedIndex = 0;
+                    statusd.Text = dk_init1.Chitiet;
+                    datestart.Value = dk_init1.DateStart;
+                    dateend.Value = dk_init1.DateEnd;
+                    //HanhKhach
+                    foreach (var hk in dk_init1.CTDoans)
+                    {
+                        data_hk.Rows.Add(hk.HanhKhach.MaKhach, hk.HanhKhach.Ten, hk.HanhKhach.SDT);
+                    }
+                    //NhanVien
+                    foreach (var nv in dk_init1.NV_VTs)
+                    {
+                        data_nv.Rows.Add(nv.NhanVien.MaNV, nv.NhanVien.Ten, nv.ViTri);
+                    }
+                    //ChiTieu
+                    foreach (var ct in dk_init1.CTChitieus)
+                    {
+                        data_cp.Rows.Add(ct.ChiTieu.Ten, ct.TienCT);
+                    }
+                    mad.ReadOnly = true;
+                    tend.ReadOnly = true;
+                    statusd.ReadOnly = true;
+                    datestart.Enabled = false;
+                    dateend.Enabled = false;
+                    break;
             }
 
-            tourd.SelectedIndex = 0;
-            
         }
 
         
-
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -110,11 +197,18 @@ namespace TourApp
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if(!validate())
+            if (formType == EditState.View)
             {
                 return;
             }
 
+            if (!validate())
+            {
+                return;
+            }
+
+            save();
+            MessageBox.Show("Lưu thành công", "Thông báo");
 
         }
 
@@ -127,6 +221,7 @@ namespace TourApp
         {
             var name = btn_click;
             SearchForm s_form;
+            
             switch (name)
             {
                 case "hk_btn":
@@ -144,12 +239,43 @@ namespace TourApp
                     }
                     break;
                 case "nv_btn":
+                    s_form = _service.GetRequiredService<SearchForm>();
+                    s_form.setForm(FormName.NVFORMNAME);
+                    s_form.ShowDialog();
+                    var nvList = s_form.listNVRT;
+                    var flg1 = false;
+                    if ( nvList != null &&  nvList.Count>0 )
+                    {
+                        foreach (DataGridViewRow row in data_nv.Rows)
+                        {
+                            foreach (DataGridViewCell cell in row.Cells)
+                            {
+                                if (cell.GetType() == typeof(DataGridViewButtonCell))
+                                {
+                                    continue;
+                                }
+
+                                string value = cell.Value.ToString();
+                                if (value == nvList[0])
+                                {
+                                    flg1 = true;
+                                    break;
+                                }
+                                if (flg1) break;
+                            }
+                        }
+                        if (!flg1)
+                        {
+                            data_nv.Rows.Add(nvList[0], nvList[1], nvList[2]);
+                        }
+                    }
                     break;
                 case "ct_btn":
                     s_form = _service.GetRequiredService<SearchForm>();
                     s_form.setForm(FormName.CTFORMNAME);
                     s_form.ShowDialog();
                     var ctList = s_form.listCTRT;
+
                     var flg = false;
                     if (ctList != null && ctList.Count>0)
                     {
@@ -168,14 +294,14 @@ namespace TourApp
                                     flg = true;
                                     break;
                                 }
+                                if (flg) break;
                             }
-                            if (flg) break;
                         }
-                        if(!flg)
+                        if (!flg)
                         {
                             data_cp.Rows.Add(ctList[0], ctList[1]);
                         }
-                        
+
                     }
                     break;
             }
@@ -184,28 +310,125 @@ namespace TourApp
 
         private void cp_btn_Click(object sender, EventArgs e)
         {
+            if(formType == EditState.View)
+            {
+                return;
+            }
             select("ct_btn");
         }
 
         private void hk_btn_Click(object sender, EventArgs e)
         {
+            if (formType == EditState.View)
+            {
+                return;
+            }
             select("hk_btn");
         }
-
-        private void data_hk_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void nv_btn_Click(object sender, EventArgs e)
         {
-            if (e.ColumnIndex == data_hk.Columns["DeleteHK"].Index && e.RowIndex >= 0)
+            if (formType == EditState.View)
             {
-                data_hk.Rows.RemoveAt(e.RowIndex);
+                return;
             }
+            select("nv_btn");
         }
 
-        private void data_cp_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void save()
         {
+            //init Create Type
+            DoanKhach doan = new DoanKhach(); 
 
-            if (e.ColumnIndex == data_cp.Columns["DeleteCP"].Index && e.RowIndex >= 0)
+            //init Edit Type
+            if (formType == EditState.Edit)
+            {
+                doan = _doanRepo.getById(id);
+            }
+
+
+            
+            //Add value to each of column doan
+            Tour tour1 = _tourRepository.getByName(tourd.SelectedItem.ToString());
+            doan.MaDoan = mad.Text;
+            doan.TenDoan = tend.Text;
+            doan.Tour = tour1;
+            doan.Chitiet = statusd.Text;
+            doan.DateStart = datestart.Value.Date;
+            doan.DateEnd = dateend.Value.Date;
+
+            //NhanVien
+            List<NV_VT> doan_nvs = new List<NV_VT>();
+            foreach (DataGridViewRow row in data_nv.Rows)
+            {
+                NV_VT doan_nv = new NV_VT();
+               NhanVien nhanvien = _nvRepo.getById(0,row.Cells[0].Value.ToString());
+                doan_nv.NhanVien = nhanvien;
+                doan_nv.DoanKhach = doan;
+                doan_nv.ViTri = row.Cells[2].Value.ToString();
+                doan_nvs.Add(doan_nv);
+            }
+            doan.NV_VTs = doan_nvs;
+
+            //HanhKhach
+            List<CTDoan> cTDoans = new List<CTDoan>();
+            foreach (DataGridViewRow row in data_hk.Rows)
+            {
+                CTDoan cTDoan = new CTDoan();
+                HanhKhach hk = _hkRepo.getById(0, row.Cells[0].Value.ToString());
+                cTDoan.HanhKhach = hk;
+                cTDoan.DoanKhach = doan;
+                cTDoans.Add(cTDoan);
+            }
+            doan.CTDoans = cTDoans;
+
+            //ChiTieu
+            List<CTChitieu> cTChiTieus = new List<CTChitieu>();
+            foreach (DataGridViewRow row in data_cp.Rows)
+            {
+                CTChitieu cTChiTieu = new CTChitieu();
+                ChiTieu ct = _ctRepo.getByName(row.Cells[0].Value.ToString());
+                cTChiTieu.ChiTieu = ct;
+                cTChiTieu.TienCT = row.Cells[1].Value.ToString();
+                cTChiTieu.DoanKhach = doan;
+                cTChiTieus.Add(cTChiTieu);
+
+            }
+            doan.CTChitieus = cTChiTieus;
+            if (formType == EditState.Edit)
+            {
+                _doanRepo.Update(doan);
+
+            }
+            else
+            {
+                _doanRepo.Add(doan);
+            }
+            
+        }
+
+        private void data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (formType == EditState.View)
+            {
+                return;
+            }
+            DataGridView datagrid = (DataGridView)sender;
+            if(datagrid.Name == "data_hk" && e.ColumnIndex == data_hk.Columns["DeleteHK"].Index && e.RowIndex >= 0)
+            {
+                data_hk.Rows.RemoveAt(e.RowIndex);
+                return;
+            }
+
+            if (datagrid.Name == "data_cp" && e.ColumnIndex == data_cp.Columns["DeleteCP"].Index && e.RowIndex >= 0)
             {
                 data_cp.Rows.RemoveAt(e.RowIndex);
+                return;
+            }
+
+            if (datagrid.Name == "data_nv" && e.ColumnIndex == data_nv.Columns["DeleteNV"].Index && e.RowIndex >= 0)
+            {
+                data_nv.Rows.RemoveAt(e.RowIndex);
+                return;
             }
         }
 

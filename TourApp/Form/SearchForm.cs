@@ -21,13 +21,16 @@ namespace TourApp
         private string Form_Search;
         private readonly IHanhKhachRepository _hkRepo;
         private readonly IChiTieuRepository _ctRepo;
+        private readonly INhanVienRepository _nvRepo;
         public List<HanhKhach> listHKRT;
         public List<String> listCTRT;
-        public SearchForm(IHanhKhachRepository hkRepo, IChiTieuRepository ctRepo)
+        public List<String> listNVRT;
+        public SearchForm(IHanhKhachRepository hkRepo, IChiTieuRepository ctRepo, INhanVienRepository nvRepo)
         {
             InitializeComponent();
             _hkRepo = hkRepo;
             _ctRepo = ctRepo;
+            _nvRepo = nvRepo;
         }
 
         public void setForm(string FSearch)
@@ -59,6 +62,9 @@ namespace TourApp
                     title.Text = "CHỌN NHÂN VIÊN";
                     lv_radio.Visible = true;
                     lv_search.Visible = false;
+                    lbl.Text = "Vị trí";
+                    lbl.Visible = true;
+                    txt_option.Visible = true;
                     break;
                 case FormName.HKFORMNAME:
                     title.Text = "CHỌN HÀNH KHÁCH";
@@ -91,6 +97,17 @@ namespace TourApp
                 else errorlbl.Visible = false;
             }
 
+            if (Form_Search == FormName.NVFORMNAME)
+            {
+                if (txt_option.Text == "")
+                {
+                    errorlbl.Text = "Xin nhập vị trí của nhân viên";
+                    errorlbl.Visible = true;
+                    return false;
+                }
+                else errorlbl.Visible = false;
+            }
+
             return true;
         }
 
@@ -107,6 +124,12 @@ namespace TourApp
             switch(Form_Search)
             {
                 case "NhanVien_Form":
+                    IEnumerable<NhanVien> list3 = _nvRepo.getWhere(txt_search);
+                    foreach (NhanVien nv in list3)
+                    {
+                        ListViewItem newList = new ListViewItem(new[] { nv.NVId.ToString(), nv.MaNV, nv.Ten});
+                        lv_radio.Items.Add(newList);
+                    }
                     break;
                 case "HanhKhach_Form":
                     IEnumerable<HanhKhach> list1 = _hkRepo.getWhere(txt_search);
@@ -138,6 +161,7 @@ namespace TourApp
             switch (Form_Search)
             {
                 case "NhanVien_Form":
+                    listNVRT = listNV();
                     break;
                 case "HanhKhach_Form":
                     listHKRT = listHK();
@@ -175,6 +199,30 @@ namespace TourApp
                     count++;
                     ChiTieu ct = _ctRepo.getById(int.Parse(lv_radio.Items[i].Text));
                     listRT.Add(ct.Ten);
+                    listRT.Add(txt_option.Text);
+                }
+            }
+
+            if (count <= 0)
+            {
+                listRT.Clear();
+            }
+
+            return listRT;
+        }
+
+        private List<String> listNV()
+        {
+            List<String> listRT = new List<String>();
+            var count = 0;
+            for (int i = 0; i < lv_radio.Items.Count; i++)
+            {
+                if (lv_radio.Items[i].Checked == true)
+                {
+                    count++;
+                    NhanVien nv = _nvRepo.getById(int.Parse(lv_radio.Items[i].Text));
+                    listRT.Add(nv.MaNV);
+                    listRT.Add(nv.Ten);
                     listRT.Add(txt_option.Text);
                 }
             }

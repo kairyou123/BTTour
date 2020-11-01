@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateend = new System.Windows.Forms.DateTimePicker();
+            this.datestart = new System.Windows.Forms.DateTimePicker();
             this.errormsg0 = new System.Windows.Forms.Label();
             this.tourd = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -43,6 +45,8 @@
             this.tend = new System.Windows.Forms.TextBox();
             this.mad = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,7 +57,7 @@
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DeleteNV = new System.Windows.Forms.DataGridViewButtonColumn();
             this.nv_btn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.errormsg3 = new System.Windows.Forms.Label();
@@ -76,6 +80,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.dateend);
+            this.groupBox1.Controls.Add(this.datestart);
             this.groupBox1.Controls.Add(this.errormsg0);
             this.groupBox1.Controls.Add(this.tourd);
             this.groupBox1.Controls.Add(this.groupBox4);
@@ -89,6 +95,28 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN ĐOÀN KHÁCH";
+            // 
+            // dateend
+            // 
+            this.dateend.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateend.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dateend.Location = new System.Drawing.Point(127, 246);
+            this.dateend.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
+            this.dateend.Name = "dateend";
+            this.dateend.Size = new System.Drawing.Size(265, 23);
+            this.dateend.TabIndex = 6;
+            this.dateend.Value = new System.DateTime(2020, 11, 1, 0, 0, 0, 0);
+            // 
+            // datestart
+            // 
+            this.datestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.datestart.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.datestart.Location = new System.Drawing.Point(127, 209);
+            this.datestart.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
+            this.datestart.Name = "datestart";
+            this.datestart.Size = new System.Drawing.Size(265, 23);
+            this.datestart.TabIndex = 5;
+            this.datestart.Value = new System.DateTime(2020, 11, 1, 0, 0, 0, 0);
             // 
             // errormsg0
             // 
@@ -111,7 +139,7 @@
             this.tourd.Location = new System.Drawing.Point(127, 114);
             this.tourd.Name = "tourd";
             this.tourd.Size = new System.Drawing.Size(265, 23);
-            this.tourd.TabIndex = 6;
+            this.tourd.TabIndex = 3;
             // 
             // groupBox4
             // 
@@ -165,9 +193,9 @@
             this.data_hk.Name = "data_hk";
             this.data_hk.ReadOnly = true;
             this.data_hk.Size = new System.Drawing.Size(363, 185);
-            this.data_hk.TabIndex = 0;
+            this.data_hk.TabIndex = 2;
             this.data_hk.Text = "dataGridView3";
-            this.data_hk.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_hk_CellContentClick);
+            this.data_hk.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_CellContentClick);
             // 
             // Ma_HK
             // 
@@ -208,8 +236,8 @@
             this.statusd.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.statusd.Location = new System.Drawing.Point(127, 150);
             this.statusd.Name = "statusd";
-            this.statusd.Size = new System.Drawing.Size(265, 96);
-            this.statusd.TabIndex = 2;
+            this.statusd.Size = new System.Drawing.Size(265, 48);
+            this.statusd.TabIndex = 4;
             this.statusd.Text = "";
             // 
             // tend
@@ -217,7 +245,7 @@
             this.tend.Location = new System.Drawing.Point(127, 78);
             this.tend.Name = "tend";
             this.tend.Size = new System.Drawing.Size(265, 23);
-            this.tend.TabIndex = 1;
+            this.tend.TabIndex = 2;
             // 
             // mad
             // 
@@ -228,14 +256,36 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(18, 33);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(112, 165);
+            this.panel2.Size = new System.Drawing.Size(112, 245);
             this.panel2.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.PapayaWhip;
+            this.label6.Location = new System.Drawing.Point(0, 213);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(112, 23);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Ngày kết thúc";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.PapayaWhip;
+            this.label5.Location = new System.Drawing.Point(0, 177);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(112, 23);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Ngày bắt đầu";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -315,13 +365,14 @@
             this.MaNV,
             this.Ten,
             this.VT,
-            this.Delete});
+            this.DeleteNV});
             this.data_nv.Location = new System.Drawing.Point(6, 68);
             this.data_nv.Name = "data_nv";
             this.data_nv.ReadOnly = true;
             this.data_nv.Size = new System.Drawing.Size(380, 164);
             this.data_nv.TabIndex = 2;
             this.data_nv.Text = "dataGridView1";
+            this.data_nv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_CellContentClick);
             // 
             // MaNV
             // 
@@ -346,15 +397,15 @@
             this.VT.ReadOnly = true;
             this.VT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // Delete
+            // DeleteNV
             // 
-            this.Delete.FillWeight = 50F;
-            this.Delete.HeaderText = "Xóa";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Delete.Text = "Xóa";
-            this.Delete.Width = 50;
+            this.DeleteNV.FillWeight = 50F;
+            this.DeleteNV.HeaderText = "Xóa";
+            this.DeleteNV.Name = "DeleteNV";
+            this.DeleteNV.ReadOnly = true;
+            this.DeleteNV.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DeleteNV.Text = "Xóa";
+            this.DeleteNV.Width = 50;
             // 
             // nv_btn
             // 
@@ -364,6 +415,7 @@
             this.nv_btn.TabIndex = 1;
             this.nv_btn.Text = "Chọn";
             this.nv_btn.UseVisualStyleBackColor = true;
+            this.nv_btn.Click += new System.EventHandler(this.nv_btn_Click);
             // 
             // groupBox3
             // 
@@ -410,7 +462,7 @@
             this.data_cp.Size = new System.Drawing.Size(349, 164);
             this.data_cp.TabIndex = 2;
             this.data_cp.Text = "dataGridView2";
-            this.data_cp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_cp_CellContentClick);
+            this.data_cp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_CellContentClick);
             // 
             // LoaiCP
             // 
@@ -508,10 +560,6 @@
         private System.Windows.Forms.Button hk_btn;
         private System.Windows.Forms.DataGridView data_hk;
         private System.Windows.Forms.ComboBox tourd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VT;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.Label errormsg1;
         private System.Windows.Forms.Label errormsg2;
         private System.Windows.Forms.Label errormsg3;
@@ -523,5 +571,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LoaiCP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tien;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteCP;
+        private System.Windows.Forms.DateTimePicker dateend;
+        private System.Windows.Forms.DateTimePicker datestart;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VT;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteNV;
     }
 }

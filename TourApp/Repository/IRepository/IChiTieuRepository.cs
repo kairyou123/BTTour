@@ -9,6 +9,8 @@ namespace TourApp.Repository.IRepository
     public interface IChiTieuRepository : ICommonRepository<ChiTieu>
     {
         IEnumerable<ChiTieu> getWhere(String Ten);
+
+        ChiTieu getByName(String Ten);
         ChiTieu getById(int CTId);
 
     }

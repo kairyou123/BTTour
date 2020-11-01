@@ -35,7 +35,10 @@ namespace TourApp.Repository
 
         public IEnumerable<DoanKhach> getAll()
         {
-            return _context.DoanKhachs.Where(dk => dk.isDeleted == Status.NotDeleted).Include(i => i.Tour).ToList();
+            return _context.DoanKhachs.Where(dk => dk.isDeleted == Status.NotDeleted).Include(i => i.Tour).Include(i => i.CTDoans).ThenInclude(i=>i.HanhKhach)
+                                                               .Include(i => i.NV_VTs).ThenInclude(i => i.NhanVien)
+                                                               .Include(i => i.CTChitieus).ThenInclude(i => i.ChiTieu)
+                                                               .ToList();
         }
 
         public IEnumerable<DoanKhach> getAllDelete()
@@ -45,12 +48,20 @@ namespace TourApp.Repository
 
         public IEnumerable<DoanKhach> getWhere(string name, int isDeleted, string nameTour)
         {
-            return _context.DoanKhachs.Where(dk => dk.isDeleted == isDeleted && dk.TenDoan.Contains(name) && dk.Tour.Ten.Contains(nameTour)).Include(i => i.Tour).ToList();
+            return _context.DoanKhachs.Where(dk => dk.isDeleted == isDeleted && dk.TenDoan.Contains(name) && dk.Tour.Ten.Contains(nameTour))
+                                                               .Include(i => i.Tour) .Include(i => i.CTDoans).ThenInclude(i => i.HanhKhach)
+                                                               .Include(i => i.NV_VTs).ThenInclude(i=>i.NhanVien)
+                                                               .Include(i => i.CTChitieus).ThenInclude(i => i.ChiTieu)
+                                                               .ToList();
         }
 
         public DoanKhach getById(int id, string maDK = "")
         {
-            return _context.DoanKhachs.Where(dk => dk.DoanId == id || dk.MaDoan == maDK).Include(i => i.Tour).FirstOrDefault();
+            return _context.DoanKhachs.Where(dk => dk.DoanId == id || dk.MaDoan == maDK)
+                                                              .Include(i => i.Tour).Include(i => i.Tour).Include(i => i.CTDoans).ThenInclude(i => i.HanhKhach)
+                                                              .Include(i => i.NV_VTs).ThenInclude(i => i.NhanVien)
+                                                              .Include(i => i.CTChitieus).ThenInclude(i => i.ChiTieu)
+                                                              .FirstOrDefault();
         }
 
 

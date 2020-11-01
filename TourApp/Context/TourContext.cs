@@ -33,7 +33,7 @@ namespace TourApp.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-1I87EAD;Initial Catalog=CNPM;Integrated Security=True");
+            optionsBuilder.UseSqlite("Data Source=I:\\Tour.db");
 
         }
 
@@ -60,7 +60,7 @@ namespace TourApp.Context
             .HasForeignKey(c => c.DoanId);
 
             modelBuilder.Entity<CTDoan>()
-            .HasOne<Entity.HanhKhach>(c => c.HanhKhach)
+            .HasOne<HanhKhach>(c => c.HanhKhach)
             .WithMany(c => c.CTDoans)
             .HasForeignKey(c => c.KhachId);
 

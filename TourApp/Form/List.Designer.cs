@@ -151,10 +151,11 @@ namespace TourApp
             this.tabControl.Controls.Add(this.tabCT);
             this.tabControl.Controls.Add(this.tabDestination);
             this.tabControl.Controls.Add(this.tabLHDL);
-            this.tabControl.Location = new System.Drawing.Point(0, 35);
+            this.tabControl.Location = new System.Drawing.Point(0, 26);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 2;
-            this.tabControl.Size = new System.Drawing.Size(792, 601);
+            this.tabControl.Size = new System.Drawing.Size(693, 451);
             this.tabControl.TabIndex = 1;
             // 
             // tabTour
@@ -175,96 +176,101 @@ namespace TourApp
             this.tabTour.Controls.Add(this.tourGridView);
             this.tabTour.Controls.Add(this.button1);
             this.tabTour.Controls.Add(this.searchBox);
-            this.tabTour.Location = new System.Drawing.Point(4, 29);
+            this.tabTour.Location = new System.Drawing.Point(4, 24);
+            this.tabTour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabTour.Name = "tabTour";
-            this.tabTour.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTour.Size = new System.Drawing.Size(784, 568);
+            this.tabTour.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabTour.Size = new System.Drawing.Size(685, 423);
             this.tabTour.TabIndex = 0;
             this.tabTour.Text = "Tour";
             this.tabTour.UseVisualStyleBackColor = true;
             // 
             // tabTour_ToPrice
             // 
-            this.tabTour_ToPrice.Location = new System.Drawing.Point(609, 72);
+            this.tabTour_ToPrice.Location = new System.Drawing.Point(533, 54);
+            this.tabTour_ToPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabTour_ToPrice.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
             this.tabTour_ToPrice.Name = "tabTour_ToPrice";
-            this.tabTour_ToPrice.Size = new System.Drawing.Size(150, 27);
+            this.tabTour_ToPrice.Size = new System.Drawing.Size(131, 23);
             this.tabTour_ToPrice.TabIndex = 15;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(567, 69);
+            this.label5.Location = new System.Drawing.Point(496, 52);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 28);
+            this.label5.Size = new System.Drawing.Size(27, 21);
             this.label5.TabIndex = 13;
             this.label5.Text = "->";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(370, 75);
+            this.label4.Location = new System.Drawing.Point(324, 56);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label4.Size = new System.Drawing.Size(31, 20);
+            this.label4.Size = new System.Drawing.Size(24, 15);
             this.label4.TabIndex = 12;
             this.label4.Text = "Giá";
             // 
             // tabTour_FromPrice
             // 
-            this.tabTour_FromPrice.Location = new System.Drawing.Point(407, 72);
+            this.tabTour_FromPrice.Location = new System.Drawing.Point(356, 54);
+            this.tabTour_FromPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabTour_FromPrice.Maximum = new decimal(new int[] {
             1000000000,
             0,
             0,
             0});
             this.tabTour_FromPrice.Name = "tabTour_FromPrice";
-            this.tabTour_FromPrice.Size = new System.Drawing.Size(150, 27);
+            this.tabTour_FromPrice.Size = new System.Drawing.Size(131, 23);
             this.tabTour_FromPrice.TabIndex = 11;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 74);
+            this.label3.Location = new System.Drawing.Point(7, 56);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 20);
+            this.label3.Size = new System.Drawing.Size(28, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Đến";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 22);
+            this.label2.Location = new System.Drawing.Point(7, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 20);
+            this.label2.Size = new System.Drawing.Size(23, 15);
             this.label2.TabIndex = 9;
             this.label2.Text = "Từ ";
             // 
             // tabTour_ToDate
             // 
-            this.tabTour_ToDate.Location = new System.Drawing.Point(45, 74);
+            this.tabTour_ToDate.Location = new System.Drawing.Point(39, 56);
+            this.tabTour_ToDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabTour_ToDate.Name = "tabTour_ToDate";
-            this.tabTour_ToDate.Size = new System.Drawing.Size(250, 27);
+            this.tabTour_ToDate.Size = new System.Drawing.Size(219, 23);
             this.tabTour_ToDate.TabIndex = 8;
             // 
             // tabTour_FromDate
             // 
-            this.tabTour_FromDate.Location = new System.Drawing.Point(45, 20);
+            this.tabTour_FromDate.Location = new System.Drawing.Point(39, 15);
+            this.tabTour_FromDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabTour_FromDate.Name = "tabTour_FromDate";
-            this.tabTour_FromDate.Size = new System.Drawing.Size(247, 27);
+            this.tabTour_FromDate.Size = new System.Drawing.Size(217, 23);
             this.tabTour_FromDate.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(333, 22);
+            this.label1.Location = new System.Drawing.Point(291, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 20);
+            this.label1.Size = new System.Drawing.Size(54, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "Tìm theo";
             // 
@@ -278,17 +284,19 @@ namespace TourApp
             "Mã tour",
             "ID tour",
             "Loại hình du lịch"});
-            this.tabTour_SearchOption.Location = new System.Drawing.Point(407, 14);
+            this.tabTour_SearchOption.Location = new System.Drawing.Point(356, 10);
+            this.tabTour_SearchOption.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabTour_SearchOption.Name = "tabTour_SearchOption";
-            this.tabTour_SearchOption.Size = new System.Drawing.Size(151, 33);
+            this.tabTour_SearchOption.Size = new System.Drawing.Size(133, 28);
             this.tabTour_SearchOption.TabIndex = 5;
             // 
             // isDeleted_ChB
             // 
             this.isDeleted_ChB.AutoSize = true;
-            this.isDeleted_ChB.Location = new System.Drawing.Point(6, 142);
+            this.isDeleted_ChB.Location = new System.Drawing.Point(5, 106);
+            this.isDeleted_ChB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.isDeleted_ChB.Name = "isDeleted_ChB";
-            this.isDeleted_ChB.Size = new System.Drawing.Size(78, 24);
+            this.isDeleted_ChB.Size = new System.Drawing.Size(62, 19);
             this.isDeleted_ChB.TabIndex = 4;
             this.isDeleted_ChB.Text = "Đã xóa";
             this.isDeleted_ChB.UseVisualStyleBackColor = true;
@@ -298,9 +306,10 @@ namespace TourApp
             // 
             this.btnRefresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.BackgroundImage")));
             this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRefresh.Location = new System.Drawing.Point(685, 131);
+            this.btnRefresh.Location = new System.Drawing.Point(599, 98);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(46, 36);
+            this.btnRefresh.Size = new System.Drawing.Size(40, 27);
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -309,9 +318,10 @@ namespace TourApp
             // 
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(735, 130);
+            this.button2.Location = new System.Drawing.Point(643, 98);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(46, 36);
+            this.button2.Size = new System.Drawing.Size(40, 27);
             this.button2.TabIndex = 2;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -331,12 +341,13 @@ namespace TourApp
             this.EditCol,
             this.DeleteCol});
             this.tourGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.tourGridView.Location = new System.Drawing.Point(3, 175);
+            this.tourGridView.Location = new System.Drawing.Point(3, 131);
+            this.tourGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tourGridView.Name = "tourGridView";
             this.tourGridView.ReadOnly = true;
             this.tourGridView.RowHeadersVisible = false;
             this.tourGridView.RowHeadersWidth = 51;
-            this.tourGridView.Size = new System.Drawing.Size(778, 387);
+            this.tourGridView.Size = new System.Drawing.Size(681, 290);
             this.tourGridView.TabIndex = 0;
             this.tourGridView.Text = "dataGridView1";
             this.tourGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tourGridView_CellClick);
@@ -351,7 +362,7 @@ namespace TourApp
             this.TourIdCol.Name = "TourIdCol";
             this.TourIdCol.ReadOnly = true;
             this.TourIdCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TourIdCol.Width = 82;
+            this.TourIdCol.Width = 66;
             // 
             // MaTourCol
             // 
@@ -361,7 +372,7 @@ namespace TourApp
             this.MaTourCol.Name = "MaTourCol";
             this.MaTourCol.ReadOnly = true;
             this.MaTourCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.MaTourCol.Width = 83;
+            this.MaTourCol.Width = 69;
             // 
             // TenCol
             // 
@@ -371,7 +382,7 @@ namespace TourApp
             this.TenCol.Name = "TenCol";
             this.TenCol.ReadOnly = true;
             this.TenCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TenCol.Width = 61;
+            this.TenCol.Width = 50;
             // 
             // LHDLCol
             // 
@@ -390,7 +401,7 @@ namespace TourApp
             this.ViewCol.Name = "ViewCol";
             this.ViewCol.ReadOnly = true;
             this.ViewCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ViewCol.Width = 45;
+            this.ViewCol.Width = 37;
             // 
             // EditCol
             // 
@@ -400,7 +411,7 @@ namespace TourApp
             this.EditCol.Name = "EditCol";
             this.EditCol.ReadOnly = true;
             this.EditCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.EditCol.Width = 40;
+            this.EditCol.Width = 32;
             // 
             // DeleteCol
             // 
@@ -410,7 +421,7 @@ namespace TourApp
             this.DeleteCol.Name = "DeleteCol";
             this.DeleteCol.ReadOnly = true;
             this.DeleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DeleteCol.Width = 41;
+            this.DeleteCol.Width = 33;
             // 
             // button1
             // 
@@ -418,10 +429,11 @@ namespace TourApp
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(635, 130);
+            this.button1.Location = new System.Drawing.Point(556, 98);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.button1.Size = new System.Drawing.Size(46, 36);
+            this.button1.Size = new System.Drawing.Size(40, 27);
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -429,9 +441,10 @@ namespace TourApp
             // searchBox
             // 
             this.searchBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.searchBox.Location = new System.Drawing.Point(566, 15);
+            this.searchBox.Location = new System.Drawing.Point(495, 11);
+            this.searchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(215, 32);
+            this.searchBox.Size = new System.Drawing.Size(189, 27);
             this.searchBox.TabIndex = 0;
             this.searchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchBox_KeyPress);
             // 
@@ -443,10 +456,11 @@ namespace TourApp
             this.tabStaff.Controls.Add(this.tabNV_AddBtn);
             this.tabStaff.Controls.Add(this.tabNV_RefreshBtn);
             this.tabStaff.Controls.Add(this.tabNV_SearchBtn);
-            this.tabStaff.Location = new System.Drawing.Point(4, 29);
+            this.tabStaff.Location = new System.Drawing.Point(4, 24);
+            this.tabStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabStaff.Name = "tabStaff";
-            this.tabStaff.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStaff.Size = new System.Drawing.Size(784, 568);
+            this.tabStaff.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabStaff.Size = new System.Drawing.Size(685, 423);
             this.tabStaff.TabIndex = 1;
             this.tabStaff.Text = "Nhân viên";
             this.tabStaff.UseVisualStyleBackColor = true;
@@ -466,11 +480,12 @@ namespace TourApp
             this.tabNV_ViewCol,
             this.tabNV_EditCol,
             this.tabNV_DeleteCol});
-            this.NVGridView.Location = new System.Drawing.Point(3, 140);
+            this.NVGridView.Location = new System.Drawing.Point(3, 105);
+            this.NVGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NVGridView.Name = "NVGridView";
             this.NVGridView.RowHeadersVisible = false;
             this.NVGridView.RowHeadersWidth = 51;
-            this.NVGridView.Size = new System.Drawing.Size(763, 733);
+            this.NVGridView.Size = new System.Drawing.Size(668, 550);
             this.NVGridView.TabIndex = 5;
             this.NVGridView.Text = "dataGridView1";
             this.NVGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NVGridView_CellClick);
@@ -485,7 +500,7 @@ namespace TourApp
             this.tabNV_IDCol.Name = "tabNV_IDCol";
             this.tabNV_IDCol.ReadOnly = true;
             this.tabNV_IDCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabNV_IDCol.Width = 53;
+            this.tabNV_IDCol.Width = 43;
             // 
             // tabNV_MaNVCol
             // 
@@ -495,7 +510,7 @@ namespace TourApp
             this.tabNV_MaNVCol.Name = "tabNV_MaNVCol";
             this.tabNV_MaNVCol.ReadOnly = true;
             this.tabNV_MaNVCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabNV_MaNVCol.Width = 83;
+            this.tabNV_MaNVCol.Width = 68;
             // 
             // tabNV_TenCol
             // 
@@ -505,7 +520,7 @@ namespace TourApp
             this.tabNV_TenCol.Name = "tabNV_TenCol";
             this.tabNV_TenCol.ReadOnly = true;
             this.tabNV_TenCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabNV_TenCol.Width = 61;
+            this.tabNV_TenCol.Width = 50;
             // 
             // tabNV_SDTCol
             // 
@@ -515,7 +530,7 @@ namespace TourApp
             this.tabNV_SDTCol.Name = "tabNV_SDTCol";
             this.tabNV_SDTCol.ReadOnly = true;
             this.tabNV_SDTCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabNV_SDTCol.Width = 65;
+            this.tabNV_SDTCol.Width = 52;
             // 
             // tabNV_BlankCol
             // 
@@ -534,7 +549,7 @@ namespace TourApp
             this.tabNV_ViewCol.Name = "tabNV_ViewCol";
             this.tabNV_ViewCol.ReadOnly = true;
             this.tabNV_ViewCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabNV_ViewCol.Width = 45;
+            this.tabNV_ViewCol.Width = 37;
             // 
             // tabNV_EditCol
             // 
@@ -544,7 +559,7 @@ namespace TourApp
             this.tabNV_EditCol.Name = "tabNV_EditCol";
             this.tabNV_EditCol.ReadOnly = true;
             this.tabNV_EditCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabNV_EditCol.Width = 40;
+            this.tabNV_EditCol.Width = 32;
             // 
             // tabNV_DeleteCol
             // 
@@ -554,23 +569,25 @@ namespace TourApp
             this.tabNV_DeleteCol.Name = "tabNV_DeleteCol";
             this.tabNV_DeleteCol.ReadOnly = true;
             this.tabNV_DeleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabNV_DeleteCol.Width = 41;
+            this.tabNV_DeleteCol.Width = 33;
             // 
             // tabNV_SearchBox
             // 
             this.tabNV_SearchBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabNV_SearchBox.Location = new System.Drawing.Point(551, 15);
+            this.tabNV_SearchBox.Location = new System.Drawing.Point(482, 11);
+            this.tabNV_SearchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabNV_SearchBox.Name = "tabNV_SearchBox";
-            this.tabNV_SearchBox.Size = new System.Drawing.Size(215, 38);
+            this.tabNV_SearchBox.Size = new System.Drawing.Size(189, 32);
             this.tabNV_SearchBox.TabIndex = 4;
             this.tabNV_SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabNV_SearchBox_KeyPress);
             // 
             // tabNV_CB
             // 
             this.tabNV_CB.AutoSize = true;
-            this.tabNV_CB.Location = new System.Drawing.Point(5, 99);
+            this.tabNV_CB.Location = new System.Drawing.Point(4, 74);
+            this.tabNV_CB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabNV_CB.Name = "tabNV_CB";
-            this.tabNV_CB.Size = new System.Drawing.Size(78, 24);
+            this.tabNV_CB.Size = new System.Drawing.Size(62, 19);
             this.tabNV_CB.TabIndex = 3;
             this.tabNV_CB.Text = "Đã xóa";
             this.tabNV_CB.UseVisualStyleBackColor = true;
@@ -580,9 +597,10 @@ namespace TourApp
             // 
             this.tabNV_AddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabNV_AddBtn.BackgroundImage")));
             this.tabNV_AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabNV_AddBtn.Location = new System.Drawing.Point(718, 99);
+            this.tabNV_AddBtn.Location = new System.Drawing.Point(628, 74);
+            this.tabNV_AddBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabNV_AddBtn.Name = "tabNV_AddBtn";
-            this.tabNV_AddBtn.Size = new System.Drawing.Size(48, 36);
+            this.tabNV_AddBtn.Size = new System.Drawing.Size(42, 27);
             this.tabNV_AddBtn.TabIndex = 2;
             this.tabNV_AddBtn.UseVisualStyleBackColor = true;
             this.tabNV_AddBtn.Click += new System.EventHandler(this.tabNV_AddBtn_Click);
@@ -591,9 +609,10 @@ namespace TourApp
             // 
             this.tabNV_RefreshBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabNV_RefreshBtn.BackgroundImage")));
             this.tabNV_RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabNV_RefreshBtn.Location = new System.Drawing.Point(667, 99);
+            this.tabNV_RefreshBtn.Location = new System.Drawing.Point(584, 74);
+            this.tabNV_RefreshBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabNV_RefreshBtn.Name = "tabNV_RefreshBtn";
-            this.tabNV_RefreshBtn.Size = new System.Drawing.Size(41, 36);
+            this.tabNV_RefreshBtn.Size = new System.Drawing.Size(36, 27);
             this.tabNV_RefreshBtn.TabIndex = 1;
             this.tabNV_RefreshBtn.UseVisualStyleBackColor = true;
             this.tabNV_RefreshBtn.Click += new System.EventHandler(this.tabNV_RefreshBtn_Click);
@@ -602,9 +621,10 @@ namespace TourApp
             // 
             this.tabNV_SearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabNV_SearchBtn.BackgroundImage")));
             this.tabNV_SearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabNV_SearchBtn.Location = new System.Drawing.Point(497, 12);
+            this.tabNV_SearchBtn.Location = new System.Drawing.Point(435, 9);
+            this.tabNV_SearchBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabNV_SearchBtn.Name = "tabNV_SearchBtn";
-            this.tabNV_SearchBtn.Size = new System.Drawing.Size(42, 44);
+            this.tabNV_SearchBtn.Size = new System.Drawing.Size(37, 33);
             this.tabNV_SearchBtn.TabIndex = 0;
             this.tabNV_SearchBtn.UseVisualStyleBackColor = true;
             this.tabNV_SearchBtn.Click += new System.EventHandler(this.tabNV_SearchBtn_Click);
@@ -617,9 +637,10 @@ namespace TourApp
             this.tabPassenger.Controls.Add(this.tabHanhKhach_RefreshBtn);
             this.tabPassenger.Controls.Add(this.tabHanhKhach_AddBtn);
             this.tabPassenger.Controls.Add(this.tabHanhKhach_SearchBtn);
-            this.tabPassenger.Location = new System.Drawing.Point(4, 29);
+            this.tabPassenger.Location = new System.Drawing.Point(4, 24);
+            this.tabPassenger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPassenger.Name = "tabPassenger";
-            this.tabPassenger.Size = new System.Drawing.Size(784, 568);
+            this.tabPassenger.Size = new System.Drawing.Size(685, 423);
             this.tabPassenger.TabIndex = 6;
             this.tabPassenger.Text = "Hành khách";
             // 
@@ -638,11 +659,12 @@ namespace TourApp
             this.tabHanhKhach_ViewCol,
             this.tabHanhKhach_EditCol,
             this.tabHanhKhach_DeleteCol});
-            this.HanhKhachGridView.Location = new System.Drawing.Point(3, 140);
+            this.HanhKhachGridView.Location = new System.Drawing.Point(3, 105);
+            this.HanhKhachGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.HanhKhachGridView.Name = "HanhKhachGridView";
             this.HanhKhachGridView.RowHeadersVisible = false;
             this.HanhKhachGridView.RowHeadersWidth = 51;
-            this.HanhKhachGridView.Size = new System.Drawing.Size(763, 373);
+            this.HanhKhachGridView.Size = new System.Drawing.Size(668, 280);
             this.HanhKhachGridView.TabIndex = 5;
             this.HanhKhachGridView.Text = "dataGridView1";
             this.HanhKhachGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.HanhKhachGridView_CellClick);
@@ -656,7 +678,7 @@ namespace TourApp
             this.tabHanhKhach_IDCol.MinimumWidth = 6;
             this.tabHanhKhach_IDCol.Name = "tabHanhKhach_IDCol";
             this.tabHanhKhach_IDCol.ReadOnly = true;
-            this.tabHanhKhach_IDCol.Width = 53;
+            this.tabHanhKhach_IDCol.Width = 43;
             // 
             // tabHanhKhach_MaKhachCol
             // 
@@ -665,7 +687,7 @@ namespace TourApp
             this.tabHanhKhach_MaKhachCol.MinimumWidth = 6;
             this.tabHanhKhach_MaKhachCol.Name = "tabHanhKhach_MaKhachCol";
             this.tabHanhKhach_MaKhachCol.ReadOnly = true;
-            this.tabHanhKhach_MaKhachCol.Width = 101;
+            this.tabHanhKhach_MaKhachCol.Width = 84;
             // 
             // tabHanhKhach_TenCol
             // 
@@ -682,7 +704,7 @@ namespace TourApp
             this.tabHanhKhach_SDTCol.MinimumWidth = 6;
             this.tabHanhKhach_SDTCol.Name = "tabHanhKhach_SDTCol";
             this.tabHanhKhach_SDTCol.ReadOnly = true;
-            this.tabHanhKhach_SDTCol.Width = 65;
+            this.tabHanhKhach_SDTCol.Width = 52;
             // 
             // tabHanhKhach_EmailCol
             // 
@@ -691,7 +713,7 @@ namespace TourApp
             this.tabHanhKhach_EmailCol.MinimumWidth = 6;
             this.tabHanhKhach_EmailCol.Name = "tabHanhKhach_EmailCol";
             this.tabHanhKhach_EmailCol.ReadOnly = true;
-            this.tabHanhKhach_EmailCol.Width = 75;
+            this.tabHanhKhach_EmailCol.Width = 61;
             // 
             // tabHanhKhach_ViewCol
             // 
@@ -700,7 +722,7 @@ namespace TourApp
             this.tabHanhKhach_ViewCol.MinimumWidth = 6;
             this.tabHanhKhach_ViewCol.Name = "tabHanhKhach_ViewCol";
             this.tabHanhKhach_ViewCol.ReadOnly = true;
-            this.tabHanhKhach_ViewCol.Width = 45;
+            this.tabHanhKhach_ViewCol.Width = 37;
             // 
             // tabHanhKhach_EditCol
             // 
@@ -709,7 +731,7 @@ namespace TourApp
             this.tabHanhKhach_EditCol.MinimumWidth = 6;
             this.tabHanhKhach_EditCol.Name = "tabHanhKhach_EditCol";
             this.tabHanhKhach_EditCol.ReadOnly = true;
-            this.tabHanhKhach_EditCol.Width = 40;
+            this.tabHanhKhach_EditCol.Width = 32;
             // 
             // tabHanhKhach_DeleteCol
             // 
@@ -718,14 +740,15 @@ namespace TourApp
             this.tabHanhKhach_DeleteCol.MinimumWidth = 6;
             this.tabHanhKhach_DeleteCol.Name = "tabHanhKhach_DeleteCol";
             this.tabHanhKhach_DeleteCol.ReadOnly = true;
-            this.tabHanhKhach_DeleteCol.Width = 41;
+            this.tabHanhKhach_DeleteCol.Width = 33;
             // 
             // tabHanhKhach_CB
             // 
             this.tabHanhKhach_CB.AutoSize = true;
-            this.tabHanhKhach_CB.Location = new System.Drawing.Point(5, 99);
+            this.tabHanhKhach_CB.Location = new System.Drawing.Point(4, 74);
+            this.tabHanhKhach_CB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabHanhKhach_CB.Name = "tabHanhKhach_CB";
-            this.tabHanhKhach_CB.Size = new System.Drawing.Size(78, 24);
+            this.tabHanhKhach_CB.Size = new System.Drawing.Size(62, 19);
             this.tabHanhKhach_CB.TabIndex = 4;
             this.tabHanhKhach_CB.Text = "Đã xóa";
             this.tabHanhKhach_CB.UseVisualStyleBackColor = true;
@@ -734,9 +757,10 @@ namespace TourApp
             // tabHanhKhach_SearchBox
             // 
             this.tabHanhKhach_SearchBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabHanhKhach_SearchBox.Location = new System.Drawing.Point(551, 15);
+            this.tabHanhKhach_SearchBox.Location = new System.Drawing.Point(482, 11);
+            this.tabHanhKhach_SearchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabHanhKhach_SearchBox.Name = "tabHanhKhach_SearchBox";
-            this.tabHanhKhach_SearchBox.Size = new System.Drawing.Size(215, 38);
+            this.tabHanhKhach_SearchBox.Size = new System.Drawing.Size(189, 32);
             this.tabHanhKhach_SearchBox.TabIndex = 3;
             this.tabHanhKhach_SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabHanhKhach_SearchBox_KeyPress);
             // 
@@ -744,9 +768,10 @@ namespace TourApp
             // 
             this.tabHanhKhach_RefreshBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabHanhKhach_RefreshBtn.BackgroundImage")));
             this.tabHanhKhach_RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabHanhKhach_RefreshBtn.Location = new System.Drawing.Point(667, 99);
+            this.tabHanhKhach_RefreshBtn.Location = new System.Drawing.Point(584, 74);
+            this.tabHanhKhach_RefreshBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabHanhKhach_RefreshBtn.Name = "tabHanhKhach_RefreshBtn";
-            this.tabHanhKhach_RefreshBtn.Size = new System.Drawing.Size(41, 36);
+            this.tabHanhKhach_RefreshBtn.Size = new System.Drawing.Size(36, 27);
             this.tabHanhKhach_RefreshBtn.TabIndex = 2;
             this.tabHanhKhach_RefreshBtn.UseVisualStyleBackColor = true;
             this.tabHanhKhach_RefreshBtn.Click += new System.EventHandler(this.tabHanhKhach_RefreshBtn_Click);
@@ -755,9 +780,10 @@ namespace TourApp
             // 
             this.tabHanhKhach_AddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabHanhKhach_AddBtn.BackgroundImage")));
             this.tabHanhKhach_AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabHanhKhach_AddBtn.Location = new System.Drawing.Point(718, 99);
+            this.tabHanhKhach_AddBtn.Location = new System.Drawing.Point(628, 74);
+            this.tabHanhKhach_AddBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabHanhKhach_AddBtn.Name = "tabHanhKhach_AddBtn";
-            this.tabHanhKhach_AddBtn.Size = new System.Drawing.Size(48, 36);
+            this.tabHanhKhach_AddBtn.Size = new System.Drawing.Size(42, 27);
             this.tabHanhKhach_AddBtn.TabIndex = 1;
             this.tabHanhKhach_AddBtn.UseVisualStyleBackColor = true;
             this.tabHanhKhach_AddBtn.Click += new System.EventHandler(this.tabHanhKhach_AddBtn_Click);
@@ -766,9 +792,10 @@ namespace TourApp
             // 
             this.tabHanhKhach_SearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabHanhKhach_SearchBtn.BackgroundImage")));
             this.tabHanhKhach_SearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabHanhKhach_SearchBtn.Location = new System.Drawing.Point(497, 12);
+            this.tabHanhKhach_SearchBtn.Location = new System.Drawing.Point(435, 9);
+            this.tabHanhKhach_SearchBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabHanhKhach_SearchBtn.Name = "tabHanhKhach_SearchBtn";
-            this.tabHanhKhach_SearchBtn.Size = new System.Drawing.Size(42, 44);
+            this.tabHanhKhach_SearchBtn.Size = new System.Drawing.Size(37, 33);
             this.tabHanhKhach_SearchBtn.TabIndex = 0;
             this.tabHanhKhach_SearchBtn.UseVisualStyleBackColor = true;
             this.tabHanhKhach_SearchBtn.Click += new System.EventHandler(this.tabHanhKhach_SearchBtn_Click);
@@ -781,9 +808,10 @@ namespace TourApp
             this.tabGroup.Controls.Add(this.tabDoan_AddBtn);
             this.tabGroup.Controls.Add(this.tabDoan_RefreshBtn);
             this.tabGroup.Controls.Add(this.tabDoan_SearchBtn);
-            this.tabGroup.Location = new System.Drawing.Point(4, 29);
+            this.tabGroup.Location = new System.Drawing.Point(4, 24);
+            this.tabGroup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabGroup.Name = "tabGroup";
-            this.tabGroup.Size = new System.Drawing.Size(784, 568);
+            this.tabGroup.Size = new System.Drawing.Size(685, 423);
             this.tabGroup.TabIndex = 3;
             this.tabGroup.Text = "Đoàn";
             // 
@@ -804,11 +832,12 @@ namespace TourApp
             this.tabDoan_ViewCol,
             this.tabDoan_EditCol,
             this.tabDoan_DeleteCol});
-            this.DoanGridView.Location = new System.Drawing.Point(3, 140);
+            this.DoanGridView.Location = new System.Drawing.Point(3, 105);
+            this.DoanGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DoanGridView.Name = "DoanGridView";
             this.DoanGridView.RowHeadersVisible = false;
             this.DoanGridView.RowHeadersWidth = 51;
-            this.DoanGridView.Size = new System.Drawing.Size(763, 373);
+            this.DoanGridView.Size = new System.Drawing.Size(668, 280);
             this.DoanGridView.TabIndex = 5;
             this.DoanGridView.Text = "dataGridView1";
             this.DoanGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.doanGridview_CellClick);
@@ -823,7 +852,7 @@ namespace TourApp
             this.tabDoan_IDCol.Name = "tabDoan_IDCol";
             this.tabDoan_IDCol.ReadOnly = true;
             this.tabDoan_IDCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabDoan_IDCol.Width = 53;
+            this.tabDoan_IDCol.Width = 43;
             // 
             // tabDoan_MaDoanCol
             // 
@@ -832,7 +861,7 @@ namespace TourApp
             this.tabDoan_MaDoanCol.MinimumWidth = 6;
             this.tabDoan_MaDoanCol.Name = "tabDoan_MaDoanCol";
             this.tabDoan_MaDoanCol.ReadOnly = true;
-            this.tabDoan_MaDoanCol.Width = 99;
+            this.tabDoan_MaDoanCol.Width = 80;
             // 
             // tabDoan_TenCol
             // 
@@ -841,7 +870,7 @@ namespace TourApp
             this.tabDoan_TenCol.MinimumWidth = 6;
             this.tabDoan_TenCol.Name = "tabDoan_TenCol";
             this.tabDoan_TenCol.ReadOnly = true;
-            this.tabDoan_TenCol.Width = 101;
+            this.tabDoan_TenCol.Width = 81;
             // 
             // tabDoan_ChitietCol
             // 
@@ -858,7 +887,7 @@ namespace TourApp
             this.tabDoan_StatusCol.MinimumWidth = 6;
             this.tabDoan_StatusCol.Name = "tabDoan_StatusCol";
             this.tabDoan_StatusCol.ReadOnly = true;
-            this.tabDoan_StatusCol.Width = 105;
+            this.tabDoan_StatusCol.Width = 86;
             // 
             // tabDoan_TourIDCol
             // 
@@ -867,7 +896,7 @@ namespace TourApp
             this.tabDoan_TourIDCol.MinimumWidth = 6;
             this.tabDoan_TourIDCol.Name = "tabDoan_TourIDCol";
             this.tabDoan_TourIDCol.ReadOnly = true;
-            this.tabDoan_TourIDCol.Width = 86;
+            this.tabDoan_TourIDCol.Width = 69;
             // 
             // tabDoan_MaTourCol
             // 
@@ -876,7 +905,7 @@ namespace TourApp
             this.tabDoan_MaTourCol.MinimumWidth = 6;
             this.tabDoan_MaTourCol.Name = "tabDoan_MaTourCol";
             this.tabDoan_MaTourCol.ReadOnly = true;
-            this.tabDoan_MaTourCol.Width = 92;
+            this.tabDoan_MaTourCol.Width = 75;
             // 
             // tabDoan_ViewCol
             // 
@@ -885,7 +914,7 @@ namespace TourApp
             this.tabDoan_ViewCol.MinimumWidth = 6;
             this.tabDoan_ViewCol.Name = "tabDoan_ViewCol";
             this.tabDoan_ViewCol.ReadOnly = true;
-            this.tabDoan_ViewCol.Width = 45;
+            this.tabDoan_ViewCol.Width = 37;
             // 
             // tabDoan_EditCol
             // 
@@ -894,7 +923,7 @@ namespace TourApp
             this.tabDoan_EditCol.MinimumWidth = 6;
             this.tabDoan_EditCol.Name = "tabDoan_EditCol";
             this.tabDoan_EditCol.ReadOnly = true;
-            this.tabDoan_EditCol.Width = 40;
+            this.tabDoan_EditCol.Width = 32;
             // 
             // tabDoan_DeleteCol
             // 
@@ -903,23 +932,25 @@ namespace TourApp
             this.tabDoan_DeleteCol.MinimumWidth = 6;
             this.tabDoan_DeleteCol.Name = "tabDoan_DeleteCol";
             this.tabDoan_DeleteCol.ReadOnly = true;
-            this.tabDoan_DeleteCol.Width = 41;
+            this.tabDoan_DeleteCol.Width = 33;
             // 
             // tabDoan_SearchBox
             // 
             this.tabDoan_SearchBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabDoan_SearchBox.Location = new System.Drawing.Point(551, 15);
+            this.tabDoan_SearchBox.Location = new System.Drawing.Point(482, 11);
+            this.tabDoan_SearchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDoan_SearchBox.Name = "tabDoan_SearchBox";
-            this.tabDoan_SearchBox.Size = new System.Drawing.Size(215, 38);
+            this.tabDoan_SearchBox.Size = new System.Drawing.Size(189, 32);
             this.tabDoan_SearchBox.TabIndex = 4;
             this.tabDoan_SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabDoan_SearchBox_KeyPress);
             // 
             // tabDoan_CB
             // 
             this.tabDoan_CB.AutoSize = true;
-            this.tabDoan_CB.Location = new System.Drawing.Point(5, 99);
+            this.tabDoan_CB.Location = new System.Drawing.Point(4, 74);
+            this.tabDoan_CB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDoan_CB.Name = "tabDoan_CB";
-            this.tabDoan_CB.Size = new System.Drawing.Size(78, 24);
+            this.tabDoan_CB.Size = new System.Drawing.Size(62, 19);
             this.tabDoan_CB.TabIndex = 3;
             this.tabDoan_CB.Text = "Đã xóa";
             this.tabDoan_CB.UseVisualStyleBackColor = true;
@@ -929,9 +960,10 @@ namespace TourApp
             // 
             this.tabDoan_AddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDoan_AddBtn.BackgroundImage")));
             this.tabDoan_AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabDoan_AddBtn.Location = new System.Drawing.Point(718, 99);
+            this.tabDoan_AddBtn.Location = new System.Drawing.Point(628, 74);
+            this.tabDoan_AddBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDoan_AddBtn.Name = "tabDoan_AddBtn";
-            this.tabDoan_AddBtn.Size = new System.Drawing.Size(48, 36);
+            this.tabDoan_AddBtn.Size = new System.Drawing.Size(42, 27);
             this.tabDoan_AddBtn.TabIndex = 2;
             this.tabDoan_AddBtn.UseVisualStyleBackColor = true;
             this.tabDoan_AddBtn.Click += new System.EventHandler(this.tabDoan_AddBtn_Click);
@@ -940,9 +972,10 @@ namespace TourApp
             // 
             this.tabDoan_RefreshBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDoan_RefreshBtn.BackgroundImage")));
             this.tabDoan_RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabDoan_RefreshBtn.Location = new System.Drawing.Point(667, 99);
+            this.tabDoan_RefreshBtn.Location = new System.Drawing.Point(584, 74);
+            this.tabDoan_RefreshBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDoan_RefreshBtn.Name = "tabDoan_RefreshBtn";
-            this.tabDoan_RefreshBtn.Size = new System.Drawing.Size(41, 36);
+            this.tabDoan_RefreshBtn.Size = new System.Drawing.Size(36, 27);
             this.tabDoan_RefreshBtn.TabIndex = 1;
             this.tabDoan_RefreshBtn.UseVisualStyleBackColor = true;
             this.tabDoan_RefreshBtn.Click += new System.EventHandler(this.tabDoan_RefreshBtn_Click);
@@ -951,9 +984,10 @@ namespace TourApp
             // 
             this.tabDoan_SearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDoan_SearchBtn.BackgroundImage")));
             this.tabDoan_SearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabDoan_SearchBtn.Location = new System.Drawing.Point(497, 12);
+            this.tabDoan_SearchBtn.Location = new System.Drawing.Point(435, 9);
+            this.tabDoan_SearchBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDoan_SearchBtn.Name = "tabDoan_SearchBtn";
-            this.tabDoan_SearchBtn.Size = new System.Drawing.Size(42, 44);
+            this.tabDoan_SearchBtn.Size = new System.Drawing.Size(37, 33);
             this.tabDoan_SearchBtn.TabIndex = 0;
             this.tabDoan_SearchBtn.UseVisualStyleBackColor = true;
             this.tabDoan_SearchBtn.Click += new System.EventHandler(this.tabDoan_SearchBtn_Click);
@@ -965,9 +999,10 @@ namespace TourApp
             this.tabCT.Controls.Add(this.tabCT_RefreshBtn);
             this.tabCT.Controls.Add(this.tabCT_AddBtn);
             this.tabCT.Controls.Add(this.tabCT_SearchBtn);
-            this.tabCT.Location = new System.Drawing.Point(4, 29);
+            this.tabCT.Location = new System.Drawing.Point(4, 24);
+            this.tabCT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabCT.Name = "tabCT";
-            this.tabCT.Size = new System.Drawing.Size(784, 568);
+            this.tabCT.Size = new System.Drawing.Size(685, 423);
             this.tabCT.TabIndex = 4;
             this.tabCT.Text = "Chi tiêu";
             // 
@@ -984,11 +1019,12 @@ namespace TourApp
             this.tabCT_ViewCol,
             this.tabCT_EditCol,
             this.tabCT_DeleteCol});
-            this.ChiTieuGridView.Location = new System.Drawing.Point(3, 140);
+            this.ChiTieuGridView.Location = new System.Drawing.Point(3, 105);
+            this.ChiTieuGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChiTieuGridView.Name = "ChiTieuGridView";
             this.ChiTieuGridView.RowHeadersVisible = false;
             this.ChiTieuGridView.RowHeadersWidth = 51;
-            this.ChiTieuGridView.Size = new System.Drawing.Size(763, 373);
+            this.ChiTieuGridView.Size = new System.Drawing.Size(668, 280);
             this.ChiTieuGridView.TabIndex = 5;
             this.ChiTieuGridView.Text = "dataGridView1";
             this.ChiTieuGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChiTieuGridView_CellClick);
@@ -1003,7 +1039,7 @@ namespace TourApp
             this.tabCT_IDCol.Name = "tabCT_IDCol";
             this.tabCT_IDCol.ReadOnly = true;
             this.tabCT_IDCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabCT_IDCol.Width = 53;
+            this.tabCT_IDCol.Width = 43;
             // 
             // tabCT_TenCol
             // 
@@ -1013,7 +1049,7 @@ namespace TourApp
             this.tabCT_TenCol.Name = "tabCT_TenCol";
             this.tabCT_TenCol.ReadOnly = true;
             this.tabCT_TenCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabCT_TenCol.Width = 113;
+            this.tabCT_TenCol.Width = 92;
             // 
             // tabCT_BlankCol
             // 
@@ -1032,7 +1068,7 @@ namespace TourApp
             this.tabCT_ViewCol.Name = "tabCT_ViewCol";
             this.tabCT_ViewCol.ReadOnly = true;
             this.tabCT_ViewCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabCT_ViewCol.Width = 45;
+            this.tabCT_ViewCol.Width = 37;
             // 
             // tabCT_EditCol
             // 
@@ -1042,7 +1078,7 @@ namespace TourApp
             this.tabCT_EditCol.Name = "tabCT_EditCol";
             this.tabCT_EditCol.ReadOnly = true;
             this.tabCT_EditCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabCT_EditCol.Width = 40;
+            this.tabCT_EditCol.Width = 32;
             // 
             // tabCT_DeleteCol
             // 
@@ -1052,14 +1088,15 @@ namespace TourApp
             this.tabCT_DeleteCol.Name = "tabCT_DeleteCol";
             this.tabCT_DeleteCol.ReadOnly = true;
             this.tabCT_DeleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabCT_DeleteCol.Width = 41;
+            this.tabCT_DeleteCol.Width = 33;
             // 
             // tabCT_SearchBox
             // 
             this.tabCT_SearchBox.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabCT_SearchBox.Location = new System.Drawing.Point(551, 15);
+            this.tabCT_SearchBox.Location = new System.Drawing.Point(482, 11);
+            this.tabCT_SearchBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabCT_SearchBox.Name = "tabCT_SearchBox";
-            this.tabCT_SearchBox.Size = new System.Drawing.Size(215, 38);
+            this.tabCT_SearchBox.Size = new System.Drawing.Size(189, 32);
             this.tabCT_SearchBox.TabIndex = 3;
             this.tabCT_SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabCT_SearchBox_KeyPress);
             // 
@@ -1067,9 +1104,10 @@ namespace TourApp
             // 
             this.tabCT_RefreshBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabCT_RefreshBtn.BackgroundImage")));
             this.tabCT_RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabCT_RefreshBtn.Location = new System.Drawing.Point(667, 99);
+            this.tabCT_RefreshBtn.Location = new System.Drawing.Point(584, 74);
+            this.tabCT_RefreshBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabCT_RefreshBtn.Name = "tabCT_RefreshBtn";
-            this.tabCT_RefreshBtn.Size = new System.Drawing.Size(41, 36);
+            this.tabCT_RefreshBtn.Size = new System.Drawing.Size(36, 27);
             this.tabCT_RefreshBtn.TabIndex = 2;
             this.tabCT_RefreshBtn.UseVisualStyleBackColor = true;
             this.tabCT_RefreshBtn.Click += new System.EventHandler(this.tabCT_RefreshBtn_Click);
@@ -1078,9 +1116,10 @@ namespace TourApp
             // 
             this.tabCT_AddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabCT_AddBtn.BackgroundImage")));
             this.tabCT_AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabCT_AddBtn.Location = new System.Drawing.Point(718, 99);
+            this.tabCT_AddBtn.Location = new System.Drawing.Point(628, 74);
+            this.tabCT_AddBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabCT_AddBtn.Name = "tabCT_AddBtn";
-            this.tabCT_AddBtn.Size = new System.Drawing.Size(48, 36);
+            this.tabCT_AddBtn.Size = new System.Drawing.Size(42, 27);
             this.tabCT_AddBtn.TabIndex = 1;
             this.tabCT_AddBtn.UseVisualStyleBackColor = true;
             this.tabCT_AddBtn.Click += new System.EventHandler(this.tabCT_AddBtn_Click);
@@ -1089,28 +1128,31 @@ namespace TourApp
             // 
             this.tabCT_SearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabCT_SearchBtn.BackgroundImage")));
             this.tabCT_SearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabCT_SearchBtn.Location = new System.Drawing.Point(497, 12);
+            this.tabCT_SearchBtn.Location = new System.Drawing.Point(435, 9);
+            this.tabCT_SearchBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabCT_SearchBtn.Name = "tabCT_SearchBtn";
-            this.tabCT_SearchBtn.Size = new System.Drawing.Size(42, 44);
+            this.tabCT_SearchBtn.Size = new System.Drawing.Size(37, 33);
             this.tabCT_SearchBtn.TabIndex = 0;
             this.tabCT_SearchBtn.UseVisualStyleBackColor = true;
             this.tabCT_SearchBtn.Click += new System.EventHandler(this.tabCT_SearchBtn_Click);
             // 
             // tabDestination
             // 
-            this.tabDestination.Location = new System.Drawing.Point(4, 29);
+            this.tabDestination.Location = new System.Drawing.Point(4, 24);
+            this.tabDestination.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabDestination.Name = "tabDestination";
-            this.tabDestination.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDestination.Size = new System.Drawing.Size(784, 568);
+            this.tabDestination.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabDestination.Size = new System.Drawing.Size(685, 423);
             this.tabDestination.TabIndex = 2;
             this.tabDestination.Text = "Địa điểm";
             this.tabDestination.UseVisualStyleBackColor = true;
             // 
             // tabLHDL
             // 
-            this.tabLHDL.Location = new System.Drawing.Point(4, 29);
+            this.tabLHDL.Location = new System.Drawing.Point(4, 24);
+            this.tabLHDL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabLHDL.Name = "tabLHDL";
-            this.tabLHDL.Size = new System.Drawing.Size(784, 568);
+            this.tabLHDL.Size = new System.Drawing.Size(685, 423);
             this.tabLHDL.TabIndex = 5;
             this.tabLHDL.Text = "Loại hình du lịch";
             // 
@@ -1122,8 +1164,8 @@ namespace TourApp
             this.SettingMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-            this.menuStrip.Size = new System.Drawing.Size(792, 30);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(693, 24);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.Text = "menu";
             // 
@@ -1132,14 +1174,14 @@ namespace TourApp
             this.FileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ExportMenuBtn});
             this.FileMenu.Name = "FileMenu";
-            this.FileMenu.Size = new System.Drawing.Size(46, 24);
+            this.FileMenu.Size = new System.Drawing.Size(37, 20);
             this.FileMenu.Text = "File";
             this.FileMenu.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.FileMenu_DropDownItemClicked);
             // 
             // ExportMenuBtn
             // 
             this.ExportMenuBtn.Name = "ExportMenuBtn";
-            this.ExportMenuBtn.Size = new System.Drawing.Size(191, 26);
+            this.ExportMenuBtn.Size = new System.Drawing.Size(152, 22);
             this.ExportMenuBtn.Text = "Export to excel";
             // 
             // SettingMenu
@@ -1147,7 +1189,7 @@ namespace TourApp
             this.SettingMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ChangeThemeMenu});
             this.SettingMenu.Name = "SettingMenu";
-            this.SettingMenu.Size = new System.Drawing.Size(70, 24);
+            this.SettingMenu.Size = new System.Drawing.Size(56, 20);
             this.SettingMenu.Text = "Setting";
             // 
             // ChangeThemeMenu
@@ -1157,7 +1199,7 @@ namespace TourApp
             this.LightStripMenuItem,
             this.DefaultStripMenuItem});
             this.ChangeThemeMenu.Name = "ChangeThemeMenu";
-            this.ChangeThemeMenu.Size = new System.Drawing.Size(188, 26);
+            this.ChangeThemeMenu.Size = new System.Drawing.Size(152, 22);
             this.ChangeThemeMenu.Text = "Change theme";
             this.ChangeThemeMenu.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ChangeThemeMenu_DropDownItemClicked);
             // 
@@ -1165,14 +1207,14 @@ namespace TourApp
             // 
             this.DarkStripMenuItem.CheckOnClick = true;
             this.DarkStripMenuItem.Name = "DarkStripMenuItem";
-            this.DarkStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.DarkStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.DarkStripMenuItem.Text = "Dark ";
             // 
             // LightStripMenuItem
             // 
             this.LightStripMenuItem.CheckOnClick = true;
             this.LightStripMenuItem.Name = "LightStripMenuItem";
-            this.LightStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.LightStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.LightStripMenuItem.Text = "Light";
             // 
             // DefaultStripMenuItem
@@ -1181,7 +1223,7 @@ namespace TourApp
             this.DefaultStripMenuItem.CheckOnClick = true;
             this.DefaultStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.DefaultStripMenuItem.Name = "DefaultStripMenuItem";
-            this.DefaultStripMenuItem.Size = new System.Drawing.Size(141, 26);
+            this.DefaultStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.DefaultStripMenuItem.Text = "Default";
             // 
             // toolStripComboBox1
@@ -1194,15 +1236,14 @@ namespace TourApp
             // 
             // List
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(792, 638);
+            this.ClientSize = new System.Drawing.Size(693, 478);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "List";
             this.Text = "Danh sách";
             this.Load += new System.EventHandler(this.Form1_Load);

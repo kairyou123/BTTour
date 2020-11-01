@@ -20,6 +20,8 @@ namespace TourApp.Entity
         public String Status { set; get; }
         public int TourId { set; get; }
         public Tour Tour { set; get; }
+        public DateTime DateStart { set; get; }
+        public DateTime DateEnd { set; get; }
         public int isDeleted { set; get; }
         public ICollection<CTDoan> CTDoans { set; get; }
         public ICollection<NV_VT> NV_VTs { set; get; }

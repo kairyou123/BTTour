@@ -10,6 +10,6 @@ namespace TourApp.Entity
         public virtual ChiTieu ChiTieu { set; get; }
         public int DoanId { set; get; }
         public virtual DoanKhach DoanKhach { set; get; }
-        public int TienCT { set; get; }
+        public string TienCT { set; get; }
     }
 }

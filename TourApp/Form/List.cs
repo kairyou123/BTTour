@@ -807,13 +807,20 @@ namespace TourApp
             switch (name)
             {
                 case "tabDoan_ViewCol":
-                    //DoanKhach_Form form = _serviceProvider.GetRequiredService<DoanKhach_Form>();
-                    //form.getId(int.Parse(value));
-                    //var main = this.Location;
-                    //form.Location = new Point((main.X + 10), (main.Y + 10));
-                    //form.Show();
+                    DoanKhach_Form form1 = _serviceProvider.GetRequiredService<DoanKhach_Form>();
+                    form1.formType = EditState.View;
+                    form1.id = int.Parse(value);
+                    var main1 = this.Location;
+                    form1.Location = new Point((main1.X + 10), (main1.Y + 10));
+                    form1.Show();
                     break;
                 case "tabDoan_EditCol":
+                    DoanKhach_Form form = _serviceProvider.GetRequiredService<DoanKhach_Form>();
+                    form.id = int.Parse(value);
+                    form.formType = EditState.Edit;
+                    var main = this.Location;
+                    form.Location = new Point((main.X + 10), (main.Y + 10));
+                    form.Show();
                     break;
                 case "tabDoan_DeleteCol":
                     var doan = _doankhachRepo.getById(int.Parse(value));

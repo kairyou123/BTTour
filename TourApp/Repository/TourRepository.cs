@@ -76,6 +76,20 @@ namespace TourApp.Repository
             return result;
         }
 
+        public Tour getByName(string Ten, int isDeleted)
+        {
+
+            var result = _context.Tours.Include(t => t.Gias)
+                                 .Include(t => t.LHDL)
+                                 .Include(t => t.CTTours)
+                                 .ThenInclude(dd => dd.DiaDiem)
+                                 .Where(t => t.Ten == Ten)
+                                 .Where(t => t.isDeleted == isDeleted)
+                                 .FirstOrDefault();
+
+            return result;
+        }
+
         public void Update(Tour entity)
         {
             _context.Tours.Update(entity);

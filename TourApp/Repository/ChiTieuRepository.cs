@@ -47,6 +47,11 @@ namespace TourApp.Repository
                                            
         }
 
+        public ChiTieu getByName(string name)
+        {
+            return _context.ChiTieus.Where(ct => ct.Ten == name).Include(ct => ct.CTChitieus).FirstOrDefault();
+        }
+
         public void Update(ChiTieu chiTieu)
         {
             _context.ChiTieus.Update(chiTieu);
