@@ -10,5 +10,6 @@ namespace TourApp.Const
         public const string err_phone = "Số điện thoại không hợp lệ";
         public const string err_email = "Email không hợp lệ";
         public const string err_minMaxDate = "Ngày kết thúc phải lớn hơn ngày bắt đầu";
+        public const string err_number = "Xin hãy nhập số";
     }
 }

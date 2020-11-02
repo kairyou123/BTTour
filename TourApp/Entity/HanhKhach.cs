@@ -11,10 +11,15 @@ namespace TourApp.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int KhachId { set; get; }
-        public String MaKhach { set; get; }
-        public String Ten { set; get; }
-        public String SDT { set; get; }
-        public String Email { set; get; }
+        public string MaKhach { set; get; }
+        public string Ten { set; get; }
+        public string SDT { set; get; }
+        public string Email { set; get; }
+        public string CMND { set; get; }
+        public string DiaChi { set; get; }
+        public string GioiTinh { set; get; }
+        public string Passport { set; get; }
+
         public int isDeleted { set; get; }
         public ICollection<CTDoan> CTDoans { set; get; }
     }

@@ -64,15 +64,7 @@ namespace TourApp
             }
 
 
-            if (txt_email.Text == "")
-            {
-                txt_email.ForeColor = Color.Red;
-                txt_email.Focus();
-                err_msg3.Text = ErrorMsg.err_blank;
-                err_msg3.Visible = true;
-                return false;
-            }
-            else if (!Regex.IsMatch(txt_email.Text, "^\\w+@+[a-z]+\\.+[a-z]+$"))
+             if (txt_email.Text !="" && !Regex.IsMatch(txt_email.Text, "^\\w+@+[a-z]+\\.+[a-z]+$"))
             {
                 txt_email.ForeColor = Color.Red;
                 txt_email.Focus();
@@ -108,6 +100,34 @@ namespace TourApp
                 txt_phone.ForeColor = Color.Black;
             }
 
+            if (txt_cmnd.Text != "" && !Regex.IsMatch(txt_cmnd.Text, "^[0-9]{1,}$"))
+            {
+                txt_cmnd.ForeColor = Color.Red;
+                txt_cmnd.Focus();
+                err_msg5.Text = ErrorMsg.err_number;
+                err_msg5.Visible = true;
+                return false;
+            }
+            else
+            {
+                err_msg5.Visible = false;
+                txt_cmnd.ForeColor = Color.Black;
+            }
+
+            if (txt_diachi.Text == "" )
+            {
+                txt_diachi.ForeColor = Color.Red;
+                txt_diachi.Focus();
+                err_msg6.Text = ErrorMsg.err_blank;
+                err_msg6.Visible = true;
+                return false;
+            }
+            else
+            {
+                err_msg6.Visible = false;
+                txt_diachi.ForeColor = Color.Black;
+            }
+
             return true;
         }
 
@@ -128,12 +148,25 @@ namespace TourApp
                         txt_email.Text = hk.Email;
                         txt_phone.Text = hk.SDT.ToString();
                         txt_name.Text = hk.Ten;
+                        txt_cmnd.Text = hk.CMND;
+                        txt_diachi.Text = hk.DiaChi;
+                        if (hk.GioiTinh == "Nam")
+                        {
+                            Radio_GT.Checked = true;
+                        }
+                        else Radio_GT1.Checked = true;
+                        txt_passport.Text = hk.Passport;
                         title.Text = "CHI TIẾT HÀNH KHÁCH";
 
                         txt_name.ReadOnly = true;
                         txt_email.ReadOnly = true;
                         txt_id.ReadOnly = true;
                         txt_phone.ReadOnly = true;
+                        txt_diachi.ReadOnly = true;
+                        txt_cmnd.ReadOnly = true;
+                        txt_passport.ReadOnly = true;
+                        Radio_GT.Enabled = false;
+                        Radio_GT1.Enabled = false;
                         btn.Enabled = false;
                         break;
                     }
@@ -149,6 +182,14 @@ namespace TourApp
                         txt_email.Text = hk.Email;
                         txt_phone.Text = hk.SDT.ToString();
                         txt_name.Text = hk.Ten;
+                        txt_cmnd.Text = hk.CMND;
+                        txt_diachi.Text = hk.DiaChi;
+                        if (hk.GioiTinh == "Nam")
+                        {
+                            Radio_GT.Checked = true;
+                        }
+                        else Radio_GT1.Checked = true;
+                        txt_passport.Text = hk.Passport;
                         title.Text = "SỬA HÀNH KHÁCH";
                         break;
                     }
@@ -171,6 +212,14 @@ namespace TourApp
                 hk.Ten = txt_name.Text;
                 hk.Email = txt_email.Text;
                 hk.SDT = txt_phone.Text;
+                hk.CMND = txt_cmnd.Text;
+                hk.DiaChi = txt_diachi.Text;
+                hk.Passport = txt_passport.Text;
+                if (Radio_GT.Checked == true)
+                {
+                    hk.GioiTinh = Radio_GT.Text;
+                }
+                else hk.GioiTinh = Radio_GT1.Text;
                 _hanhKhach.Update(hk);
 
                 MessageBox.Show("Sửa thành công Hành Khách có ID: " + hk.KhachId, "Hành Khách");
@@ -184,6 +233,14 @@ namespace TourApp
                 hk.Ten = txt_name.Text;
                 hk.Email = txt_email.Text;
                 hk.SDT = txt_phone.Text;
+                hk.CMND = txt_cmnd.Text;
+                hk.DiaChi = txt_diachi.Text;
+                hk.Passport = txt_passport.Text;
+                if (Radio_GT.Checked == true)
+                {
+                    hk.GioiTinh = Radio_GT.Text;
+                }
+                else hk.GioiTinh = Radio_GT1.Text;
                 _hanhKhach.Add(hk);
 
                 MessageBox.Show("Đã thêm thành công", "Hành Khách");
@@ -192,6 +249,10 @@ namespace TourApp
                 txt_email.Text = "";
                 txt_phone.Text = "";
                 txt_name.Text = "";
+                txt_cmnd.Text = "";
+                txt_diachi.Text = "";
+                txt_passport.Text = "";
+                Radio_GT.Checked = true;
                 txt_id.Focus();
             }
 
@@ -248,15 +309,7 @@ namespace TourApp
                     }
                     break;
                 case "txt_email":
-                    if (txt_email.Text == "")
-                    {
-                        txt_email.ForeColor = Color.Red;
-                        txt_email.Focus();
-                        err_msg3.Text = ErrorMsg.err_blank;
-                        err_msg3.Visible = true;
-                        e.Cancel = true;
-                    }
-                    else if (!Regex.IsMatch(txt_email.Text, "^\\w+@+[a-z]+\\.+[a-z]+$"))
+                    if (txt_email.Text != ""  &&  !Regex.IsMatch(txt_email.Text, "^\\w+@+[a-z]+\\.+[a-z]+$"))
                     {
                         txt_email.ForeColor = Color.Red;
                         txt_email.Focus();
@@ -291,6 +344,36 @@ namespace TourApp
                     {
                         err_msg4.Visible = false;
                         txt_phone.ForeColor = Color.Black;
+                    }
+                    break;
+                case "txt_cmnd":
+                    if (txt_cmnd.Text != "" && !Regex.IsMatch(txt_cmnd.Text, "^[0-9]{1,}$"))
+                    {
+                        txt_cmnd.ForeColor = Color.Red;
+                        txt_cmnd.Focus();
+                        err_msg5.Text = ErrorMsg.err_number;
+                        err_msg5.Visible = true;
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        err_msg5.Visible = false;
+                        txt_cmnd.ForeColor = Color.Black;
+                    }
+                    break;
+                case "txt_diachi":
+                    if (txt_diachi.Text == "")
+                    {
+                        txt_diachi.ForeColor = Color.Red;
+                        txt_diachi.Focus();
+                        err_msg6.Text = ErrorMsg.err_blank;
+                        err_msg6.Visible = true;
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        err_msg6.Visible = false;
+                        txt_diachi.ForeColor = Color.Black;
                     }
                     break;
             }
