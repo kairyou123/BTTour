@@ -47,11 +47,15 @@ namespace TourApp.Repository
                                        .FirstOrDefault();
         }
 
-        public IEnumerable<NhanVien> getWhere(string Ten, int isDeleted)
+        public IEnumerable<NhanVien> getWhere(string ID, string MaNv, string Ten, string SDT, int isDeleted)
         {
-            return _context.NhanViens.Where(t => t.Ten.Contains(Ten))
-                                 .Where(t => t.isDeleted == isDeleted)
-                                       .ToList();
+
+            return _context.NhanViens.Where(t => t.isDeleted == isDeleted)
+                                     .Where(t => t.NVId.ToString().Contains(ID))
+                                     .Where(t => t.MaNV.Contains(MaNv))
+                                     .Where(t => t.Ten.Contains(Ten))
+                                     .Where(t => t.SDT.Contains(SDT))
+                                     .ToList();
         }
 
         public void Update(NhanVien entity)

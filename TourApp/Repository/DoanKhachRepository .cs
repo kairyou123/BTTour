@@ -46,13 +46,21 @@ namespace TourApp.Repository
             return _context.DoanKhachs.Where(dk => dk.isDeleted == Status.Deleted).Include(i => i.Tour).ToList();
         }
 
-        public IEnumerable<DoanKhach> getWhere(string name, int isDeleted, string nameTour)
+        public IEnumerable<DoanKhach> getWhere(string ID, string MaDoan, string TenDoan, string Chitiet, string Tinhtrang, string TourID, string MaTour, int isDeleted, string nameTour)
         {
-            return _context.DoanKhachs.Where(dk => dk.isDeleted == isDeleted && dk.TenDoan.Contains(name) && dk.Tour.Ten.Contains(nameTour))
-                                                               .Include(i => i.Tour) .Include(i => i.CTDoans).ThenInclude(i => i.HanhKhach)
-                                                               .Include(i => i.NV_VTs).ThenInclude(i=>i.NhanVien)
-                                                               .Include(i => i.CTChitieus).ThenInclude(i => i.ChiTieu)
-                                                               .ToList();
+            return _context.DoanKhachs.Include(i => i.Tour).Include(i => i.CTDoans).ThenInclude(i => i.HanhKhach)
+                                                           .Include(i => i.NV_VTs).ThenInclude(i => i.NhanVien)
+                                                           .Include(i => i.CTChitieus).ThenInclude(i => i.ChiTieu)
+                                                           .Where(dk => dk.isDeleted == isDeleted
+                                                                     && dk.DoanId.ToString().Contains(ID)
+                                                                     && dk.MaDoan.Contains(MaDoan)
+                                                                     && dk.TenDoan.Contains(TenDoan)
+                                                                     && dk.Chitiet.Contains(Chitiet)
+                                                                     && dk.Status.Contains(Tinhtrang)
+                                                                     && dk.TourId.ToString().Contains(TourID)
+                                                                     && dk.Tour.MaTour.Contains(MaTour)
+                                                                     && dk.Tour.Ten.Contains(nameTour))
+                                                           .ToList();
         }
 
         public DoanKhach getById(int id, string maDK = "")

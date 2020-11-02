@@ -211,10 +211,22 @@ namespace TourApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CMND")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DiaChi")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("GioiTinh")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("MaKhach")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Passport")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SDT")

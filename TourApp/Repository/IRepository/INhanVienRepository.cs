@@ -8,7 +8,7 @@ namespace TourApp.Repository.IRepository
 {
     public interface INhanVienRepository : ICommonRepository<NhanVien>
     {
-        IEnumerable<NhanVien> getWhere(String Ten, int isDeleted = Status.NotDeleted );
+        IEnumerable<NhanVien> getWhere(string ID, string MaNv, string Ten, string SDT, int isDeleted);
         IEnumerable<NhanVien> getAllDelete();
         NhanVien getById(int NVId, String MaNV = "");
 

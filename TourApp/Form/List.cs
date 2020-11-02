@@ -1,5 +1,6 @@
 ﻿
 
+
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Drawing;
@@ -65,12 +66,7 @@ namespace TourApp
                         tabTour_SearchOption.SelectedIndex = 0;
                         searchBox.Text = "";
                         isDeleted_ChB.Checked = false;
-                        tourGridView.Rows.Clear();
-                        var data = _tourRepo.getAll();
-                        foreach (Tour item in data)
-                        {
-                            tourGridView.Rows.Add(item.TourId, item.MaTour, item.Ten, item.LHDL.Ten);
-                        }
+                        Search();
                         break;
                     }
 
@@ -78,46 +74,31 @@ namespace TourApp
                     {
                         tabNV_SearchBox.Text = "";
                         tabNV_CB.Checked = false;
-                        NVGridView.Rows.Clear();
-                        var data = _nhanvienRepo.getAll();
-                        foreach (NhanVien item in data)
-                        {
-
-                            NVGridView.Rows.Add(item.NVId,item.MaNV, item.Ten, item.SDT);
-                        }
+                        tabNV_SearchOption.SelectedIndex = 2;
+                        tabNV_Search();
                         break;
                     }
                 case ListTab.Chitieu:
                     {
                         tabCT_SearchBox.Text = "";
-                        ChiTieuGridView.Rows.Clear();
-                        var data = _chitieuRepo.getAll();
-                        foreach (ChiTieu item in data)
-                        {
-                            ChiTieuGridView.Rows.Add(item.CTId, item.Ten);
-                        }
+                        tabCT_SearchOption.SelectedIndex = 1;
+                        tabCT_Search();
                         break;
                     }
                 case ListTab.Doan:
                     {
                         tabDoan_SearchBox.Text = "";
-                        DoanGridView.Rows.Clear();
-                        var data = _doankhachRepo.getAll();
-                        foreach (DoanKhach item in data)
-                        {
-                            DoanGridView.Rows.Add(item.DoanId, item.MaDoan,item.TenDoan,item.Chitiet,item.Status,item.TourId,item.Tour.MaTour);
-                        }
+                        tabDoan_CB.Checked = false;
+                        tabDoan_SearchOption.SelectedIndex = 2;
+                        tabDoan_Search();
                         break;
                     }
                 case ListTab.HanhKhach:
                     {
                         tabHanhKhach_SearchBox.Text = "";
-                        HanhKhachGridView.Rows.Clear();
-                        var data = _hanhkhachRepo.getAll();
-                        foreach (HanhKhach item in data)
-                        {
-                            HanhKhachGridView.Rows.Add(item.KhachId, item.MaKhach, item.Ten, item.SDT, item.Email);
-                        }
+                        tabHanhKhach_CB.Checked = false;
+                        tabHanhKhach_SearchOption.SelectedIndex = 2;
+                        tabHanhKhach_Search();
                         break;
                     }
 
@@ -550,9 +531,27 @@ namespace TourApp
         }
         private void tabNV_Search()
         {
-            var searchStr = tabNV_SearchBox.Text;
+            string ID_str, MaNV_str, Ten_str, SDT_str;
+            ID_str = MaNV_str = Ten_str = SDT_str = "";
+            switch (tabNV_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    ID_str = tabNV_SearchBox.Text;
+                    break;
+                case 1:
+                    MaNV_str = tabNV_SearchBox.Text;
+                    break;
+                case 2:
+                    Ten_str = tabNV_SearchBox.Text;
+                    break;
+                case 3:
+                    SDT_str = tabNV_SearchBox.Text;
+                    break;
+
+            }
+
             NVGridView.Rows.Clear();
-            var data = _nhanvienRepo.getWhere(searchStr, tabNV_CB.Checked ? 1 : 0);
+            var data = _nhanvienRepo.getWhere(ID_str,MaNV_str,Ten_str,SDT_str,tabNV_CB.Checked ? 1 : 0);
             foreach (NhanVien item in data)
             {
                 NVGridView.Rows.Add(item.NVId, item.MaNV, item.Ten, item.SDT);
@@ -626,9 +625,20 @@ namespace TourApp
         }
         private void tabCT_Search()
         {
-            var searchStr = tabCT_SearchBox.Text;
+            string id_str, ten_str;
+            id_str = ten_str = "";
+            switch (tabCT_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    id_str = tabCT_SearchBox.Text;
+                    break;
+                case 1:
+                    ten_str = tabCT_SearchBox.Text; ;
+                    break;
+            }
+
             ChiTieuGridView.Rows.Clear();
-            var data = _chitieuRepo.getWhere(searchStr);
+            var data = _chitieuRepo.getWhere(id_str,ten_str);
             foreach (ChiTieu item in data)
             {
                 ChiTieuGridView.Rows.Add(item.CTId, item.Ten);
@@ -708,9 +718,35 @@ namespace TourApp
 
         private void tabDoan_Search()
         {
-            var searchStr = tabDoan_SearchBox.Text;
+            string ID_str, MaDoan_str, TenDoan_str, Chitiet_str, Tinhtrang_str, TourID_str, MaTour_str;
+            ID_str = MaDoan_str = TenDoan_str = Chitiet_str = Tinhtrang_str = TourID_str = MaTour_str = "";
+            switch (tabDoan_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    ID_str = tabDoan_SearchBox.Text;
+                    break;
+                case 1:
+                    MaDoan_str = tabDoan_SearchBox.Text;
+                    break;
+                case 2:
+                    TenDoan_str = tabDoan_SearchBox.Text;
+                    break;
+                case 3:
+                    Chitiet_str = tabDoan_SearchBox.Text;
+                    break;
+                case 4:
+                    Tinhtrang_str = tabDoan_SearchBox.Text;
+                    break;
+                case 5:
+                    TourID_str = tabDoan_SearchBox.Text;
+                    break;
+                case 6:
+                    MaTour_str = tabDoan_SearchBox.Text;
+                    break;
+            }
+
             DoanGridView.Rows.Clear();
-            var data = _doankhachRepo.getWhere(searchStr, tabDoan_CB.Checked ? 1 : 0);
+            var data = _doankhachRepo.getWhere(ID_str, MaDoan_str, TenDoan_str, Chitiet_str, Tinhtrang_str, TourID_str, MaTour_str, tabDoan_CB.Checked ? 1 : 0);
             foreach (DoanKhach item in data)
             {
                 DoanGridView.Rows.Add(item.DoanId, item.MaDoan, item.TenDoan, item.Chitiet, item.Status, item.TourId, item.Tour.MaTour);
@@ -854,12 +890,44 @@ namespace TourApp
        
         private void tabHanhKhach_Search()
         {
-            var searchStr = tabHanhKhach_SearchBox.Text;
+            string KhachId_str, MaKhach_str, Ten_str, SDT_str, Email_str, CMND_str, DiaChi_str, GioiTinh_str, Passport_str;
+            KhachId_str = MaKhach_str = Ten_str = SDT_str = Email_str = CMND_str = DiaChi_str = GioiTinh_str = Passport_str = "";
+            switch (tabHanhKhach_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    KhachId_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 1:
+                    MaKhach_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 2:
+                    Ten_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 3:
+                    SDT_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 4:
+                    Email_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 5:
+                    CMND_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 6:
+                    DiaChi_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 7:
+                    GioiTinh_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 8:
+                    Passport_str = tabHanhKhach_SearchBox.Text;
+                    break;
+            }
+
             HanhKhachGridView.Rows.Clear();
-            var data = _hanhkhachRepo.getWhere(searchStr, tabHanhKhach_CB.Checked ? 1 : 0);
+            var data = _hanhkhachRepo.getWhere(KhachId_str, MaKhach_str, Ten_str, SDT_str, Email_str, CMND_str, DiaChi_str, GioiTinh_str, Passport_str, tabHanhKhach_CB.Checked ? 1 : 0);
             foreach (HanhKhach item in data)
             {
-                HanhKhachGridView.Rows.Add(item.KhachId, item.MaKhach, item.Ten, item.SDT, item.Email);
+                HanhKhachGridView.Rows.Add(item.KhachId, item.MaKhach, item.Ten, item.SDT, item.Email, item.CMND, item.DiaChi, item.GioiTinh, item.Passport);
             }
         }
         private void tabHanhKhach_SearchBtn_Click(object sender, EventArgs e)
@@ -907,7 +975,7 @@ namespace TourApp
                 return;
 
             //I supposed your button column is at index 0
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 9)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.view;
@@ -919,7 +987,7 @@ namespace TourApp
                 e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 6)
+            if (e.ColumnIndex == 10)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.edit;
@@ -931,7 +999,7 @@ namespace TourApp
                 e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 11)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.delete;
