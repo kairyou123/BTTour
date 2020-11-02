@@ -80,57 +80,62 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(33, 23);
+            this.panel1.Location = new System.Drawing.Point(38, 31);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(680, 147);
+            this.panel1.Size = new System.Drawing.Size(777, 196);
             this.panel1.TabIndex = 0;
             // 
             // loaihinhcbb
             // 
+            this.loaihinhcbb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.loaihinhcbb.FormattingEnabled = true;
-            this.loaihinhcbb.Location = new System.Drawing.Point(134, 86);
+            this.loaihinhcbb.Location = new System.Drawing.Point(153, 115);
+            this.loaihinhcbb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.loaihinhcbb.Name = "loaihinhcbb";
-            this.loaihinhcbb.Size = new System.Drawing.Size(262, 23);
+            this.loaihinhcbb.Size = new System.Drawing.Size(299, 28);
             this.loaihinhcbb.TabIndex = 2;
             // 
             // tentourtb
             // 
-            this.tentourtb.Location = new System.Drawing.Point(134, 53);
+            this.tentourtb.Location = new System.Drawing.Point(153, 71);
+            this.tentourtb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tentourtb.Name = "tentourtb";
-            this.tentourtb.Size = new System.Drawing.Size(262, 23);
+            this.tentourtb.Size = new System.Drawing.Size(299, 27);
             this.tentourtb.TabIndex = 1;
             // 
             // matourtb
             // 
-            this.matourtb.Location = new System.Drawing.Point(134, 21);
+            this.matourtb.Location = new System.Drawing.Point(153, 28);
+            this.matourtb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.matourtb.Name = "matourtb";
-            this.matourtb.Size = new System.Drawing.Size(262, 23);
+            this.matourtb.Size = new System.Drawing.Size(299, 27);
             this.matourtb.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(46, 94);
+            this.label8.Location = new System.Drawing.Point(53, 125);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 15);
+            this.label8.Size = new System.Drawing.Size(69, 20);
             this.label8.TabIndex = 0;
             this.label8.Text = "Loại hình";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(46, 61);
+            this.label7.Location = new System.Drawing.Point(53, 81);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 15);
+            this.label7.Size = new System.Drawing.Size(65, 20);
             this.label7.TabIndex = 0;
             this.label7.Text = "Tên Tour";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(48, 29);
+            this.label9.Location = new System.Drawing.Point(55, 39);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 15);
+            this.label9.Size = new System.Drawing.Size(63, 20);
             this.label9.TabIndex = 0;
             this.label9.Text = "Mã Tour";
             // 
@@ -255,9 +260,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(26, 8);
+            this.groupBox1.Location = new System.Drawing.Point(30, 11);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(749, 187);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(856, 249);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN TOUR";
@@ -265,9 +272,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.diadiem);
-            this.groupBox2.Location = new System.Drawing.Point(26, 217);
+            this.groupBox2.Location = new System.Drawing.Point(30, 289);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(337, 282);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(385, 376);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ĐỊA ĐIỂM TOUR";
@@ -281,9 +290,10 @@
             this.Tendiadiem});
             this.diadiem.GridLines = true;
             this.diadiem.HideSelection = false;
-            this.diadiem.Location = new System.Drawing.Point(6, 22);
+            this.diadiem.Location = new System.Drawing.Point(7, 29);
+            this.diadiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.diadiem.Name = "diadiem";
-            this.diadiem.Size = new System.Drawing.Size(324, 253);
+            this.diadiem.Size = new System.Drawing.Size(370, 336);
             this.diadiem.TabIndex = 0;
             this.diadiem.UseCompatibleStateImageBehavior = false;
             this.diadiem.View = System.Windows.Forms.View.Details;
@@ -302,18 +312,21 @@
             // 
             this.groupBox3.Controls.Add(this.savebt);
             this.groupBox3.Controls.Add(this.panel2);
-            this.groupBox3.Location = new System.Drawing.Point(410, 217);
+            this.groupBox3.Location = new System.Drawing.Point(469, 289);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(365, 282);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(417, 376);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "GIÁ CỦA TOUR";
             // 
             // savebt
             // 
-            this.savebt.Location = new System.Drawing.Point(145, 191);
+            this.savebt.Location = new System.Drawing.Point(166, 255);
+            this.savebt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.savebt.Name = "savebt";
-            this.savebt.Size = new System.Drawing.Size(75, 23);
+            this.savebt.Size = new System.Drawing.Size(86, 31);
             this.savebt.TabIndex = 1;
             this.savebt.Text = "save";
             this.savebt.UseVisualStyleBackColor = true;
@@ -328,56 +341,65 @@
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label);
-            this.panel2.Location = new System.Drawing.Point(6, 22);
+            this.panel2.Location = new System.Drawing.Point(7, 29);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(353, 143);
+            this.panel2.Size = new System.Drawing.Size(403, 191);
             this.panel2.TabIndex = 0;
             // 
             // denngay
             // 
-            this.denngay.Location = new System.Drawing.Point(95, 92);
+            this.denngay.Location = new System.Drawing.Point(109, 123);
+            this.denngay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.denngay.Name = "denngay";
-            this.denngay.Size = new System.Drawing.Size(213, 23);
+            this.denngay.Size = new System.Drawing.Size(243, 27);
             this.denngay.TabIndex = 4;
             // 
             // tungay
             // 
-            this.tungay.Location = new System.Drawing.Point(95, 57);
+            this.tungay.Location = new System.Drawing.Point(109, 76);
+            this.tungay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tungay.Name = "tungay";
-            this.tungay.Size = new System.Drawing.Size(213, 23);
+            this.tungay.Size = new System.Drawing.Size(243, 27);
             this.tungay.TabIndex = 3;
             // 
             // mucgia
             // 
-            this.mucgia.Location = new System.Drawing.Point(95, 25);
+            this.mucgia.Location = new System.Drawing.Point(109, 33);
+            this.mucgia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.mucgia.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.mucgia.Name = "mucgia";
-            this.mucgia.Size = new System.Drawing.Size(213, 23);
+            this.mucgia.Size = new System.Drawing.Size(243, 27);
             this.mucgia.TabIndex = 2;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(24, 98);
+            this.label11.Location = new System.Drawing.Point(27, 131);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 15);
+            this.label11.Size = new System.Drawing.Size(72, 20);
             this.label11.TabIndex = 0;
             this.label11.Text = "Đến ngày";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(23, 63);
+            this.label10.Location = new System.Drawing.Point(26, 84);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 15);
+            this.label10.Size = new System.Drawing.Size(62, 20);
             this.label10.TabIndex = 0;
             this.label10.Text = "Từ ngày";
             // 
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(23, 27);
+            this.label.Location = new System.Drawing.Point(26, 36);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(50, 15);
+            this.label.Size = new System.Drawing.Size(63, 20);
             this.label.TabIndex = 0;
             this.label.Text = "Mức giá";
             // 
@@ -394,12 +416,13 @@
             // 
             // ThemTour
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 522);
+            this.ClientSize = new System.Drawing.Size(935, 696);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ThemTour";
             this.Text = "ThemTour";
             this.panel1.ResumeLayout(false);

@@ -55,8 +55,9 @@ namespace TourApp
             {
                 var giaTien = String.Format(info, "{0:n}", Gia.GiaTri.ToString());
                 ListViewItem gia = new ListViewItem(new[] { giaTien, Gia.TGBD.ToString("dd/MM/yyyy HH:mm:ss"), Gia.TGKT.ToString("dd/MM/yyyy HH:mm:ss") });
-                listGia.Items.Add(gia);
+                listGia.Items.Insert(0, gia);
             }
+            listGia.Items[0].ForeColor = Color.DarkGreen;
 
 
         }

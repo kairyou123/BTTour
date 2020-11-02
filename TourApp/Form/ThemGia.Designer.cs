@@ -42,9 +42,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(194, 213);
+            this.button1.Location = new System.Drawing.Point(222, 284);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(86, 31);
             this.button1.TabIndex = 1;
             this.button1.Text = "save";
             this.button1.UseVisualStyleBackColor = true;
@@ -52,54 +53,57 @@
             // 
             // denngay
             // 
-            this.denngay.Location = new System.Drawing.Point(95, 92);
+            this.denngay.Location = new System.Drawing.Point(109, 123);
+            this.denngay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.denngay.Name = "denngay";
-            this.denngay.Size = new System.Drawing.Size(213, 23);
+            this.denngay.Size = new System.Drawing.Size(243, 27);
             this.denngay.TabIndex = 4;
             // 
             // tungay
             // 
-            this.tungay.Location = new System.Drawing.Point(95, 57);
+            this.tungay.Location = new System.Drawing.Point(109, 76);
+            this.tungay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tungay.Name = "tungay";
-            this.tungay.Size = new System.Drawing.Size(213, 23);
+            this.tungay.Size = new System.Drawing.Size(243, 27);
             this.tungay.TabIndex = 3;
             // 
             // mucgia
             // 
-            this.mucgia.Location = new System.Drawing.Point(95, 25);
+            this.mucgia.Location = new System.Drawing.Point(109, 33);
+            this.mucgia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.mucgia.Maximum = new decimal(new int[] {
-            276447232,
-            23283,
+            1000000000,
+            0,
             0,
             0});
             this.mucgia.Name = "mucgia";
-            this.mucgia.Size = new System.Drawing.Size(213, 23);
+            this.mucgia.Size = new System.Drawing.Size(243, 27);
             this.mucgia.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 98);
+            this.label1.Location = new System.Drawing.Point(27, 131);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 15);
+            this.label1.Size = new System.Drawing.Size(72, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Đến ngày";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 63);
+            this.label2.Location = new System.Drawing.Point(26, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 15);
+            this.label2.Size = new System.Drawing.Size(62, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Từ ngày";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 27);
+            this.label3.Location = new System.Drawing.Point(26, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 15);
+            this.label3.Size = new System.Drawing.Size(63, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Mức giá";
             // 
@@ -112,18 +116,20 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(55, 44);
+            this.panel1.Location = new System.Drawing.Point(63, 59);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(353, 143);
+            this.panel1.Size = new System.Drawing.Size(403, 191);
             this.panel1.TabIndex = 0;
             // 
             // ThemGia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 281);
+            this.ClientSize = new System.Drawing.Size(528, 375);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ThemGia";
             this.Text = "ThemGia";
             ((System.ComponentModel.ISupportInitialize)(this.mucgia)).EndInit();

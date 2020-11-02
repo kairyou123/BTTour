@@ -18,14 +18,16 @@ namespace TourApp
         private readonly ITourRepository _tourRepository;
         private readonly IDiaDiemRepository _diadiemRepository;
         private readonly IServiceProvider _serviceProvider;
+        private readonly ILoaiHinhDuLieuRepository _lhdlRepo;
         private Tour Tour;
         private int _id;
 
-        public SuaTour(ITourRepository tourRepository, IDiaDiemRepository diaDiemRepository, IServiceProvider serviceProvider)
+        public SuaTour(ITourRepository tourRepository, IDiaDiemRepository diaDiemRepository, IServiceProvider serviceProvider, ILoaiHinhDuLieuRepository lhdlRepo)
         {
             _tourRepository = tourRepository;
             _diadiemRepository = diaDiemRepository;
             _serviceProvider = serviceProvider;
+            _lhdlRepo = lhdlRepo;
             InitializeComponent();
         }
 
@@ -45,12 +47,13 @@ namespace TourApp
                 diadiemlist.Items.Add(diaDiem);
             }
             /* Loại hình */
-            LoaiHinhDL item1 = new LoaiHinhDL();
-            item1.LHDLId = 1;
-            item1.Ten = "Loại 1";
-            loaicbb.Items.Add(item1);
+            
+
+            var lhdl_list = _lhdlRepo.getAll();
+            loaicbb.DataSource = lhdl_list;
             loaicbb.DisplayMember = "Ten";
             loaicbb.ValueMember = "LHDLId";
+
 
             Tour = _tourRepository.getById(_id, "");
 
@@ -86,9 +89,9 @@ namespace TourApp
             {
                 var giaTien = String.Format(info, "{0:n}", Gia.GiaTri.ToString());
                 ListViewItem gia = new ListViewItem(new[] { giaTien, Gia.TGBD.ToString("dd/MM/yyyy HH:mm:ss"), Gia.TGKT.ToString("dd/MM/yyyy HH:mm:ss") });
-                gialist.Items.Add(gia);
+                gialist.Items.Insert(0,gia);
             }
-            
+            gialist.Items[0].ForeColor = Color.DarkGreen;
         }
 
         public void RefreshGia()

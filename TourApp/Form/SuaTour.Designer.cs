@@ -119,21 +119,21 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(134, 86);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(262, 23);
+            this.comboBox1.Size = new System.Drawing.Size(262, 28);
             this.comboBox1.TabIndex = 2;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(134, 53);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 23);
+            this.textBox1.Size = new System.Drawing.Size(262, 27);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(134, 21);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(262, 23);
+            this.textBox2.Size = new System.Drawing.Size(262, 27);
             this.textBox2.TabIndex = 1;
             // 
             // label1
@@ -184,21 +184,21 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(134, 86);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(262, 23);
+            this.comboBox2.Size = new System.Drawing.Size(262, 28);
             this.comboBox2.TabIndex = 2;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(134, 53);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(262, 23);
+            this.textBox3.Size = new System.Drawing.Size(262, 27);
             this.textBox3.TabIndex = 1;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(134, 21);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(262, 23);
+            this.textBox4.Size = new System.Drawing.Size(262, 27);
             this.textBox4.TabIndex = 1;
             // 
             // label4
@@ -249,21 +249,21 @@
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(134, 86);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(262, 23);
+            this.comboBox3.Size = new System.Drawing.Size(262, 28);
             this.comboBox3.TabIndex = 2;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(134, 53);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(262, 23);
+            this.textBox5.Size = new System.Drawing.Size(262, 27);
             this.textBox5.TabIndex = 1;
             // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(134, 21);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(262, 23);
+            this.textBox6.Size = new System.Drawing.Size(262, 27);
             this.textBox6.TabIndex = 1;
             // 
             // label7
@@ -310,58 +310,63 @@
             this.panel7.Controls.Add(this.matourtb);
             this.panel7.Controls.Add(this.tentourtb);
             this.panel7.Controls.Add(this.loaicbb);
-            this.panel7.Location = new System.Drawing.Point(33, 23);
+            this.panel7.Location = new System.Drawing.Point(38, 31);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(680, 147);
+            this.panel7.Size = new System.Drawing.Size(777, 196);
             this.panel7.TabIndex = 0;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(167, 37);
+            this.label18.Location = new System.Drawing.Point(191, 49);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(50, 15);
+            this.label18.Size = new System.Drawing.Size(63, 20);
             this.label18.TabIndex = 0;
             this.label18.Text = "Mã Tour";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(165, 69);
+            this.label17.Location = new System.Drawing.Point(189, 92);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(51, 15);
+            this.label17.Size = new System.Drawing.Size(65, 20);
             this.label17.TabIndex = 0;
             this.label17.Text = "Tên Tour";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(165, 102);
+            this.label16.Location = new System.Drawing.Point(189, 136);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(56, 15);
+            this.label16.Size = new System.Drawing.Size(69, 20);
             this.label16.TabIndex = 0;
             this.label16.Text = "Loại hình";
             // 
             // matourtb
             // 
-            this.matourtb.Location = new System.Drawing.Point(253, 29);
+            this.matourtb.Location = new System.Drawing.Point(289, 39);
+            this.matourtb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.matourtb.Name = "matourtb";
-            this.matourtb.Size = new System.Drawing.Size(262, 23);
+            this.matourtb.Size = new System.Drawing.Size(299, 27);
             this.matourtb.TabIndex = 1;
             // 
             // tentourtb
             // 
-            this.tentourtb.Location = new System.Drawing.Point(253, 61);
+            this.tentourtb.Location = new System.Drawing.Point(289, 81);
+            this.tentourtb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tentourtb.Name = "tentourtb";
-            this.tentourtb.Size = new System.Drawing.Size(262, 23);
+            this.tentourtb.Size = new System.Drawing.Size(299, 27);
             this.tentourtb.TabIndex = 1;
             // 
             // loaicbb
             // 
+            this.loaicbb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.loaicbb.FormattingEnabled = true;
-            this.loaicbb.Location = new System.Drawing.Point(253, 94);
+            this.loaicbb.Location = new System.Drawing.Point(289, 125);
+            this.loaicbb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.loaicbb.Name = "loaicbb";
-            this.loaicbb.Size = new System.Drawing.Size(262, 23);
+            this.loaicbb.Size = new System.Drawing.Size(299, 28);
             this.loaicbb.TabIndex = 2;
             // 
             // comboBox4
@@ -369,21 +374,21 @@
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(134, 86);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(262, 23);
+            this.comboBox4.Size = new System.Drawing.Size(262, 28);
             this.comboBox4.TabIndex = 2;
             // 
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(134, 53);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(262, 23);
+            this.textBox7.Size = new System.Drawing.Size(262, 27);
             this.textBox7.TabIndex = 1;
             // 
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(134, 21);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(262, 23);
+            this.textBox8.Size = new System.Drawing.Size(262, 27);
             this.textBox8.TabIndex = 1;
             // 
             // label10
@@ -422,9 +427,10 @@
             this.ddname});
             this.diadiemlist.GridLines = true;
             this.diadiemlist.HideSelection = false;
-            this.diadiemlist.Location = new System.Drawing.Point(6, 22);
+            this.diadiemlist.Location = new System.Drawing.Point(7, 29);
+            this.diadiemlist.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.diadiemlist.Name = "diadiemlist";
-            this.diadiemlist.Size = new System.Drawing.Size(324, 253);
+            this.diadiemlist.Size = new System.Drawing.Size(370, 336);
             this.diadiemlist.TabIndex = 0;
             this.diadiemlist.UseCompatibleStateImageBehavior = false;
             this.diadiemlist.View = System.Windows.Forms.View.Details;
@@ -453,21 +459,21 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(95, 92);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(213, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(213, 27);
             this.dateTimePicker1.TabIndex = 4;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(95, 57);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(213, 23);
+            this.dateTimePicker2.Size = new System.Drawing.Size(213, 27);
             this.dateTimePicker2.TabIndex = 3;
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(95, 25);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(213, 23);
+            this.numericUpDown1.Size = new System.Drawing.Size(213, 27);
             this.numericUpDown1.TabIndex = 2;
             // 
             // label13
@@ -500,9 +506,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.panel7);
-            this.groupBox1.Location = new System.Drawing.Point(58, 36);
+            this.groupBox1.Location = new System.Drawing.Point(66, 48);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(749, 187);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox1.Size = new System.Drawing.Size(856, 249);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN TOUR";
@@ -510,9 +518,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.diadiemlist);
-            this.groupBox2.Location = new System.Drawing.Point(58, 245);
+            this.groupBox2.Location = new System.Drawing.Point(66, 327);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(337, 282);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(385, 376);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ĐỊA ĐIỂM TOUR";
@@ -554,21 +564,21 @@
             // 
             this.dateTimePicker3.Location = new System.Drawing.Point(95, 92);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(213, 23);
+            this.dateTimePicker3.Size = new System.Drawing.Size(213, 27);
             this.dateTimePicker3.TabIndex = 4;
             // 
             // dateTimePicker4
             // 
             this.dateTimePicker4.Location = new System.Drawing.Point(95, 57);
             this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(213, 23);
+            this.dateTimePicker4.Size = new System.Drawing.Size(213, 27);
             this.dateTimePicker4.TabIndex = 3;
             // 
             // numericUpDown2
             // 
             this.numericUpDown2.Location = new System.Drawing.Point(95, 25);
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(213, 23);
+            this.numericUpDown2.Size = new System.Drawing.Size(213, 27);
             this.numericUpDown2.TabIndex = 2;
             // 
             // label19
@@ -603,18 +613,21 @@
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.gialist);
-            this.groupBox3.Location = new System.Drawing.Point(442, 245);
+            this.groupBox3.Location = new System.Drawing.Point(505, 327);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(365, 282);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(417, 376);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "GIÁ CỦA TOUR";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(201, 244);
+            this.button2.Location = new System.Drawing.Point(230, 325);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 31);
+            this.button2.Size = new System.Drawing.Size(146, 41);
             this.button2.TabIndex = 1;
             this.button2.Text = "SAVE";
             this.button2.UseVisualStyleBackColor = true;
@@ -622,9 +635,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(36, 244);
+            this.button1.Location = new System.Drawing.Point(41, 325);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 31);
+            this.button1.Size = new System.Drawing.Size(146, 41);
             this.button1.TabIndex = 1;
             this.button1.Text = "Thêm giá";
             this.button1.UseVisualStyleBackColor = true;
@@ -639,9 +653,10 @@
             this.columnHeader10});
             this.gialist.GridLines = true;
             this.gialist.HideSelection = false;
-            this.gialist.Location = new System.Drawing.Point(6, 23);
+            this.gialist.Location = new System.Drawing.Point(7, 31);
+            this.gialist.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gialist.Name = "gialist";
-            this.gialist.Size = new System.Drawing.Size(353, 207);
+            this.gialist.Size = new System.Drawing.Size(403, 275);
             this.gialist.TabIndex = 0;
             this.gialist.UseCompatibleStateImageBehavior = false;
             this.gialist.View = System.Windows.Forms.View.Details;
@@ -674,12 +689,13 @@
             // 
             // SuaTour
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 567);
+            this.ClientSize = new System.Drawing.Size(990, 756);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SuaTour";
             this.Text = "Form1";
             this.panel7.ResumeLayout(false);
