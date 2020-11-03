@@ -32,7 +32,7 @@ namespace TourApp
             {
                 Form = serviceProvider.GetRequiredService<List>();
                 Form1 = serviceProvider.GetRequiredService<FormTest>();
-                Application.Run(Form1);
+                Application.Run(Form);
             }
             
         }
@@ -58,7 +58,7 @@ namespace TourApp
             services.AddScoped<IHanhKhachRepository, HanhKhachRepository>();
             services.AddScoped<IDoanKhachRepository, DoanKhachRepository>();
             services.AddScoped<INhanVienRepository, NhanVienRepository>();
-            services.AddScoped<ILoaiHinhDuLieuRepository, LoaiHinhDuLieuRepository>();
+            services.AddScoped<ILoaiHinhDuLichRepository, LoaiHinhDuLichRepository>();
 
         }
     }

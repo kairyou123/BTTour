@@ -185,6 +185,7 @@ namespace TourApp
                     statusd.ReadOnly = true;
                     datestart.Enabled = false;
                     dateend.Enabled = false;
+                    Save.Enabled = false;
                     break;
             }
 

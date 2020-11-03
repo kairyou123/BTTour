@@ -18,9 +18,9 @@ namespace TourApp
         private readonly IDiaDiemRepository _diadiemRepository;
         private readonly ICTTourRepository _cTTourRepository;
         private readonly IGiaRepository _giaRepository;
-        private readonly ILoaiHinhDuLieuRepository _lhdlRepo;
+        private readonly ILoaiHinhDuLichRepository _lhdlRepo;
 
-        public ThemTour(ITourRepository tourRepository,IDiaDiemRepository diaDiemRepository,ICTTourRepository cTTourRepository,IGiaRepository giaRepository, ILoaiHinhDuLieuRepository lhdlRepo)
+        public ThemTour(ITourRepository tourRepository,IDiaDiemRepository diaDiemRepository,ICTTourRepository cTTourRepository,IGiaRepository giaRepository, ILoaiHinhDuLichRepository lhdlRepo)
         {
             _tourRepository = tourRepository;
             _diadiemRepository = diaDiemRepository;
