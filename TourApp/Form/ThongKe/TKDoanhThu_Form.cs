@@ -103,6 +103,9 @@ namespace TourApp
         //Khi click vào các item sẽ hiển thị ra list các loại doanh thu và tổng doanh thu
         private void ReadData()
         {
+            if (lv.SelectedItems.Count == 0)
+                return;
+
             var id = lv.SelectedItems[0].Text;
             var dateStart = datestart.Value.Date;
             var dateEnd = dateend.Value.Date;
