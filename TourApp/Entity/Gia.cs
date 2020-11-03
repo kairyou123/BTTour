@@ -20,6 +20,7 @@ namespace TourApp.Entity
         [Required]
         public int TourId { set; get; }
         public Tour Tour { set; get; }
+        public  ICollection<DoanKhach> DoanKhachs { set; get; }
 
     }
 }
