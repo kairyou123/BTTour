@@ -45,12 +45,14 @@ namespace TourApp.Repository
                                           .FirstOrDefault();
         }
 
-        public IEnumerable<DiaDiem> getWhere(string Ten)
+        public IEnumerable<DiaDiem> getWhere(string ID,string Ten)
         {
-            return _context.DiaDiems.Where(dd => dd.TenDD.Contains(Ten))
-                                          .Include(t => t.CTTours)
-                                          .ThenInclude(t => t.Tour)
-                                          .ToList();
+            return _context.DiaDiems.Include(t => t.CTTours)
+                                    .ThenInclude(t => t.Tour)
+                                    .Where(dd => dd.TenDD.Contains(Ten)
+                                              && dd.DDId.ToString().Contains(ID)
+                                            )
+                                    .ToList();
         }
 
         public void Update(DiaDiem entity)

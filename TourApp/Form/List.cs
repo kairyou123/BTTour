@@ -22,6 +22,8 @@ namespace TourApp
         private readonly IChiTieuRepository _chitieuRepo;
         private readonly IDoanKhachRepository _doankhachRepo;
         private readonly IHanhKhachRepository _hanhkhachRepo;
+        private readonly IDiaDiemRepository _diadiemRepo;
+        private readonly ILoaiHinhDuLichRepository _lhdlRepo;
 
         private readonly IServiceProvider _serviceProvider;
         public List(
@@ -30,6 +32,9 @@ namespace TourApp
                         IChiTieuRepository chitieuRepo,
                         IDoanKhachRepository doankhachRepo,
                         IHanhKhachRepository hanhkhachRepo,
+                        IDiaDiemRepository diadiemRepo,
+                        ILoaiHinhDuLichRepository lhdlRepo,
+
                         IServiceProvider serviceProvider
                     )
         {
@@ -39,6 +44,8 @@ namespace TourApp
             _chitieuRepo = chitieuRepo;
             _doankhachRepo = doankhachRepo;
             _hanhkhachRepo = hanhkhachRepo;
+            _diadiemRepo = diadiemRepo;
+            _lhdlRepo = lhdlRepo;
 
             _serviceProvider = serviceProvider;
             tabControl.SelectedTab = tabTour;
@@ -51,6 +58,8 @@ namespace TourApp
             TabRefresh(ListTab.Chitieu);
             TabRefresh(ListTab.Doan);
             TabRefresh(ListTab.HanhKhach);
+            TabRefresh(ListTab.Diadiem);
+            TabRefresh(ListTab.LoaiHinhDuLich);
             ChangeTheme(new DefaultTheme(), this.Controls);
         }
         public void TabRefresh(ListTab tab)
@@ -99,6 +108,20 @@ namespace TourApp
                         tabHanhKhach_CB.Checked = false;
                         tabHanhKhach_SearchOption.SelectedIndex = 2;
                         tabHanhKhach_Search();
+                        break;
+                    }
+                case ListTab.Diadiem:
+                    {
+                        tabDD_SearchBox.Text = "";
+                        tabDD_SearchOption.SelectedIndex = 1;
+                        tabDD_Search();
+                        break;
+                    }
+                case ListTab.LoaiHinhDuLich:
+                    {
+                        tabLHDL_SearchBox.Text = "";
+                        tabLHDL_SearchOption.SelectedIndex = 1;
+                        tabLHDL_Search();
                         break;
                     }
 
@@ -876,11 +899,13 @@ namespace TourApp
             if (name == "tabDoan_EditCol" || name == "tabDoan_ViewCol" || name == "tabDoan_DeleteCol") return;
             var value = grid.Rows[e.RowIndex].Cells["tabDoan_IDCol"].Value.ToString();
 
-            //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
-            //form.getId(int.Parse(value));
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            DoanKhach_Form form = _serviceProvider.GetRequiredService<DoanKhach_Form>();
+            form.formType = EditState.View;
+            form.id = int.Parse(value);
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
+
         }
 
 
@@ -1069,6 +1094,307 @@ namespace TourApp
             form.Show();
             
         }
+        #endregion
+
+        #region Địa điểm
+        
+        private void tabDD_Search()
+        {
+            string ID_str, Ten_str;
+            ID_str = Ten_str = "";
+            switch(tabDD_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    ID_str = tabDD_SearchBox.Text;
+                    break;
+                case 1:
+                    Ten_str = tabDD_SearchBox.Text;
+                    break;
+            }
+            DiaDiemGridView.Rows.Clear();
+            var data = _diadiemRepo.getWhere(ID_str,Ten_str);
+            foreach (DiaDiem item in data)
+            {
+                DiaDiemGridView.Rows.Add(item.DDId, item.TenDD);
+            }
+        }
+
+        private void tabDD_SearchBtn_Click(object sender, EventArgs e)
+        {
+            tabDD_Search();
+        }
+
+        private void tabDD_SearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) tabDD_Search();
+        }
+
+        private void tabDD_RefreshBtn_Click(object sender, EventArgs e)
+        {
+            TabRefresh(ListTab.Diadiem);
+        }
+
+        private void tabDD_AddBtn_Click(object sender, EventArgs e)
+        {
+            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+            //form.editState = EditState.Create;
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+
+        private void DiaDiemGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            //I supposed your button column is at index 0
+            if (e.ColumnIndex == 3)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.view;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 4)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.edit;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 5)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.delete;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void DiaDiemGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            var value = grid.Rows[e.RowIndex].Cells["tabDD_IDCol"].Value.ToString();
+            switch (name)
+            {
+                case "tabDD_ViewCol":
+                    {
+                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+                        //form.editState = EditState.View;
+                        //form.setId(int.Parse(value));
+                        //var main = this.Location;
+                        //form.Location = new Point((main.X + 10), (main.Y + 10));
+                        //form.Show();
+                        break;
+                    }
+                case "tabDD_EditCol":
+                    {
+                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+                        //form.editState = EditState.Edit;
+                        //form.setId(int.Parse(value));
+                        //var main = this.Location;
+                        //form.Location = new Point((main.X + 10), (main.Y + 10));
+                        //form.Show();
+                        break;
+                    }
+                case "tabDD_DeleteCol":
+                    {
+                        var item = _diadiemRepo.getById(int.Parse(value));
+                        var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + item.TenDD, "Warning", MessageBoxButtons.YesNo);
+                        if (messageResult != DialogResult.Yes) return;
+                        _diadiemRepo.Delete(item);
+                        tabDD_Search();
+                        break;
+                    }
+            }
+        }
+
+        private void DiaDiemGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            if (name == "tabDD_EditCol" || name == "tabDD_ViewCol" || name == "tabDD_DeleteCol") return;
+            var value = grid.Rows[e.RowIndex].Cells["tabDD_IDCol"].Value.ToString();
+
+            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+            //form.editState = EditState.View;
+            //form.setId(int.Parse(value));
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+        #endregion
+
+        #region Loại hình du lịch
+      
+        private void tabLHDL_Search()
+        {
+            string ID_str, Ten_str, Mota_str;
+            ID_str = Ten_str = Mota_str ="";
+            switch (tabLHDL_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    ID_str = tabLHDL_SearchBox.Text;
+                    break;
+                case 1:
+                    Ten_str = tabLHDL_SearchBox.Text;
+                    break;
+                case 2:
+                    Mota_str = tabLHDL_SearchBox.Text;
+                    break;
+
+            }
+            LHDLGridView.Rows.Clear();
+            var data = _lhdlRepo.getWhere(ID_str, Ten_str,Mota_str);
+            foreach (LoaiHinhDL item in data)
+            {
+                LHDLGridView.Rows.Add(item.LHDLId, item.Ten,item.moTa);
+            }
+        }
+
+        private void tabLHDL_SearchBtn_Click(object sender, EventArgs e)
+        {
+            tabLHDL_Search();
+        }
+
+        private void tabLHDL_SearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) tabLHDL_Search();
+        }
+
+        private void tabLHDL_RefreshBtn_Click(object sender, EventArgs e)
+        {
+            TabRefresh(ListTab.LoaiHinhDuLich);
+        }
+
+        private void tabLHDL_AddBtn_Click(object sender, EventArgs e)
+        {
+            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+            //form.editState = EditState.Create;
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+
+        private void LHDLGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            //I supposed your button column is at index 0
+            if (e.ColumnIndex == 4)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.view;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 5)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.edit;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 6)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.delete;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void LHDLGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            var value = grid.Rows[e.RowIndex].Cells["tabLHDL_IDCol"].Value.ToString();
+            switch (name)
+            {
+                case "tabLHDL_ViewCol":
+                    {
+                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+                        //form.editState = EditState.View;
+                        //form.setId(int.Parse(value));
+                        //var main = this.Location;
+                        //form.Location = new Point((main.X + 10), (main.Y + 10));
+                        //form.Show();
+                        break;
+                    }
+                case "tabLHDL_EditCol":
+                    {
+                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+                        //form.editState = EditState.Edit;
+                        //form.setId(int.Parse(value));
+                        //var main = this.Location;
+                        //form.Location = new Point((main.X + 10), (main.Y + 10));
+                        //form.Show();
+                        break;
+                    }
+                case "tabLHDL_DeleteCol":
+                    {
+                        var item = _lhdlRepo.getById(int.Parse(value));
+                        var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + item.Ten, "Warning", MessageBoxButtons.YesNo);
+                        if (messageResult != DialogResult.Yes) return;
+                        _lhdlRepo.Delete(item);
+                        tabLHDL_Search();
+                        break;
+                    }
+            }
+        }
+
+        private void LHDLGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            if (name == "tabLHDL_EditCol" || name == "tabLHDL_ViewCol" || name == "tabLHDL_DeleteCol") return;
+            var value = grid.Rows[e.RowIndex].Cells["tabLHDL_IDCol"].Value.ToString();
+
+            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+            //form.editState = EditState.View;
+            //form.setId(int.Parse(value));
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+
         #endregion
     }
 }

@@ -57,7 +57,7 @@ namespace TourApp
             services.AddScoped<IHanhKhachRepository, HanhKhachRepository>();
             services.AddScoped<IDoanKhachRepository, DoanKhachRepository>();
             services.AddScoped<INhanVienRepository, NhanVienRepository>();
-            services.AddScoped<ILoaiHinhDuLieuRepository, LoaiHinhDuLieuRepository>();
+            services.AddScoped<ILoaiHinhDuLichRepository, LoaiHinhDuLichRepository>();
 
         }
     }

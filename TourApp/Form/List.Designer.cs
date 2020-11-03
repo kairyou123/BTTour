@@ -128,7 +128,34 @@ namespace TourApp
             this.tabCT_AddBtn = new System.Windows.Forms.Button();
             this.tabCT_SearchBtn = new System.Windows.Forms.Button();
             this.tabDestination = new System.Windows.Forms.TabPage();
+            this.DiaDiemGridView = new System.Windows.Forms.DataGridView();
+            this.tabDD_IDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDD_TenCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDD_BlankCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDD_ViewCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabDD_EditCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabDD_DeleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabDD_AddBtn = new System.Windows.Forms.Button();
+            this.tabDD_RefreshBtn = new System.Windows.Forms.Button();
+            this.tabDD_SearchBtn = new System.Windows.Forms.Button();
+            this.tabDD_SearchBox = new System.Windows.Forms.TextBox();
+            this.tabDD_SearchOption = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabLHDL = new System.Windows.Forms.TabPage();
+            this.LHDLGridView = new System.Windows.Forms.DataGridView();
+            this.tabLHDL_IDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabLHDL_TenCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabLHDL_MotaCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabLHDL_BlankCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabLHDL_ViewCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabLHDL_EditCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabLHDL_DeleteCol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tabLHDL_SearchBox = new System.Windows.Forms.TextBox();
+            this.tabLHDL_AddBtn = new System.Windows.Forms.Button();
+            this.tabLHDL_RefreshBtn = new System.Windows.Forms.Button();
+            this.tabLHDL_SearchBtn = new System.Windows.Forms.Button();
+            this.tabLHDL_SearchOption = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.FileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.ExportMenuBtn = new System.Windows.Forms.ToolStripMenuItem();
@@ -151,6 +178,10 @@ namespace TourApp
             ((System.ComponentModel.ISupportInitialize)(this.DoanGridView)).BeginInit();
             this.tabCT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChiTieuGridView)).BeginInit();
+            this.tabDestination.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DiaDiemGridView)).BeginInit();
+            this.tabLHDL.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LHDLGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1261,6 +1292,13 @@ namespace TourApp
             // 
             // tabDestination
             // 
+            this.tabDestination.Controls.Add(this.DiaDiemGridView);
+            this.tabDestination.Controls.Add(this.tabDD_AddBtn);
+            this.tabDestination.Controls.Add(this.tabDD_RefreshBtn);
+            this.tabDestination.Controls.Add(this.tabDD_SearchBtn);
+            this.tabDestination.Controls.Add(this.tabDD_SearchBox);
+            this.tabDestination.Controls.Add(this.tabDD_SearchOption);
+            this.tabDestination.Controls.Add(this.label10);
             this.tabDestination.Location = new System.Drawing.Point(4, 29);
             this.tabDestination.Name = "tabDestination";
             this.tabDestination.Padding = new System.Windows.Forms.Padding(3);
@@ -1269,13 +1307,318 @@ namespace TourApp
             this.tabDestination.Text = "Địa điểm";
             this.tabDestination.UseVisualStyleBackColor = true;
             // 
+            // DiaDiemGridView
+            // 
+            this.DiaDiemGridView.AllowUserToAddRows = false;
+            this.DiaDiemGridView.AllowUserToDeleteRows = false;
+            this.DiaDiemGridView.AllowUserToOrderColumns = true;
+            this.DiaDiemGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DiaDiemGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tabDD_IDCol,
+            this.tabDD_TenCol,
+            this.tabDD_BlankCol,
+            this.tabDD_ViewCol,
+            this.tabDD_EditCol,
+            this.tabDD_DeleteCol});
+            this.DiaDiemGridView.Location = new System.Drawing.Point(3, 142);
+            this.DiaDiemGridView.Name = "DiaDiemGridView";
+            this.DiaDiemGridView.RowHeadersVisible = false;
+            this.DiaDiemGridView.RowHeadersWidth = 51;
+            this.DiaDiemGridView.Size = new System.Drawing.Size(778, 421);
+            this.DiaDiemGridView.TabIndex = 6;
+            this.DiaDiemGridView.Text = "dataGridView1";
+            this.DiaDiemGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DiaDiemGridView_CellClick);
+            this.DiaDiemGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DiaDiemGridView_CellDoubleClick);
+            this.DiaDiemGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DiaDiemGridView_CellPainting);
+            // 
+            // tabDD_IDCol
+            // 
+            this.tabDD_IDCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDD_IDCol.HeaderText = "ID";
+            this.tabDD_IDCol.MinimumWidth = 6;
+            this.tabDD_IDCol.Name = "tabDD_IDCol";
+            this.tabDD_IDCol.ReadOnly = true;
+            this.tabDD_IDCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabDD_IDCol.Width = 53;
+            // 
+            // tabDD_TenCol
+            // 
+            this.tabDD_TenCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDD_TenCol.HeaderText = "Tên địa điểm";
+            this.tabDD_TenCol.MinimumWidth = 6;
+            this.tabDD_TenCol.Name = "tabDD_TenCol";
+            this.tabDD_TenCol.ReadOnly = true;
+            this.tabDD_TenCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabDD_TenCol.Width = 124;
+            // 
+            // tabDD_BlankCol
+            // 
+            this.tabDD_BlankCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tabDD_BlankCol.HeaderText = "";
+            this.tabDD_BlankCol.MinimumWidth = 6;
+            this.tabDD_BlankCol.Name = "tabDD_BlankCol";
+            this.tabDD_BlankCol.ReadOnly = true;
+            this.tabDD_BlankCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // tabDD_ViewCol
+            // 
+            this.tabDD_ViewCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDD_ViewCol.HeaderText = "Xem";
+            this.tabDD_ViewCol.MinimumWidth = 6;
+            this.tabDD_ViewCol.Name = "tabDD_ViewCol";
+            this.tabDD_ViewCol.ReadOnly = true;
+            this.tabDD_ViewCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabDD_ViewCol.Width = 45;
+            // 
+            // tabDD_EditCol
+            // 
+            this.tabDD_EditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDD_EditCol.HeaderText = "Sửa";
+            this.tabDD_EditCol.MinimumWidth = 6;
+            this.tabDD_EditCol.Name = "tabDD_EditCol";
+            this.tabDD_EditCol.ReadOnly = true;
+            this.tabDD_EditCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabDD_EditCol.Width = 40;
+            // 
+            // tabDD_DeleteCol
+            // 
+            this.tabDD_DeleteCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabDD_DeleteCol.HeaderText = "Xóa";
+            this.tabDD_DeleteCol.MinimumWidth = 6;
+            this.tabDD_DeleteCol.Name = "tabDD_DeleteCol";
+            this.tabDD_DeleteCol.ReadOnly = true;
+            this.tabDD_DeleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabDD_DeleteCol.Width = 41;
+            // 
+            // tabDD_AddBtn
+            // 
+            this.tabDD_AddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDD_AddBtn.BackgroundImage")));
+            this.tabDD_AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabDD_AddBtn.Location = new System.Drawing.Point(735, 99);
+            this.tabDD_AddBtn.Name = "tabDD_AddBtn";
+            this.tabDD_AddBtn.Size = new System.Drawing.Size(46, 36);
+            this.tabDD_AddBtn.TabIndex = 5;
+            this.tabDD_AddBtn.UseVisualStyleBackColor = true;
+            this.tabDD_AddBtn.Click += new System.EventHandler(this.tabDD_AddBtn_Click);
+            // 
+            // tabDD_RefreshBtn
+            // 
+            this.tabDD_RefreshBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDD_RefreshBtn.BackgroundImage")));
+            this.tabDD_RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabDD_RefreshBtn.Location = new System.Drawing.Point(685, 99);
+            this.tabDD_RefreshBtn.Name = "tabDD_RefreshBtn";
+            this.tabDD_RefreshBtn.Size = new System.Drawing.Size(46, 36);
+            this.tabDD_RefreshBtn.TabIndex = 4;
+            this.tabDD_RefreshBtn.UseVisualStyleBackColor = true;
+            this.tabDD_RefreshBtn.Click += new System.EventHandler(this.tabDD_RefreshBtn_Click);
+            // 
+            // tabDD_SearchBtn
+            // 
+            this.tabDD_SearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabDD_SearchBtn.BackgroundImage")));
+            this.tabDD_SearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabDD_SearchBtn.Location = new System.Drawing.Point(635, 99);
+            this.tabDD_SearchBtn.Name = "tabDD_SearchBtn";
+            this.tabDD_SearchBtn.Size = new System.Drawing.Size(46, 36);
+            this.tabDD_SearchBtn.TabIndex = 3;
+            this.tabDD_SearchBtn.UseVisualStyleBackColor = true;
+            this.tabDD_SearchBtn.Click += new System.EventHandler(this.tabDD_SearchBtn_Click);
+            // 
+            // tabDD_SearchBox
+            // 
+            this.tabDD_SearchBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabDD_SearchBox.Location = new System.Drawing.Point(566, 24);
+            this.tabDD_SearchBox.Name = "tabDD_SearchBox";
+            this.tabDD_SearchBox.Size = new System.Drawing.Size(215, 32);
+            this.tabDD_SearchBox.TabIndex = 2;
+            this.tabDD_SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabDD_SearchBox_KeyPress);
+            // 
+            // tabDD_SearchOption
+            // 
+            this.tabDD_SearchOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tabDD_SearchOption.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabDD_SearchOption.FormattingEnabled = true;
+            this.tabDD_SearchOption.Items.AddRange(new object[] {
+            "ID",
+            "Tên địa điểm"});
+            this.tabDD_SearchOption.Location = new System.Drawing.Point(407, 24);
+            this.tabDD_SearchOption.Name = "tabDD_SearchOption";
+            this.tabDD_SearchOption.Size = new System.Drawing.Size(151, 33);
+            this.tabDD_SearchOption.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(333, 29);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 20);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Tìm theo";
+            // 
             // tabLHDL
             // 
+            this.tabLHDL.Controls.Add(this.LHDLGridView);
+            this.tabLHDL.Controls.Add(this.tabLHDL_SearchBox);
+            this.tabLHDL.Controls.Add(this.tabLHDL_AddBtn);
+            this.tabLHDL.Controls.Add(this.tabLHDL_RefreshBtn);
+            this.tabLHDL.Controls.Add(this.tabLHDL_SearchBtn);
+            this.tabLHDL.Controls.Add(this.tabLHDL_SearchOption);
+            this.tabLHDL.Controls.Add(this.label11);
             this.tabLHDL.Location = new System.Drawing.Point(4, 29);
             this.tabLHDL.Name = "tabLHDL";
             this.tabLHDL.Size = new System.Drawing.Size(784, 568);
             this.tabLHDL.TabIndex = 5;
             this.tabLHDL.Text = "Loại hình du lịch";
+            // 
+            // LHDLGridView
+            // 
+            this.LHDLGridView.AllowUserToAddRows = false;
+            this.LHDLGridView.AllowUserToDeleteRows = false;
+            this.LHDLGridView.AllowUserToOrderColumns = true;
+            this.LHDLGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LHDLGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tabLHDL_IDCol,
+            this.tabLHDL_TenCol,
+            this.tabLHDL_MotaCol,
+            this.tabLHDL_BlankCol,
+            this.tabLHDL_ViewCol,
+            this.tabLHDL_EditCol,
+            this.tabLHDL_DeleteCol});
+            this.LHDLGridView.Location = new System.Drawing.Point(3, 142);
+            this.LHDLGridView.Name = "LHDLGridView";
+            this.LHDLGridView.RowHeadersVisible = false;
+            this.LHDLGridView.RowHeadersWidth = 51;
+            this.LHDLGridView.Size = new System.Drawing.Size(778, 421);
+            this.LHDLGridView.TabIndex = 6;
+            this.LHDLGridView.Text = "dataGridView1";
+            this.LHDLGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LHDLGridView_CellClick);
+            this.LHDLGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.LHDLGridView_CellDoubleClick);
+            this.LHDLGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.LHDLGridView_CellPainting);
+            // 
+            // tabLHDL_IDCol
+            // 
+            this.tabLHDL_IDCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabLHDL_IDCol.HeaderText = "ID";
+            this.tabLHDL_IDCol.MinimumWidth = 6;
+            this.tabLHDL_IDCol.Name = "tabLHDL_IDCol";
+            this.tabLHDL_IDCol.ReadOnly = true;
+            this.tabLHDL_IDCol.Width = 53;
+            // 
+            // tabLHDL_TenCol
+            // 
+            this.tabLHDL_TenCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabLHDL_TenCol.HeaderText = "Tên";
+            this.tabLHDL_TenCol.MinimumWidth = 6;
+            this.tabLHDL_TenCol.Name = "tabLHDL_TenCol";
+            this.tabLHDL_TenCol.ReadOnly = true;
+            this.tabLHDL_TenCol.Width = 61;
+            // 
+            // tabLHDL_MotaCol
+            // 
+            this.tabLHDL_MotaCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tabLHDL_MotaCol.HeaderText = "Mô tả";
+            this.tabLHDL_MotaCol.MinimumWidth = 6;
+            this.tabLHDL_MotaCol.Name = "tabLHDL_MotaCol";
+            this.tabLHDL_MotaCol.ReadOnly = true;
+            // 
+            // tabLHDL_BlankCol
+            // 
+            this.tabLHDL_BlankCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tabLHDL_BlankCol.HeaderText = "";
+            this.tabLHDL_BlankCol.MinimumWidth = 6;
+            this.tabLHDL_BlankCol.Name = "tabLHDL_BlankCol";
+            this.tabLHDL_BlankCol.ReadOnly = true;
+            // 
+            // tabLHDL_ViewCol
+            // 
+            this.tabLHDL_ViewCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabLHDL_ViewCol.HeaderText = "Xem";
+            this.tabLHDL_ViewCol.MinimumWidth = 6;
+            this.tabLHDL_ViewCol.Name = "tabLHDL_ViewCol";
+            this.tabLHDL_ViewCol.ReadOnly = true;
+            this.tabLHDL_ViewCol.Width = 45;
+            // 
+            // tabLHDL_EditCol
+            // 
+            this.tabLHDL_EditCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabLHDL_EditCol.HeaderText = "Sửa";
+            this.tabLHDL_EditCol.MinimumWidth = 6;
+            this.tabLHDL_EditCol.Name = "tabLHDL_EditCol";
+            this.tabLHDL_EditCol.ReadOnly = true;
+            this.tabLHDL_EditCol.Width = 40;
+            // 
+            // tabLHDL_DeleteCol
+            // 
+            this.tabLHDL_DeleteCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.tabLHDL_DeleteCol.HeaderText = "Xóa";
+            this.tabLHDL_DeleteCol.MinimumWidth = 6;
+            this.tabLHDL_DeleteCol.Name = "tabLHDL_DeleteCol";
+            this.tabLHDL_DeleteCol.ReadOnly = true;
+            this.tabLHDL_DeleteCol.Width = 41;
+            // 
+            // tabLHDL_SearchBox
+            // 
+            this.tabLHDL_SearchBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabLHDL_SearchBox.Location = new System.Drawing.Point(566, 24);
+            this.tabLHDL_SearchBox.Name = "tabLHDL_SearchBox";
+            this.tabLHDL_SearchBox.Size = new System.Drawing.Size(215, 32);
+            this.tabLHDL_SearchBox.TabIndex = 5;
+            this.tabLHDL_SearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabLHDL_SearchBox_KeyPress);
+            // 
+            // tabLHDL_AddBtn
+            // 
+            this.tabLHDL_AddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabLHDL_AddBtn.BackgroundImage")));
+            this.tabLHDL_AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabLHDL_AddBtn.Location = new System.Drawing.Point(735, 99);
+            this.tabLHDL_AddBtn.Name = "tabLHDL_AddBtn";
+            this.tabLHDL_AddBtn.Size = new System.Drawing.Size(46, 36);
+            this.tabLHDL_AddBtn.TabIndex = 4;
+            this.tabLHDL_AddBtn.UseVisualStyleBackColor = true;
+            this.tabLHDL_AddBtn.Click += new System.EventHandler(this.tabLHDL_AddBtn_Click);
+            // 
+            // tabLHDL_RefreshBtn
+            // 
+            this.tabLHDL_RefreshBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabLHDL_RefreshBtn.BackgroundImage")));
+            this.tabLHDL_RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabLHDL_RefreshBtn.Location = new System.Drawing.Point(685, 99);
+            this.tabLHDL_RefreshBtn.Name = "tabLHDL_RefreshBtn";
+            this.tabLHDL_RefreshBtn.Size = new System.Drawing.Size(46, 36);
+            this.tabLHDL_RefreshBtn.TabIndex = 3;
+            this.tabLHDL_RefreshBtn.UseVisualStyleBackColor = true;
+            this.tabLHDL_RefreshBtn.Click += new System.EventHandler(this.tabLHDL_RefreshBtn_Click);
+            // 
+            // tabLHDL_SearchBtn
+            // 
+            this.tabLHDL_SearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabLHDL_SearchBtn.BackgroundImage")));
+            this.tabLHDL_SearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabLHDL_SearchBtn.Location = new System.Drawing.Point(635, 99);
+            this.tabLHDL_SearchBtn.Name = "tabLHDL_SearchBtn";
+            this.tabLHDL_SearchBtn.Size = new System.Drawing.Size(46, 36);
+            this.tabLHDL_SearchBtn.TabIndex = 2;
+            this.tabLHDL_SearchBtn.UseVisualStyleBackColor = true;
+            this.tabLHDL_SearchBtn.Click += new System.EventHandler(this.tabLHDL_SearchBtn_Click);
+            // 
+            // tabLHDL_SearchOption
+            // 
+            this.tabLHDL_SearchOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tabLHDL_SearchOption.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabLHDL_SearchOption.FormattingEnabled = true;
+            this.tabLHDL_SearchOption.Items.AddRange(new object[] {
+            "ID",
+            "Tên",
+            "Mô tả"});
+            this.tabLHDL_SearchOption.Location = new System.Drawing.Point(407, 24);
+            this.tabLHDL_SearchOption.Name = "tabLHDL_SearchOption";
+            this.tabLHDL_SearchOption.Size = new System.Drawing.Size(151, 33);
+            this.tabLHDL_SearchOption.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(333, 29);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 20);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Tìm theo";
             // 
             // menuStrip
             // 
@@ -1387,6 +1730,12 @@ namespace TourApp
             this.tabCT.ResumeLayout(false);
             this.tabCT.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ChiTieuGridView)).EndInit();
+            this.tabDestination.ResumeLayout(false);
+            this.tabDestination.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DiaDiemGridView)).EndInit();
+            this.tabLHDL.ResumeLayout(false);
+            this.tabLHDL.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LHDLGridView)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -1503,6 +1852,33 @@ namespace TourApp
         private ComboBox tabDoan_SearchOption;
         private ComboBox tabCT_SearchOption;
         private Label label9;
+        private TextBox tabDD_SearchBox;
+        private ComboBox tabDD_SearchOption;
+        private Label label10;
+        private DataGridView DiaDiemGridView;
+        private Button tabDD_AddBtn;
+        private Button tabDD_RefreshBtn;
+        private Button tabDD_SearchBtn;
+        private DataGridViewTextBoxColumn tabDD_IDCol;
+        private DataGridViewTextBoxColumn tabDD_TenCol;
+        private DataGridViewTextBoxColumn tabDD_BlankCol;
+        private DataGridViewButtonColumn tabDD_ViewCol;
+        private DataGridViewButtonColumn tabDD_EditCol;
+        private DataGridViewButtonColumn tabDD_DeleteCol;
+        private DataGridView LHDLGridView;
+        private TextBox tabLHDL_SearchBox;
+        private Button tabLHDL_AddBtn;
+        private Button tabLHDL_RefreshBtn;
+        private Button tabLHDL_SearchBtn;
+        private ComboBox tabLHDL_SearchOption;
+        private Label label11;
+        private DataGridViewTextBoxColumn tabLHDL_IDCol;
+        private DataGridViewTextBoxColumn tabLHDL_TenCol;
+        private DataGridViewTextBoxColumn tabLHDL_MotaCol;
+        private DataGridViewTextBoxColumn tabLHDL_BlankCol;
+        private DataGridViewButtonColumn tabLHDL_ViewCol;
+        private DataGridViewButtonColumn tabLHDL_EditCol;
+        private DataGridViewButtonColumn tabLHDL_DeleteCol;
     }
 }
 

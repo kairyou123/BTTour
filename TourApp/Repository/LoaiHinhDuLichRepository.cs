@@ -10,11 +10,11 @@ using TourApp.Repository.IRepository;
 
 namespace TourApp.Repository
 {
-    public class LoaiHinhDuLieuRepository : ILoaiHinhDuLieuRepository
+    public class LoaiHinhDuLichRepository : ILoaiHinhDuLichRepository
     {
         private TourContext _context;
 
-        public LoaiHinhDuLieuRepository(TourContext context)
+        public LoaiHinhDuLichRepository(TourContext context)
         {
             _context = context;
         }
@@ -40,7 +40,13 @@ namespace TourApp.Repository
         {
             return _context.LoaiHinhDLs.Find(lhdlId);
         }
-
+        public IEnumerable<LoaiHinhDL> getWhere(string ID,string Ten, string Mota)
+        {
+            return _context.LoaiHinhDLs.Where(i => i.LHDLId.ToString().Contains(ID)
+                                                && i.Ten.Contains(Ten)
+                                                && i.moTa.Contains(Mota)
+                                                ).ToList();
+        }
 
         public void Update(LoaiHinhDL lhdl)
         {
