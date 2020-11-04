@@ -114,11 +114,17 @@ namespace TourApp.Migrations
                     b.Property<string>("Chitiet")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("DateEnd")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateStart")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("GiaId")
+                        .HasColumnType("int");
 
                     b.Property<string>("MaDoan")
                         .HasColumnType("nvarchar(max)");
@@ -129,13 +135,15 @@ namespace TourApp.Migrations
                     b.Property<string>("TenDoan")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TourId")
+                    b.Property<int?>("TourId")
                         .HasColumnType("int");
 
                     b.Property<int>("isDeleted")
                         .HasColumnType("int");
 
                     b.HasKey("DoanId");
+
+                    b.HasIndex("GiaId");
 
                     b.HasIndex("TourId");
 
@@ -343,11 +351,15 @@ namespace TourApp.Migrations
 
             modelBuilder.Entity("TourApp.Entity.DoanKhach", b =>
                 {
-                    b.HasOne("TourApp.Entity.Tour", "Tour")
+                    b.HasOne("TourApp.Entity.Gia", "Gia")
                         .WithMany("DoanKhachs")
-                        .HasForeignKey("TourId")
+                        .HasForeignKey("GiaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("TourApp.Entity.Tour", "Tour")
+                        .WithMany("DoanKhachs")
+                        .HasForeignKey("TourId");
                 });
 
             modelBuilder.Entity("TourApp.Entity.Gia", b =>

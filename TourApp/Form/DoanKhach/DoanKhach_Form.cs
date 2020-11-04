@@ -10,6 +10,7 @@ using TourApp.Repository.IRepository;
 using TourApp.Const;
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.Serialization.Formatters;
+using System.Linq;
 
 namespace TourApp
 {
@@ -139,6 +140,21 @@ namespace TourApp
                     statusd.Text = dk_init.Chitiet;
                     datestart.Value =  dk_init.DateStart;
                     dateend.Value = dk_init.DateEnd;
+
+                    if (dk_init.DateStart <= DateTime.Now.Date)
+                    {
+                        mad.ReadOnly = true;
+                        tend.ReadOnly = true;
+                        statusd.ReadOnly = true;
+                        datestart.Enabled = false;
+                        dateend.Enabled = false;
+                        Save.Enabled = false;
+                        cp_btn.Enabled = false;
+                        nv_btn.Enabled = false;
+                        hk_btn.Enabled = false;
+                        tourd.Enabled = false;
+                    }
+
                     //HanhKhach
                     foreach (var hk in dk_init.CTDoans)
                     {
@@ -164,6 +180,7 @@ namespace TourApp
                     statusd.Text = dk_init1.Chitiet;
                     datestart.Value = dk_init1.DateStart;
                     dateend.Value = dk_init1.DateEnd;
+
                     //HanhKhach
                     foreach (var hk in dk_init1.CTDoans)
                     {
@@ -338,18 +355,23 @@ namespace TourApp
         private void save()
         {
             //init Create Type
-            DoanKhach doan = new DoanKhach(); 
+            DoanKhach doan = new DoanKhach();
+            Tour tour1 = _tourRepository.getByName(tourd.SelectedItem.ToString());
 
             //init Edit Type
             if (formType == EditState.Edit)
             {
                 doan = _doanRepo.getById(id);
+                if(tour1.TourId != doan.TourId)
+                {
+                    doan.Gia = tour1.Gias.LastOrDefault();
+                }
             }
 
 
             
             //Add value to each of column doan
-            Tour tour1 = _tourRepository.getByName(tourd.SelectedItem.ToString());
+            
             doan.MaDoan = mad.Text;
             doan.TenDoan = tend.Text;
             doan.Tour = tour1;
@@ -402,6 +424,8 @@ namespace TourApp
             }
             else
             {
+                doan.Gia = doan.Tour.Gias.LastOrDefault();
+                doan.DateCreated = DateTime.Now;
                 _doanRepo.Add(doan);
             }
             

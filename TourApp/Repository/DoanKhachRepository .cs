@@ -22,6 +22,7 @@ namespace TourApp.Repository
 
         public void Add(DoanKhach entity)
         {
+           
             _context.DoanKhachs.Add(entity);
             _context.SaveChanges();
         }
@@ -38,6 +39,7 @@ namespace TourApp.Repository
             return _context.DoanKhachs.Where(dk => dk.isDeleted == Status.NotDeleted).Include(i => i.Tour).Include(i => i.CTDoans).ThenInclude(i=>i.HanhKhach)
                                                                .Include(i => i.NV_VTs).ThenInclude(i => i.NhanVien)
                                                                .Include(i => i.CTChitieus).ThenInclude(i => i.ChiTieu)
+                                                               .Include(i => i.Gia)
                                                                .ToList();
         }
 
@@ -51,6 +53,7 @@ namespace TourApp.Repository
             return _context.DoanKhachs.Include(i => i.Tour).Include(i => i.CTDoans).ThenInclude(i => i.HanhKhach)
                                                            .Include(i => i.NV_VTs).ThenInclude(i => i.NhanVien)
                                                            .Include(i => i.CTChitieus).ThenInclude(i => i.ChiTieu)
+                                                           .Include(i => i.Gia)
                                                            .Where(dk => dk.isDeleted == isDeleted
                                                                      && dk.DoanId.ToString().Contains(ID)
                                                                      && dk.MaDoan.Contains(MaDoan)
@@ -69,6 +72,7 @@ namespace TourApp.Repository
                                                               .Include(i => i.Tour).Include(i => i.Tour).Include(i => i.CTDoans).ThenInclude(i => i.HanhKhach)
                                                               .Include(i => i.NV_VTs).ThenInclude(i => i.NhanVien)
                                                               .Include(i => i.CTChitieus).ThenInclude(i => i.ChiTieu)
+                                                              .Include(i => i.Gia)
                                                               .FirstOrDefault();
         }
 
