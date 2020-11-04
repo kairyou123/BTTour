@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,13 @@ namespace TourApp
     public partial class ThongTinTour : Form
     {
         private readonly ITourRepository _tourRepository;
+        private readonly IServiceProvider _serviceProvider;
         private Tour Tour;
         private int _id;
-        public ThongTinTour(ITourRepository tourRepository)
+        public ThongTinTour(ITourRepository tourRepository,IServiceProvider serviceProvider)
         {
             _tourRepository = tourRepository;
+            _serviceProvider = serviceProvider;
             InitializeComponent();
             
         }
@@ -70,6 +73,20 @@ namespace TourApp
         private void listGia_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dsdoankhach_Click(object sender, EventArgs e)
+        {
+            if (Tour.DoanKhachs == null)
+                MessageBox.Show("Không có đoàn khách nào");
+            else
+            {
+                DanhSachDoanKhach form = _serviceProvider.GetRequiredService<DanhSachDoanKhach>();
+                form.getId(_id);
+                var main = this.Location;
+                form.Location = new Point((main.X + 10), (main.Y + 10));
+                form.Show();
+            }
         }
     }
 }

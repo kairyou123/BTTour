@@ -382,7 +382,7 @@ namespace TourApp
             this.TenCol.Name = "TenCol";
             this.TenCol.ReadOnly = true;
             this.TenCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TenCol.Width = 50;
+            this.TenCol.Width = 47;
             // 
             // LHDLCol
             // 
@@ -421,7 +421,7 @@ namespace TourApp
             this.DeleteCol.Name = "DeleteCol";
             this.DeleteCol.ReadOnly = true;
             this.DeleteCol.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DeleteCol.Width = 33;
+            this.DeleteCol.Width = 30;
             // 
             // button1
             // 
@@ -687,7 +687,7 @@ namespace TourApp
             this.tabHanhKhach_MaKhachCol.MinimumWidth = 6;
             this.tabHanhKhach_MaKhachCol.Name = "tabHanhKhach_MaKhachCol";
             this.tabHanhKhach_MaKhachCol.ReadOnly = true;
-            this.tabHanhKhach_MaKhachCol.Width = 84;
+            this.tabHanhKhach_MaKhachCol.Width = 66;
             // 
             // tabHanhKhach_TenCol
             // 
@@ -740,7 +740,7 @@ namespace TourApp
             this.tabHanhKhach_DeleteCol.MinimumWidth = 6;
             this.tabHanhKhach_DeleteCol.Name = "tabHanhKhach_DeleteCol";
             this.tabHanhKhach_DeleteCol.ReadOnly = true;
-            this.tabHanhKhach_DeleteCol.Width = 33;
+            this.tabHanhKhach_DeleteCol.Width = 30;
             // 
             // tabHanhKhach_CB
             // 
@@ -932,7 +932,7 @@ namespace TourApp
             this.tabDoan_DeleteCol.MinimumWidth = 6;
             this.tabDoan_DeleteCol.Name = "tabDoan_DeleteCol";
             this.tabDoan_DeleteCol.ReadOnly = true;
-            this.tabDoan_DeleteCol.Width = 33;
+            this.tabDoan_DeleteCol.Width = 30;
             // 
             // tabDoan_SearchBox
             // 
