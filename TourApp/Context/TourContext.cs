@@ -88,7 +88,7 @@ namespace TourApp.Context
             .WithMany(c => c.NV_VTs)
             .HasForeignKey(c => c.NVId);
 
-            modelBuilder.Seed();
+            //modelBuilder.Seed();
         }
     }
 }
