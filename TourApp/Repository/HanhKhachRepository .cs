@@ -43,9 +43,21 @@ namespace TourApp.Repository
             return _context.HanhKhachs.Where(hk => hk.isDeleted == Status.Deleted).ToList();
         }
 
-        public IEnumerable<HanhKhach> getWhere(string name, int isDeleted)
+        public IEnumerable<HanhKhach> getWhere(string ID, string MaHK, string Ten,string SDT, string Email, string CMND, string Diachi,string Gioitinh, string Passport, int isDeleted)
         {
-            return _context.HanhKhachs.Where(hk => hk.isDeleted == isDeleted && hk.Ten.Contains(name)).ToList();
+            return _context.HanhKhachs.Where(hk => hk.isDeleted == isDeleted
+                                                && hk.KhachId.ToString().Contains(ID)
+                                                && hk.MaKhach.Contains(MaHK)
+                                                && hk.Ten.Contains(Ten)
+                                                && hk.SDT.Contains(SDT)
+                                                && hk.Email.Contains(Email)
+                                                && hk.CMND.Contains(CMND)
+                                                && hk.DiaChi.Contains(Diachi)
+                                                && hk.GioiTinh.Contains(Gioitinh)
+                                                && hk.Passport.Contains(Passport)
+
+                                             )
+                                      .ToList();
         }
 
         public HanhKhach getById(int id, string maHK = "")

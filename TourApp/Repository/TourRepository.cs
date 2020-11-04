@@ -36,7 +36,14 @@ namespace TourApp.Repository
 
         public IEnumerable<Tour> getAll()
         {
-            return _context.Tours.Where(t => t.isDeleted == Status.NotDeleted).Include(t => t.Gias).Include(t => t.LHDL).Include(t => t.CTTours).ThenInclude(dd => dd.DiaDiem).ToList();
+            return _context.Tours.Where(t => t.isDeleted == Status.NotDeleted)
+                                                   .Include(t => t.Gias).Include(t => t.LHDL).Include(t => t.CTTours).ThenInclude(dd => dd.DiaDiem)
+                                                   .Include(t => t.DoanKhachs)
+                                                   .ThenInclude(dk => dk.CTChitieus)
+                                                   .ThenInclude(ct => ct.ChiTieu)
+                                                   .Include(t => t.DoanKhachs)
+                                                   .ThenInclude(dk => dk.CTDoans)
+                                                   .ToList();
         }
         public IEnumerable<Tour> getAllDelete()
         {
@@ -49,6 +56,11 @@ namespace TourApp.Repository
                                        .Include(t => t.Gias)
                                        .Include(t => t.CTTours)
                                        .ThenInclude(dd => dd.DiaDiem)
+                                       .Include(t => t.DoanKhachs)
+                                       .ThenInclude(dk => dk.CTChitieus)
+                                       .ThenInclude(ct => ct.ChiTieu)
+                                       .Include(t => t.DoanKhachs)
+                                       .ThenInclude(dk => dk.CTDoans)
                                        .FirstOrDefault();
         }
 
@@ -59,6 +71,11 @@ namespace TourApp.Repository
                                  .Include(t => t.LHDL)
                                  .Include(t => t.CTTours)
                                  .ThenInclude(dd => dd.DiaDiem)
+                                 .Include(t => t.DoanKhachs)
+                                 .ThenInclude(dk => dk.CTChitieus)
+                                 .ThenInclude(ct => ct.ChiTieu)
+                                 .Include(t => t.DoanKhachs)
+                                 .ThenInclude(dk => dk.CTDoans)
                                  .Where(t => t.Ten.Contains(Ten))
                                  .Where(t => t.LHDL.Ten.Contains(LHDL))
                                  .Where(t => t.MaTour.Contains(MaTour))
@@ -83,6 +100,11 @@ namespace TourApp.Repository
                                  .Include(t => t.LHDL)
                                  .Include(t => t.CTTours)
                                  .ThenInclude(dd => dd.DiaDiem)
+                                 .Include(t => t.DoanKhachs)
+                                 .ThenInclude(dk => dk.CTChitieus)
+                                 .ThenInclude(ct => ct.ChiTieu)
+                                 .Include(t => t.DoanKhachs)
+                                 .ThenInclude(dk => dk.CTDoans)
                                  .Where(t => t.Ten == Ten)
                                  .Where(t => t.isDeleted == isDeleted)
                                  .FirstOrDefault();

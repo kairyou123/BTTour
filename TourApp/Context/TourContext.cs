@@ -33,7 +33,7 @@ namespace TourApp.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlite("Data Source=E:\\Tour.db");
+            optionsBuilder.UseSqlServer("Data Source=21AK22-COM\\SQLEXPRESS;Initial Catalog=TourDb2;User ID=sa;Password=12345");
 
         }
 
@@ -88,7 +88,7 @@ namespace TourApp.Context
             .WithMany(c => c.NV_VTs)
             .HasForeignKey(c => c.NVId);
 
-            modelBuilder.Seed();
+            //modelBuilder.Seed();
         }
     }
 }

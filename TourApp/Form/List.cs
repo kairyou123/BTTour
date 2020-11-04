@@ -1,5 +1,6 @@
 ﻿
 
+
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Drawing;
@@ -21,6 +22,8 @@ namespace TourApp
         private readonly IChiTieuRepository _chitieuRepo;
         private readonly IDoanKhachRepository _doankhachRepo;
         private readonly IHanhKhachRepository _hanhkhachRepo;
+        private readonly IDiaDiemRepository _diadiemRepo;
+        private readonly ILoaiHinhDuLichRepository _lhdlRepo;
 
         private readonly IServiceProvider _serviceProvider;
         public List(
@@ -29,6 +32,9 @@ namespace TourApp
                         IChiTieuRepository chitieuRepo,
                         IDoanKhachRepository doankhachRepo,
                         IHanhKhachRepository hanhkhachRepo,
+                        IDiaDiemRepository diadiemRepo,
+                        ILoaiHinhDuLichRepository lhdlRepo,
+
                         IServiceProvider serviceProvider
                     )
         {
@@ -38,6 +44,8 @@ namespace TourApp
             _chitieuRepo = chitieuRepo;
             _doankhachRepo = doankhachRepo;
             _hanhkhachRepo = hanhkhachRepo;
+            _diadiemRepo = diadiemRepo;
+            _lhdlRepo = lhdlRepo;
 
             _serviceProvider = serviceProvider;
             tabControl.SelectedTab = tabTour;
@@ -50,6 +58,8 @@ namespace TourApp
             TabRefresh(ListTab.Chitieu);
             TabRefresh(ListTab.Doan);
             TabRefresh(ListTab.HanhKhach);
+            TabRefresh(ListTab.Diadiem);
+            TabRefresh(ListTab.LoaiHinhDuLich);
             ChangeTheme(new DefaultTheme(), this.Controls);
         }
         public void TabRefresh(ListTab tab)
@@ -65,12 +75,7 @@ namespace TourApp
                         tabTour_SearchOption.SelectedIndex = 0;
                         searchBox.Text = "";
                         isDeleted_ChB.Checked = false;
-                        tourGridView.Rows.Clear();
-                        var data = _tourRepo.getAll();
-                        foreach (Tour item in data)
-                        {
-                            tourGridView.Rows.Add(item.TourId, item.MaTour, item.Ten, item.LHDL.Ten);
-                        }
+                        Search();
                         break;
                     }
 
@@ -78,46 +83,45 @@ namespace TourApp
                     {
                         tabNV_SearchBox.Text = "";
                         tabNV_CB.Checked = false;
-                        NVGridView.Rows.Clear();
-                        var data = _nhanvienRepo.getAll();
-                        foreach (NhanVien item in data)
-                        {
-
-                            NVGridView.Rows.Add(item.NVId,item.MaNV, item.Ten, item.SDT);
-                        }
+                        tabNV_SearchOption.SelectedIndex = 2;
+                        tabNV_Search();
                         break;
                     }
                 case ListTab.Chitieu:
                     {
                         tabCT_SearchBox.Text = "";
-                        ChiTieuGridView.Rows.Clear();
-                        var data = _chitieuRepo.getAll();
-                        foreach (ChiTieu item in data)
-                        {
-                            ChiTieuGridView.Rows.Add(item.CTId, item.Ten);
-                        }
+                        tabCT_SearchOption.SelectedIndex = 1;
+                        tabCT_Search();
                         break;
                     }
                 case ListTab.Doan:
                     {
                         tabDoan_SearchBox.Text = "";
-                        DoanGridView.Rows.Clear();
-                        var data = _doankhachRepo.getAll();
-                        foreach (DoanKhach item in data)
-                        {
-                            DoanGridView.Rows.Add(item.DoanId, item.MaDoan,item.TenDoan,item.Chitiet,item.Status,item.TourId,item.Tour.MaTour);
-                        }
+                        tabDoan_CB.Checked = false;
+                        tabDoan_SearchOption.SelectedIndex = 2;
+                        tabDoan_Search();
                         break;
                     }
                 case ListTab.HanhKhach:
                     {
                         tabHanhKhach_SearchBox.Text = "";
-                        HanhKhachGridView.Rows.Clear();
-                        var data = _hanhkhachRepo.getAll();
-                        foreach (HanhKhach item in data)
-                        {
-                            HanhKhachGridView.Rows.Add(item.KhachId, item.MaKhach, item.Ten, item.SDT, item.Email);
-                        }
+                        tabHanhKhach_CB.Checked = false;
+                        tabHanhKhach_SearchOption.SelectedIndex = 2;
+                        tabHanhKhach_Search();
+                        break;
+                    }
+                case ListTab.Diadiem:
+                    {
+                        tabDD_SearchBox.Text = "";
+                        tabDD_SearchOption.SelectedIndex = 1;
+                        tabDD_Search();
+                        break;
+                    }
+                case ListTab.LoaiHinhDuLich:
+                    {
+                        tabLHDL_SearchBox.Text = "";
+                        tabLHDL_SearchOption.SelectedIndex = 1;
+                        tabLHDL_Search();
                         break;
                     }
 
@@ -550,9 +554,27 @@ namespace TourApp
         }
         private void tabNV_Search()
         {
-            var searchStr = tabNV_SearchBox.Text;
+            string ID_str, MaNV_str, Ten_str, SDT_str;
+            ID_str = MaNV_str = Ten_str = SDT_str = "";
+            switch (tabNV_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    ID_str = tabNV_SearchBox.Text;
+                    break;
+                case 1:
+                    MaNV_str = tabNV_SearchBox.Text;
+                    break;
+                case 2:
+                    Ten_str = tabNV_SearchBox.Text;
+                    break;
+                case 3:
+                    SDT_str = tabNV_SearchBox.Text;
+                    break;
+
+            }
+
             NVGridView.Rows.Clear();
-            var data = _nhanvienRepo.getWhere(searchStr, tabNV_CB.Checked ? 1 : 0);
+            var data = _nhanvienRepo.getWhere(ID_str,MaNV_str,Ten_str,SDT_str,tabNV_CB.Checked ? 1 : 0);
             foreach (NhanVien item in data)
             {
                 NVGridView.Rows.Add(item.NVId, item.MaNV, item.Ten, item.SDT);
@@ -626,9 +648,20 @@ namespace TourApp
         }
         private void tabCT_Search()
         {
-            var searchStr = tabCT_SearchBox.Text;
+            string id_str, ten_str;
+            id_str = ten_str = "";
+            switch (tabCT_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    id_str = tabCT_SearchBox.Text;
+                    break;
+                case 1:
+                    ten_str = tabCT_SearchBox.Text; ;
+                    break;
+            }
+
             ChiTieuGridView.Rows.Clear();
-            var data = _chitieuRepo.getWhere(searchStr);
+            var data = _chitieuRepo.getWhere(id_str,ten_str);
             foreach (ChiTieu item in data)
             {
                 ChiTieuGridView.Rows.Add(item.CTId, item.Ten);
@@ -715,9 +748,35 @@ namespace TourApp
 
         private void tabDoan_Search()
         {
-            var searchStr = tabDoan_SearchBox.Text;
+            string ID_str, MaDoan_str, TenDoan_str, Chitiet_str, Tinhtrang_str, TourID_str, MaTour_str;
+            ID_str = MaDoan_str = TenDoan_str = Chitiet_str = Tinhtrang_str = TourID_str = MaTour_str = "";
+            switch (tabDoan_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    ID_str = tabDoan_SearchBox.Text;
+                    break;
+                case 1:
+                    MaDoan_str = tabDoan_SearchBox.Text;
+                    break;
+                case 2:
+                    TenDoan_str = tabDoan_SearchBox.Text;
+                    break;
+                case 3:
+                    Chitiet_str = tabDoan_SearchBox.Text;
+                    break;
+                case 4:
+                    Tinhtrang_str = tabDoan_SearchBox.Text;
+                    break;
+                case 5:
+                    TourID_str = tabDoan_SearchBox.Text;
+                    break;
+                case 6:
+                    MaTour_str = tabDoan_SearchBox.Text;
+                    break;
+            }
+
             DoanGridView.Rows.Clear();
-            var data = _doankhachRepo.getWhere(searchStr, tabDoan_CB.Checked ? 1 : 0);
+            var data = _doankhachRepo.getWhere(ID_str, MaDoan_str, TenDoan_str, Chitiet_str, Tinhtrang_str, TourID_str, MaTour_str, tabDoan_CB.Checked ? 1 : 0);
             foreach (DoanKhach item in data)
             {
                 DoanGridView.Rows.Add(item.DoanId, item.MaDoan, item.TenDoan, item.Chitiet, item.Status, item.TourId, item.Tour.MaTour);
@@ -847,11 +906,13 @@ namespace TourApp
             if (name == "tabDoan_EditCol" || name == "tabDoan_ViewCol" || name == "tabDoan_DeleteCol") return;
             var value = grid.Rows[e.RowIndex].Cells["tabDoan_IDCol"].Value.ToString();
 
-            //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
-            //form.getId(int.Parse(value));
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            DoanKhach_Form form = _serviceProvider.GetRequiredService<DoanKhach_Form>();
+            form.formType = EditState.View;
+            form.id = int.Parse(value);
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
+
         }
 
 
@@ -861,12 +922,44 @@ namespace TourApp
        
         private void tabHanhKhach_Search()
         {
-            var searchStr = tabHanhKhach_SearchBox.Text;
+            string KhachId_str, MaKhach_str, Ten_str, SDT_str, Email_str, CMND_str, DiaChi_str, GioiTinh_str, Passport_str;
+            KhachId_str = MaKhach_str = Ten_str = SDT_str = Email_str = CMND_str = DiaChi_str = GioiTinh_str = Passport_str = "";
+            switch (tabHanhKhach_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    KhachId_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 1:
+                    MaKhach_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 2:
+                    Ten_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 3:
+                    SDT_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 4:
+                    Email_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 5:
+                    CMND_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 6:
+                    DiaChi_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 7:
+                    GioiTinh_str = tabHanhKhach_SearchBox.Text;
+                    break;
+                case 8:
+                    Passport_str = tabHanhKhach_SearchBox.Text;
+                    break;
+            }
+
             HanhKhachGridView.Rows.Clear();
-            var data = _hanhkhachRepo.getWhere(searchStr, tabHanhKhach_CB.Checked ? 1 : 0);
+            var data = _hanhkhachRepo.getWhere(KhachId_str, MaKhach_str, Ten_str, SDT_str, Email_str, CMND_str, DiaChi_str, GioiTinh_str, Passport_str, tabHanhKhach_CB.Checked ? 1 : 0);
             foreach (HanhKhach item in data)
             {
-                HanhKhachGridView.Rows.Add(item.KhachId, item.MaKhach, item.Ten, item.SDT, item.Email);
+                HanhKhachGridView.Rows.Add(item.KhachId, item.MaKhach, item.Ten, item.SDT, item.Email, item.CMND, item.DiaChi, item.GioiTinh, item.Passport);
             }
         }
         private void tabHanhKhach_SearchBtn_Click(object sender, EventArgs e)
@@ -914,7 +1007,7 @@ namespace TourApp
                 return;
 
             //I supposed your button column is at index 0
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 9)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.view;
@@ -926,7 +1019,7 @@ namespace TourApp
                 e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 6)
+            if (e.ColumnIndex == 10)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.edit;
@@ -938,7 +1031,7 @@ namespace TourApp
                 e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 11)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.delete;
@@ -1008,6 +1101,307 @@ namespace TourApp
             form.Show();
             
         }
+        #endregion
+
+        #region Địa điểm
+        
+        private void tabDD_Search()
+        {
+            string ID_str, Ten_str;
+            ID_str = Ten_str = "";
+            switch(tabDD_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    ID_str = tabDD_SearchBox.Text;
+                    break;
+                case 1:
+                    Ten_str = tabDD_SearchBox.Text;
+                    break;
+            }
+            DiaDiemGridView.Rows.Clear();
+            var data = _diadiemRepo.getWhere(ID_str,Ten_str);
+            foreach (DiaDiem item in data)
+            {
+                DiaDiemGridView.Rows.Add(item.DDId, item.TenDD);
+            }
+        }
+
+        private void tabDD_SearchBtn_Click(object sender, EventArgs e)
+        {
+            tabDD_Search();
+        }
+
+        private void tabDD_SearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) tabDD_Search();
+        }
+
+        private void tabDD_RefreshBtn_Click(object sender, EventArgs e)
+        {
+            TabRefresh(ListTab.Diadiem);
+        }
+
+        private void tabDD_AddBtn_Click(object sender, EventArgs e)
+        {
+            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+            //form.editState = EditState.Create;
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+
+        private void DiaDiemGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            //I supposed your button column is at index 0
+            if (e.ColumnIndex == 3)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.view;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 4)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.edit;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 5)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.delete;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void DiaDiemGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            var value = grid.Rows[e.RowIndex].Cells["tabDD_IDCol"].Value.ToString();
+            switch (name)
+            {
+                case "tabDD_ViewCol":
+                    {
+                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+                        //form.editState = EditState.View;
+                        //form.setId(int.Parse(value));
+                        //var main = this.Location;
+                        //form.Location = new Point((main.X + 10), (main.Y + 10));
+                        //form.Show();
+                        break;
+                    }
+                case "tabDD_EditCol":
+                    {
+                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+                        //form.editState = EditState.Edit;
+                        //form.setId(int.Parse(value));
+                        //var main = this.Location;
+                        //form.Location = new Point((main.X + 10), (main.Y + 10));
+                        //form.Show();
+                        break;
+                    }
+                case "tabDD_DeleteCol":
+                    {
+                        var item = _diadiemRepo.getById(int.Parse(value));
+                        var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + item.TenDD, "Warning", MessageBoxButtons.YesNo);
+                        if (messageResult != DialogResult.Yes) return;
+                        _diadiemRepo.Delete(item);
+                        tabDD_Search();
+                        break;
+                    }
+            }
+        }
+
+        private void DiaDiemGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            if (name == "tabDD_EditCol" || name == "tabDD_ViewCol" || name == "tabDD_DeleteCol") return;
+            var value = grid.Rows[e.RowIndex].Cells["tabDD_IDCol"].Value.ToString();
+
+            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+            //form.editState = EditState.View;
+            //form.setId(int.Parse(value));
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+        #endregion
+
+        #region Loại hình du lịch
+      
+        private void tabLHDL_Search()
+        {
+            string ID_str, Ten_str, Mota_str;
+            ID_str = Ten_str = Mota_str ="";
+            switch (tabLHDL_SearchOption.SelectedIndex)
+            {
+                case 0:
+                    ID_str = tabLHDL_SearchBox.Text;
+                    break;
+                case 1:
+                    Ten_str = tabLHDL_SearchBox.Text;
+                    break;
+                case 2:
+                    Mota_str = tabLHDL_SearchBox.Text;
+                    break;
+
+            }
+            LHDLGridView.Rows.Clear();
+            var data = _lhdlRepo.getWhere(ID_str, Ten_str,Mota_str);
+            foreach (LoaiHinhDL item in data)
+            {
+                LHDLGridView.Rows.Add(item.LHDLId, item.Ten,item.moTa);
+            }
+        }
+
+        private void tabLHDL_SearchBtn_Click(object sender, EventArgs e)
+        {
+            tabLHDL_Search();
+        }
+
+        private void tabLHDL_SearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) tabLHDL_Search();
+        }
+
+        private void tabLHDL_RefreshBtn_Click(object sender, EventArgs e)
+        {
+            TabRefresh(ListTab.LoaiHinhDuLich);
+        }
+
+        private void tabLHDL_AddBtn_Click(object sender, EventArgs e)
+        {
+            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+            //form.editState = EditState.Create;
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+
+        private void LHDLGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            //I supposed your button column is at index 0
+            if (e.ColumnIndex == 4)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.view;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 5)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.edit;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+            if (e.ColumnIndex == 6)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var img = Properties.Resources.delete;
+                var w = e.CellBounds.Width - 2;
+                var h = e.CellBounds.Height - 2;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void LHDLGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            var value = grid.Rows[e.RowIndex].Cells["tabLHDL_IDCol"].Value.ToString();
+            switch (name)
+            {
+                case "tabLHDL_ViewCol":
+                    {
+                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+                        //form.editState = EditState.View;
+                        //form.setId(int.Parse(value));
+                        //var main = this.Location;
+                        //form.Location = new Point((main.X + 10), (main.Y + 10));
+                        //form.Show();
+                        break;
+                    }
+                case "tabLHDL_EditCol":
+                    {
+                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+                        //form.editState = EditState.Edit;
+                        //form.setId(int.Parse(value));
+                        //var main = this.Location;
+                        //form.Location = new Point((main.X + 10), (main.Y + 10));
+                        //form.Show();
+                        break;
+                    }
+                case "tabLHDL_DeleteCol":
+                    {
+                        var item = _lhdlRepo.getById(int.Parse(value));
+                        var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + item.Ten, "Warning", MessageBoxButtons.YesNo);
+                        if (messageResult != DialogResult.Yes) return;
+                        _lhdlRepo.Delete(item);
+                        tabLHDL_Search();
+                        break;
+                    }
+            }
+        }
+
+        private void LHDLGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            var grid = (DataGridView)sender;
+            var name = grid.Columns[e.ColumnIndex].Name;
+            if (name == "tabLHDL_EditCol" || name == "tabLHDL_ViewCol" || name == "tabLHDL_DeleteCol") return;
+            var value = grid.Rows[e.RowIndex].Cells["tabLHDL_IDCol"].Value.ToString();
+
+            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
+            //form.editState = EditState.View;
+            //form.setId(int.Parse(value));
+            //var main = this.Location;
+            //form.Location = new Point((main.X + 10), (main.Y + 10));
+            //form.Show();
+        }
+
         #endregion
     }
 }

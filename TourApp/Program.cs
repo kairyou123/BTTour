@@ -51,6 +51,7 @@ namespace TourApp
             services.AddTransient<HanhKhach_Form>();
             services.AddTransient<DoanKhach_Form>();
             services.AddTransient<SearchForm>();
+            services.AddTransient<TKDoanhThu_Form>();
             services.AddScoped<IChiTieuRepository, ChiTieuRepository>();
             services.AddScoped<ITourRepository, TourRepository>();
             services.AddScoped<IDiaDiemRepository, DiaDiemRepository>();
@@ -59,7 +60,7 @@ namespace TourApp
             services.AddScoped<IHanhKhachRepository, HanhKhachRepository>();
             services.AddScoped<IDoanKhachRepository, DoanKhachRepository>();
             services.AddScoped<INhanVienRepository, NhanVienRepository>();
-            services.AddScoped<ILoaiHinhDuLieuRepository, LoaiHinhDuLieuRepository>();
+            services.AddScoped<ILoaiHinhDuLichRepository, LoaiHinhDuLichRepository>();
 
         }
     }

@@ -52,8 +52,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.errormsg2 = new System.Windows.Forms.Label();
             this.data_nv = new System.Windows.Forms.DataGridView();
+            this.errormsg2 = new System.Windows.Forms.Label();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VT = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,8 +71,8 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_hk)).BeginInit();
             this.panel2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_nv)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_cp)).BeginInit();
             this.SuspendLayout();
@@ -91,7 +91,7 @@
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Location = new System.Drawing.Point(12, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(792, 284);
+            this.groupBox1.Size = new System.Drawing.Size(808, 284);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN ĐOÀN KHÁCH";
@@ -124,7 +124,7 @@
             this.errormsg0.AutoSize = true;
             this.errormsg0.BackColor = System.Drawing.Color.White;
             this.errormsg0.ForeColor = System.Drawing.Color.Red;
-            this.errormsg0.Location = new System.Drawing.Point(127, 19);
+            this.errormsg0.Location = new System.Drawing.Point(143, 19);
             this.errormsg0.Name = "errormsg0";
             this.errormsg0.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.errormsg0.Size = new System.Drawing.Size(219, 15);
@@ -148,7 +148,7 @@
             this.groupBox4.Controls.Add(this.data_hk);
             this.groupBox4.Location = new System.Drawing.Point(423, 22);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(369, 247);
+            this.groupBox4.Size = new System.Drawing.Size(379, 247);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Hành Khách";
@@ -159,7 +159,7 @@
             this.errormsg1.AutoSize = true;
             this.errormsg1.BackColor = System.Drawing.Color.White;
             this.errormsg1.ForeColor = System.Drawing.Color.Red;
-            this.errormsg1.Location = new System.Drawing.Point(63, 26);
+            this.errormsg1.Location = new System.Drawing.Point(61, 26);
             this.errormsg1.Name = "errormsg1";
             this.errormsg1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.errormsg1.Size = new System.Drawing.Size(219, 15);
@@ -192,7 +192,8 @@
             this.data_hk.Location = new System.Drawing.Point(6, 56);
             this.data_hk.Name = "data_hk";
             this.data_hk.ReadOnly = true;
-            this.data_hk.Size = new System.Drawing.Size(363, 185);
+            this.data_hk.RowHeadersWidth = 51;
+            this.data_hk.Size = new System.Drawing.Size(367, 185);
             this.data_hk.TabIndex = 2;
             this.data_hk.Text = "dataGridView3";
             this.data_hk.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_CellContentClick);
@@ -201,6 +202,7 @@
             // 
             this.Ma_HK.FillWeight = 70F;
             this.Ma_HK.HeaderText = "Mã HK";
+            this.Ma_HK.MinimumWidth = 6;
             this.Ma_HK.Name = "Ma_HK";
             this.Ma_HK.ReadOnly = true;
             this.Ma_HK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -209,21 +211,26 @@
             // Ten_HK
             // 
             this.Ten_HK.HeaderText = "Tên HK";
+            this.Ten_HK.MinimumWidth = 6;
             this.Ten_HK.Name = "Ten_HK";
             this.Ten_HK.ReadOnly = true;
             this.Ten_HK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ten_HK.Width = 125;
             // 
             // SDTHK
             // 
             this.SDTHK.HeaderText = "SDT";
+            this.SDTHK.MinimumWidth = 6;
             this.SDTHK.Name = "SDTHK";
             this.SDTHK.ReadOnly = true;
             this.SDTHK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.SDTHK.Width = 125;
             // 
             // DeleteHK
             // 
             this.DeleteHK.FillWeight = 50F;
             this.DeleteHK.HeaderText = "Xóa";
+            this.DeleteHK.MinimumWidth = 6;
             this.DeleteHK.Name = "DeleteHK";
             this.DeleteHK.ReadOnly = true;
             this.DeleteHK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -330,30 +337,6 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox2.Controls.Add(this.errormsg2);
-            this.groupBox2.Controls.Add(this.data_nv);
-            this.groupBox2.Controls.Add(this.nv_btn);
-            this.groupBox2.Location = new System.Drawing.Point(12, 313);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(392, 238);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Nhân Viên";
-            // 
-            // errormsg2
-            // 
-            this.errormsg2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.errormsg2.AutoSize = true;
-            this.errormsg2.BackColor = System.Drawing.Color.White;
-            this.errormsg2.ForeColor = System.Drawing.Color.Red;
-            this.errormsg2.Location = new System.Drawing.Point(86, 43);
-            this.errormsg2.Name = "errormsg2";
-            this.errormsg2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.errormsg2.Size = new System.Drawing.Size(209, 15);
-            this.errormsg2.TabIndex = 2;
-            this.errormsg2.Text = "Xin vui lòng chọn nhân viên cho Đoàn";
-            this.errormsg2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.errormsg2.Visible = false;
             // 
             // data_nv
             // 
@@ -369,15 +352,41 @@
             this.data_nv.Location = new System.Drawing.Point(6, 68);
             this.data_nv.Name = "data_nv";
             this.data_nv.ReadOnly = true;
-            this.data_nv.Size = new System.Drawing.Size(380, 164);
+            this.data_nv.RowHeadersWidth = 51;
+            this.data_nv.Size = new System.Drawing.Size(386, 164);
             this.data_nv.TabIndex = 2;
             this.data_nv.Text = "dataGridView1";
             this.data_nv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_CellContentClick);
+            this.groupBox2.Controls.Add(this.errormsg2);
+            this.groupBox2.Controls.Add(this.data_nv);
+            this.groupBox2.Controls.Add(this.nv_btn);
+            this.groupBox2.Location = new System.Drawing.Point(12, 313);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(402, 238);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Nhân Viên";
+            // 
+            // errormsg2
+            // 
+            this.errormsg2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.errormsg2.AutoSize = true;
+            this.errormsg2.BackColor = System.Drawing.Color.White;
+            this.errormsg2.ForeColor = System.Drawing.Color.Red;
+            this.errormsg2.Location = new System.Drawing.Point(96, 43);
+            this.errormsg2.Name = "errormsg2";
+            this.errormsg2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.errormsg2.Size = new System.Drawing.Size(209, 15);
+            this.errormsg2.TabIndex = 2;
+            this.errormsg2.Text = "Xin vui lòng chọn nhân viên cho Đoàn";
+            this.errormsg2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.errormsg2.Visible = false;
             // 
             // MaNV
             // 
             this.MaNV.FillWeight = 70F;
             this.MaNV.HeaderText = "Mã NV";
+            this.MaNV.MinimumWidth = 6;
             this.MaNV.Name = "MaNV";
             this.MaNV.ReadOnly = true;
             this.MaNV.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -386,21 +395,26 @@
             // Ten
             // 
             this.Ten.HeaderText = "Tên";
+            this.Ten.MinimumWidth = 6;
             this.Ten.Name = "Ten";
             this.Ten.ReadOnly = true;
             this.Ten.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Ten.Width = 125;
             // 
             // VT
             // 
             this.VT.HeaderText = "Vị Trí";
+            this.VT.MinimumWidth = 6;
             this.VT.Name = "VT";
             this.VT.ReadOnly = true;
             this.VT.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.VT.Width = 125;
             // 
             // DeleteNV
             // 
             this.DeleteNV.FillWeight = 50F;
             this.DeleteNV.HeaderText = "Xóa";
+            this.DeleteNV.MinimumWidth = 6;
             this.DeleteNV.Name = "DeleteNV";
             this.DeleteNV.ReadOnly = true;
             this.DeleteNV.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -425,7 +439,7 @@
             this.groupBox3.Controls.Add(this.cp_btn);
             this.groupBox3.Location = new System.Drawing.Point(441, 313);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(363, 238);
+            this.groupBox3.Size = new System.Drawing.Size(379, 238);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chi Phí";
@@ -459,7 +473,8 @@
             this.data_cp.Location = new System.Drawing.Point(7, 68);
             this.data_cp.Name = "data_cp";
             this.data_cp.ReadOnly = true;
-            this.data_cp.Size = new System.Drawing.Size(349, 164);
+            this.data_cp.RowHeadersWidth = 51;
+            this.data_cp.Size = new System.Drawing.Size(366, 164);
             this.data_cp.TabIndex = 2;
             this.data_cp.Text = "dataGridView2";
             this.data_cp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.data_CellContentClick);
@@ -468,6 +483,7 @@
             // 
             this.LoaiCP.FillWeight = 150F;
             this.LoaiCP.HeaderText = "Loại Chi Phí";
+            this.LoaiCP.MinimumWidth = 6;
             this.LoaiCP.Name = "LoaiCP";
             this.LoaiCP.ReadOnly = true;
             this.LoaiCP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -476,14 +492,17 @@
             // Tien
             // 
             this.Tien.HeaderText = "Số tiền (VND)";
+            this.Tien.MinimumWidth = 6;
             this.Tien.Name = "Tien";
             this.Tien.ReadOnly = true;
             this.Tien.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Tien.Width = 125;
             // 
             // DeleteCP
             // 
             this.DeleteCP.FillWeight = 50F;
             this.DeleteCP.HeaderText = "Xóa";
+            this.DeleteCP.MinimumWidth = 6;
             this.DeleteCP.Name = "DeleteCP";
             this.DeleteCP.ReadOnly = true;
             this.DeleteCP.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -514,7 +533,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 604);
+            this.ClientSize = new System.Drawing.Size(832, 606);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -528,9 +547,9 @@
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_hk)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.data_nv)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.data_nv)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.data_cp)).EndInit();
