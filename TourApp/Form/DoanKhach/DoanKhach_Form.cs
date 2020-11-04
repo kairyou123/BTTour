@@ -140,6 +140,21 @@ namespace TourApp
                     statusd.Text = dk_init.Chitiet;
                     datestart.Value =  dk_init.DateStart;
                     dateend.Value = dk_init.DateEnd;
+
+                    if (dk_init.DateStart <= DateTime.Now.Date)
+                    {
+                        mad.ReadOnly = true;
+                        tend.ReadOnly = true;
+                        statusd.ReadOnly = true;
+                        datestart.Enabled = false;
+                        dateend.Enabled = false;
+                        Save.Enabled = false;
+                        cp_btn.Enabled = false;
+                        nv_btn.Enabled = false;
+                        hk_btn.Enabled = false;
+                        tourd.Enabled = false;
+                    }
+
                     //HanhKhach
                     foreach (var hk in dk_init.CTDoans)
                     {
@@ -165,6 +180,7 @@ namespace TourApp
                     statusd.Text = dk_init1.Chitiet;
                     datestart.Value = dk_init1.DateStart;
                     dateend.Value = dk_init1.DateEnd;
+
                     //HanhKhach
                     foreach (var hk in dk_init1.CTDoans)
                     {

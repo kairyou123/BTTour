@@ -16,6 +16,7 @@ namespace TourApp
     {
         private readonly ITourRepository _tourRepo;
         private readonly IDoanKhachRepository _doanRepo;
+        private DateTime preDate;
 
         public TKDoanhThu_Form(ITourRepository tourRepo, IDoanKhachRepository doanRepo)
         {
@@ -72,14 +73,16 @@ namespace TourApp
         private void select_radio()
         {
             select_init_lv();
-
+            lv_doanhthu1.Items.Clear();
             if (radio_tour.Checked == true)
             {
                 tour_fill();
+                search_panel.Visible = true;
             }
             else
             {
                 doan_fill();
+                search_panel.Visible = false;
             }
         }
 
@@ -100,9 +103,30 @@ namespace TourApp
             }
         }
 
+        //validate
+        private Boolean validate()
+        {
+            var dateStart = datestart.Value.Date;
+            var dateEnd = dateend.Value.Date;
+            var flg = true;
+
+            if (dateEnd < dateStart)
+            {
+                flg = false;
+            }
+
+            if(!flg)
+            {
+                MessageBox.Show("Ngày tìm kiếm không hợp lệ", "Thông báo");
+            }
+            return flg;
+        }
+
         //Khi click vào các item sẽ hiển thị ra list các loại doanh thu và tổng doanh thu
         private void ReadData()
         {
+            lv_doanhthu1.Items.Clear();
+
             if (lv.SelectedItems.Count == 0)
                 return;
 
@@ -110,7 +134,7 @@ namespace TourApp
             var dateStart = datestart.Value.Date;
             var dateEnd = dateend.Value.Date;
             var total = 0;
-            lv_doanhthu1.Items.Clear();
+            CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
             
             if (radio_tour.Checked == true)
             {
@@ -118,33 +142,41 @@ namespace TourApp
 
                 //DoanKhach filter
                 var doans = tour.DoanKhachs.Where(d => d.DateCreated.Date >= dateStart && d.DateCreated.Date <= dateEnd).ToList();
-                CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-
                 //In du lieu chi phi cua Doan
                 if (doans != null && doans.Count > 0)
                 {
                     var count = 0;
+                   
                     foreach (var doan in doans)
-                    { 
+                    {
+                        var total_doan = 0;
+                        var hanhkhach_count = (doan.CTDoans != null && doan.CTDoans.Count() > 0) ? doan.CTDoans.Count : 0 ;
                         var group1 = new ListViewGroup("doan" + count);
                         count++;
-                        group1.Header = doan.TenDoan + " (" + doan.DateStart.Date + " - " + doan.DateEnd.Date + ")";
+                        group1.Header = doan.TenDoan + " (" + doan.DateStart.Date.ToString("yyyy/MM/dd") + " - " + doan.DateEnd.Date.ToString("yyyy/MM/dd") + ") (" + hanhkhach_count + " hành khách )";
                         lv_doanhthu1.Groups.Add(group1);
-                        ListViewItem item1 = new ListViewItem { Text = "Giá Tour (" + doan.Gia.TGBD.Date + " - " + doan.Gia.TGKT.Date + ")" , Group = group1 };
+                        ListViewItem item1 = new ListViewItem { Text = "Giá Tour (" + doan.Gia.TGBD.Date.ToString("yyyy/MM/dd") + " - " + doan.Gia.TGKT.Date.ToString("yyyy/MM/dd") + ")", Group = group1 };
                         var giaFormat1 = doan.Gia.GiaTri.ToString("#,###.##",cul).Replace(".", ",");
-                        total = total + doan.Gia.GiaTri;
+                        total_doan = total_doan + doan.Gia.GiaTri;
                         item1.SubItems.Add(giaFormat1 + " đ");
                         lv_doanhthu1.Items.Add(item1);
                         foreach (var chitieu in doan.CTChitieus)
                         {
                             ListViewItem item = new ListViewItem { Text = chitieu.ChiTieu.Ten, Group = group1};
                             int chiphi = int.Parse(chitieu.TienCT);
-                            total = total + chiphi;
+                            total_doan = total_doan + chiphi;
                             var giaFormat = chiphi.ToString("#,###.##", cul).Replace(".", ",");
                             item.SubItems.Add(giaFormat + " đ");
                             lv_doanhthu1.Items.Add(item);
                         }
-                        
+
+                        //Tổng tiền của đoàn * số lượng hành khách
+                        total_doan = total_doan * hanhkhach_count;
+                        total = total + total_doan;
+                        ListViewItem item_doan = new ListViewItem { Text = "Tổng tiền thu được của đoàn", Group = group1 };
+                        var giaFormat2 = total_doan.ToString("#,###.##", cul).Replace(".", ",");
+                        item_doan.SubItems.Add(giaFormat2 + " đ");
+                        lv_doanhthu1.Items.Add(item_doan);
                     }
 
                 }
@@ -154,10 +186,38 @@ namespace TourApp
                 g1.Header = "Tổng doanh thu";
                 lv_doanhthu1.Groups.Add(g1);
                 ListViewItem totalItem = new ListViewItem { Text = "Tổng Tiền" , Group = g1 };
-                var giaFormat2 = total.ToString("#,###.##", cul).Replace(".", ",");
-                totalItem.SubItems.Add(giaFormat2 + " đ");
+                var giaTotalFormat = total.ToString("#,###.##", cul).Replace(".", ",");
+                totalItem.SubItems.Add(giaTotalFormat + " đ");
                 lv_doanhthu1.Items.Add(totalItem);
 
+            }
+            else
+            {
+                var doan = _doanRepo.getById(0, id);
+                var group1 = new ListViewGroup("doan");
+                group1.Header = doan.TenDoan + " (" + doan.DateStart.Date.ToString("yyyy/MM/dd") + " - " + doan.DateEnd.Date.ToString("yyyy/MM/dd") + ") (" + doan.CTDoans.Count() + " hành khách )";
+                lv_doanhthu1.Groups.Add(group1);
+                ListViewItem item1 = new ListViewItem { Text = "Giá Tour (" + doan.Gia.TGBD.Date.ToString("yyyy/MM/dd") + " - " + doan.Gia.TGKT.Date.ToString("yyyy/MM/dd") + ")", Group = group1 };
+                var giaFormat1 = doan.Gia.GiaTri.ToString("#,###.##", cul).Replace(".", ",");
+                total = total + doan.Gia.GiaTri;
+                item1.SubItems.Add(giaFormat1 + " đ");
+                lv_doanhthu1.Items.Add(item1);
+                foreach (CTChitieu chitieu in doan.CTChitieus)
+                {
+                    ListViewItem item = new ListViewItem { Text = chitieu.ChiTieu.Ten, Group = group1 };
+                    int chiphi = int.Parse(chitieu.TienCT);
+                    total = total + chiphi;
+                    var giaFormat = chiphi.ToString("#,###.##", cul).Replace(".", ",");
+                    item.SubItems.Add(giaFormat + " đ");
+                    lv_doanhthu1.Items.Add(item);
+                }
+
+                //Tổng tiền của đoàn * số lượng hành khách
+                total = total * doan.CTDoans.Count();
+                ListViewItem item_doan = new ListViewItem { Text = "Tổng tiền thu được của đoàn", Group = group1 };
+                var giaFormat2 = total.ToString("#,###.##", cul).Replace(".", ",");
+                item_doan.SubItems.Add(giaFormat2 + " đ");
+                lv_doanhthu1.Items.Add(item_doan);
             }
         }
 
@@ -174,9 +234,19 @@ namespace TourApp
 
         private void lv_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             ReadData();
         }
 
-
+        private void date_ValueChanged(object sender, EventArgs e)
+        {
+            var oldValue = preDate;
+            preDate = ((DateTimePicker)sender).Value;
+            lv.SelectedItems.Clear();
+            if(!validate())
+            {
+                ((DateTimePicker)sender).Value = oldValue;
+            }
+        }
     }
 }

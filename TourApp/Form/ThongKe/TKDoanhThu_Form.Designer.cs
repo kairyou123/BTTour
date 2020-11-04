@@ -111,6 +111,7 @@
             this.datestart.Name = "datestart";
             this.datestart.Size = new System.Drawing.Size(139, 23);
             this.datestart.TabIndex = 3;
+            this.datestart.ValueChanged += new System.EventHandler(this.date_ValueChanged);
             // 
             // dateend
             // 
@@ -118,6 +119,7 @@
             this.dateend.Name = "dateend";
             this.dateend.Size = new System.Drawing.Size(151, 23);
             this.dateend.TabIndex = 3;
+            this.dateend.ValueChanged += new System.EventHandler(this.date_ValueChanged);
             // 
             // lbl_start
             // 

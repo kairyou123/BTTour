@@ -10,6 +10,10 @@ namespace TourApp.Entity
 {
     public class DoanKhach
     {
+        public DoanKhach()
+        {
+            this.CTDoans = new List<CTDoan>();
+        }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int DoanId { set; get; }
