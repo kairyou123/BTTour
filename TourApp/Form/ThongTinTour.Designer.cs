@@ -50,6 +50,7 @@
             this.gia = new System.Windows.Forms.ColumnHeader();
             this.datestart = new System.Windows.Forms.ColumnHeader();
             this.dateend = new System.Windows.Forms.ColumnHeader();
+            this.dsdoankhach = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -293,11 +294,22 @@
             this.dateend.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dateend.Width = 130;
             // 
+            // dsdoankhach
+            // 
+            this.dsdoankhach.Location = new System.Drawing.Point(631, 12);
+            this.dsdoankhach.Name = "dsdoankhach";
+            this.dsdoankhach.Size = new System.Drawing.Size(141, 23);
+            this.dsdoankhach.TabIndex = 2;
+            this.dsdoankhach.Text = "Danh sách đoàn khách";
+            this.dsdoankhach.UseVisualStyleBackColor = true;
+            this.dsdoankhach.Click += new System.EventHandler(this.dsdoankhach_Click);
+            // 
             // ThongTinTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 561);
+            this.Controls.Add(this.dsdoankhach);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -337,5 +349,6 @@
         private System.Windows.Forms.ColumnHeader gia;
         private System.Windows.Forms.ColumnHeader datestart;
         private System.Windows.Forms.ColumnHeader dateend;
+        private System.Windows.Forms.Button dsdoankhach;
     }
 }

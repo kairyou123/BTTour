@@ -699,10 +699,10 @@ namespace TourApp
 
         private void tabCT_AddBtn_Click(object sender, EventArgs e)
         {
-            //ThemTour form = _serviceProvider.GetRequiredService<ThemTour>();
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            ThemChiTieu form = _serviceProvider.GetRequiredService<ThemChiTieu>();
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
         }
 
 
@@ -715,13 +715,20 @@ namespace TourApp
             switch (name)
             {
                 case "tabCT_ViewCol":
-                //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
-                //form.getId(int.Parse(value));
-                //var main = this.Location;
-                //form.Location = new Point((main.X + 10), (main.Y + 10));
-                //form.Show();
-                //break;
+                ThemChiTieu form = _serviceProvider.GetRequiredService<ThemChiTieu>();
+                form.setId(int.Parse(value));
+                    form.editState = EditState.View;
+                var main = this.Location;
+                form.Location = new Point((main.X + 10), (main.Y + 10));
+                form.Show();
+                break;
                 case "tabCT_EditCol":
+                    ThemChiTieu form1 = _serviceProvider.GetRequiredService<ThemChiTieu>();
+                    form1.setId(int.Parse(value));
+                    form1.editState = EditState.Edit;
+                    var main1 = this.Location;
+                    form1.Location = new Point((main1.X + 10), (main1.Y + 10));
+                    form1.Show();
                     break;
                 case "tabCT_DeleteCol":
                     var chitieu = _chitieuRepo.getById(int.Parse(value));
