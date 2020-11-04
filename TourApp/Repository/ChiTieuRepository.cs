@@ -38,7 +38,7 @@ namespace TourApp.Repository
 
         public ChiTieu getById(int CTId)
         {
-            return _context.ChiTieus.Where(ct => ct.CTId == CTId).Include(ct => ct.CTChitieus).FirstOrDefault();
+            return _context.ChiTieus.Where(ct => ct.CTId == CTId).Include(ct => ct.CTChitieus).ThenInclude(i => i.DoanKhach).FirstOrDefault();
         }
 
         public IEnumerable<ChiTieu> getWhere(string ID, string Ten)

@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-
 namespace TourApp
 {
     partial class List
@@ -164,6 +163,12 @@ namespace TourApp
             this.DarkStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LightStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefaultStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.StatisticMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.TKChiPhiMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.TKDoanhThuMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.TKTinhHinhHoatDongMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.TKSoLanDiTourMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.tabControl.SuspendLayout();
             this.tabTour.SuspendLayout();
@@ -1015,11 +1020,12 @@ namespace TourApp
             // 
             // tabDoan_ChitietCol
             // 
-            this.tabDoan_ChitietCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tabDoan_ChitietCol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.tabDoan_ChitietCol.HeaderText = "Chi tiết";
             this.tabDoan_ChitietCol.MinimumWidth = 6;
             this.tabDoan_ChitietCol.Name = "tabDoan_ChitietCol";
             this.tabDoan_ChitietCol.ReadOnly = true;
+            this.tabDoan_ChitietCol.Width = 125;
             // 
             // tabDoan_StatusCol
             // 
@@ -1625,7 +1631,8 @@ namespace TourApp
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileMenu,
-            this.SettingMenu});
+            this.SettingMenu,
+            this.ToolsMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
@@ -1689,6 +1696,51 @@ namespace TourApp
             this.DefaultStripMenuItem.Name = "DefaultStripMenuItem";
             this.DefaultStripMenuItem.Size = new System.Drawing.Size(141, 26);
             this.DefaultStripMenuItem.Text = "Default";
+            // 
+            // ToolsMenu
+            // 
+            this.ToolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatisticMenu});
+            this.ToolsMenu.Name = "ToolsMenu";
+            this.ToolsMenu.Size = new System.Drawing.Size(58, 24);
+            this.ToolsMenu.Text = "Tools";
+            // 
+            // StatisticMenu
+            // 
+            this.StatisticMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TKChiPhiMenu,
+            this.TKDoanhThuMenu,
+            this.TKTinhHinhHoatDongMenu,
+            this.TKSoLanDiTourMenu});
+            this.StatisticMenu.Name = "StatisticMenu";
+            this.StatisticMenu.Size = new System.Drawing.Size(153, 26);
+            this.StatisticMenu.Text = "Thống kê";
+            // 
+            // TKChiPhiMenu
+            // 
+            this.TKChiPhiMenu.Name = "TKChiPhiMenu";
+            this.TKChiPhiMenu.Size = new System.Drawing.Size(275, 26);
+            this.TKChiPhiMenu.Text = "Thống kê chi phí";
+            this.TKChiPhiMenu.Click += new System.EventHandler(this.TKChiPhiMenu_Clicked);
+            // 
+            // TKDoanhThuMenu
+            // 
+            this.TKDoanhThuMenu.Name = "TKDoanhThuMenu";
+            this.TKDoanhThuMenu.Size = new System.Drawing.Size(275, 26);
+            this.TKDoanhThuMenu.Text = "Doanh thu";
+            this.TKDoanhThuMenu.Click += new System.EventHandler(this.TKDoanhThuMenu_Clicked);
+            // 
+            // TKTinhHinhHoatDongMenu
+            // 
+            this.TKTinhHinhHoatDongMenu.Name = "TKTinhHinhHoatDongMenu";
+            this.TKTinhHinhHoatDongMenu.Size = new System.Drawing.Size(275, 26);
+            this.TKTinhHinhHoatDongMenu.Text = "Tình hình hoạt động";
+            // 
+            // TKSoLanDiTourMenu
+            // 
+            this.TKSoLanDiTourMenu.Name = "TKSoLanDiTourMenu";
+            this.TKSoLanDiTourMenu.Size = new System.Drawing.Size(275, 26);
+            this.TKSoLanDiTourMenu.Text = "Số lần đi tour của nhân viên";
             // 
             // toolStripComboBox1
             // 
@@ -1879,6 +1931,12 @@ namespace TourApp
         private DataGridViewButtonColumn tabLHDL_ViewCol;
         private DataGridViewButtonColumn tabLHDL_EditCol;
         private DataGridViewButtonColumn tabLHDL_DeleteCol;
+        private ToolStripMenuItem ToolsMenu;
+        private ToolStripMenuItem StatisticMenu;
+        private ToolStripMenuItem TKChiPhiMenu;
+        private ToolStripMenuItem TKDoanhThuMenu;
+        private ToolStripMenuItem TKTinhHinhHoatDongMenu;
+        private ToolStripMenuItem TKSoLanDiTourMenu;
     }
 }
 

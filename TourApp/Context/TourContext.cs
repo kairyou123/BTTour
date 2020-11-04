@@ -33,7 +33,7 @@ namespace TourApp.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=21AK22-COM\\SQLEXPRESS;Initial Catalog=TourDb2;User ID=sa;Password=12345");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-1I87EAD;Initial Catalog=TourApp;Integrated Security=True");
 
         }
 

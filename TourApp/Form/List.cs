@@ -277,6 +277,22 @@ namespace TourApp
             spreadsheetDocument.Close();
             spreadsheetDocument.Dispose();
         }
+
+        //statistic - Thống kê
+        private void TKChiPhiMenu_Clicked(object sender, EventArgs e)
+        {
+            TKChiPhi_Form form = _serviceProvider.GetRequiredService<TKChiPhi_Form>();
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
+        }
+        private void TKDoanhThuMenu_Clicked(object sender, EventArgs e)
+        {
+            TKDoanhThu_Form form = _serviceProvider.GetRequiredService<TKDoanhThu_Form>();
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
+        }
         #endregion
 
         #region Tour
