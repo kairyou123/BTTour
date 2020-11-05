@@ -522,21 +522,34 @@ namespace TourApp
             switch (name)
             {
                 case "tabNV_ViewCol":
-                    //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
-                    //form.getId(int.Parse(value));
-                    //var main = this.Location;
-                    //form.Location = new Point((main.X + 10), (main.Y + 10));
-                    //form.Show();
-                    //break;
+                    {
+                        NhanVienAdd form = _serviceProvider.GetRequiredService<NhanVienAdd>();
+                        form.setId(int.Parse(value));
+                        form.editState = EditState.View;
+                        var main = this.Location;
+                        form.Location = new Point((main.X + 10), (main.Y + 10));
+                        form.Show();
+                        break;
+                    }
                 case "tabNV_EditCol":
-                    break;
+                    {
+                        NhanVienAdd form = _serviceProvider.GetRequiredService<NhanVienAdd>();
+                        form.setId(int.Parse(value));
+                        form.editState = EditState.Edit;
+                        var main = this.Location;
+                        form.Location = new Point((main.X + 10), (main.Y + 10));
+                        form.Show();
+                        break;
+                    }
                 case "tabNV_DeleteCol":
-                    var nhanvien = _nhanvienRepo.getById(int.Parse(value));
-                    var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + nhanvien.Ten, "Warning", MessageBoxButtons.YesNo);
-                    if (messageResult != DialogResult.Yes) return;
-                    _nhanvienRepo.Delete(nhanvien);
-                    tabNV_Search();
-                    break;
+                    {
+                        var nhanvien = _nhanvienRepo.getById(int.Parse(value));
+                        var messageResult = MessageBox.Show("Bạn có chắc muốn xóa " + nhanvien.Ten, "Warning", MessageBoxButtons.YesNo);
+                        if (messageResult != DialogResult.Yes) return;
+                        _nhanvienRepo.Delete(nhanvien);
+                        tabNV_Search();
+                        break;
+                    }
             }
 
         }
@@ -550,10 +563,11 @@ namespace TourApp
 
         private void tabNV_AddBtn_Click(object sender, EventArgs e)
         {
-            //ThemTour form = _serviceProvider.GetRequiredService<ThemTour>();
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            NhanVienAdd form = _serviceProvider.GetRequiredService<NhanVienAdd>();
+            form.editState = EditState.Create;
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
         }
 
         private void tabNV_RefreshBtn_Click(object sender, EventArgs e)
@@ -569,11 +583,13 @@ namespace TourApp
             if (name == "tabNV_EditCol" || name == "tabNV_ViewCol" || name == "tabNV_DeleteCol") return;
             var value = grid.Rows[e.RowIndex].Cells["tabNV_IDCol"].Value.ToString();
 
-            //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
-            //form.getId(int.Parse(value));
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            NhanVienAdd form = _serviceProvider.GetRequiredService<NhanVienAdd>();
+            form.setId(int.Parse(value));
+            form.editState = EditState.View;
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
+            
         }
         private void tabNV_Search()
         {
