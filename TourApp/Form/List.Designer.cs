@@ -1735,6 +1735,7 @@ namespace TourApp
             this.TKTinhHinhHoatDongMenu.Name = "TKTinhHinhHoatDongMenu";
             this.TKTinhHinhHoatDongMenu.Size = new System.Drawing.Size(275, 26);
             this.TKTinhHinhHoatDongMenu.Text = "Tình hình hoạt động";
+            this.TKTinhHinhHoatDongMenu.Click += new System.EventHandler(this.TKTinhHinhHoatDong_Clicked);
             // 
             // TKSoLanDiTourMenu
             // 

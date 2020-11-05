@@ -293,6 +293,13 @@ namespace TourApp
             form.Location = new Point((main.X + 10), (main.Y + 10));
             form.Show();
         }
+        private void TKTinhHinhHoatDong_Clicked(object sender, EventArgs e)
+        {
+            TKTinhHinhHoatDong form = _serviceProvider.GetRequiredService<TKTinhHinhHoatDong>();
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
+        }
         #endregion
 
         #region Tour

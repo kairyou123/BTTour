@@ -29,7 +29,6 @@ namespace TourApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.tourRadioBtn = new System.Windows.Forms.RadioButton();
             this.ChitieuRadioBtn = new System.Windows.Forms.RadioButton();
             this.groupRadio = new System.Windows.Forms.GroupBox();
@@ -121,10 +120,6 @@ namespace TourApp
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.LoaiChiPhiCol,
             this.SoTienCol});
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "ListViewGroup";
-            this.listView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(4, 213);
             this.listView.Name = "listView";
