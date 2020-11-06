@@ -50,9 +50,10 @@ namespace TourApp
             this.tourRadioBtn.AutoSize = true;
             this.tourRadioBtn.Checked = true;
             this.tourRadioBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tourRadioBtn.Location = new System.Drawing.Point(29, 37);
+            this.tourRadioBtn.Location = new System.Drawing.Point(25, 28);
+            this.tourRadioBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tourRadioBtn.Name = "tourRadioBtn";
-            this.tourRadioBtn.Size = new System.Drawing.Size(59, 24);
+            this.tourRadioBtn.Size = new System.Drawing.Size(48, 19);
             this.tourRadioBtn.TabIndex = 1;
             this.tourRadioBtn.TabStop = true;
             this.tourRadioBtn.Text = "Tour";
@@ -63,9 +64,10 @@ namespace TourApp
             // 
             this.ChitieuRadioBtn.AutoSize = true;
             this.ChitieuRadioBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ChitieuRadioBtn.Location = new System.Drawing.Point(113, 37);
+            this.ChitieuRadioBtn.Location = new System.Drawing.Point(99, 28);
+            this.ChitieuRadioBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ChitieuRadioBtn.Name = "ChitieuRadioBtn";
-            this.ChitieuRadioBtn.Size = new System.Drawing.Size(80, 24);
+            this.ChitieuRadioBtn.Size = new System.Drawing.Size(66, 19);
             this.ChitieuRadioBtn.TabIndex = 2;
             this.ChitieuRadioBtn.Text = "Chi tiêu";
             this.ChitieuRadioBtn.UseVisualStyleBackColor = true;
@@ -76,42 +78,47 @@ namespace TourApp
             this.groupRadio.Controls.Add(this.ChitieuRadioBtn);
             this.groupRadio.Controls.Add(this.tourRadioBtn);
             this.groupRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupRadio.Location = new System.Drawing.Point(7, 19);
+            this.groupRadio.Location = new System.Drawing.Point(6, 14);
+            this.groupRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupRadio.Name = "groupRadio";
-            this.groupRadio.Size = new System.Drawing.Size(210, 85);
+            this.groupRadio.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupRadio.Size = new System.Drawing.Size(184, 64);
             this.groupRadio.TabIndex = 3;
             this.groupRadio.TabStop = false;
             this.groupRadio.Text = "Thống kê chi phí theo";
             // 
             // fromDate
             // 
-            this.fromDate.Location = new System.Drawing.Point(295, 66);
+            this.fromDate.Location = new System.Drawing.Point(258, 50);
+            this.fromDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fromDate.Name = "fromDate";
-            this.fromDate.Size = new System.Drawing.Size(250, 27);
+            this.fromDate.Size = new System.Drawing.Size(219, 23);
             this.fromDate.TabIndex = 4;
+            this.fromDate.Value = new System.DateTime(2019, 11, 6, 14, 26, 0, 0);
             // 
             // toDate
             // 
-            this.toDate.Location = new System.Drawing.Point(578, 66);
+            this.toDate.Location = new System.Drawing.Point(506, 50);
+            this.toDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.toDate.Name = "toDate";
-            this.toDate.Size = new System.Drawing.Size(250, 27);
+            this.toDate.Size = new System.Drawing.Size(219, 23);
             this.toDate.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(295, 41);
+            this.label1.Location = new System.Drawing.Point(258, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 20);
+            this.label1.Size = new System.Drawing.Size(49, 15);
             this.label1.TabIndex = 6;
             this.label1.Text = "Từ ngày";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(578, 41);
+            this.label2.Location = new System.Drawing.Point(506, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 20);
+            this.label2.Size = new System.Drawing.Size(57, 15);
             this.label2.TabIndex = 7;
             this.label2.Text = "Đến ngày";
             // 
@@ -121,9 +128,10 @@ namespace TourApp
             this.LoaiChiPhiCol,
             this.SoTienCol});
             this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(4, 213);
+            this.listView.Location = new System.Drawing.Point(4, 160);
+            this.listView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(869, 379);
+            this.listView.Size = new System.Drawing.Size(761, 285);
             this.listView.TabIndex = 8;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -141,9 +149,9 @@ namespace TourApp
             // SelectLabel
             // 
             this.SelectLabel.AutoSize = true;
-            this.SelectLabel.Location = new System.Drawing.Point(8, 111);
+            this.SelectLabel.Location = new System.Drawing.Point(7, 83);
             this.SelectLabel.Name = "SelectLabel";
-            this.SelectLabel.Size = new System.Drawing.Size(49, 20);
+            this.SelectLabel.Size = new System.Drawing.Size(38, 15);
             this.SelectLabel.TabIndex = 9;
             this.SelectLabel.Text = "Select";
             // 
@@ -152,17 +160,19 @@ namespace TourApp
             this.selectCbb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.selectCbb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.selectCbb.FormattingEnabled = true;
-            this.selectCbb.Location = new System.Drawing.Point(8, 135);
+            this.selectCbb.Location = new System.Drawing.Point(7, 101);
+            this.selectCbb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.selectCbb.Name = "selectCbb";
-            this.selectCbb.Size = new System.Drawing.Size(209, 28);
+            this.selectCbb.Size = new System.Drawing.Size(183, 23);
             this.selectCbb.TabIndex = 10;
             this.selectCbb.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.selectCbb_Format);
             // 
             // thongkeBtn
             // 
-            this.thongkeBtn.Location = new System.Drawing.Point(763, 172);
+            this.thongkeBtn.Location = new System.Drawing.Point(668, 129);
+            this.thongkeBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.thongkeBtn.Name = "thongkeBtn";
-            this.thongkeBtn.Size = new System.Drawing.Size(94, 29);
+            this.thongkeBtn.Size = new System.Drawing.Size(82, 22);
             this.thongkeBtn.TabIndex = 11;
             this.thongkeBtn.Text = "Thống kê";
             this.thongkeBtn.UseVisualStyleBackColor = true;
@@ -170,9 +180,9 @@ namespace TourApp
             // 
             // TKChiPhi_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 608);
+            this.ClientSize = new System.Drawing.Size(766, 456);
             this.Controls.Add(this.thongkeBtn);
             this.Controls.Add(this.selectCbb);
             this.Controls.Add(this.SelectLabel);
@@ -182,6 +192,7 @@ namespace TourApp
             this.Controls.Add(this.toDate);
             this.Controls.Add(this.fromDate);
             this.Controls.Add(this.groupRadio);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TKChiPhi_Form";
             this.Text = "Thống kê chi phí";
             this.Load += new System.EventHandler(this.TKChiPhi_Form_Load);

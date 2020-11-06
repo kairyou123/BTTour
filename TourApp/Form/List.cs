@@ -300,6 +300,14 @@ namespace TourApp
             form.Location = new Point((main.X + 10), (main.Y + 10));
             form.Show();
         }
+
+        private void TKSoLanDiTour_Clicked(object sender, EventArgs e)
+        {
+            TK_NhanVienTour form = _serviceProvider.GetRequiredService<TK_NhanVienTour>();
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
+        }
         #endregion
 
         #region Tour
@@ -522,13 +530,20 @@ namespace TourApp
             switch (name)
             {
                 case "tabNV_ViewCol":
-                    //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
-                    //form.getId(int.Parse(value));
-                    //var main = this.Location;
-                    //form.Location = new Point((main.X + 10), (main.Y + 10));
-                    //form.Show();
-                    //break;
+                    NhanVienAdd form = _serviceProvider.GetRequiredService<NhanVienAdd>();
+                    form.id = int.Parse(value);
+                    form.editState = EditState.View;
+                    var main = this.Location;
+                    form.Location = new Point((main.X + 10), (main.Y + 10));
+                    form.Show();
+                    break;
                 case "tabNV_EditCol":
+                    NhanVienAdd form1 = _serviceProvider.GetRequiredService<NhanVienAdd>();
+                    form1.id = int.Parse(value);
+                    form1.editState = EditState.Edit;
+                    var main1 = this.Location;
+                    form1.Location = new Point((main1.X + 10), (main1.Y + 10));
+                    form1.Show();
                     break;
                 case "tabNV_DeleteCol":
                     var nhanvien = _nhanvienRepo.getById(int.Parse(value));
@@ -550,10 +565,11 @@ namespace TourApp
 
         private void tabNV_AddBtn_Click(object sender, EventArgs e)
         {
-            //ThemTour form = _serviceProvider.GetRequiredService<ThemTour>();
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            NhanVienAdd form = _serviceProvider.GetRequiredService<NhanVienAdd>();
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.editState = EditState.Create;
+            form.Show();
         }
 
         private void tabNV_RefreshBtn_Click(object sender, EventArgs e)
@@ -788,12 +804,9 @@ namespace TourApp
                     Chitiet_str = tabDoan_SearchBox.Text;
                     break;
                 case 4:
-                    Tinhtrang_str = tabDoan_SearchBox.Text;
-                    break;
-                case 5:
                     TourID_str = tabDoan_SearchBox.Text;
                     break;
-                case 6:
+                case 5:
                     MaTour_str = tabDoan_SearchBox.Text;
                     break;
             }
@@ -802,7 +815,7 @@ namespace TourApp
             var data = _doankhachRepo.getWhere(ID_str, MaDoan_str, TenDoan_str, Chitiet_str, Tinhtrang_str, TourID_str, MaTour_str, tabDoan_CB.Checked ? 1 : 0);
             foreach (DoanKhach item in data)
             {
-                DoanGridView.Rows.Add(item.DoanId, item.MaDoan, item.TenDoan, item.Chitiet, item.Status, item.TourId, item.Tour.MaTour);
+                DoanGridView.Rows.Add(item.DoanId, item.MaDoan, item.TenDoan, item.Chitiet, item.TourId, item.Tour.MaTour);
             }
         }
         private void tabDoan_SearchBtn_Click(object sender, EventArgs e)
@@ -849,7 +862,7 @@ namespace TourApp
                 return;
 
             //I supposed your button column is at index 0
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 6)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.view;
@@ -861,7 +874,7 @@ namespace TourApp
                 e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 8)
+            if (e.ColumnIndex == 7)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.edit;
@@ -873,7 +886,7 @@ namespace TourApp
                 e.Graphics.DrawImage(img, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
-            if (e.ColumnIndex == 9)
+            if (e.ColumnIndex == 8)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 var img = Properties.Resources.delete;

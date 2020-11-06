@@ -35,16 +35,18 @@ namespace TourApp.Repository
 
         public IEnumerable<NhanVien> getAll()
         {
-            return _context.NhanViens.Where(t => t.isDeleted == Status.NotDeleted).ToList();
+            return _context.NhanViens.Where(t => t.isDeleted == Status.NotDeleted).Include(nv => nv.NV_VTs) .ThenInclude(d => d.DoanKhach).ToList();
         }
         public IEnumerable<NhanVien> getAllDelete()
         {
-            return _context.NhanViens.ToList();
+            return _context.NhanViens.Include(nv => nv.NV_VTs).ThenInclude(d => d.DoanKhach).ToList();
         }
         public NhanVien getById(int NVId = 1, string MaNV = "abc")
         {
-            return _context.NhanViens.Where(t => t.NVId == NVId || t.MaNV == MaNV)                               
-                                       .FirstOrDefault();
+            return _context.NhanViens.Where(t => t.NVId == NVId || t.MaNV == MaNV)          
+                                                            .Include(nv => nv.NV_VTs)
+                                                            .ThenInclude(d => d.DoanKhach)
+                                                             .FirstOrDefault();
         }
 
         public IEnumerable<NhanVien> getWhere(string ID, string MaNv, string Ten, string SDT, int isDeleted)
@@ -55,6 +57,8 @@ namespace TourApp.Repository
                                      .Where(t => t.MaNV.Contains(MaNv))
                                      .Where(t => t.Ten.Contains(Ten))
                                      .Where(t => t.SDT.Contains(SDT))
+                                     .Include(nv => nv.NV_VTs)
+                                     .ThenInclude(d => d.DoanKhach)
                                      .ToList();
         }
 

@@ -111,6 +111,7 @@
             this.datestart.Name = "datestart";
             this.datestart.Size = new System.Drawing.Size(139, 23);
             this.datestart.TabIndex = 3;
+            this.datestart.Value = new System.DateTime(2019, 11, 6, 14, 26, 0, 0);
             this.datestart.ValueChanged += new System.EventHandler(this.date_ValueChanged);
             // 
             // dateend

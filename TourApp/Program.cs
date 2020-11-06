@@ -40,6 +40,7 @@ namespace TourApp
         private static void ConfigureServices(ServiceCollection services)
         {
             services.AddDbContext<TourContext>();
+            services.AddTransient<NhanVienAdd>();
             services.AddTransient<FormTest>();
             services.AddTransient<ThongTinTour>();
             services.AddTransient<ThemTour>();
@@ -54,6 +55,7 @@ namespace TourApp
             services.AddTransient<TKChiPhi_Form>();
             services.AddTransient<TKDoanhThu_Form>();
             services.AddTransient<TKTinhHinhHoatDong>();
+            services.AddTransient<TK_NhanVienTour>();
             services.AddScoped<IChiTieuRepository, ChiTieuRepository>();
             services.AddScoped<ITourRepository, TourRepository>();
             services.AddScoped<IDiaDiemRepository, DiaDiemRepository>();
