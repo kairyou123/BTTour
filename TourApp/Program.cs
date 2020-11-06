@@ -52,6 +52,7 @@ namespace TourApp
             services.AddTransient<HanhKhach_Form>();
             services.AddTransient<DoanKhach_Form>();
             services.AddTransient<SearchForm>();
+            services.AddTransient<NhanVienAdd>();
             services.AddTransient<TKChiPhi_Form>();
             services.AddTransient<TKDoanhThu_Form>();
             services.AddTransient<TKTinhHinhHoatDong>();
