@@ -7,17 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20201103110120_init.cs" />
-    <Compile Remove="Migrations\20201103110120_init.Designer.cs" />
-    <Compile Remove="Migrations\20201103111440_init.cs" />
-    <Compile Remove="Migrations\20201103111440_init.Designer.cs" />
-    <Compile Remove="Migrations\20201103111626_init.cs" />
-    <Compile Remove="Migrations\20201103111626_init.Designer.cs" />
-    <Compile Remove="Migrations\20201103111817_init.cs" />
-    <Compile Remove="Migrations\20201103111817_init.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.11.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
