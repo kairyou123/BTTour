@@ -139,16 +139,17 @@ namespace TourApp
               + " (" + dateTimeFormat(doan.DateStart) + " - " + dateTimeFormat(doan.DateEnd) + ")";
                 listView.Groups.Add(group);
                 //giá tour
-                ListViewItem item = new ListViewItem
-                {
-                    Text = "Giá tour",
-                    Group = group,
-                    ForeColor = Color.DarkGreen
-                };
-                item.SubItems.Add(moneyFormat(doan.Gia.GiaTri));
-                int itemTotal = doan.Gia.GiaTri;
-                listView.Items.Add(item);
+                //ListViewItem item = new ListViewItem
+                //{
+                //    Text = "Giá tour",
+                //    Group = group,
+                //    ForeColor = Color.DarkGreen
+                //};
+                //item.SubItems.Add(moneyFormat(doan.Gia.GiaTri));
 
+                //listView.Items.Add(item);
+                ListViewItem item;
+                int itemTotal = 0;
                 foreach (CTChitieu ctchitieu in doan.CTChitieus)
                 {
                     item = new ListViewItem
@@ -161,7 +162,7 @@ namespace TourApp
                     listView.Items.Add(item);
                     itemTotal += tienCT;
                 }
-
+                
                 item = new ListViewItem
                 {
                     Text = "Tổng cộng",

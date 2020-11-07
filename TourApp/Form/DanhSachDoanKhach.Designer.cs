@@ -34,19 +34,21 @@
             // doankhachlist
             // 
             this.doankhachlist.HideSelection = false;
-            this.doankhachlist.Location = new System.Drawing.Point(1, 6);
+            this.doankhachlist.Location = new System.Drawing.Point(1, 8);
+            this.doankhachlist.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.doankhachlist.MultiSelect = false;
             this.doankhachlist.Name = "doankhachlist";
-            this.doankhachlist.Size = new System.Drawing.Size(686, 426);
+            this.doankhachlist.Size = new System.Drawing.Size(783, 567);
             this.doankhachlist.TabIndex = 0;
             this.doankhachlist.UseCompatibleStateImageBehavior = false;
             // 
             // DanhSachDoanKhach
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 444);
+            this.ClientSize = new System.Drawing.Size(789, 592);
             this.Controls.Add(this.doankhachlist);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "DanhSachDoanKhach";
             this.Text = "DanhSachDoanKhach";
             this.ResumeLayout(false);

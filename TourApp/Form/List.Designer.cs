@@ -241,6 +241,7 @@ namespace TourApp
             this.tabTour_ToPrice.Name = "tabTour_ToPrice";
             this.tabTour_ToPrice.Size = new System.Drawing.Size(150, 27);
             this.tabTour_ToPrice.TabIndex = 15;
+            this.tabTour_ToPrice.ThousandsSeparator = true;
             // 
             // label5
             // 
@@ -273,6 +274,7 @@ namespace TourApp
             this.tabTour_FromPrice.Name = "tabTour_FromPrice";
             this.tabTour_FromPrice.Size = new System.Drawing.Size(150, 27);
             this.tabTour_FromPrice.TabIndex = 11;
+            this.tabTour_FromPrice.ThousandsSeparator = true;
             // 
             // label3
             // 

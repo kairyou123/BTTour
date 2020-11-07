@@ -143,10 +143,11 @@ namespace TourApp
                 //DoanKhach filter
                 var doans = tour.DoanKhachs.Where(d => d.DateCreated.Date >= dateStart && d.DateCreated.Date <= dateEnd).ToList();
                 //In du lieu chi phi cua Doan
+
+                int income = 0;
                 if (doans != null && doans.Count > 0)
                 {
                     var count = 0;
-                   
                     foreach (var doan in doans)
                     {
                         var total_doan = 0;
@@ -160,16 +161,18 @@ namespace TourApp
                         total_doan = total_doan + doan.Gia.GiaTri;
                         item1.SubItems.Add(giaFormat1 + " đ");
                         lv_doanhthu1.Items.Add(item1);
+                        int income_item = 0;
+                        int chiphi_item = 0;
                         foreach (var chitieu in doan.CTChitieus)
                         {
-                            ListViewItem item = new ListViewItem { Text = chitieu.ChiTieu.Ten, Group = group1};
+                           
                             int chiphi = int.Parse(chitieu.TienCT);
-                            total_doan = total_doan + chiphi;
-                            var giaFormat = chiphi.ToString("#,###.##", cul).Replace(".", ",");
-                            item.SubItems.Add(giaFormat + " đ");
-                            lv_doanhthu1.Items.Add(item);
+                            chiphi_item +=  chiphi;
+                            
                         }
-
+                        chiphi_item *= hanhkhach_count;
+                         
+                        
                         //Tổng tiền của đoàn * số lượng hành khách
                         total_doan = total_doan * hanhkhach_count;
                         total = total + total_doan;
@@ -177,18 +180,30 @@ namespace TourApp
                         var giaFormat2 = total_doan.ToString("#,###.##", cul).Replace(".", ",");
                         item_doan.SubItems.Add(giaFormat2 + " đ");
                         lv_doanhthu1.Items.Add(item_doan);
+                        // lợi nhuận 1 đoàn
+                        income_item = total_doan - chiphi_item;
+                        ListViewItem item = new ListViewItem { Text = "Lợi nhuận", Group = group1 };
+                        var giaFormat = income_item.ToString("#,###.##", cul).Replace(".", ",");
+                        item.SubItems.Add(giaFormat + " đ");
+                        lv_doanhthu1.Items.Add(item);
+                        income += income_item;
                     }
 
                 }
 
                 //In tong tien
                 ListViewGroup g1 = new ListViewGroup("tong");
-                g1.Header = "Tổng doanh thu";
+                g1.Header = "Tổng doanh thu - Lợi nhuận";
                 lv_doanhthu1.Groups.Add(g1);
                 ListViewItem totalItem = new ListViewItem { Text = "Tổng Tiền" , Group = g1 };
                 var giaTotalFormat = total.ToString("#,###.##", cul).Replace(".", ",");
                 totalItem.SubItems.Add(giaTotalFormat + " đ");
                 lv_doanhthu1.Items.Add(totalItem);
+
+                ListViewItem totalIncome = new ListViewItem { Text = "Tổng lợi nhuận", Group = g1 };
+                var incomeFormat = income.ToString("#,###.##", cul).Replace(".", ",");
+                totalIncome.SubItems.Add(incomeFormat + " đ");
+                lv_doanhthu1.Items.Add(totalIncome);
 
             }
             else
@@ -202,15 +217,15 @@ namespace TourApp
                 total = total + doan.Gia.GiaTri;
                 item1.SubItems.Add(giaFormat1 + " đ");
                 lv_doanhthu1.Items.Add(item1);
-                foreach (CTChitieu chitieu in doan.CTChitieus)
-                {
-                    ListViewItem item = new ListViewItem { Text = chitieu.ChiTieu.Ten, Group = group1 };
-                    int chiphi = int.Parse(chitieu.TienCT);
-                    total = total + chiphi;
-                    var giaFormat = chiphi.ToString("#,###.##", cul).Replace(".", ",");
-                    item.SubItems.Add(giaFormat + " đ");
-                    lv_doanhthu1.Items.Add(item);
-                }
+                //foreach (CTChitieu chitieu in doan.CTChitieus)
+                //{
+                //    ListViewItem item = new ListViewItem { Text = chitieu.ChiTieu.Ten, Group = group1 };
+                //    int chiphi = int.Parse(chitieu.TienCT);
+                //    total = total + chiphi;
+                //    var giaFormat = chiphi.ToString("#,###.##", cul).Replace(".", ",");
+                //    item.SubItems.Add(giaFormat + " đ");
+                //    lv_doanhthu1.Items.Add(item);
+                //}
 
                 //Tổng tiền của đoàn * số lượng hành khách
                 total = total * doan.CTDoans.Count();

@@ -61,7 +61,6 @@ namespace TourApp
             var ten = lv_radio.Columns.Add("Ten");
             ten.Text = "Tên";
             ten.Width = 110;
-
             switch (Form_Search)
             {
                 case FormName.NVFORMNAME:
@@ -87,6 +86,8 @@ namespace TourApp
                     lv_radio.Columns.RemoveAt(1);
                     break;
             }
+
+            Search();
         }
 
         private bool validate()
@@ -124,30 +125,34 @@ namespace TourApp
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            Search();
+        }
+        private void Search()
+        {
             lv_search.Items.Clear();
             txt_search = text_search.Text;
 
-            switch(Form_Search)
+            switch (Form_Search)
             {
                 case "NhanVien_Form":
                     IEnumerable<NhanVien> list3 = _nvRepo.getWhere("", "", txt_search, "", 0);
                     foreach (NhanVien nv in list3)
                     {
-                        ListViewItem newList = new ListViewItem(new[] { nv.NVId.ToString(), nv.MaNV, nv.Ten});
+                        ListViewItem newList = new ListViewItem(new[] { nv.NVId.ToString(), nv.MaNV, nv.Ten });
                         lv_radio.Items.Add(newList);
                     }
                     break;
                 case "HanhKhach_Form":
-                    IEnumerable<HanhKhach> list1 = _hkRepo.getWhere("", "", txt_search, "", "", "", "", "", "",0);
-                    foreach(HanhKhach hk in list1)
+                    IEnumerable<HanhKhach> list1 = _hkRepo.getWhere("", "", txt_search, "", "", "", "", "", "", 0);
+                    foreach (HanhKhach hk in list1)
                     {
-                        ListViewItem newList = new ListViewItem(new[] { hk.KhachId.ToString(), hk.MaKhach,hk.Ten });
+                        ListViewItem newList = new ListViewItem(new[] { hk.KhachId.ToString(), hk.MaKhach, hk.Ten });
                         lv_search.Items.Add(newList);
                     }
                     break;
                 case "ChiTieu_Form":
-                    
-                    IEnumerable<ChiTieu> list2 = _ctRepo.getWhere("",txt_search);
+
+                    IEnumerable<ChiTieu> list2 = _ctRepo.getWhere("", txt_search);
                     foreach (ChiTieu ct in list2)
                     {
                         ListViewItem newList = new ListViewItem(new[] { ct.CTId.ToString(), ct.Ten });
@@ -156,7 +161,6 @@ namespace TourApp
                     break;
             }
         }
-
         private void btn_select_Click(object sender, EventArgs e)
         {
             if(!validate())
