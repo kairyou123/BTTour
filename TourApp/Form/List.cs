@@ -1179,11 +1179,11 @@ namespace TourApp
 
         private void tabDD_AddBtn_Click(object sender, EventArgs e)
         {
-            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
-            //form.editState = EditState.Create;
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            ThemDiadiem form = _serviceProvider.GetRequiredService<ThemDiadiem>();
+            form.editState = EditState.Create;
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
         }
 
         private void DiaDiemGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -1240,22 +1240,22 @@ namespace TourApp
             {
                 case "tabDD_ViewCol":
                     {
-                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
-                        //form.editState = EditState.View;
-                        //form.setId(int.Parse(value));
-                        //var main = this.Location;
-                        //form.Location = new Point((main.X + 10), (main.Y + 10));
-                        //form.Show();
+                        ThemDiadiem form = _serviceProvider.GetRequiredService<ThemDiadiem>();
+                        form.editState = EditState.View;
+                        form.setId(int.Parse(value));
+                        var main = this.Location;
+                        form.Location = new Point((main.X + 10), (main.Y + 10));
+                        form.Show();
                         break;
                     }
                 case "tabDD_EditCol":
                     {
-                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
-                        //form.editState = EditState.Edit;
-                        //form.setId(int.Parse(value));
-                        //var main = this.Location;
-                        //form.Location = new Point((main.X + 10), (main.Y + 10));
-                        //form.Show();
+                        ThemDiadiem form = _serviceProvider.GetRequiredService<ThemDiadiem>();
+                        form.editState = EditState.Edit;
+                        form.setId(int.Parse(value));
+                        var main = this.Location;
+                        form.Location = new Point((main.X + 10), (main.Y + 10));
+                        form.Show();
                         break;
                     }
                 case "tabDD_DeleteCol":
@@ -1331,11 +1331,11 @@ namespace TourApp
 
         private void tabLHDL_AddBtn_Click(object sender, EventArgs e)
         {
-            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
-            //form.editState = EditState.Create;
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            ThemLHDuLich form = _serviceProvider.GetRequiredService<ThemLHDuLich>();
+            form.editState = EditState.Create;
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
         }
 
         private void LHDLGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -1392,22 +1392,22 @@ namespace TourApp
             {
                 case "tabLHDL_ViewCol":
                     {
-                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
-                        //form.editState = EditState.View;
-                        //form.setId(int.Parse(value));
-                        //var main = this.Location;
-                        //form.Location = new Point((main.X + 10), (main.Y + 10));
-                        //form.Show();
+                        ThemLHDuLich form = _serviceProvider.GetRequiredService<ThemLHDuLich>();
+                        form.editState = EditState.View;
+                        form.setId(int.Parse(value));
+                        var main = this.Location;
+                        form.Location = new Point((main.X + 10), (main.Y + 10));
+                        form.Show();
                         break;
                     }
                 case "tabLHDL_EditCol":
                     {
-                        //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
-                        //form.editState = EditState.Edit;
-                        //form.setId(int.Parse(value));
-                        //var main = this.Location;
-                        //form.Location = new Point((main.X + 10), (main.Y + 10));
-                        //form.Show();
+                        ThemLHDuLich form = _serviceProvider.GetRequiredService<ThemLHDuLich>();
+                        form.editState = EditState.Edit;
+                        form.setId(int.Parse(value));
+                        var main = this.Location;
+                        form.Location = new Point((main.X + 10), (main.Y + 10));
+                        form.Show();
                         break;
                     }
                 case "tabLHDL_DeleteCol":

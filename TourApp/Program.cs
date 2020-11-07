@@ -48,6 +48,8 @@ namespace TourApp
             services.AddTransient<List>();
             services.AddTransient<ThemGia>();
             services.AddTransient<ThemChiTieu>();
+            services.AddTransient<ThemDiadiem>();
+            services.AddTransient<ThemLHDuLich>();
             services.AddTransient<DanhSachDoanKhach>();
             services.AddTransient<HanhKhach_Form>();
             services.AddTransient<DoanKhach_Form>();
