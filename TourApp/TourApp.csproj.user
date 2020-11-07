@@ -25,7 +25,13 @@
     <Compile Update="Form\ThemChiTieu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Form\ThemDiaDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form\ThemGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\ThemLHDuLich.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form\ThemTour.cs">

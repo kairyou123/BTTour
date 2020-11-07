@@ -771,11 +771,12 @@ namespace TourApp
             if (name == "tabCT_EditCol" || name == "tabCT_ViewCol" || name == "tabCT_DeleteCol") return;
             var value = grid.Rows[e.RowIndex].Cells["tabCT_IDCol"].Value.ToString();
 
-            //ThongTinTour form = _serviceProvider.GetRequiredService<ThongTinTour>();
-            //form.getId(int.Parse(value));
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            ThemChiTieu form = _serviceProvider.GetRequiredService<ThemChiTieu>();
+            form.setId(int.Parse(value));
+            form.editState = EditState.View;
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
         }
 
 
@@ -1278,12 +1279,12 @@ namespace TourApp
             if (name == "tabDD_EditCol" || name == "tabDD_ViewCol" || name == "tabDD_DeleteCol") return;
             var value = grid.Rows[e.RowIndex].Cells["tabDD_IDCol"].Value.ToString();
 
-            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
-            //form.editState = EditState.View;
-            //form.setId(int.Parse(value));
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            ThemDiadiem form = _serviceProvider.GetRequiredService<ThemDiadiem>();
+            form.editState = EditState.View;
+            form.setId(int.Parse(value));
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
         }
         #endregion
 
@@ -1430,12 +1431,12 @@ namespace TourApp
             if (name == "tabLHDL_EditCol" || name == "tabLHDL_ViewCol" || name == "tabLHDL_DeleteCol") return;
             var value = grid.Rows[e.RowIndex].Cells["tabLHDL_IDCol"].Value.ToString();
 
-            //HanhKhach_Form form = _serviceProvider.GetRequiredService<HanhKhach_Form>();
-            //form.editState = EditState.View;
-            //form.setId(int.Parse(value));
-            //var main = this.Location;
-            //form.Location = new Point((main.X + 10), (main.Y + 10));
-            //form.Show();
+            ThemLHDuLich form = _serviceProvider.GetRequiredService<ThemLHDuLich>();
+            form.editState = EditState.View;
+            form.setId(int.Parse(value));
+            var main = this.Location;
+            form.Location = new Point((main.X + 10), (main.Y + 10));
+            form.Show();
         }
 
         #endregion
