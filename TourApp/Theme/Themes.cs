@@ -22,6 +22,8 @@ namespace TourApp.UI
         public abstract Color ButtonFG { get; }
         public abstract Color TextBoxBG { get; }
         public abstract Color TextBoxFG { get; }
+        public abstract Color ComboBoxBG { get; }
+        public abstract Color ComboBoxFG { get; }
     }
     public class DarkTheme : Theme
     {
@@ -29,17 +31,19 @@ namespace TourApp.UI
         public override Color PanelFG { get { return Color.Green; } }
         public override Color TabControlBG { get { return Color.Red; } }
         public override Color TabControlFG { get { return Color.Purple; } }
-        public override Color TabPageBG { get { return Color.FromArgb(255,37,37,38); } }
-        public override Color TabPageFG { get { return Color.DarkGreen; } }
+        public override Color TabPageBG { get { return  Color.FromArgb(255, 30, 30, 30); } }
+        public override Color TabPageFG { get { return Color.White; } }
         public override Color DataGridviewBG { get { return Color.FromArgb(255, 30, 30, 30); } }
-        public override Color DataGridviewFG { get { return Color.DarkGreen; } }
-        public override Color DataGridviewGridColor { get { return Color.Red; } }
+        public override Color DataGridviewFG { get { return Color.FromArgb(255, 37, 37, 38); } }
+        public override Color DataGridviewGridColor { get { return Color.Blue; } }
         public override Color ButtonBG { get { return Color.White; } }
         public override Color ButtonFG { get { return Color.White; } }
-        public override Color TextBoxBG { get { return Color.FromArgb(255, 30, 30, 30); } }
+        public override Color TextBoxBG { get { return Color.FromArgb(255, 37, 37, 38); } }
         public override Color TextBoxFG { get { return Color.White; } }
         public override Color MenuStripBG { get { return Color.DarkGray; } }
         public override Color MenuStripFG { get { return Color.White; } }
+        public override Color ComboBoxBG { get { return Color.Black; } }
+        public override Color ComboBoxFG { get { return Color.White; } }
 
     }
     public class LightTheme : Theme
@@ -59,6 +63,8 @@ namespace TourApp.UI
         public override Color TextBoxFG { get { return Color.Black; } }
         public override Color MenuStripBG { get { return Color.White; } }
         public override Color MenuStripFG { get { return Color.Black; } }
+        public override Color ComboBoxBG { get { return Color.White; } }
+        public override Color ComboBoxFG { get { return Color.Black; } }
     }
     public class DefaultTheme : Theme
     {
@@ -77,5 +83,7 @@ namespace TourApp.UI
         public override Color TextBoxFG { get { return Color.Black; } }
         public override Color MenuStripBG { get { return Color.White; } }
         public override Color MenuStripFG { get { return Color.Black; } }
+        public override Color ComboBoxBG { get { return SystemColors.Window; } }
+        public override Color ComboBoxFG { get { return SystemColors.WindowText; } }
     }
 }

@@ -189,6 +189,12 @@ namespace TourApp
                         (component as Button).ForeColor = theme.ButtonFG;
                         ChangeTheme(theme, component.Controls);
                         break;
+                    case ComboBox _:
+                        (component as ComboBox).BackColor = theme.ComboBoxBG;
+                        (component as ComboBox).ForeColor = theme.ComboBoxFG;
+                        ChangeTheme(theme, component.Controls);
+                        break;
+                    
                 }
 
             }

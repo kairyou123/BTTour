@@ -319,8 +319,10 @@ namespace TourApp
             // 
             // tabTour_SearchOption
             // 
+            this.tabTour_SearchOption.BackColor = System.Drawing.SystemColors.HotTrack;
             this.tabTour_SearchOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tabTour_SearchOption.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabTour_SearchOption.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.tabTour_SearchOption.FormattingEnabled = true;
             this.tabTour_SearchOption.Items.AddRange(new object[] {
             "Tên tour",
