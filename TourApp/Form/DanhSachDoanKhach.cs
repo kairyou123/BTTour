@@ -34,7 +34,7 @@ namespace TourApp
             {
                 if (doan.isDeleted == 0)
                 {
-                    ListViewItem item = new ListViewItem(new[] { doan.MaDoan, doan.TenDoan, doan.Chitiet, doan.Status });
+                    ListViewItem item = new ListViewItem(new[] { doan.MaDoan, doan.TenDoan, doan.Chitiet });
                     doankhachlist.Items.Add(item);
                 }
             }    

@@ -130,6 +130,7 @@ namespace TourApp
         private void Search()
         {
             lv_search.Items.Clear();
+            lv_radio.Items.Clear();
             txt_search = text_search.Text;
 
             switch (Form_Search)
